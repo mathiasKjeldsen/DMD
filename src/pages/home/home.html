@@ -1,25 +1,77 @@
 <ion-header mode="wp">
-  <ion-navbar color="secondary" >
+  <ion-navbar color="secondary">
     <ion-title>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding style="background-color: #FAA613">
+<ion-content padding>
   <ion-grid text-center>
     <br>
-    <ion-row class="rowSpace200">&nbsp;</ion-row>
+    <ion-row class="rowSpace50">&nbsp;</ion-row>
     <ion-row>
       <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"></ion-col>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-16>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
     </ion-row>
-    <ion-row class="rowSpace200">&nbsp;</ion-row>
-    <ion-row class="homePageLogInBg">
-      <ion-col col-24><button mode="wp" ion-button class="HomePageLogIn" block (click)="goToLogIn()">Log in</button></ion-col>
+    <ion-row class="rowSpace100">&nbsp;</ion-row>
+    <ion-row>
+      <ion-col col-24>
+        <ion-item>
+          <ion-input placeholder="email"></ion-input>
+        </ion-item>
+      </ion-col>
     </ion-row>
-    <ion-row class="homePageSignUpBg">
-      <ion-col col-24><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
+    <ion-row>
+      <ion-col col-24>
+        <ion-item>
+          <ion-input placeholder="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col col-16>
+        <button mode="wp" ion-button class="HomePageLogIn" block (click)="goToLogIn()">
+        Sign in
+        </button>
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
 
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col col-16>
+        <button ion-button block mode="wp" class="homePageFacebook">
+          <ion-icon name="logo-facebook" class="homePageFacebookIcon">
+          </ion-icon>
+          <p class="homePageFacebookText">
+           &nbsp; Sign up with Facebook
+          </p>
+       </button>
+        <ion-col col-4></ion-col>
+      </ion-col>
     </ion-row>
+
+    <ion-row class="rowSpace100">&nbsp;</ion-row>
+
+<ion-row>
+  <ion-col col-4></ion-col>
+      <ion-col col-16>Don't have an account?</ion-col>
+      <ion-col col-4></ion-col>
+</ion-row>
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col col-16><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
+
   </ion-grid>
 
 

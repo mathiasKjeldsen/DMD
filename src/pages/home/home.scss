@@ -13,34 +13,36 @@ page-home {
 
 }
 
-.homePageLogInBg {
-background-color: red;
-margin-left: -20px;
-margin-right: -20px;
-height: 120px;
-margin-bottom: -60px;
-margin-top: -20px;
-}
-.homePageSignUpBg {
-background-color: blue;
-margin-left: -20px;
-margin-right: -20px;
-height: 120px;
-}
-.HomePageLogIn {
-    background-color: transparent;
-    color: white;
-    border-width: 1px;
-    font-size: 30px;
-}
-
-.HomePageSignUp {
-    background-color: transparent;
-    color: white;
-    border-width: 1px;
-        font-size: 30px;
-}
-
 .HomePageLogo {
     height: 50px;
 }
+
+.HomePageFacebook {
+    background-color: #3B5998;
+}
+
+.HomePageFacebookIcon {
+padding-right: 10px;
+font-size: 25px
+
+}
+.HomePageFacebookText {
+font-size: 15px;
+padding-top: 1px;
+}
+
+
+.homePageLogInBg {
+}
+.homePageSignUpBg {
+}
+.HomePageLogIn {
+font-size: 15px;
+padding-top: 1px;
+}
+
+.HomePageSignUp {
+font-size: 15px;
+padding-top: 1px;
+}
+
