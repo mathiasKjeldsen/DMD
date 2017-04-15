@@ -30,14 +30,13 @@ $colors: (
   $tertiary:           #DD1C1A;
   $lblue:              #07A0C3;
   $light:              #FFF1D0;
-  
-//dblue:              #,
-//dgrey:              #, NEED TO FIND A GOOD COLOR HERE
-//lgrey:              #, NEED TO FIND A GOOD COLOR HERE
+//$dblue:              #,
+//$dgrey:              #, NEED TO FIND A GOOD COLOR HERE
+//$lgrey:              #, NEED TO FIND A GOOD COLOR HERE
 
 // Default class for every ion-content
 .blueBackground {
-    background-color: primary;
+    background-color: $primary;
 }
 
 // Basic spacing for ion-row
@@ -52,6 +51,9 @@ $colors: (
 }
 .rowSpace300 {
   line-height: 300px;
+}
+.rowSpace420  {
+  line-height: 420px;
 }
 
 // Basic text sizes
@@ -70,7 +72,7 @@ font-size: 8px;
 
 // Basic text attributes
 .leftAlign {
-text-align: left;;
+text-align: left;
 }
 .centerAlign {
   text-align: center;

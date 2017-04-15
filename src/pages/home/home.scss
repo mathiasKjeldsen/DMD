@@ -12,3 +12,20 @@
 page-home {
 
 }
+
+.HomePageButtons {
+}
+
+.HomePageSignUp {
+    color:black;
+    border-color: black;
+    border-width: 1px;
+    background-color: transparent;
+}
+
+.HomePageLogIn {
+    background-color: $light;
+    color: $primary;
+    border-color: $secondary;
+    border-width: 1px;
+}
