@@ -12,13 +12,17 @@ $grid-columns: 24;
 
 // Custom colors
 $colors: (
-  primary:    #086788,
-  secondary:  #FAA613,
-  tertiary:       #DD1C1A,
-  lblue:     #07A0C3,
-  light:      #FFF1D0,
-//dblue: #,
-//dark: #,
+  // The 5 first colors are from the color scheme
+  primary:            #086788,
+  secondary:          #FAA613,
+  tertiary:           #DD1C1A,
+  lblue:              #07A0C3,
+  light:              #FFF1D0,
+
+// More colors
+//dblue:              #,
+//dgrey:              #, NEED TO FIND A GOOD COLOR HERE
+//lgrey:              #, NEED TO FIND A GOOD COLOR HERE
 );
 
 // Basic spacing for ion-row
