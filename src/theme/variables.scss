@@ -25,6 +25,21 @@ $colors: (
 //lgrey:              #, NEED TO FIND A GOOD COLOR HERE
 );
 
+  $primary:            #086788;
+  $secondary:          #FAA613;
+  $tertiary:           #DD1C1A;
+  $lblue:              #07A0C3;
+  $light:              #FFF1D0;
+  
+//dblue:              #,
+//dgrey:              #, NEED TO FIND A GOOD COLOR HERE
+//lgrey:              #, NEED TO FIND A GOOD COLOR HERE
+
+// Default class for every ion-content
+.blueBackground {
+    background-color: primary;
+}
+
 // Basic spacing for ion-row
 .rowSpace50 {
   line-height: 50px;

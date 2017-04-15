@@ -1,32 +1,29 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>
       DMD-app
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="blueBackground">
   <ion-grid text-center>
-    <button ion-button (click)="swag()">asd</button>
-    <br>
-    <ion-row>a</ion-row>
-    <ion-row class="rowSpace300">a</ion-row>
+    <ion-row class="rowSpace100">&nbsp;</ion-row>
     <ion-row>
-      <ion-col col-8>a
-      </ion-col>
-      <ion-col col-8>b
-      </ion-col>
-      <ion-col col-8>c
-      </ion-col>
+      <ion-col col-8></ion-col>
+      <ion-col col-8>LOGO</ion-col>
+      <ion-col col-8></ion-col>
+    </ion-row>
+    <ion-row class="rowSpace200">&nbsp;</ion-row>
+    <ion-row>
+      <ion-col col-6></ion-col>
+      <ion-col col-12><button ion-button block (click)="swag()">Log in</button></ion-col>
+      <ion-col col-6></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-24 text-left>
-        <p class="textSize14">a</p>
-        <p class="textSize10">
-          b
-        </p>
-      </ion-col>
+      <ion-col col-6></ion-col>
+      <ion-col col-12><button ion-button block (click)="swag()">Sign up</button></ion-col>
+      <ion-col col-6></ion-col>
     </ion-row>
   </ion-grid>
 
