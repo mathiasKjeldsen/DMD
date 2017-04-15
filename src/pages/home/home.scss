@@ -28,21 +28,18 @@ font-size: 25px
 }
 .HomePageFacebookText {
 font-size: 15px;
-padding-top: 1px;
 }
 
-
-.homePageLogInBg {
-}
-.homePageSignUpBg {
-}
 .HomePageLogIn {
 font-size: 15px;
-padding-top: 1px;
+background-color: transparent;
+border-color: $secondary;
+border-width: 1px;
+color: $secondary;
 }
 
 .HomePageSignUp {
 font-size: 15px;
-padding-top: 1px;
+background-color: $secondary;
 }
 
