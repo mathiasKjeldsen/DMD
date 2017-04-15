@@ -1,15 +1,76 @@
-<ion-header>
-  <ion-navbar color="secondary">
+<ion-header mode="wp">
+  <ion-navbar>
     <ion-title>
-      Sign up to DMD
+      Sign up
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="signUpBg">
   <ion-grid text-center>
 
+    <ion-row>
+      <ion-col col-1>
+      </ion-col>
+      <ion-col col-22>
+        <img src="../assets/img/logo.png" class="HomePageLogo">
+      </ion-col>
+      <ion-col col-1>
+      </ion-col>
+    </ion-row>
+
+
+<br>
+<br>
+
+
+
+    <ion-row>
+      <ion-col col-1>
+      </ion-col>
+      <ion-col col-22>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-label stacked>Email address</ion-label>
+            <ion-input mode="md" #email type="email" placeholder="@gmail.com"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1>
+      </ion-col>
+      <ion-col col-22>
+        <ion-list no-lines>
+          <ion-item class="roundedTestTwo">
+            <ion-label stacked>Password</ion-label>
+            <ion-input mode="md" #password type="password" placeholder="keyicon"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-1>
+      </ion-col>
+    </ion-row>
+
+
+    <br>
+    <br>
+    <ion-row>
+      <ion-col col-24>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1>
+      </ion-col>
+      <ion-col col-22>
+        <button mode="wp" ion-button block>Sign up</button>
+      </ion-col>
+      <ion-col col-1>
+      </ion-col>
+    </ion-row>
+
+
   </ion-grid>
-
-
 </ion-content>

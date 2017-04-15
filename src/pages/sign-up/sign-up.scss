@@ -9,6 +9,15 @@
 //
 // Vigtigt at vi holer det nemt og overskueligt!
 
-page-home {
-
+.signUpBg {
+background: #feffff;
+background: -moz-linear-gradient(top, #feffff 0%, #d2ebf9 100%); 
+background: -webkit-linear-gradient(top, #feffff 0%,#d2ebf9 100%); 
+background: linear-gradient(to bottom, #feffff 0%,#d2ebf9 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 ); 
 }
+
+.signUpTransparent {
+    background-color: transparent !important;
+}
+
