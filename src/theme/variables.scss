@@ -35,8 +35,8 @@ $colors: (
 //$lgrey:              #, NEED TO FIND A GOOD COLOR HERE
 
 // Default class for every ion-content
-.blueBackground {
-    background-color: $primary;
+.blueBg {
+    background-color: blue;
 }
 
 // Basic spacing for ion-row
@@ -52,8 +52,8 @@ $colors: (
 .rowSpace300 {
   line-height: 300px;
 }
-.rowSpace420  {
-  line-height: 420px;
+.rowSpace350  {
+  line-height: 350px;
 }
 
 // Basic text sizes

@@ -13,19 +13,34 @@ page-home {
 
 }
 
-.HomePageButtons {
+.homePageLogInBg {
+background-color: red;
+margin-left: -20px;
+margin-right: -20px;
+height: 120px;
+margin-bottom: -60px;
+margin-top: -20px;
+}
+.homePageSignUpBg {
+background-color: blue;
+margin-left: -20px;
+margin-right: -20px;
+height: 120px;
+}
+.HomePageLogIn {
+    background-color: transparent;
+    color: white;
+    border-width: 1px;
+    font-size: 30px;
 }
 
 .HomePageSignUp {
-    color:black;
-    border-color: black;
-    border-width: 1px;
     background-color: transparent;
+    color: white;
+    border-width: 1px;
+        font-size: 30px;
 }
 
-.HomePageLogIn {
-    background-color: $light;
-    color: $primary;
-    border-color: $secondary;
-    border-width: 1px;
+.HomePageLogo {
+    height: 50px;
 }

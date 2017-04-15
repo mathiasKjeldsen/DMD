@@ -1,25 +1,24 @@
-<ion-header>
-  <ion-navbar color="secondary">
+<ion-header mode="wp">
+  <ion-navbar color="secondary" >
     <ion-title>
-      DMD-app
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="blueBackground">
+<ion-content padding style="background-color: #FAA613">
   <ion-grid text-center>
+    <br>
+    <ion-row class="rowSpace200">&nbsp;</ion-row>
     <ion-row>
-      <ion-col col-8></ion-col>
-      <ion-col col-8>LOGO</ion-col>
-      <ion-col col-8></ion-col>
+      <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"></ion-col>
     </ion-row>
-    <ion-row class="rowSpace420">&nbsp;</ion-row>
-    <ion-row class="HomePageButtons">
-      <ion-col col-1></ion-col>
-      <ion-col col-10><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
-      <ion-col col-2></ion-col>
-      <ion-col col-10><button mode="wp" ion-button class="HomePageLogIn" block (click)="goToLogIn()">Log in</button></ion-col>
-      <ion-col col-1></ion-col>
+    <ion-row class="rowSpace200">&nbsp;</ion-row>
+    <ion-row class="homePageLogInBg">
+      <ion-col col-24><button mode="wp" ion-button class="HomePageLogIn" block (click)="goToLogIn()">Log in</button></ion-col>
+    </ion-row>
+    <ion-row class="homePageSignUpBg">
+      <ion-col col-24><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
+
     </ion-row>
   </ion-grid>
 
