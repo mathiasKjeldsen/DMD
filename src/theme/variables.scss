@@ -6,21 +6,6 @@ $font-path: "../assets/fonts";
 @import "roboto";
 @import "noto-sans";
 
-
-// White text in placeholders
-
-*::-webkit-input-placeholder {
-color: white !important;
-}
-*:-moz-placeholder {
-color: white !important;
-}
-*:-ms-input-placeholder { 
-color: white !important;
-}
-
-
-
 // Custom grid sizing
 $grid-padding-width:  2px;
 $grid-columns: 24;
@@ -33,21 +18,35 @@ $colors: (
   tertiary:           #DD1C1A,
   lblue:              #07A0C3,
   light:              #FFF1D0,
-  xwhite:         #ffffff
 
 // More colors
+//lgrey:              #, NEED TO FIND A GOOD COLOR HERE
 //dblue:              #,
 //dgrey:              #, NEED TO FIND A GOOD COLOR HERE
-//lgrey:              #, NEED TO FIND A GOOD COLOR HERE
+
 );
   $primary:            #086788;
   $secondary:          #FAA613;
   $tertiary:           #DD1C1A;
   $lblue:              #07A0C3;
   $light:              #FFF1D0;
+  $darkslategrey:      #2F4F4F;
+  
+//$lgrey
 //$dblue:              #,
 //$dgrey:              #, NEED TO FIND A GOOD COLOR HERE
-//$lgrey:              #, NEED TO FIND A GOOD COLOR HERE
+
+// White text in placeholders
+
+*::-webkit-input-placeholder {
+color: $darkslategrey !important;
+}
+*:-moz-placeholder {
+color: $darkslategrey !important;
+}
+*:-ms-input-placeholder { 
+color: $darkslategrey !important;
+}
 
 // Default class for every ion-content
 .blueBg {
