@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HandifyPage } from '../handify/handify';
 
 @Component({
   selector: 'page-sign-up',
@@ -12,6 +13,10 @@ export class SignUpPage {
   }
 backToPreviousPage() {
     this.navCtrl.pop();
+}
+
+signUp() {
+    this.navCtrl.setRoot(HandifyPage);
 }
 
 }

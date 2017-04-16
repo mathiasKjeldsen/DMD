@@ -1,78 +1,68 @@
-
 <ion-content padding class="signUpBg">
   <ion-grid text-center>
-    <ion-list no-lines>
-    <br>
-    <ion-row class="rowSpace50">&nbsp;</ion-row>
-    <ion-row>
-      <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"><br><strong>Handify</strong><br>coordination made easy</ion-col>
+    <ion-list no-lines mode="ios">
+      <br>
+      <ion-row class="rowSpace38">&nbsp;</ion-row>
       <ion-row>
-        <ion-col col-4>
-        </ion-col>
-        <ion-col col-16>
-        </ion-col>
-        <ion-col col-4>
-        </ion-col>
+        <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"></ion-col>
       </ion-row>
-    </ion-row>
-    <ion-row class="rowSpace100">&nbsp;</ion-row>
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-16>
-        <ion-item mode="ios" class="signUpTransparent">
-          <button ion-button item-left class="backButton" mode="ios">
+      <ion-row class="rowSpace100">&nbsp;</ion-row>
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-16>
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="ios-mail" class="signUpColor"></ion-icon>
     </button>
-          <ion-input mode="ios"placeholder="Email"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col col-4></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-16>
-        <ion-item mode="ios" class="signUpTransparent">
+            <ion-input mode="ios" placeholder="email"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-16>
+          <ion-item mode="ios" class="signUpTransparent">
             <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-          <ion-input mode="ios" placeholder="password" type="Password"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col col-4></ion-col>
-    </ion-row>
-    <br>
-    <ion-row>
-      <ion-col col-8></ion-col>
-      <ion-col col-8>
-        <button mode="wp" ion-button small class="HomePageLogIn" block (click)="goToLogIn()">
+            <ion-input mode="ios" placeholder="password" type="Password"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col col-8></ion-col>
+        <ion-col col-8>
+          <button mode="wp" ion-button small class="HomePageLogIn" block (click)="logIn()">
         Sign in
         </button>
-      </ion-col>
-      <ion-col col-8></ion-col>
-    </ion-row>
+        </ion-col>
+        <ion-col col-8></ion-col>
+      </ion-row>
 
-    <ion-row class="rowSpace100">&nbsp;</ion-row>
+      <ion-row class="rowSpace50">&nbsp;</ion-row>
 
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-16><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
-      <ion-col col-4></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-16>
-        <button ion-button block mode="wp" class="homePageFacebook">
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-16><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-16>
+          <button ion-button block mode="wp" class="homePageFacebook">
           <ion-icon name="logo-facebook" class="homePageFacebookIcon">
           </ion-icon>
           <p class="homePageFacebookText">
            &nbsp; Log in with Facebook
           </p>
        </button>
-        <ion-col col-4></ion-col>
-      </ion-col>
-    </ion-row>
+          <ion-col col-4></ion-col>
+        </ion-col>
+      </ion-row>
     </ion-list>
   </ion-grid>
-
 
 </ion-content>

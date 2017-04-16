@@ -4,37 +4,23 @@
   <button mode="ios" ion-button class="backButton" (click)="backToPreviousPage()"><img src="./assets/img/back.png" class="signUpBackButton">
     </button>
 
-
   <ion-grid text-center>
-
     <ion-row>
-      <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"><br><strong>Handify</strong><br>coordination made easy</ion-col>
-      <ion-row>
-        <ion-col col-4>
-        </ion-col>
-        <ion-col col-16>
-        </ion-col>
-        <ion-col col-4>
-        </ion-col>
-      </ion-row>
+      <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"></ion-col>
     </ion-row>
-
-
     <ion-row class="rowSpace100">&nbsp;</ion-row>
-
-
-    <ion-list no-lines>
-
-
+    <ion-list no-lines mode="ios">
       <ion-row>
         <ion-col col-2>
         </ion-col>
-        <ion-col col-20 text-center>
-          <ion-item class="signUpTransparent">
+        <ion-col col-20>
+          <ion-item mode="ios" class="signUpTransparent">
+
             <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="ios-mail" class="signUpColor"></ion-icon>
     </button>
-            <ion-input mode="md" #email type="email" placeholder="Email" class="signUpPlaceholder"></ion-input>
+            <ion-input mode="ios" #email type="email" placeholder="email" class="signUpPlaceholder"></ion-input>
+
           </ion-item>
         </ion-col>
         <ion-col col-2>
@@ -43,12 +29,12 @@
       <ion-row>
         <ion-col col-2>
         </ion-col>
-        <ion-col col-20 text-center>
-          <ion-item class="signUpTransparent">
+        <ion-col col-20>
+          <ion-item mode="ios" class="signUpTransparent">
             <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-            <ion-input mode="md" #password type="password" placeholder="Password" class="signUpPlaceholder"></ion-input>
+            <ion-input mode="ios" #password type="password" placeholder="password" class="signUpPlaceholder"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col col-2>
@@ -58,14 +44,16 @@
       <ion-row>
         <ion-col col-2>
         </ion-col>
-          <ion-col col-20 text-center>
-            <ion-item class="signUpTransparent">
-              <button ion-button item-left class="backButton" mode="ios">
+        <ion-col col-20>
+
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="md" #password type="password" placeholder="Confirm Password" class="signUpPlaceholder"></ion-input>
-            </ion-item>
-          </ion-col>
+            <ion-input mode="ios" #password type="password" placeholder="confirm password" class="signUpPlaceholder"></ion-input>
+
+          </ion-item>
+        </ion-col>
         <ion-col col-2>
         </ion-col>
       </ion-row>
@@ -82,7 +70,7 @@
       <ion-col col-1>
       </ion-col>
       <ion-col col-22>
-        <button mode="wp" ion-button block color="secondary">Sign up</button>
+        <button mode="wp" ion-button block color="secondary" (click)="signUp()">Sign up</button>
       </ion-col>
       <ion-col col-1>
       </ion-col>

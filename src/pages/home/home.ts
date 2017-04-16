@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { LogInPage } from '../log-in/log-in';
+import { HandifyPage } from '../handify/handify';
 import { SignUpPage } from '../sign-up/sign-up';
 @Component({
   selector: 'page-home',
@@ -12,8 +12,8 @@ export class HomePage {
 
   }
 
-goToLogIn() {
-    this.navCtrl.push(LogInPage);
+logIn() {
+    this.navCtrl.setRoot(HandifyPage);
 }
 
 goToSignUp() {

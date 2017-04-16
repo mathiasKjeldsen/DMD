@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
 @Component({
-  selector: 'page-log-in',
-  templateUrl: 'log-in.html'
+  selector: 'page-handify',
+  templateUrl: 'handify.html'
 })
-export class LogInPage {
+export class HandifyPage {
 
   constructor(public navCtrl: NavController) {
 
   }
-
 }
