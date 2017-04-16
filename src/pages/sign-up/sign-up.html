@@ -1,53 +1,76 @@
 <ion-content padding class="signUpBg">
 
 
-  <button mode="ios" ion-button class="backButton" (click)="backToPreviousPage()"><img src="./assets/img/back.png" class="testTest">
+  <button mode="ios" ion-button class="backButton" (click)="backToPreviousPage()"><img src="./assets/img/back.png" class="signUpBackButton">
     </button>
 
 
   <ion-grid text-center>
 
     <ion-row>
-      <ion-col col-1>
-      </ion-col>
-      <ion-col col-22>
-        <img src="../assets/img/logo.png" class="HomePageLogo">
-      </ion-col>
-      <ion-col col-1>
-      </ion-col>
+      <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"><br><strong>Handify</strong><br>coordination made easy</ion-col>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-16>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
     </ion-row>
 
 
-    <br>
-    <br>
+    <ion-row class="rowSpace100">&nbsp;</ion-row>
 
 
+    <ion-list no-lines>
 
-    <ion-row>
-      <ion-col col-3>
-      </ion-col>
-      <ion-col col-17>
-        <ion-item>
-          <ion-input mode="md" #email type="email" placeholder="email"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col col-4>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-3>
-      </ion-col>
-      <ion-col col-17>
 
-        <ion-item>
-          <ion-input mode="md" #password type="password" placeholder="password"></ion-input>
-        </ion-item>
+      <ion-row>
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-20 text-center>
+          <ion-item class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios">
+  <ion-icon name="ios-mail" class="signUpColor"></ion-icon>
+    </button>
+            <ion-input mode="md" #email type="email" placeholder="Email" class="signUpPlaceholder"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-20 text-center>
+          <ion-item class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios">
+  <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
+    </button>
+            <ion-input mode="md" #password type="password" placeholder="Password" class="signUpPlaceholder"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+      </ion-row>
 
-      </ion-col>
-      <ion-col col-4>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col col-2>
+        </ion-col>
+          <ion-col col-20 text-center>
+            <ion-item class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios">
+  <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
+    </button>
+              <ion-input mode="md" #password type="password" placeholder="Confirm Password" class="signUpPlaceholder"></ion-input>
+            </ion-item>
+          </ion-col>
+        <ion-col col-2>
+        </ion-col>
+      </ion-row>
 
+    </ion-list>
 
     <br>
     <br>
@@ -59,11 +82,27 @@
       <ion-col col-1>
       </ion-col>
       <ion-col col-22>
-        <button mode="wp" ion-button block>Sign up</button>
+        <button mode="wp" ion-button block color="secondary">Sign up</button>
       </ion-col>
       <ion-col col-1>
       </ion-col>
     </ion-row>
+
+    <ion-row>
+      <ion-col col-24>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1>
+      </ion-col>
+      <ion-col col-22>
+        <p class="signUpConditions">By signing up you agree to the <strong><a href="#" class="signUpConditions">terms and conditions</a></strong> of
+          the service.</p>
+      </ion-col>
+      <ion-col col-1>
+      </ion-col>
+    </ion-row>
+
 
 
   </ion-grid>
