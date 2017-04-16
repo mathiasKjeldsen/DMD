@@ -9,57 +9,65 @@
       <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"></ion-col>
     </ion-row>
     <ion-row class="rowSpace100">&nbsp;</ion-row>
-    <ion-list no-lines mode="ios">
-      <ion-row>
-        <ion-col col-2>
-        </ion-col>
-        <ion-col col-20>
-          <ion-item mode="ios" class="signUpTransparent">
 
-            <button ion-button item-left class="backButton" mode="ios">
+    <form [formGroup]="signupForm">
+      <ion-list no-lines mode="ios">
+        <ion-row>
+          <ion-col col-2>
+          </ion-col>
+          <ion-col col-20>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="ios-mail" class="signUpColor"></ion-icon>
     </button>
-            <ion-input mode="ios" #email type="email" placeholder="email" class="signUpPlaceholder"></ion-input>
+              <ion-input mode="ios" #email placeholder="email" class="signUpPlaceholder" [(ngModel)]="userInfo.email" formControlName="email"
+                type="email"></ion-input>
+            </ion-item>
+            <p *ngIf="!isValid('email') && signupForm.controls.email.touched" class="signUpInValid">Please enter a valid e-mail</p>
 
-          </ion-item>
-        </ion-col>
-        <ion-col col-2>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-2>
-        </ion-col>
-        <ion-col col-20>
-          <ion-item mode="ios" class="signUpTransparent">
-            <button ion-button item-left class="backButton" mode="ios">
+          </ion-col>
+          <ion-col col-2>
+          </ion-col>
+        </ion-row>
+
+
+
+        <ion-row>
+          <ion-col col-2>
+          </ion-col>
+          <ion-col col-20>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-            <ion-input mode="ios" #password type="password" placeholder="password" class="signUpPlaceholder"></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col col-2>
-        </ion-col>
-      </ion-row>
+              <ion-input mode="ios" #password type="password" placeholder="password" class="signUpPlaceholder" [(ngModel)]="userInfo.password"
+                formControlName="password"></ion-input>
+            </ion-item>
+            <p *ngIf="!isValid('password') && signupForm.controls.password.touched" class="signUpInValid">Minimum 6 characters</p>
+          </ion-col>
+          <ion-col col-2>
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col col-2>
-        </ion-col>
-        <ion-col col-20>
-
-          <ion-item mode="ios" class="signUpTransparent">
-            <button ion-button item-left class="backButton" mode="ios">
+        <ion-row>
+          <ion-col col-2>
+          </ion-col>
+          <ion-col col-20>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-            <ion-input mode="ios" #password type="password" placeholder="confirm password" class="signUpPlaceholder"></ion-input>
-
-          </ion-item>
-        </ion-col>
-        <ion-col col-2>
-        </ion-col>
-      </ion-row>
-
-    </ion-list>
-
+              <ion-input mode="ios" #password type="password" placeholder="confirm password" class="signUpPlaceholder" [(ngModel)]="userInfo.confirmPassword"
+                formControlName="confirmPassword"></ion-input>
+            </ion-item>
+            <p *ngIf="signupForm.controls.confirmPassword.touched && signupForm.hasError('mismatchedPasswords') && signupForm.controls.password.valid"
+              class="signUpInValid">Password must match</p>
+          </ion-col>
+          <ion-col col-2>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+  
     <br>
     <br>
     <ion-row>
@@ -70,11 +78,12 @@
       <ion-col col-4>
       </ion-col>
       <ion-col col-16>
-        <button mode="wp" ion-button block color="secondary" (click)="signUp()">Sign up</button>
+        <button ng-disabled="signupForm.$invalid" mode="wp" ion-button block color="secondary" (click)="goToAdditionalInfo()" type="submit">Sign up</button>
       </ion-col>
       <ion-col col-4>
       </ion-col>
     </ion-row>
+      </form>
 
     <ion-row>
       <ion-col col-24>
@@ -90,8 +99,6 @@
       <ion-col col-4>
       </ion-col>
     </ion-row>
-
-
 
   </ion-grid>
 </ion-content>
