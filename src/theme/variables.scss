@@ -58,8 +58,15 @@ $colors: (
 }
 
 // Basic spacing for ion-row
+
+.rowSpace4 {
+  line-height: 4px;
+}
 .rowSpace10 {
   line-height: 10px;
+}
+.rowSpace23 {
+  line-height: 23px;
 }
 .rowSpace33 {
   line-height: 33px;
