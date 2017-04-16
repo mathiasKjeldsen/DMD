@@ -1,12 +1,10 @@
-<ion-header mode="wp">
-  <ion-navbar>
-    <ion-title>
-      Sign up
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding class="signUpBg">
+
+
+  <button mode="ios" ion-button class="backButton" (click)="backToPreviousPage()"><img src="./assets/img/back.png" class="testTest">
+    </button>
+
+
   <ion-grid text-center>
 
     <ion-row>
@@ -20,37 +18,33 @@
     </ion-row>
 
 
-<br>
-<br>
+    <br>
+    <br>
 
 
 
     <ion-row>
-      <ion-col col-1>
+      <ion-col col-3>
       </ion-col>
-      <ion-col col-22>
-        <ion-list no-lines>
-          <ion-item>
-            <ion-label stacked>Email address</ion-label>
-            <ion-input mode="md" #email type="email" placeholder="@gmail.com"></ion-input>
-          </ion-item>
-        </ion-list>
+      <ion-col col-17>
+        <ion-item>
+          <ion-input mode="md" #email type="email" placeholder="email"></ion-input>
+        </ion-item>
       </ion-col>
-      <ion-col col-1>
+      <ion-col col-4>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-1>
+      <ion-col col-3>
       </ion-col>
-      <ion-col col-22>
-        <ion-list no-lines>
-          <ion-item class="roundedTestTwo">
-            <ion-label stacked>Password</ion-label>
-            <ion-input mode="md" #password type="password" placeholder="keyicon"></ion-input>
-          </ion-item>
-        </ion-list>
+      <ion-col col-17>
+
+        <ion-item>
+          <ion-input mode="md" #password type="password" placeholder="password"></ion-input>
+        </ion-item>
+
       </ion-col>
-      <ion-col col-1>
+      <ion-col col-4>
       </ion-col>
     </ion-row>
 

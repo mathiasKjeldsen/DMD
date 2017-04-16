@@ -10,5 +10,8 @@ export class SignUpPage {
   constructor(public navCtrl: NavController) {
 
   }
+backToPreviousPage() {
+    this.navCtrl.pop();
+}
 
 }
