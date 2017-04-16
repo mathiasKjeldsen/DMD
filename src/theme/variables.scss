@@ -6,6 +6,19 @@ $font-path: "../assets/fonts";
 @import "roboto";
 @import "noto-sans";
 
+
+// White text in placeholders
+
+*::-webkit-input-placeholder {
+color: white !important;
+}
+*:-moz-placeholder {
+color: white !important;
+}
+*:-ms-input-placeholder { 
+color: white !important;
+}
+
 // Custom grid sizing
 $grid-padding-width:  2px;
 $grid-columns: 24;
@@ -47,6 +60,9 @@ $colors: (
 // Basic spacing for ion-row
 .rowSpace10 {
   line-height: 10px;
+}
+.rowSpace33 {
+  line-height: 33px;
 }
 .rowSpace38 {
   line-height: 38px;
@@ -96,3 +112,7 @@ text-align: left;
 .backButton {
   background-color: transparent !important;
   }
+
+  .signUpPlaceholder {
+color: white !important;
+}

@@ -8,7 +8,10 @@
     <ion-row>
       <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"></ion-col>
     </ion-row>
-    <ion-row class="rowSpace100">&nbsp;</ion-row>
+    <ion-row class="rowSpace50">&nbsp;</ion-row>
+<ion-row><ion-col>Sign up to HANDIFY</ion-col>
+</ion-row>
+    <ion-row class="rowSpace33">&nbsp;</ion-row>
 
     <form [formGroup]="signupForm">
       <ion-list no-lines mode="ios">
@@ -67,23 +70,23 @@
           </ion-col>
         </ion-row>
       </ion-list>
-  
-    <br>
-    <br>
-    <ion-row>
-      <ion-col col-24>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-4>
-      </ion-col>
-      <ion-col col-16>
-        <button ng-disabled="signupForm.$invalid" mode="wp" ion-button block color="secondary" (click)="goToAdditionalInfo()" type="submit">Sign up</button>
-      </ion-col>
-      <ion-col col-4>
-      </ion-col>
-    </ion-row>
-      </form>
+
+      <br>
+      <br>
+      <ion-row>
+        <ion-col col-24>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-16>
+          <button ng-disabled="signupForm.$invalid" mode="wp" ion-button block color="secondary" (click)="goToAdditionalInfo()" type="submit">Continue</button>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
+    </form>
 
     <ion-row>
       <ion-col col-24>
