@@ -7,6 +7,8 @@
         <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"></ion-col>
       </ion-row>
       <ion-row class="rowSpace100">&nbsp;</ion-row>
+            <form [formGroup]="loginForm">
+
       <ion-row>
         <ion-col col-2></ion-col>
         <ion-col col-20>
@@ -14,39 +16,42 @@
             <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="ios-mail" class="signUpColor"></ion-icon>
     </button>
-            <ion-input mode="ios" placeholder="email"></ion-input>
+            <ion-input mode="ios" placeholder="email" type="email" ng-required="true" class="signUpPlaceholder" [(ngModel)]="loginInfo.email" formControlName="email"></ion-input>
           </ion-item>
+          <p *ngIf="!isValid('email') && loginForm.controls.email.touched" class="signUpInValid">Please enter a valid e-mail</p>
         </ion-col>
         <ion-col col-2></ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col col-2></ion-col>
-        <ion-col col-20>
-          <ion-item mode="ios" class="signUpTransparent">
-            <button ion-button item-left class="backButton" mode="ios">
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-20>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-            <ion-input mode="ios" placeholder="password" type="Password"></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col col-2></ion-col>
-      </ion-row>
-<ion-row class="rowSpace10">&nbsp;</ion-row>
-      <ion-row>
-        <ion-col col-8></ion-col>
-        <ion-col col-8>
-          <button mode="wp" ion-button small class="HomePageLogIn" block (click)="logIn()">
+              <ion-input mode="ios" placeholder="password" ng-required="true" class="signUpPlaceholder" [(ngModel)]="loginInfo.password" formControlName="password"
+                type="password"></ion-input>
+            </ion-item>
+            <p *ngIf="!isValid('password') && loginForm.controls.password.touched" class="signUpInValid">Minimum 6 characters</p>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+        <ion-row class="rowSpace10">&nbsp;</ion-row>
+        <ion-row>
+          <ion-col col-8></ion-col>
+          <ion-col col-8>
+            <button (click)="logIn()" [disabled]="!loginForm.valid" mode="wp" type="sumbit" ion-button small class="HomePageLogIn" block >
         Sign in
         </button>
-        </ion-col>
-        <ion-col col-8></ion-col>
-      </ion-row>
-
+          </ion-col>
+          <ion-col col-8></ion-col>
+        </ion-row>
+      </form>
       <ion-row class="rowSpace50">&nbsp;</ion-row>
 
       <ion-row>
         <ion-col col-4></ion-col>
-        <ion-col col-16><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
+        <ion-col col-16><button  mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
         <ion-col col-4></ion-col>
       </ion-row>
       <ion-row>

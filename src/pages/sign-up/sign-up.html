@@ -80,7 +80,7 @@
         <ion-col col-4>
         </ion-col>
         <ion-col col-16>
-          <button ng-disabled="signupForm.$invalid" mode="wp" ion-button block color="secondary" (click)="goToAdditionalInfo()" type="submit">Continue</button>
+          <button [disabled]="!signupForm.valid" mode="wp" ion-button block color="secondary" (click)="goToAdditionalInfo()" type="submit">Continue</button>
         </ion-col>
         <ion-col col-4>
         </ion-col>

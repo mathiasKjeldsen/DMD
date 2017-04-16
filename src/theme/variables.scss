@@ -123,3 +123,10 @@ text-align: left;
   .signUpPlaceholder {
 color: white !important;
 }
+
+button:disabled,
+button[disabled]{
+  border: 1px solid white;
+background-color: transparent;
+  color: white;
+}
