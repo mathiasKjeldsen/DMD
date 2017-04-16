@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AdditionalInfoPage } from '../additional-info/additional-info';
+import { HandifyPage } from '../handify/handify';
 
 @Component({
-  selector: 'page-sign-up',
-  templateUrl: 'sign-up.html'
+  selector: 'page-additional-info',
+  templateUrl: 'additional-info.html'
 })
-export class SignUpPage {
+export class AdditionalInfoPage {
 
   constructor(public navCtrl: NavController) {
 
@@ -15,8 +15,8 @@ backToPreviousPage() {
     this.navCtrl.pop();
 }
 
-signUp() {
-    this.navCtrl.push(AdditionalInfoPage);
+goToHandify() {
+    this.navCtrl.setRoot(HandifyPage);
 }
 
 }
