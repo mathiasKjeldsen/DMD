@@ -10,18 +10,50 @@
 // Vigtigt at vi holer det nemt og overskueligt!
 
 .signUpBg {
-background: #feffff;
-background: -moz-linear-gradient(top, #feffff 0%, #d2ebf9 100%); 
-background: -webkit-linear-gradient(top, #feffff 0%,#d2ebf9 100%); 
-background: linear-gradient(to bottom, #feffff 0%,#d2ebf9 100%); 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 ); 
+background: rgb(105,191,149); 
+background: -moz-linear-gradient(top,  rgba(105,191,149,1) 0%, rgba(5,156,186,1) 100%);
+background: -webkit-linear-gradient(top,  rgba(105,191,149,1) 0%,rgba(5,156,186,1) 100%); 
+background: linear-gradient(to bottom,  rgba(105,191,149,1) 0%,rgba(5,156,186,1) 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#69bf95', endColorstr='#059cba',GradientType=0 );
 }
 
 .signUpTransparent {
-    background-color: transparent !important;
+background: rgba(0,0,0,0.06);
 }
 
-.testTest {
-  width: 20px;
-  height: 20px;
+.signUpBackButton {
+width: 20px;
+height: 20px;
+}
+
+.signUpColor {
+color: white;
+font-size: 20px;
+margin-left: -1px;
+padding-right: -1em;
+}
+.signUpColorLock {
+color: white;
+font-size: 20px;
+    
+}
+
+.signUpConditions {
+color: #F8F8F8;
+text-decoration: none;
+margin-top: -3px;    
+}
+
+.signUpPlaceholder {
+color: white !important;
+}
+
+*::-webkit-input-placeholder {
+color: white !important;
+}
+*:-moz-placeholder {
+color: white !important;
+}
+*:-ms-input-placeholder { 
+color: white !important;
 }
