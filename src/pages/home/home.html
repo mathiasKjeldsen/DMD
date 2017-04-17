@@ -1,11 +1,17 @@
 <ion-content padding class="signUpBg">
   <ion-grid text-center>
     <ion-list no-lines mode="ios">
-      <br>
+      <ion-row>
+        <ion-col col-14>
+        </ion-col>
+        <ion-col col-10><a href="#" style="color: white; text-decoration:none; font-size: 11px;">Lost your password?</a>
+        </ion-col>
+      </ion-row>
       <ion-row class="rowSpace38">&nbsp;</ion-row>
       <ion-row>
-        <ion-col col-24><img src="../assets/img/logo.png" class="HomePageLogo"></ion-col>
+        <ion-col col-24><img src="assets/img/logo.png" class="HomePageLogo" alt="Handify logo"></ion-col>
       </ion-row>
+
       <ion-row class="rowSpace100">&nbsp;</ion-row>
       <form [formGroup]="loginForm">
 
@@ -39,22 +45,16 @@
         </ion-row>
         <ion-row class="rowSpace10">&nbsp;</ion-row>
         <ion-row>
-          <ion-col col-8></ion-col>
-          <ion-col col-8>
-            <button (click)="logIn()" [disabled]="!loginForm.valid" mode="wp" type="sumbit" ion-button small class="HomePageLogIn" block>
+          <ion-col col-4></ion-col>
+          <ion-col col-16>
+            <button (click)="logIn()" [disabled]="!loginForm.valid" mode="wp" type="sumbit" ion-button color="secondary" block>
         Sign in
         </button>
           </ion-col>
-          <ion-col col-8></ion-col>
+          <ion-col col-4></ion-col>
         </ion-row>
       </form>
-      <ion-row class="rowSpace50">&nbsp;</ion-row>
 
-      <ion-row>
-        <ion-col col-4></ion-col>
-        <ion-col col-16><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
-        <ion-col col-4></ion-col>
-      </ion-row>
       <ion-row>
         <ion-col col-4></ion-col>
         <ion-col col-16>
@@ -67,6 +67,18 @@
        </button>
           <ion-col col-4></ion-col>
         </ion-col>
+      </ion-row>
+
+<ion-row style="margin-bottom: -16px;">
+  <ion-col col-6></ion-col>
+  <ion-col col-12><p style="color: white">Don't have an account?</p></ion-col>
+  <ion-col col-6></ion-col>
+</ion-row>
+
+      <ion-row>
+        <ion-col col-6></ion-col>
+        <ion-col col-12><button mode="wp" ion-button class="HomePageSignUp" block (click)="goToSignUp()">Sign up</button></ion-col>
+        <ion-col col-6></ion-col>
       </ion-row>
     </ion-list>
   </ion-grid>

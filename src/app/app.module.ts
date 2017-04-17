@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { HandifyPage } from '../pages/handify/handify';
 import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
+import { AdditionalInfoTwoPage } from '../pages/additional-info-two/additional-info-two';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
     HomePage,
     SignUpPage,
     HandifyPage,
-    AdditionalInfoPage
+    AdditionalInfoPage,
+    AdditionalInfoTwoPage,
+    ResetPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
     HomePage,
     SignUpPage,
     HandifyPage,
-    AdditionalInfoPage
+    AdditionalInfoPage,
+    AdditionalInfoTwoPage,
+    ResetPasswordPage
   ],
   providers: [
     StatusBar,

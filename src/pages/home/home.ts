@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
 import { HandifyPage } from '../handify/handify';
 import { SignUpPage } from '../sign-up/sign-up';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { NavController, MenuController, LoadingController, AlertController } from 'ionic-angular';
+import { AuthData } from '../../providers/auth-data';
+import { ResetPasswordPage } from '../reset-password/reset-password';
 
 @Component({
   selector: 'page-home',
@@ -11,8 +13,8 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class HomePage {
   public loginForm;
   loginInfo: { email: string, password: string } = { email: '', password: '' };
-
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController) {
+/* need public authData: AuthData in constructor*/
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
 
     this.loginForm = this.formBuilder.group({
 
@@ -34,6 +36,10 @@ export class HomePage {
   goToSignUp() {
     this.navCtrl.push(SignUpPage);
   }
+  goToResetPassword() {
+    this.navCtrl.push(ResetPasswordPage);
+  }
+
 
 ionViewDidEnter() {
     this.menuCtrl.swipeEnable(false, 'mainMenu');

@@ -5,21 +5,20 @@
             <ion-row class="rowSpace50">&nbsp;</ion-row>
 
             <ion-row>
-                <ion-col col-24 text-center><img src="../assets/img/logo.png" class="menuLogo"></ion-col>
+                <ion-col col-24 text-center><img src="assets/img/logo.png" class="menuLogo"></ion-col>
             </ion-row>
 
             <ion-row>
                 <ion-col col-24 text-center style="color:white">Handify™</ion-col>
             </ion-row>
-
-            <ion-row class="rowSpace38">&nbsp;</ion-row>
+            <ion-row class="rowSpace100">&nbsp;</ion-row>
             <ion-list mode="ios" no-lines>
-                <ion-row *ngFor="let p of pages" class="menuBorder">
-                    <ion-col col-4></ion-col>
+                <ion-row *ngFor="let p of pages">
+                    <ion-col col-8></ion-col>
                     <ion-col col-1 class="menuIcons">
                         <ion-icon name="{{p.icon}}"></ion-icon>
                     </ion-col>
-                    <ion-col col-19>
+                    <ion-col col-15>
                         <button menuClose mode="ios" ion-item (click)="openPage(p)" class="menuList">
                           {{p.title}}
                   </button>
@@ -28,11 +27,6 @@
             </ion-list>
         </ion-grid>
 
-<p padding>
-        - Har fjernet swipe-funktionen, så man ikke kan åbne den på home/signup<br><br>
-        - Skal styles pæn (ser forfærdelig ud lige nu)<br><br>
-        - Buttons går til random sider, har ikke lavet nye pages<br><br>
-</p>
     </ion-content>
 
 </ion-menu>

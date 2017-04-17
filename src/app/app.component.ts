@@ -1,11 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HandifyPage } from '../pages/handify/handify';
 import { HomePage } from '../pages/home/home';
 
-
+import firebase from 'firebase';
 
 
 @Component({
@@ -17,15 +17,39 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: Array<{ title: string, component: any, icon: string }>;
+  zone: NgZone;
 
   constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    this.initializeApp();
+    firebase.initializeApp({
+      apiKey: "AIzaSyDMQMgiCRNkWyMrtzo965vHY2TMEQcwzBA",
+      authDomain: "handify-7873c.firebaseapp.com",
+      databaseURL: "https://handify-7873c.firebaseio.com",
+      projectId: "handify-7873c",
+      storageBucket: "handify-7873c.appspot.com",
+      messagingSenderId: "504959669227"
+    });
 
+    this.zone = new NgZone({});
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      this.zone.run(() => {
+        if (!user) {
+          this.rootPage = HomePage;
+          unsubscribe();
+        } else {
+          this.rootPage = HandifyPage;
+          unsubscribe();
+        }
+      });
+    });
+
+
+
+    this.initializeApp();
     this.pages = [
       { title: 'Home', component: HomePage, icon: "md-home" },
       { title: 'Settings', component: HandifyPage, icon: "ios-settings" },
-      { title: 'Calender overview', component: HandifyPage, icon: "ios-calendar-outline" },
-      { title: 'Exit Handify', component: HomePage, icon: "ios-exit-outline" }
+      { title: 'Calender', component: HandifyPage, icon: "ios-calendar-outline" },
+      { title: 'Log out', component: HomePage, icon: "ios-exit-outline" }
 
     ];
 
@@ -44,7 +68,8 @@ export class MyApp {
     });
   }
 
-  
+
+
 
 }
 

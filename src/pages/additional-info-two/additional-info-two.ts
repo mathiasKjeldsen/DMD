@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HandifyPage } from '../handify/handify';
 import { FormBuilder, Validators } from '@angular/forms';
-
-import { AdditionalInfoTwoPage } from '../additional-info-two/additional-info-two';
 @Component({
-  selector: 'page-additional-info',
-  templateUrl: 'additional-info.html'
+  selector: 'page-additional-info-two',
+  templateUrl: 'additional-info-two.html'
 })
-export class AdditionalInfoPage {
+export class AdditionalInfoTwoPage {
   public additionalForm;
   additionalInfo: { first: string, second: string, date: string} = { first: '', second: '', date: ''};
 
@@ -31,8 +30,8 @@ export class AdditionalInfoPage {
     this.navCtrl.pop();
   }
 
-  goToNextStep() {
-    this.navCtrl.push(AdditionalInfoTwoPage);
+  goToHandify() {
+    this.navCtrl.setRoot(HandifyPage);
   }
 
 }
