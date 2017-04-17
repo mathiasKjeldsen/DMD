@@ -15,8 +15,8 @@ export class AdditionalInfoPage {
 
     this.additionalForm = this.formBuilder.group({
 
-      'first': ['', Validators.compose([Validators.minLength(6), Validators.required])],
-      'second': ['', Validators.compose([Validators.minLength(6), Validators.required])],
+      'first': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
+      'second': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
       'date': ['', Validators.compose([Validators.minLength(6), Validators.required])]
 
     });

@@ -37,12 +37,13 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-person" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="first name (required)" class="signUpPlaceholder"></ion-input>
+              <ion-input mode="ios" placeholder="first name (required)" class="signUpPlaceholder" [(ngModel)]="additionalForm.first" formControlName="first"
+                type="name"></ion-input>
             </ion-item>
+            <p *ngIf="!isValid('first') && additionalForm.controls.first.touched" class="signUpInValid">Please enter a valid name</p>
           </ion-col>
           <ion-col col-2></ion-col>
         </ion-row>
-
         <ion-row>
           <ion-col col-2></ion-col>
           <ion-col col-20>
@@ -50,8 +51,10 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-person" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="last name (required)" class="signUpPlaceholder"></ion-input>
+              <ion-input mode="ios" placeholder="last name (required)" class="signUpPlaceholder" [(ngModel)]="additionalForm.second" formControlName="second"
+                type="name"></ion-input>
             </ion-item>
+            <p *ngIf="!isValid('second') && additionalForm.controls.second.touched" class="signUpInValid">Please enter a valid last name</p>
           </ion-col>
           <ion-col col-2></ion-col>
         </ion-row>
@@ -63,7 +66,7 @@
           <ion-col col-20>
             <ion-item mode="ios" class="signUpTransparent">
               <button ion-button item-left class="backButton" mode="ios">
-  <ion-icon name="md-calendar" class="signUpColorLock"></ion-icon><h6 *ngIf="!additionalForm.controls.date.touched" class="additionalInfoDateText">date of birth</h6>
+  <ion-icon name="md-calendar" class="signUpColorLock"></ion-icon><h6 *ngIf="!additionalForm.controls.date.touched" class="additionalInfoDateText">date of birth (required)</h6>
     </button>
               <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #age mode="ios" class="additionalInfoDateTime" [(ngModel)]="additionalForm.date"
                 formControlName="date"></ion-datetime>
@@ -127,7 +130,7 @@
           <ion-col col-6>
           </ion-col>
           <ion-col col-12>
-            <button ion-button mode="wp" block color="secondary" (click)="goToNextStep()">Continue</button>
+            <button ion-button [disabled]="!additionalForm.valid" mode="wp" block color="secondary" (click)="goToNextStep()">Continue</button>
           </ion-col>
           <ion-col col-6>
           </ion-col>
