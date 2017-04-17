@@ -13,8 +13,8 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 export class HomePage {
   public loginForm;
   loginInfo: { email: string, password: string } = { email: '', password: '' };
-/* need public authData: AuthData in constructor*/
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+
+  constructor(public authData: AuthData, public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
 
     this.loginForm = this.formBuilder.group({
 

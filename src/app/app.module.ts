@@ -12,6 +12,8 @@ import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
 import { AdditionalInfoTwoPage } from '../pages/additional-info-two/additional-info-two';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
+import { AuthData } from '../providers/auth-data';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,7 +22,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
     HandifyPage,
     AdditionalInfoPage,
     AdditionalInfoTwoPage,
-    ResetPasswordPage
+    ResetPasswordPage,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
   providers: [
     StatusBar,
     SplashScreen,
+    AuthData,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
