@@ -9,21 +9,30 @@ import { AdditionalInfoTwoPage } from '../additional-info-two/additional-info-tw
 })
 export class AdditionalInfoPage {
   public additionalForm;
-  additionalInfo: { first: string, second: string, date: string} = { first: '', second: '', date: ''};
-
+  public dateForm;
+  additionalInfo: { first: string, second: string, date: string } = { first: '', second: '', date: '' };
+  dateInfo: { datepicker: string } = { datepicker: '' };
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
 
     this.additionalForm = this.formBuilder.group({
 
       'first': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
-      'second': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
-      'date': ['', Validators.compose([Validators.minLength(6), Validators.required])]
+      'second': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])]
 
     });
+    this.dateForm = this.formBuilder.group({
+      'datepicker': ['', Validators.compose([Validators.minLength(6), Validators.required])]
+    });
+
   }
 
-   isValid(field: string) {
+  isValid(field: string) {
     let formField = this.additionalForm.get(field);
+    return formField.valid || formField.pristine;
+  }
+
+  testIsValid(field: string) {
+    let formField = this.dateForm.get(field);
     return formField.valid || formField.pristine;
   }
 

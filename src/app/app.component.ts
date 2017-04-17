@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HandifyPage } from '../pages/handify/handify';
 import { HomePage } from '../pages/home/home';
+import { ProfilePage } from '../pages/profile/profile';
 
 import firebase from 'firebase';
 
@@ -47,7 +48,7 @@ export class MyApp {
     this.initializeApp();
     this.pages = [
       { title: 'Home', component: HomePage, icon: "md-home" },
-      { title: 'Settings', component: HandifyPage, icon: "ios-settings" },
+      { title: 'Profile', component: ProfilePage, icon: "md-person" },
       { title: 'Calender', component: HandifyPage, icon: "ios-calendar-outline" },
       { title: 'Log out', component: HomePage, icon: "ios-exit-outline" }
 

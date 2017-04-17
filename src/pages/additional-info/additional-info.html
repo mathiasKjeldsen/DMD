@@ -60,21 +60,21 @@
         </ion-row>
 
         <ion-row>&nbsp;</ion-row>
-
+<form [formGroup]="dateForm">
         <ion-row>
           <ion-col col-2></ion-col>
           <ion-col col-20>
             <ion-item mode="ios" class="signUpTransparent">
               <button ion-button item-left class="backButton" mode="ios">
-  <ion-icon name="md-calendar" class="signUpColorLock"></ion-icon><h6 *ngIf="!additionalForm.controls.date.touched" class="additionalInfoDateText">date of birth (required)</h6>
+  <ion-icon name="md-calendar" class="signUpColorLock"></ion-icon><h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText">date of birth (required)</h6>
     </button>
-              <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #age mode="ios" class="additionalInfoDateTime" [(ngModel)]="additionalForm.date"
-                formControlName="date"></ion-datetime>
+              <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #age mode="ios" class="additionalInfoDateTime" [(ngModel)]="dateForm.datepicker"
+                formControlName="datepicker"></ion-datetime>
             </ion-item>
           </ion-col>
           <ion-col col-2></ion-col>
         </ion-row>
-
+</form>
         <ion-row>&nbsp;</ion-row>
 
         <ion-row>
@@ -136,15 +136,6 @@
           </ion-col>
         </ion-row>
 
-        <ion-row>
-          <ion-col col-5>
-          </ion-col>
-          <ion-col col-14>
-            <p class="signUpConditions">By signing up you agree to the <strong><a href="#" class="signUpConditions">terms and conditions</a></strong>              of the service.</p>
-          </ion-col>
-          <ion-col col-5>
-          </ion-col>
-        </ion-row>
       </ion-list>
 
     </form>

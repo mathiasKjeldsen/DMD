@@ -8,7 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AdditionalInfoTwoPage {
   public additionalForm;
-  additionalInfo: { first: string, second: string, date: string} = { first: '', second: '', date: ''};
+  additionalInfo: { first: string, second: string, date: string } = { first: '', second: '', date: '' };
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
 
@@ -19,12 +19,15 @@ export class AdditionalInfoTwoPage {
       'date': ['', Validators.compose([Validators.minLength(6), Validators.required])]
 
     });
+
   }
 
-   isValid(field: string) {
+  isValid(field: string) {
     let formField = this.additionalForm.get(field);
     return formField.valid || formField.pristine;
   }
+
+
 
   backToPreviousPage() {
     this.navCtrl.pop();
