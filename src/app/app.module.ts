@@ -11,6 +11,7 @@ import { HandifyPage } from '../pages/handify/handify';
 import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
+import { LogOutPage } from '../pages/log-out/log-out'
 
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
@@ -24,6 +25,7 @@ import { ProfileData } from '../providers/profile-data';
     AdditionalInfoPage,
     ResetPasswordPage,
     ProfilePage,
+    LogOutPage,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { ProfileData } from '../providers/profile-data';
     HandifyPage,
     AdditionalInfoPage,
     ResetPasswordPage,
-    ProfilePage
+    ProfilePage,
+    LogOutPage
   ],
   providers: [
     StatusBar,

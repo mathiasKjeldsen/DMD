@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+<img src="assets/img/menu_button.png" class="menuButton">     
+   </button>
+    <ion-title>Log out</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid text-center>
+    <ion-row class="rowSpace50">&nbsp;</ion-row>
+
+    <!-- <button ion-button icon-only (click)="logOut()">Log out</button> test -->
+      <ion-row>
+        <ion-col col-3>
+        </ion-col>
+        <ion-col col-18>
+          <p style="font-size: 13px; color: black;">Are you sure you want to log out bro?</p>
+        </ion-col>
+        <ion-col col-3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-16>
+          <button ion-button icon-only mode="wp" block color="secondary" (click)="logOut()">Log out</button>
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

@@ -86,7 +86,7 @@
             <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
             <ion-input mode="ios" placeholder="Country" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.country" formControlName="country" #country></ion-input>
           </ion-item>
-          <p *ngIf="!isValid('country') && profileInfoForm.controls.country.touched" class="signUpInValid">Invalid city</p>
+          <p *ngIf="!isValid('country') && profileInfoForm.controls.country.touched" class="signUpInValid">Invalid country</p>
         </ion-col>
         <ion-col col-2></ion-col>
       </ion-row>

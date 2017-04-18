@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HandifyPage } from '../pages/handify/handify';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
+import { LogOutPage } from '../pages/log-out/log-out'
 //import { AuthData } from '../providers/auth-data';
 //import { NavController } from 'ionic-angular';
 
@@ -65,11 +66,12 @@ export class MyApp {
   }
 
 
-  logOut() {
-    alert("not implemented yet. use button on front page for now");
-  }
   openPage(page) {
     this.nav.setRoot(page.component);
+  }
+
+  goToLogOut() {
+   this.nav.setRoot(LogOutPage);
   }
 
   initializeApp() {
