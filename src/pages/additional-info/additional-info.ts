@@ -19,11 +19,11 @@ export class AdditionalInfoPage {
 
     this.profileInfoForm = this.formBuilder.group({
 
-      'birthDate': ['', Validators.compose([Validators.minLength(0), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
-      'address': ['', Validators.compose([Validators.minLength(2), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
-      'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
-      'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
-      'country': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])]
+      'birthDate': ['', Validators.compose([Validators.minLength(0), Validators.required])],
+      'address': ['', Validators.compose([Validators.minLength(2), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[0-9]*$/)])],
+      'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'country': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])]
 
     });
     this.dateForm = this.formBuilder.group({
