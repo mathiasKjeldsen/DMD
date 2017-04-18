@@ -24,7 +24,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-person" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="first name" class="signUpPlaceholder" [(ngModel)]="userInfo.first" formControlName="first"
+              <ion-input mode="ios" placeholder="First name" class="signUpPlaceholder" [(ngModel)]="userInfo.first" formControlName="first"
                 type="name"></ion-input>
             </ion-item>
             <p *ngIf="!isValid('first') && signupForm.controls.first.touched" class="signUpInValid">Please enter a valid name</p>
@@ -38,7 +38,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-person" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="last name" class="signUpPlaceholder" [(ngModel)]="userInfo.second" formControlName="second"
+              <ion-input mode="ios" placeholder="Last name" class="signUpPlaceholder" [(ngModel)]="userInfo.second" formControlName="second"
                 type="name"></ion-input>
             </ion-item>
             <p *ngIf="!isValid('second') && signupForm.controls.second.touched" class="signUpInValid">Please enter a valid last name</p>
@@ -54,7 +54,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="ios-mail" class="signUpColor"></ion-icon>
     </button>
-              <ion-input mode="ios" #email placeholder="email" class="signUpPlaceholder" [(ngModel)]="userInfo.email" formControlName="email"
+              <ion-input mode="ios" #email placeholder="Email" class="signUpPlaceholder" [(ngModel)]="userInfo.email" formControlName="email"
                 type="email"></ion-input>
             </ion-item>
             <p *ngIf="!isValid('email') && signupForm.controls.email.touched" class="signUpInValid">Please enter a valid e-mail</p>
@@ -72,7 +72,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" #password type="password" placeholder="password" class="signUpPlaceholder" [(ngModel)]="userInfo.password"
+              <ion-input mode="ios" #password type="password" placeholder="Password" class="signUpPlaceholder" [(ngModel)]="userInfo.password"
                 formControlName="password"></ion-input>
             </ion-item>
             <p *ngIf="!isValid('password') && signupForm.controls.password.touched" class="signUpInValid">Minimum 6 characters</p>
@@ -89,7 +89,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" #password type="password" placeholder="confirm password" class="signUpPlaceholder" [(ngModel)]="userInfo.confirmPassword"
+              <ion-input mode="ios" #password type="password" placeholder="Confirm password" class="signUpPlaceholder" [(ngModel)]="userInfo.confirmPassword"
                 formControlName="confirmPassword"></ion-input>
             </ion-item>
             <p *ngIf="signupForm.controls.confirmPassword.touched && signupForm.hasError('mismatchedPasswords') && signupForm.controls.password.valid"
@@ -105,7 +105,7 @@
           <ion-col col-6>
           </ion-col>
           <ion-col col-12>
-            <button [disabled]="!signupForm.valid" mode="wp" ion-button block color="secondary" type="submit">Continue</button>
+            <button [disabled]="!signupForm.valid" mode="wp" ion-button block color="secondary" type="submit">Sign up</button>
           </ion-col>
           <ion-col col-6>
           </ion-col>
@@ -115,7 +115,7 @@
           <ion-col col-6>
           </ion-col>
           <ion-col col-12>
-            <p class="signUpConditions">By signing up you agree to the <strong><a href="#" class="signUpConditions">terms and conditions</a></strong>              of the service.</p>
+            <p class="signUpConditions">By signing up you agree to the <strong><a href="#" class="signUpConditions">terms and conditions</a></strong> of the service.</p>
           </ion-col>
           <ion-col col-6>
           </ion-col>

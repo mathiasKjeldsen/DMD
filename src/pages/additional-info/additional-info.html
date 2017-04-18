@@ -4,7 +4,7 @@
 <ion-row>
       <ion-col col-6>
       </ion-col>
-      <ion-col col-12 style="color: white"><strong>Add a profile picture</strong>
+      <ion-col col-12 style="color: white"><strong>Optional information</strong>
       </ion-col>
       <ion-col col-6>
       </ion-col>
@@ -19,23 +19,14 @@
     </ion-row>
 
     <ion-row>
-          <ion-col col-4>
+          <ion-col col-6>
       </ion-col>
-        <ion-col col-16><button mode="wp" ion-button block>Change profile picture</button></ion-col>
-          <ion-col col-4>
+        <ion-col col-12><button mode="wp" ion-button color="secondary" block>Change profile picture</button></ion-col>
+          <ion-col col-6>
       </ion-col>
     </ion-row>
 
-        <ion-row class="rowSpace10">&nbsp;</ion-row>
-    <ion-row>
-      <ion-col col-6>
-      </ion-col>
-      <ion-col col-12 style="color: white"><strong>Additional information</strong>
-      </ion-col>
-      <ion-col col-6>
-      </ion-col>
-    </ion-row>
-    <ion-row class="rowSpace10">&nbsp;</ion-row>
+    <ion-row class="rowSpace25">&nbsp;</ion-row>
 
       <ion-list no-lines mode="ios">
 
@@ -63,7 +54,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-home" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="address" class="signUpPlaceholder"></ion-input>
+              <ion-input mode="ios" placeholder="Address" class="signUpPlaceholder"></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-2></ion-col>
@@ -76,13 +67,13 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-home" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="zip" class="signUpPlaceholder"></ion-input>
+              <ion-input mode="ios" placeholder="Zip" class="signUpPlaceholder"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col col-10>
             <ion-item mode="ios" class="signUpTransparent">
-              <ion-input mode="ios" placeholder="city" class="signUpPlaceholder"></ion-input>
+              <ion-input mode="ios" placeholder="City" class="signUpPlaceholder"></ion-input>
             </ion-item>
           </ion-col>
 
@@ -96,7 +87,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-home" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="country" class="signUpPlaceholder"></ion-input>
+              <ion-input mode="ios" placeholder="Country" class="signUpPlaceholder"></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-2></ion-col>
@@ -105,7 +96,7 @@
         <ion-row class="rowSpace10">&nbsp;</ion-row>
 
         <ion-row>
-          <ion-col col-6><button ion-button mode="wp">skip</button>
+          <ion-col col-6>
           </ion-col>
           <ion-col col-12>
             <button ion-button [disabled]="!additionalForm.valid" mode="wp" block color="secondary" (click)="goToNextStep()">Continue</button>

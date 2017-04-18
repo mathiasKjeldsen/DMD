@@ -22,7 +22,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="ios-mail" class="signUpColor"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="email" type="email" ng-required="true" class="signUpPlaceholder" [(ngModel)]="loginInfo.email"
+              <ion-input mode="ios" placeholder="Email" type="email" ng-required="true" class="signUpPlaceholder" [(ngModel)]="loginInfo.email"
                 formControlName="email"></ion-input>
             </ion-item>
             <p *ngIf="!isValid('email') && loginForm.controls.email.touched" class="signUpInValid">Please enter a valid e-mail</p>
@@ -36,7 +36,7 @@
               <button ion-button item-left class="backButton" mode="ios">
   <ion-icon name="md-lock" class="signUpColorLock"></ion-icon>
     </button>
-              <ion-input mode="ios" placeholder="password" ng-required="true" class="signUpPlaceholder" [(ngModel)]="loginInfo.password"
+              <ion-input mode="ios" placeholder="Password" ng-required="true" class="signUpPlaceholder" [(ngModel)]="loginInfo.password"
                 formControlName="password" type="password"></ion-input>
             </ion-item>
             <p *ngIf="!isValid('password') && loginForm.controls.password.touched" class="signUpInValid">Minimum 6 characters</p>
