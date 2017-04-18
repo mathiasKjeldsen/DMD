@@ -14,8 +14,38 @@
     </ion-row>
     <ion-row class="rowSpace33">&nbsp;</ion-row>
 
+
     <form [formGroup]="signupForm" (submit)="signUpUser()">
       <ion-list no-lines mode="ios">
+<ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-20>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios">
+  <ion-icon name="md-person" class="signUpColorLock"></ion-icon>
+    </button>
+              <ion-input mode="ios" placeholder="first name" class="signUpPlaceholder" [(ngModel)]="userInfo.first" formControlName="first"
+                type="name"></ion-input>
+            </ion-item>
+            <p *ngIf="!isValid('first') && userInfo.controls.first.touched" class="signUpInValid">Please enter a valid name</p>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-20>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios">
+  <ion-icon name="md-person" class="signUpColorLock"></ion-icon>
+    </button>
+              <ion-input mode="ios" placeholder="last name" class="signUpPlaceholder" [(ngModel)]="userInfo.second" formControlName="second"
+                type="name"></ion-input>
+            </ion-item>
+            <p *ngIf="!isValid('second') && userInfo.controls.second.touched" class="signUpInValid">Please enter a valid last name</p>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+<ion-row>&nbsp;</ion-row>
         <ion-row>
           <ion-col col-2>
           </ion-col>

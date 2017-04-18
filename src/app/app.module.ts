@@ -9,7 +9,6 @@ import { HomePage } from '../pages/home/home';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { HandifyPage } from '../pages/handify/handify';
 import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
-import { AdditionalInfoTwoPage } from '../pages/additional-info-two/additional-info-two';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
 
@@ -22,7 +21,6 @@ import { AuthData } from '../providers/auth-data';
     SignUpPage,
     HandifyPage,
     AdditionalInfoPage,
-    AdditionalInfoTwoPage,
     ResetPasswordPage,
     ProfilePage,
   ],
@@ -37,7 +35,6 @@ import { AuthData } from '../providers/auth-data';
     SignUpPage,
     HandifyPage,
     AdditionalInfoPage,
-    AdditionalInfoTwoPage,
     ResetPasswordPage,
     ProfilePage
   ],

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
-
-import { AdditionalInfoTwoPage } from '../additional-info-two/additional-info-two';
 @Component({
   selector: 'page-additional-info',
   templateUrl: 'additional-info.html'
@@ -38,10 +36,6 @@ export class AdditionalInfoPage {
 
   backToPreviousPage() {
     this.navCtrl.pop();
-  }
-
-  goToNextStep() {
-    this.navCtrl.push(AdditionalInfoTwoPage);
   }
 
 }
