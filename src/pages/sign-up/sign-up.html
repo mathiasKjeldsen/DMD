@@ -27,7 +27,7 @@
               <ion-input mode="ios" placeholder="first name" class="signUpPlaceholder" [(ngModel)]="userInfo.first" formControlName="first"
                 type="name"></ion-input>
             </ion-item>
-            <p *ngIf="!isValid('first') && userInfo.controls.first.touched" class="signUpInValid">Please enter a valid name</p>
+            <p *ngIf="!isValid('first') && signupForm.controls.first.touched" class="signUpInValid">Please enter a valid name</p>
           </ion-col>
           <ion-col col-2></ion-col>
         </ion-row>
@@ -41,7 +41,7 @@
               <ion-input mode="ios" placeholder="last name" class="signUpPlaceholder" [(ngModel)]="userInfo.second" formControlName="second"
                 type="name"></ion-input>
             </ion-item>
-            <p *ngIf="!isValid('second') && userInfo.controls.second.touched" class="signUpInValid">Please enter a valid last name</p>
+            <p *ngIf="!isValid('second') && signupForm.controls.second.touched" class="signUpInValid">Please enter a valid last name</p>
           </ion-col>
           <ion-col col-2></ion-col>
         </ion-row>

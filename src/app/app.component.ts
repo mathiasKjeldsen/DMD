@@ -47,7 +47,7 @@ export class MyApp {
 
     this.initializeApp();
     this.pages = [
-      { title: 'Home', component: HomePage, icon: "md-home" },
+      { title: 'Home', component: HandifyPage, icon: "md-home" },
       { title: 'Profile', component: ProfilePage, icon: "md-person" },
       { title: 'Calender', component: HandifyPage, icon: "ios-calendar-outline" },
       { title: 'Log out', component: HomePage, icon: "ios-exit-outline" }
