@@ -13,6 +13,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
 
 import { AuthData } from '../providers/auth-data';
+import { ProfileData } from '../providers/profile-data';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AuthData } from '../providers/auth-data';
     StatusBar,
     SplashScreen,
     AuthData,
+    ProfileData,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

@@ -17,4 +17,5 @@ export class HandifyPage {
     this.navCtrl.setRoot(HomePage);
   });
 }
+
 }
