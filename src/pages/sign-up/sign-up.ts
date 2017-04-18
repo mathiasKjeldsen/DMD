@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthData } from '../../providers/auth-data';
 
+
 @Component({
   selector: 'page-sign-up',
   templateUrl: 'sign-up.html'
@@ -17,7 +18,8 @@ export class SignUpPage {
   loading: any;
   userInfo: { first: string, second: string, email: string, password: string, confirm: string } = { first: '', second: '', email: '', password: '', confirm: '' };
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, 
+  public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
 
     this.signupForm = this.formBuilder.group({
 
@@ -62,7 +64,7 @@ export class SignUpPage {
       this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password)
         .then(() => {
           this.loading.dismiss().then(() => {
-            this.navCtrl.push(AdditionalInfoPage);
+            this.navCtrl.push(AdditionalInfoPage); 
           });
         }, (error) => {
           this.loading.dismiss().then(() => {
