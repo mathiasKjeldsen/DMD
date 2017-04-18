@@ -12,6 +12,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 })
 export class HomePage {
   public loginForm;
+  loading: any;
   loginInfo: { email: string, password: string } = { email: '', password: '' };
 
   constructor(public authData: AuthData, public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
@@ -29,9 +30,6 @@ export class HomePage {
     return formField.valid || formField.pristine;
   }
 
-  logIn() {
-    this.navCtrl.setRoot(HandifyPage);
-  }
 
   goToSignUp() {
     this.navCtrl.push(SignUpPage);
@@ -44,5 +42,33 @@ export class HomePage {
 ionViewDidEnter() {
     this.menuCtrl.swipeEnable(false, 'mainMenu');
   }
+
+  loginUser(): void {
+  if (!this.loginForm.valid){
+    console.log(this.loginForm.value);
+  } else {
+    this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then( authData => {
+      this.loading.dismiss().then( () => {
+        this.navCtrl.setRoot(HandifyPage);
+      });
+    }, error => {
+      this.loading.dismiss().then( () => {
+        let alert = this.alertCtrl.create({
+          message: error.message,
+          buttons: [
+            {
+              text: "Ok",
+              role: 'cancel'
+            }
+          ]
+        });
+        alert.present();
+      });
+    });
+
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+  }
+}
 
 }

@@ -1,7 +1,11 @@
-import { NavController} from 'ionic-angular';
-import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormGroup} from '@angular/forms';
 import {AdditionalInfoPage} from '../additional-info/additional-info';
+import { 
+  NavController, 
+  LoadingController, 
+  AlertController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { AuthData } from '../../providers/auth-data';
 
 @Component({
   selector: 'page-sign-up',
@@ -9,9 +13,11 @@ import {AdditionalInfoPage} from '../additional-info/additional-info';
 })
 export class SignUpPage {
   public signupForm;
+  loading: any;
   userInfo: { email: string, password: string, confirm: string } = { email: '', password: '', confirm: '' };
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+    
 
     this.signupForm = this.formBuilder.group({
 
@@ -49,10 +55,34 @@ matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
     this.navCtrl.pop();
   }
 
+signUpUser(){
+    if (!this.signupForm.valid){
+      console.log(this.signupForm.value);
+    } else {
+      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password)
+      .then(() => {
+        this.loading.dismiss().then( () => {
+          this.navCtrl.push(AdditionalInfoPage);
+        });
+      }, (error) => {
+        this.loading.dismiss().then( () => {
+          let alert = this.alertCtrl.create({
+            message: error.message,
+            buttons: [
+              {
+                text: "Ok",
+                role: 'cancel'
+              }
+            ]
+          });
+          alert.present();
+        });
+      });
+      this.loading = this.loadingCtrl.create();
+      this.loading.present();
+    }
+  }
 
-goToAdditionalInfo() {
-    this.navCtrl.push(AdditionalInfoPage);
-}
 
 
 }

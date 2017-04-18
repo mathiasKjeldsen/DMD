@@ -14,7 +14,7 @@
     </ion-row>
     <ion-row class="rowSpace33">&nbsp;</ion-row>
 
-    <form [formGroup]="signupForm">
+    <form [formGroup]="signupForm" (submit)="signUpUser()">
       <ion-list no-lines mode="ios">
         <ion-row>
           <ion-col col-2>
@@ -75,7 +75,7 @@
           <ion-col col-6>
           </ion-col>
           <ion-col col-12>
-            <button [disabled]="!signupForm.valid" mode="wp" ion-button block color="secondary" (click)="goToAdditionalInfo()" type="submit">Continue</button>
+            <button [disabled]="!signupForm.valid" mode="wp" ion-button block color="secondary" type="submit">Continue</button>
           </ion-col>
           <ion-col col-6>
           </ion-col>

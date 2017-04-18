@@ -13,7 +13,7 @@
       </ion-row>
 
       <ion-row class="rowSpace100">&nbsp;</ion-row>
-      <form [formGroup]="loginForm">
+      <form [formGroup]="loginForm" (submit)="loginUser()">
 
         <ion-row>
           <ion-col col-2></ion-col>
@@ -47,7 +47,7 @@
         <ion-row>
           <ion-col col-4></ion-col>
           <ion-col col-16>
-            <button (click)="logIn()" [disabled]="!loginForm.valid" mode="wp" type="sumbit" ion-button color="secondary" block>
+            <button [disabled]="!loginForm.valid" mode="wp" type="sumbit" ion-button color="secondary" block>
         Sign in
         </button>
           </ion-col>
