@@ -21,12 +21,8 @@ export class SignUpPage {
 
   userInfo: { first: string, second: string, email: string, password: string, confirm: string } = { first: '', second: '', email: '', password: '', confirm: '' };
 
-<<<<<<< HEAD
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public profileDataA: ProfileData) {
-=======
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, 
-  public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
->>>>>>> b251f7622adee960c514cf996d26a61f0eb35ffc
+
 
 this.profileData = profileDataA;
     this.signupForm = this.formBuilder.group({
