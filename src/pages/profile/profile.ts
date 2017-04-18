@@ -75,6 +75,7 @@ updatePassword(){
   updateDOB(birthDate): void {
   this.profileData.updateDOB(birthDate);
 }
+
 updateName(): void {
   let alert = this.alertCtrl.create({
     message: "Your first name & last name",
