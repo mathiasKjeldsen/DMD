@@ -34,6 +34,12 @@ export class ProfileData {
       zip: zip,
       });
   }
+
+  updateCity(city: string): firebase.Promise<any> {
+    return this.userProfile.child(this.currentUser.uid).update({
+      city: city,
+      });
+  }
   
   updateAddress(address: string): firebase.Promise<any> {
     return this.userProfile.child(this.currentUser.uid).update({
@@ -63,20 +69,6 @@ export class ProfileData {
       this.currentUser.updateEmail(newEmail).then( user => {
         this.userProfile.child(this.currentUser.uid)
           .update({ email: newEmail });
-      });
-    });
-  }
-
-
-  updatePassword(newPassword: string, oldPassword: string): firebase.Promise<any> {
-    const credential =  firebase.auth.EmailAuthProvider
-      .credential(this.currentUser.email, oldPassword);
-
-    return this.currentUser.reauthenticate(credential).then( user => {
-      this.currentUser.updatePassword(newPassword).then( user => {
-        console.log("Password Changed");
-      }, error => {
-        console.log(error);
       });
     });
   }

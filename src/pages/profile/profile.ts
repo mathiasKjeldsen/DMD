@@ -47,6 +47,7 @@ updateEmail(): void {
   alert.present();
 }
 
+//updatePass virker ikke :O
 updatePassword(){
   let alert = this.alertCtrl.create({
     inputs: [
@@ -148,6 +149,32 @@ updateZip(): void {
         text: 'Save',
         handler: data => {
           this.profileData.updateZip(data.zip);
+        }
+      }
+    ]
+  });
+  alert.present();
+}
+
+updateCity(): void {
+  let alert = this.alertCtrl.create({
+    message: "City",
+    inputs: [
+      {
+        name: 'city',
+        placeholder: 'city',
+        value: this.userProfile.city
+      },
+     
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+      },
+      {
+        text: 'Save',
+        handler: data => {
+          this.profileData.updateCity(data.city);
         }
       }
     ]

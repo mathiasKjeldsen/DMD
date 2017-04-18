@@ -11,12 +11,22 @@
 <ion-content padding>
   <ion-grid text-center>
 
-    <button ion-button icon-only (click)="logOut()">Log out</button> test
+    <button ion-button icon-only (click)="logOut()">Log out</button>
 
-    <br><br> Velkommen
+    <br>INFO:
 
-    <br> {{userProfile?.firstName}} {{userProfile?.lastName}} {{userProfile?.country}} {{userProfile?.address}} {{userProfile?.zip}}
-    {{userProfile?.birthDate}} <!--{{userProfile?.city}}-->
+    <br>{{userProfile?.firstName}}
+    <br>{{userProfile?.lastName}}
+    <br>{{userProfile?.country}}
+    <br>{{userProfile?.address}}
+    <br>{{userProfile?.zip}}
+    <br>{{userProfile?.birthDate}}
+    <br>{{userProfile?.city}}
+
+    <ion-item>
+      <ion-input mode="ios">
+      </ion-input>
+    </ion-item>
 
   </ion-grid>
 </ion-content>

@@ -85,6 +85,23 @@
       </ion-grid>
     </ion-item>
 
+        <ion-item (click)="updateCity()">
+      <ion-grid>
+        <ion-row>
+          <ion-col width-50>
+            City
+          </ion-col>
+          <ion-col *ngIf="userProfile?.city">
+            {{userProfile?.city}}
+          </ion-col>
+          <ion-col class="placeholder-profile" *ngIf="!userProfile?.city">
+            <span>
+              Tap here to edit.
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
 
     <ion-item>
       <ion-label class="dob-label">Date of Birth</ion-label>
@@ -109,20 +126,10 @@
         </ion-row>
       </ion-grid>
     </ion-item>
+<br>
+<br>
 
-    <ion-item (click)="updatePassword()">
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            Password
-          </ion-col>
-          <ion-col class="placeholder-profile">
-            <span>
-              Tap here to edit.
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
+
   </ion-list>
+
 </ion-content>
