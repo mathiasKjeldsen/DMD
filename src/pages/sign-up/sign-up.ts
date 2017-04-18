@@ -7,6 +7,7 @@ import {
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthData } from '../../providers/auth-data';
+import { ProfileData } from '../../providers/profile-data';
 
 @Component({
   selector: 'page-sign-up',
@@ -15,10 +16,13 @@ import { AuthData } from '../../providers/auth-data';
 export class SignUpPage {
   public signupForm;
   loading: any;
+  profileData: any;
+
   userInfo: { first: string, second: string, email: string, password: string, confirm: string } = { first: '', second: '', email: '', password: '', confirm: '' };
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public profileDataA: ProfileData) {
 
+this.profileData = profileDataA;
     this.signupForm = this.formBuilder.group({
 
       'first': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)])],
@@ -49,8 +53,6 @@ export class SignUpPage {
     return formField.valid || formField.pristine;
   }
 
-
-
   backToPreviousPage() {
     this.navCtrl.pop();
   }
@@ -59,7 +61,7 @@ export class SignUpPage {
     if (!this.signupForm.valid) {
       console.log(this.signupForm.value);
     } else {
-      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password)
+      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.first, this.signupForm.value.second)
         .then(() => {
           this.loading.dismiss().then(() => {
             this.navCtrl.push(AdditionalInfoPage);
@@ -82,8 +84,4 @@ export class SignUpPage {
       this.loading.present();
     }
   }
-
-
-
 }
-
