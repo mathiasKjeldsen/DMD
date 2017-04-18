@@ -21,7 +21,6 @@ this.profileData = profileDataA;
       this.birthDate = this.userProfile.birthDate;
     });
 
-
   }
 
   logOut(){

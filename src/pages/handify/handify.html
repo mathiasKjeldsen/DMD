@@ -1,6 +1,6 @@
 <ion-header>
-<ion-navbar>
-   <button ion-button menuToggle>
+  <ion-navbar>
+    <button ion-button menuToggle>
 <img src="assets/img/menu_button.png" class="menuButton">     
    </button>
     <ion-title>Home</ion-title>
@@ -11,12 +11,12 @@
 <ion-content padding>
   <ion-grid text-center>
 
-    <button ion-button icon-only (click)="logOut()">Log out</button>
-    
-test<br><br>
+    <button ion-button icon-only (click)="logOut()">Log out</button> test
 
-Velkommen<br>
- {{userProfile?.firstName}} {{userProfile?.lastName}}
+    <br><br> Velkommen
+
+    <br> {{userProfile?.firstName}} {{userProfile?.lastName}} {{userProfile?.country}} {{userProfile?.address}} {{userProfile?.zip}}
+    {{userProfile?.birthDate}} <!--{{userProfile?.city}}-->
 
   </ion-grid>
 </ion-content>

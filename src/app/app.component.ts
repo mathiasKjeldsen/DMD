@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HandifyPage } from '../pages/handify/handify';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
+//import { AuthData } from '../providers/auth-data';
+//import { NavController } from 'ionic-angular';
 
 import firebase from 'firebase';
 
@@ -21,6 +23,8 @@ export class MyApp {
   zone: NgZone;
 
   constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    
+    // ----------------------- FIREBASE IMPORT START -----------------------
     firebase.initializeApp({
       apiKey: "AIzaSyDMQMgiCRNkWyMrtzo965vHY2TMEQcwzBA",
       authDomain: "handify-7873c.firebaseapp.com",
@@ -42,7 +46,7 @@ export class MyApp {
         }
       });
     });
-
+    // ----------------------- FIREBASE IMPORT DONE  -----------------------
 
 
     this.initializeApp();
@@ -50,7 +54,7 @@ export class MyApp {
       { title: 'Home', component: HandifyPage, icon: "md-home" },
       { title: 'Profile', component: ProfilePage, icon: "md-person" },
       { title: 'Calender', component: HandifyPage, icon: "ios-calendar-outline" },
-      { title: 'Log out', component: HomePage, icon: "ios-exit-outline" }
+      //{ title: 'Log out', component: HomePage, icon: "ios-exit-outline" }
 
     ];
 
@@ -60,6 +64,10 @@ export class MyApp {
     });
   }
 
+
+  logOut() {
+    alert("not implemented yet. use button on front page for now");
+  }
   openPage(page) {
     this.nav.setRoot(page.component);
   }
@@ -68,8 +76,6 @@ export class MyApp {
     this.platform.ready().then(() => {
     });
   }
-
-
 
 
 }
