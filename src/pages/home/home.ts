@@ -74,7 +74,9 @@ ionViewDidEnter() {
 }
 
 facebookLogin(){
+  console.log("does this work? 1")
     this.facebook.login(['email']).then( (response) => {
+      console.log("does this work? 2")
         const facebookCredential = firebase.auth.FacebookAuthProvider
             .credential(response.authResponse.accessToken);
 
