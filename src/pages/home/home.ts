@@ -6,6 +6,7 @@ import { NavController, MenuController, LoadingController, AlertController } fro
 import { AuthData } from '../../providers/auth-data';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { Facebook } from '@ionic-native/facebook'
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-home',
@@ -15,9 +16,11 @@ export class HomePage {
   public loginForm;
   loading: any;
   loginInfo: { email: string, password: string } = { email: '', password: '' };
+
   userProfile: any = null;
-  constructor(public authData: AuthData, public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController, 
-  public alertCtrl: AlertController, public loadingCtrl: LoadingController, private facebook: Facebook) {
+
+  constructor(public authData: AuthData, public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController,
+    public alertCtrl: AlertController, public loadingCtrl: LoadingController, private facebook: Facebook) {
 
     this.loginForm = this.formBuilder.group({
 
@@ -41,56 +44,62 @@ export class HomePage {
   }
 
 
-ionViewDidEnter() {
+  ionViewDidEnter() {
     this.menuCtrl.swipeEnable(false, 'mainMenu');
   }
 
   loginUser(): void {
-  if (!this.loginForm.valid){
-    console.log(this.loginForm.value);
-  } else {
-    this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then( authData => {
-      this.loading.dismiss().then( () => {
-        this.navCtrl.setRoot(HandifyPage);
-      });
-    }, error => {
-      this.loading.dismiss().then( () => {
-        let alert = this.alertCtrl.create({
-          message: error.message,
-          buttons: [
-            {
-              text: "Ok",
-              role: 'cancel'
-            }
-          ]
+    if (!this.loginForm.valid) {
+      console.log(this.loginForm.value);
+    } else {
+      this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(authData => {
+        this.loading.dismiss().then(() => {
+          this.navCtrl.setRoot(HandifyPage);
         });
-        alert.present();
+      }, error => {
+        this.loading.dismiss().then(() => {
+          let alert = this.alertCtrl.create({
+            message: error.message,
+            buttons: [
+              {
+                text: "Ok",
+                role: 'cancel'
+              }
+            ]
+          });
+          alert.present();
+        });
       });
-    });
 
-    this.loading = this.loadingCtrl.create();
-    this.loading.present();
+      this.loading = this.loadingCtrl.create();
+      this.loading.present();
+    }
   }
-}
 
-facebookLogin(){
-  console.log("does this work? 1")
-    this.facebook.login(['email']).then( (response) => {
-      console.log("does this work? 2")
-        const facebookCredential = firebase.auth.FacebookAuthProvider
-            .credential(response.authResponse.accessToken);
+// Facebook login virker. Den signer en in, og så stopper det der. Vi mangler følgende:
+// Vi skal finde ud af om man signer op eller man logger ind. For at tjekke det burde vi kunne tage "if facebook mail = mail in our system, just sign in"
+// Hvis facebook mail = not mail in our system, skal vi videre til additionalinfopage. Idéen er at den allerede skal være udfyldt for en med ens facebook stuff, men man kan ændre det hvis man vil.
+// Vi skal gemme det hele i firebase manuelt, for det gør den ikke af sig selv. Tjek hvordan min far gør det?  
 
-        firebase.auth().signInWithCredential(facebookCredential)
+// Jeg tror det er vigtigt at differentiere mellem sign up og sign in. Eventuelt bare tjekke om mailen allerede er i systemet, og hvis den ikke er kører vi sign up koden fra ovenfor med facebook?
+// Så hvis man ikke har en Handify user, får man automatisk en, og bruger facebook til at logge ind på den. Man er ikke bare direkte logget ind på facebook.
+
+  facebookLogin(): void {
+    this.facebook.login(['email']).then((response) => {
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+        .credential(response.authResponse.accessToken);
+
+      firebase.auth().signInWithCredential(facebookCredential)
         .then((success) => {
-            console.log("Firebase success: " + JSON.stringify(success));
-            this.userProfile = success;
-            this.navCtrl.setRoot(HandifyPage);
+          console.log("Firebase success: " + JSON.stringify(success));
+          this.userProfile = success;
+//        this.navCtrl.setRoot(HandifyPage);
         })
         .catch((error) => {
-            console.log("Firebase failure: " + JSON.stringify(error));
+          console.log("Firebase failure: " + JSON.stringify(error));
         });
 
     }).catch((error) => { console.log(error) });
+  }
 }
 
-}
