@@ -16,6 +16,7 @@ import { LogOutPage } from '../pages/log-out/log-out'
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
 
+import { Facebook } from '@ionic-native/facebook';
 @NgModule({
   declarations: [
     MyApp,
@@ -47,6 +48,7 @@ import { ProfileData } from '../providers/profile-data';
     SplashScreen,
     AuthData,
     ProfileData,
+    Facebook,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
