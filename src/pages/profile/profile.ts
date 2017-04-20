@@ -11,225 +11,37 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ProfilePage {
   public userProfile: any;
   public birthDate: string;
-public profileData: any;
+  public profileData: any;
 
-
-public newInfoForm;
-
-  userInfo: { city: string } = { city: ' ' };
+  public newInfoForm;
 
   constructor(public navCtrl: NavController, public profileDataA: ProfileData,
     public authData: AuthData, public alertCtrl: AlertController, public formBuilder: FormBuilder) {
-    this.navCtrl = navCtrl;
+
     this.profileData = profileDataA;
 
-    this.newInfoForm = this.formBuilder.group ({
+    this.newInfoForm = this.formBuilder.group({
 
       'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'address': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'firstName': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'lastName': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'country': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'birthDate': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])]
 
-    });
-
-
-    this.profileData.getUserProfile().on('value', (data) => {
-      this.userProfile = data.val();
-      this.birthDate = this.userProfile.birthDate;
     });
 
   }
 
   updateInfo() {
     console.log(this.newInfoForm);
-          this.profileData.updateCity(this.newInfoForm.city);
-          this.profileData.updateAddress(this.newInfoForm.address);
-          this.profileData.updateName(this.newInfoForm.firstName, this.newInfoForm.lastName);
+    this.profileData.updateCity(this.newInfoForm.city);
+    this.profileData.updateAddress(this.newInfoForm.address);
+    this.profileData.updateName(this.newInfoForm.firstName, this.newInfoForm.lastName);
+    this.profileData.updateZip(this.newInfoForm.zip);
+    this.profileData.updateCountry(this.newInfoForm.country);
+    this.profileData.updateDOB(this.newInfoForm.birthDate);
   }
-
-updateEmail(): void {
-  let alert = this.alertCtrl.create({
-    inputs: [
-      {
-        name: 'newEmail',
-        placeholder: 'Your new email',
-      },
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.profileData.updateEmail(data.newEmail);
-        }
-      }
-    ]
-  });
-  alert.present();
-}
-
-//updatePass virker ikke :O
-updatePassword(){
-  let alert = this.alertCtrl.create({
-    inputs: [
-      {
-        name: 'newPassword',
-        placeholder: 'Your new password',
-        type: 'password'
-      },
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.profileData.updatePassword(data.newPassword);
-        }
-      }
-    ]
-  });
-  alert.present();
-}
-
-  updateDOB(birthDate): void {
-  this.profileData.updateDOB(birthDate);
-}
-
-updateName(): void {
-  let alert = this.alertCtrl.create({
-    message: "Your first name & last name",
-    inputs: [
-      {
-        name: 'firstName',
-        placeholder: 'Your first name',
-        value: this.userProfile.firstName
-      },
-      {
-        name: 'lastName',
-        placeholder: 'Your last name',
-        value: this.userProfile.lastName
-      },
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.profileData.updateName(data.firstName, data.lastName);
-        }
-      }
-    ]
-  });
-  alert.present();
-}
-
-updateAddress(): void {
-  let alert = this.alertCtrl.create({
-    message: "Address",
-    inputs: [
-      {
-        name: 'address',
-        placeholder: 'address',
-        value: this.userProfile.address
-      },
-        ],
-    buttons: [
-      {
-        text: 'Cancel',
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.profileData.updateAddress(data.address);
-        }
-      }
-    ]
-  });
-  alert.present();
-}
-
-updateZip(): void {
-  let alert = this.alertCtrl.create({
-    message: "zip",
-    inputs: [
-      {
-        name: 'zip',
-        placeholder: 'zip',
-        value: this.userProfile.zip
-      },
-     
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.profileData.updateZip(data.zip);
-        }
-      }
-    ]
-  });
-  alert.present();
-}
-
-updateCity(): void {
-  let alert = this.alertCtrl.create({
-    message: "Cityasd",
-    inputs: [
-      {
-        name: 'city',
-        placeholder: 'cityqq',
-        value: this.userProfile.city
-      },
-     
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.profileData.updateCity(data.city);
-        }
-      }
-    ]
-  });
-  alert.present();
-}
-
-updateCountry(): void {
-  let alert = this.alertCtrl.create({
-    message: "country",
-    inputs: [
-      {
-        name: 'country',
-        placeholder: 'country',
-        value: this.userProfile.country
-      },
-     
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.profileData.updateCountry(data.country);
-        }
-      }
-    ]
-  });
-  alert.present();
-}
 
 }

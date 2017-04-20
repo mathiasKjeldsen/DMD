@@ -8,139 +8,48 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-list-header>
-      Personal Information
-    </ion-list-header>
 
-    <ion-item (click)="updateName()">
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            Name
-          </ion-col>
-          <ion-col *ngIf="userProfile?.firstName || userProfile?.lastName">
-            {{userProfile?.firstName}} {{userProfile?.lastName}}
-          </ion-col>
-          <ion-col class="placeholder-profile" *ngIf="!userProfile?.firstName">
-            <span>
-              Tap here to edit.
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item (click)="updateZip()">
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            zip
-          </ion-col>
-          <ion-col *ngIf="userProfile?.zip">
-            {{userProfile?.zip}}
-          </ion-col>
-          <ion-col class="placeholder-profile" *ngIf="!userProfile?.zip">
-            <span>
-              Tap here to edit.
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item (click)="updateAddress()">
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            address
-          </ion-col>
-          <ion-col *ngIf="userProfile?.address">
-            {{userProfile?.address}}
-          </ion-col>
-          <ion-col class="placeholder-profile" *ngIf="!userProfile?.address">
-            <span>
-              Tap here to edit.
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item (click)="updateCountry()">
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            Country
-          </ion-col>
-          <ion-col *ngIf="userProfile?.country">
-            {{userProfile?.country}}
-          </ion-col>
-          <ion-col class="placeholder-profile" *ngIf="!userProfile?.country">
-            <span>
-              Tap here to edit.
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item (click)="updateCity()">
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            City
-          </ion-col>
-          <ion-col *ngIf="userProfile?.city">
-            {{userProfile?.city}}
-          </ion-col>
-          <ion-col class="placeholder-profile" *ngIf="!userProfile?.city">
-            <span>
-              Tap here to edit.
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item>
-      <ion-label class="dob-label">Date of Birth</ion-label>
-      <ion-datetime displayFormat="MMM D, YYYY" pickerFormat="D MMM YYYY" [(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)"></ion-datetime>
-    </ion-item>
-
-    <ion-item (click)="updateEmail()">
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            Email
-          </ion-col>
-          <ion-col width-50 *ngIf="userProfile?.email">
-            {{userProfile?.email}}
-          </ion-col>
-          <ion-col class="placeholder-profile" *ngIf="!userProfile?.email">
-            <span>
-              Tap here to edit.
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-  </ion-list>
-
-
-  <br>
-  <br>
-  <p>Form version - LIGE NU KRÆVER DEN AT MAN OPDATERER ALLE 4 FOR AT DE VIRKER</p>
+  <!-- Kræver man opdaterer alle på en gang før det virker -->
   <form [formGroup]="newInfoForm" (submit)="updateInfo()">
-    <ion-input placeholder="City" #city formControlName="city" [(ngModel)]="newInfoForm.city">
-    </ion-input>
-    <ion-input placeholder="Address" #address formControlName="address" [(ngModel)]="newInfoForm.address">
-    </ion-input>
-    <ion-input placeholder="First name" #firstName formControlName="firstName" [(ngModel)]="newInfoForm.firstName">
-    </ion-input>
-    <ion-input placeholder="Last name" #lastName formControlName="lastName" [(ngModel)]="newInfoForm.lastName">
-    </ion-input>
+
+    <ion-list no-lines>
+
+      <ion-item>
+        <ion-input placeholder="First name" #firstName formControlName="firstName" [(ngModel)]="newInfoForm.firstName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="Last name" #lastName formControlName="lastName" [(ngModel)]="newInfoForm.lastName">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="Address" #address formControlName="address" [(ngModel)]="newInfoForm.address">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="Zip" #zip formControlName="zip" [(ngModel)]="newInfoForm.zip">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="City" #city formControlName="city" [(ngModel)]="newInfoForm.city">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="Country" #country formControlName="country" [(ngModel)]="newInfoForm.country">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="dob-label">Date of Birth</ion-label>
+        <ion-datetime displayFormat="MMM D, YYYY" pickerFormat="D MMM YYYY" [(ngModel)]="newInfoForm.birthDate" formControlName="birthDate"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
     <button ion-button type="submit">submit new info</button>
   </form>
 </ion-content>
