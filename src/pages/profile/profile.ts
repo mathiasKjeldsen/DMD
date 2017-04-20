@@ -2,6 +2,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { ProfileData } from '../../providers/profile-data';
 import { AuthData } from '../../providers/auth-data';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-profile',
@@ -12,16 +13,32 @@ export class ProfilePage {
   public birthDate: string;
 public profileData: any;
 
+
+public cityForm;
+
+  userInfo: { city: string } = { city: ' ' };
+
   constructor(public navCtrl: NavController, public profileDataA: ProfileData,
-    public authData: AuthData, public alertCtrl: AlertController) {
+    public authData: AuthData, public alertCtrl: AlertController, public formBuilder: FormBuilder) {
     this.navCtrl = navCtrl;
     this.profileData = profileDataA;
+
+    this.cityForm = this.formBuilder.group ({
+
+      'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])]
+
+    });
+
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
       this.birthDate = this.userProfile.birthDate;
     });
 
+  }
+
+  updateCityButton() {
+          this.profileData.updateCity(this.cityForm.city);
   }
 
 updateEmail(): void {
@@ -159,11 +176,11 @@ updateZip(): void {
 
 updateCity(): void {
   let alert = this.alertCtrl.create({
-    message: "City",
+    message: "Cityasd",
     inputs: [
       {
         name: 'city',
-        placeholder: 'city',
+        placeholder: 'cityqq',
         value: this.userProfile.city
       },
      
