@@ -131,10 +131,16 @@
 
   <br>
   <br>
-  <p>hello</p>
-  <form [formGroup]="cityForm" (submit)="updateCityButton()">
-    <ion-input #city [(ngModel)]="cityForm.city" formControlName="city" placeholder="New city">
+  <p>Form version - LIGE NU KRÆVER DEN AT MAN OPDATERER ALLE 4 FOR AT DE VIRKER</p>
+  <form [formGroup]="newInfoForm" (submit)="updateInfo()">
+    <ion-input placeholder="City" #city formControlName="city" [(ngModel)]="newInfoForm.city">
     </ion-input>
-    <button ion-button type="submit">submit new city</button>
+    <ion-input placeholder="Address" #address formControlName="address" [(ngModel)]="newInfoForm.address">
+    </ion-input>
+    <ion-input placeholder="First name" #firstName formControlName="firstName" [(ngModel)]="newInfoForm.firstName">
+    </ion-input>
+    <ion-input placeholder="Last name" #lastName formControlName="lastName" [(ngModel)]="newInfoForm.lastName">
+    </ion-input>
+    <button ion-button type="submit">submit new info</button>
   </form>
 </ion-content>

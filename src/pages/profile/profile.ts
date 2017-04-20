@@ -14,7 +14,7 @@ export class ProfilePage {
 public profileData: any;
 
 
-public cityForm;
+public newInfoForm;
 
   userInfo: { city: string } = { city: ' ' };
 
@@ -23,9 +23,12 @@ public cityForm;
     this.navCtrl = navCtrl;
     this.profileData = profileDataA;
 
-    this.cityForm = this.formBuilder.group ({
+    this.newInfoForm = this.formBuilder.group ({
 
-      'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])]
+      'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'address': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'firstName': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'lastName': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
 
     });
 
@@ -37,8 +40,11 @@ public cityForm;
 
   }
 
-  updateCityButton() {
-          this.profileData.updateCity(this.cityForm.city);
+  updateInfo() {
+    console.log(this.newInfoForm);
+          this.profileData.updateCity(this.newInfoForm.city);
+          this.profileData.updateAddress(this.newInfoForm.address);
+          this.profileData.updateName(this.newInfoForm.firstName, this.newInfoForm.lastName);
   }
 
 updateEmail(): void {
