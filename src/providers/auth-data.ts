@@ -22,6 +22,7 @@ signupUser(email: string, password: string, firstName : string, lastName: string
       this.userProfile.child(newUser.uid).set({email: email, firstName: firstName, lastName : lastName});
     });
 }
+
 resetPassword(email: string): firebase.Promise<any> {
   return this.fireAuth.sendPasswordResetEmail(email);
 }
