@@ -19,7 +19,7 @@ loginUser(email: string, password: string): firebase.Promise<any> {
 signupUser(email: string, password: string, firstName : string, lastName: string): firebase.Promise<any> {
   return this.fireAuth.createUserWithEmailAndPassword(email, password)
     .then((newUser) => {
-      this.userProfile.child(newUser.uid).set({email: email, firstName: firstName, lastName : lastName});
+      this.userProfile.child(newUser.uid).set({email: email, firstName: firstName, lastName : lastName, profilePhoto: "assets/img/placeholder.jpg" });
     });
 }
 
