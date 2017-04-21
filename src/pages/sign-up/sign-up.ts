@@ -1,4 +1,4 @@
-import { AdditionalInfoPage } from '../additional-info/additional-info';
+import { ProfileSettingsPage } from '../profile-settings/profile-settings';
 import {
   NavController,
   LoadingController,
@@ -19,7 +19,7 @@ export class SignUpPage {
   loading: any;
   profileData: any;
 
-  userInfo: { first: string, second: string, email: string, password: string, confirm: string } = { first: '', second: '', email: '', password: '', confirm: '' };
+  userInfo: { fullName: string, email: string, password: string, confirm: string } = { fullName: '', email: '', password: '', confirm: '' };
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public profileDataA: ProfileData) {
 
@@ -27,8 +27,7 @@ export class SignUpPage {
 this.profileData = profileDataA;
     this.signupForm = this.formBuilder.group({
 
-      'first': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
-      'second': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'fullName': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'email': ['', Validators.compose([Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)])],
       'password': ['', Validators.compose([Validators.minLength(6), Validators.required])],
       'confirmPassword': ['', Validators.required],
@@ -63,10 +62,10 @@ this.profileData = profileDataA;
     if (!this.signupForm.valid) {
       console.log(this.signupForm.value);
     } else {
-      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.first, this.signupForm.value.second)
+      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.fullName)
         .then(() => {
           this.loading.dismiss().then(() => {
-            this.navCtrl.push(AdditionalInfoPage); 
+            this.navCtrl.push(ProfileSettingsPage); 
           });
         }, (error) => {
           this.loading.dismiss().then(() => {

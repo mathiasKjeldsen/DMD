@@ -17,6 +17,8 @@ export class HomePage {
   loading: any;
   loginInfo: { email: string, password: string } = { email: '', password: '' };
 
+  testText: string;
+
   userProfile: any = null;
 
   constructor(public authData: AuthData, public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController,
@@ -85,14 +87,17 @@ export class HomePage {
 // Så hvis man ikke har en Handify user, får man automatisk en, og bruger facebook til at logge ind på den. Man er ikke bare direkte logget ind på facebook.
 
   facebookLogin(): void {
-    this.facebook.login(['email']).then((response) => {
+    this.facebook.login(['email', 'public_profile']).then((response) => {
       const facebookCredential = firebase.auth.FacebookAuthProvider
         .credential(response.authResponse.accessToken);
 
       firebase.auth().signInWithCredential(facebookCredential)
-        .then((success) => {
-          console.log("Firebase success: " + JSON.stringify(success));
-          this.userProfile = success;
+        .then((currentUser) => {
+          alert("Firebase success: " + JSON.stringify(currentUser));
+          this.testText = currentUser.auth.providerData[0].email;
+          alert(this.testText);
+          //alert(currentUser.auth.providerData[0].email);
+          this.userProfile = currentUser;
 //        this.navCtrl.setRoot(HandifyPage);
         })
         .catch((error) => {
@@ -100,6 +105,10 @@ export class HomePage {
         });
 
     }).catch((error) => { console.log(error) });
+
+    
   }
+
+
 }
 

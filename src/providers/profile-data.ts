@@ -22,16 +22,16 @@ export class ProfileData {
     return this.userProfile.child(this.currentUser.uid);
   }
 
-  //updateName(firstName: string, lastName: string): firebase.Promise<any> {
+  //updateName(fullName: string, lastName: string): firebase.Promise<any> {
   //    return this.userProfile.child(this.currentUser.uid).update({
-  //     firstName: firstName,
+  //     fullName: fullName,
   //      lastName: lastName,
   //   });
   // }
 
-  updateFirstName(firstName: string): firebase.Promise<any> {
+  updatefullName(fullName: string): firebase.Promise<any> {
     return this.userProfile.child(this.currentUser.uid).update({
-      firstName: firstName,
+      fullName: fullName,
     });
   }
 

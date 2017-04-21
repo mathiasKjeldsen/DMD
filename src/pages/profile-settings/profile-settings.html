@@ -1,61 +1,113 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-<img src="assets/img/menu_button.png" class="menuButton">     
-   </button>
-    <ion-title>Profile settings</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content padding class="signUpBg">
+  <ion-grid text-center>
 
-<ion-content padding>
+    <ion-row>
+      <ion-col col-6>
+      </ion-col>
+      <ion-col col-12 style="color: white"><strong>Profile information</strong>
+      </ion-col>
+      <ion-col col-6>
+      </ion-col>
+    </ion-row>
+    <ion-row class="rowSpace10">&nbsp;</ion-row>
+    <ion-row>
+      <ion-col col-4>
+      </ion-col>
+      <ion-col col-16><img src="{{userProfile?.profilePhoto}}"></ion-col>
+      <ion-col col-4>
+      </ion-col>
+    </ion-row>
 
-  <form [formGroup]="newInfoForm" (submit)="updateInfo()">
+    <ion-row>
+      <ion-col col-6>
+      </ion-col>
+      <ion-col col-12><button mode="wp" ion-button color="secondary" block (click)="updatePic()">Change profile picture</button></ion-col>
+      <ion-col col-6>
+      </ion-col>
+    </ion-row>
 
-    <ion-list mode="md">
+    <ion-row class="rowSpace25">&nbsp;</ion-row>
 
-      <ion-item mode="md">
-        <ion-label stacked>First name</ion-label>
-        <ion-input ng-required="true" value="{{userProfile?.firstName}}" #firstName formControlName="firstName" [(ngModel)]="newInfoForm.firstName" mode="md">
-        </ion-input>
-      </ion-item>
+    <ion-list no-lines mode="ios">
+<form [formGroup]="profileInfoForm" (submit)="updateProfile()">
 
-      <ion-item mode="md">
-        <ion-label stacked>Last name</ion-label>
-        <ion-input value="{{userProfile?.lastName}}" #lastName formControlName="lastName" [(ngModel)]="newInfoForm.lastName" mode="md">
-        </ion-input>
-      </ion-item>
 
-      <ion-item mode="md">
-        <ion-label stacked>Address</ion-label>
-        <ion-input value="{{userProfile?.address}}" #address formControlName="address" [(ngModel)]="newInfoForm.address" mode="md">
-        </ion-input>
-      </ion-item>
+      <form [formGroup]="dateForm">
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-20>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
+              <h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText">date of birth</h6></button>
+              
+              <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="dateForm.datepicker"
+                formControlName="datepicker"></ion-datetime>
+            </ion-item>
+            <!--
+            <p *ngIf="!isValid('birthDate') && profileInfoForm.controls.birthDate.touched" class="signUpInValid">Invalid date of birth</p>-->
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </form>
+      <ion-row>&nbsp;</ion-row>
 
-      <ion-item mode="md">
-        <ion-label stacked>Zip</ion-label>
-        <ion-input value="{{userProfile?.zip}}" #zip formControlName="zip" [(ngModel)]="newInfoForm.zip" mode="md">
-        </ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-20>
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
+            <ion-input mode="ios" placeholder="Address" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.address" formControlName="address" #address></ion-input>
+          </ion-item>
+          <p *ngIf="!isValid('address') && profileInfoForm.controls.address.touched" class="signUpInValid">Minimum 2 characters</p>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
 
-      <ion-item mode="md">
-        <ion-label stacked>City</ion-label>
-        <ion-input value="{{userProfile?.city}}" #city formControlName="city" [(ngModel)]="newInfoForm.city" mode="md">
-        </ion-input>
-      </ion-item>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-10>
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
+            <ion-input mode="ios" placeholder="Zip" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.zip" formControlName="zip" #zip></ion-input>
+          </ion-item>
+          <p *ngIf="!isValid('zip') && profileInfoForm.controls.zip.touched" class="signUpInValid">Invalid zip</p>
+        </ion-col>
 
-      <ion-item mode="md">
-        <ion-label stacked>Country</ion-label>
-        <ion-input value="{{userProfile?.country}}" #country formControlName="country" [(ngModel)]="newInfoForm.country" mode="md">
-        </ion-input>
-      </ion-item>
+        <ion-col col-10>
+          <ion-item mode="ios" class="signUpTransparent">
+            <ion-input mode="ios" placeholder="City" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.city" formControlName="city" #city></ion-input>
+          </ion-item>
+          <p *ngIf="!isValid('city') && profileInfoForm.controls.city.touched" class="signUpInValid">Invalid city</p>
+        </ion-col>
 
-      <ion-item mode="md">
-        <ion-label stacked>Date of birth</ion-label>
-        <ion-datetime placeholder="{{userProfile?.birthDate}}" displayFormat="MMM D, YYYY" pickerFormat="MMM D YYYY" [(ngModel)]="newInfoForm.birthDate"
-          formControlName="birthDate" mode="md"></ion-datetime>
-      </ion-item>
+        <ion-col col-2></ion-col>
+      </ion-row>
 
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-20>
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
+            <ion-input mode="ios" placeholder="Country" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.country" formControlName="country" #country></ion-input>
+          </ion-item>
+          <p *ngIf="!isValid('country') && profileInfoForm.controls.country.touched" class="signUpInValid">Invalid country</p>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+
+      <ion-row class="rowSpace10">&nbsp;</ion-row>
+
+      <ion-row>
+        <ion-col col-6>
+        </ion-col>
+        <ion-col col-12>
+          <button ion-button mode="wp" block color="secondary" type="submit">Update profile info</button>
+        </ion-col>
+        <ion-col col-6>
+        </ion-col>
+      </ion-row>
+</form>
     </ion-list>
-    <button ion-button block type="submit" [disabled]="!newInfoForm.valid" color="secondary" mode="wp">Update profile</button>
-  </form>
+
+  </ion-grid>
 </ion-content>

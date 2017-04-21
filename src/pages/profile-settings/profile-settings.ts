@@ -1,73 +1,92 @@
-import { NavController, AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { ProfileData } from '../../providers/profile-data';
-import { AuthData } from '../../providers/auth-data';
+import {
+  NavController, LoadingController,
+  AlertController
+} from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import { ProfileData } from '../../providers/profile-data';
+import { HandifyPage } from '../handify/handify';
 @Component({
   selector: 'page-profile-settings',
-  templateUrl: 'profile-settings.html',
+  templateUrl: 'profile-settings.html'
 })
 export class ProfileSettingsPage {
+  public profileInfoForm;
+  public dateForm;
+  public datepicker: string;
   public userProfile: any;
-  public birthDate: string;
-  public profileData: any;
 
-  public newInfoForm;
+  loading: any;
 
-  constructor(public navCtrl: NavController, public profileDataA: ProfileData,
-    public authData: AuthData, public alertCtrl: AlertController, public formBuilder: FormBuilder) {
+  //Forstår slet ikke hvad det her bruges til, eller hvor det bruges. Kan slet ikke genkende det o.o
+  profileInfoInfo: { address: string, zip: string, city: string, country: string } = { address: '', zip: '', city: '', country: '', };
+  dateInfo: { datepicker: string } = { datepicker: '' };
 
-    this.profileData = profileDataA;
-
-    this.newInfoForm = this.formBuilder.group({
-
-      'city': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
-      'address': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
-      'firstName': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
-      'lastName': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
-      'zip': ['', Validators.compose([Validators.pattern(/^[0-9]*$/)])],
-      'country': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
-      'birthDate': ['',]
-
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public profileData: ProfileData, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    this.profileData = profileData;
+    this.profileInfoForm = this.formBuilder.group({
+      'address': ['', Validators.compose([Validators.minLength(2), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[0-9]*$/)])],
+      'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
+      'country': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])]
     });
 
+    this.dateForm = this.formBuilder.group({
+      'datepicker': ['', Validators.compose([Validators.minLength(1), Validators.required])]
+    });
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
-      this.birthDate = this.userProfile.birthDate;
+      this.datepicker = this.userProfile.birthDate;
     });
 
   }
 
-  updateInfo() {
-    if (this.newInfoForm.controls.city.dirty) {
-      this.profileData.updateCity(this.newInfoForm.city);
-    }
-    if (this.newInfoForm.controls.address.dirty) {
-      this.profileData.updateAddress(this.newInfoForm.address);
-    }
-    if (this.newInfoForm.controls.firstName.dirty) {
-      this.profileData.updateFirstName(this.newInfoForm.firstName);
-    }
-    if (this.newInfoForm.controls.lastName.dirty) {
-      this.profileData.updateLastName(this.newInfoForm.lastName);
-    }
-    if (this.newInfoForm.controls.zip.dirty) {
-      this.profileData.updateZip(this.newInfoForm.zip);
-    }
-    if (this.newInfoForm.controls.country.dirty) {
-      this.profileData.updateCountry(this.newInfoForm.country);
-    }
-    if (this.newInfoForm.controls.birthDate.dirty) {
-      this.profileData.updateDOB(this.newInfoForm.birthDate);
-    }
+  isValid(field: string) {
+    let formField = this.profileInfoForm.get(field);
+    return formField.valid || formField.pristine;
+  }
+
+  testIsValid(field: string) {
+    let formField = this.dateForm.get(field);
+    return formField.valid || formField.pristine;
+  }
+
+  backToPreviousPage() {
     this.navCtrl.pop();
   }
 
-  goToProfileSettings() {
-    this.navCtrl.push(ProfileSettingsPage);
+  updateProfile() {
+    console.log(this.profileInfoForm);
+    console.log(this.profileInfoForm.city)
+    console.log(this.profileInfoForm.address)
+    console.log(this.profileInfoForm.zip)
+    console.log(this.profileInfoForm.country)
+    console.log(this.dateForm.datepicker)
+
+    if (this.profileInfoForm.controls.city.dirty) {
+      this.profileData.updateCity(this.profileInfoForm.city);
+    }
+    if (this.profileInfoForm.controls.address.dirty) {
+      this.profileData.updateAddress(this.profileInfoForm.address);
+    }
+
+    if (this.profileInfoForm.controls.zip.dirty) {
+      this.profileData.updateZip(this.profileInfoForm.zip);
+    }
+
+    if (this.profileInfoForm.controls.country.dirty) {
+      this.profileData.updateCountry(this.profileInfoForm.country);
+    }
+
+    if (this.dateForm.controls.datepicker.dirty) {
+      this.profileData.updateDOB(this.dateForm.datepicker);
+    }
+
+    this.navCtrl.setRoot(HandifyPage);
   }
 
-
+  updatePic() {
+    this.profileData.updatePhoto("https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/10403542_10207811032208273_8884013213151836092_n.jpg?oh=44c4e880cae45d2c864fadfad7432b81&oe=59926D43");
+  }
 }

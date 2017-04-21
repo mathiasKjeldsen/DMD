@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { HandifyPage } from '../pages/handify/handify';
-import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
 import { LogOutPage } from '../pages/log-out/log-out';
@@ -24,7 +23,6 @@ import { Facebook } from '@ionic-native/facebook';
     HomePage,
     SignUpPage,
     HandifyPage,
-    AdditionalInfoPage,
     ResetPasswordPage,
     ProfilePage,
     LogOutPage,
@@ -40,7 +38,6 @@ import { Facebook } from '@ionic-native/facebook';
     HomePage,
     SignUpPage,
     HandifyPage,
-    AdditionalInfoPage,
     ResetPasswordPage,
     ProfilePage,
     LogOutPage, 
