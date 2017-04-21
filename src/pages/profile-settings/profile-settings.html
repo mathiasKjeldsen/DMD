@@ -9,7 +9,6 @@
 
 <ion-content padding>
 
-  <!-- Kræver man opdaterer alle på en gang før det virker -->
   <form [formGroup]="newInfoForm" (submit)="updateInfo()">
 
     <ion-list mode="md">
@@ -57,6 +56,6 @@
       </ion-item>
 
     </ion-list>
-    <button ion-button block type="submit" [disabled]="!newInfoForm.valid" mode="wp">Update profile</button>
+    <button ion-button block type="submit" [disabled]="!newInfoForm.valid" color="secondary" mode="wp">Update profile</button>
   </form>
 </ion-content>
