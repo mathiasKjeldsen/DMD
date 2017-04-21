@@ -30,6 +30,8 @@
 
     <ion-list no-lines mode="ios">
 <form [formGroup]="profileInfoForm" (submit)="updateProfile()">
+
+
       <form [formGroup]="dateForm">
         <ion-row>
           <ion-col col-2></ion-col>
@@ -37,10 +39,12 @@
             <ion-item mode="ios" class="signUpTransparent">
               <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
               <h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText">date of birth</h6></button>
-              <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #age mode="ios" class="additionalInfoDateTime" [(ngModel)]="dateForm.datepicker"
+              
+              <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="dateForm.datepicker"
                 formControlName="datepicker"></ion-datetime>
             </ion-item>
-            <p *ngIf="!isValid('birthDate') && profileInfoForm.controls.birthDate.touched" class="signUpInValid">Invalid date of birth</p>
+            <!--
+            <p *ngIf="!isValid('birthDate') && profileInfoForm.controls.birthDate.touched" class="signUpInValid">Invalid date of birth</p>-->
           </ion-col>
           <ion-col col-2></ion-col>
         </ion-row>

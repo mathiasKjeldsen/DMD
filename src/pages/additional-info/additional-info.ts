@@ -13,23 +13,31 @@ import { HandifyPage } from '../handify/handify';
 export class AdditionalInfoPage {
   public profileInfoForm;
   public dateForm;
+  public datepicker: string;
+  public userProfile: any;
+
   loading: any;
-  profileInfoInfo: { birthDate: string, address: string, zip: string, city: string, country: string } = { birthDate: '', address: '', zip: '', city: '', country: '', };
+
+//Forstår slet ikke hvad det her bruges til, eller hvor det bruges. Kan slet ikke genkende det o.o
+  profileInfoInfo: { address: string, zip: string, city: string, country: string } = { address: '', zip: '', city: '', country: '', };
   dateInfo: { datepicker: string } = { datepicker: '' };
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public profileData: ProfileData, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
-
+this.profileData = profileData;
     this.profileInfoForm = this.formBuilder.group({
-
-      'birthDate': ['', Validators.compose([Validators.minLength(0), Validators.required])],
       'address': ['', Validators.compose([Validators.minLength(2), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[0-9]*$/)])],
       'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'country': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])]
-
     });
+
     this.dateForm = this.formBuilder.group({
       'datepicker': ['', Validators.compose([Validators.minLength(1), Validators.required])]
+    });
+
+    this.profileData.getUserProfile().on('value', (data) => {
+      this.userProfile = data.val();
+      this.datepicker = this.userProfile.birthDate;
     });
 
   }
@@ -50,6 +58,11 @@ export class AdditionalInfoPage {
 
   updateProfile() {
     console.log(this.profileInfoForm);
+    console.log(this.profileInfoForm.city)
+    console.log(this.profileInfoForm.address)
+    console.log(this.profileInfoForm.zip)
+    console.log(this.profileInfoForm.country)
+    console.log(this.dateForm.datepicker)
 
     if (this.profileInfoForm.controls.city.dirty) {
       this.profileData.updateCity(this.profileInfoForm.city);
@@ -66,8 +79,8 @@ export class AdditionalInfoPage {
       this.profileData.updateCountry(this.profileInfoForm.country);
     }
     
-    if (this.profileInfoForm.controls.birthDate.dirty) {
-    this.profileData.updateDOB(this.profileInfoForm.birthDate);
+    if (this.dateForm.controls.datepicker.dirty) {
+    this.profileData.updateDOB(this.dateForm.datepicker);
     }
 
     this.navCtrl.setRoot(HandifyPage);
