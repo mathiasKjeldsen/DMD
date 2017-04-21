@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+<img src="assets/img/menu_button.png" class="menuButton">     
+   </button>
+    <ion-title>Profile settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- Kræver man opdaterer alle på en gang før det virker -->
+  <form [formGroup]="newInfoForm" (submit)="updateInfo()">
+
+    <ion-list mode="md">
+
+      <ion-item mode="md">
+        <ion-label stacked>First name</ion-label>
+        <ion-input ng-required="true" value="{{userProfile?.firstName}}" #firstName formControlName="firstName" [(ngModel)]="newInfoForm.firstName" mode="md">
+        </ion-input>
+      </ion-item>
+
+      <ion-item mode="md">
+        <ion-label stacked>Last name</ion-label>
+        <ion-input value="{{userProfile?.lastName}}" #lastName formControlName="lastName" [(ngModel)]="newInfoForm.lastName" mode="md">
+        </ion-input>
+      </ion-item>
+
+      <ion-item mode="md">
+        <ion-label stacked>Address</ion-label>
+        <ion-input value="{{userProfile?.address}}" #address formControlName="address" [(ngModel)]="newInfoForm.address" mode="md">
+        </ion-input>
+      </ion-item>
+
+      <ion-item mode="md">
+        <ion-label stacked>Zip</ion-label>
+        <ion-input value="{{userProfile?.zip}}" #zip formControlName="zip" [(ngModel)]="newInfoForm.zip" mode="md">
+        </ion-input>
+      </ion-item>
+
+      <ion-item mode="md">
+        <ion-label stacked>City</ion-label>
+        <ion-input value="{{userProfile?.city}}" #city formControlName="city" [(ngModel)]="newInfoForm.city" mode="md">
+        </ion-input>
+      </ion-item>
+
+      <ion-item mode="md">
+        <ion-label stacked>Country</ion-label>
+        <ion-input value="{{userProfile?.country}}" #country formControlName="country" [(ngModel)]="newInfoForm.country" mode="md">
+        </ion-input>
+      </ion-item>
+
+      <ion-item mode="md">
+        <ion-label stacked>Date of birth</ion-label>
+        <ion-datetime placeholder="{{userProfile?.birthDate}}" displayFormat="MMM D, YYYY" pickerFormat="MMM D YYYY" [(ngModel)]="newInfoForm.birthDate"
+          formControlName="birthDate" mode="md"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button block type="submit" [disabled]="!newInfoForm.valid" mode="wp">Update profile</button>
+  </form>
+</ion-content>

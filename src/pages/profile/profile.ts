@@ -2,7 +2,8 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { ProfileData } from '../../providers/profile-data';
 import { AuthData } from '../../providers/auth-data';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { ProfileSettingsPage } from '../profile-settings/profile-settings';
 
 @Component({
   selector: 'page-profile',
@@ -20,28 +21,17 @@ export class ProfilePage {
 
     this.profileData = profileDataA;
 
-    this.newInfoForm = this.formBuilder.group({
-
-      'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
-      'address': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
-      'firstName': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
-      'lastName': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
-      'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
-      'country': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
-      'birthDate': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])]
-
+    this.profileData.getUserProfile().on('value', (data) => {
+      this.userProfile = data.val();
+      this.birthDate = this.userProfile.birthDate;
     });
 
   }
 
-  updateInfo() {
-    console.log(this.newInfoForm);
-    this.profileData.updateCity(this.newInfoForm.city);
-    this.profileData.updateAddress(this.newInfoForm.address);
-    this.profileData.updateName(this.newInfoForm.firstName, this.newInfoForm.lastName);
-    this.profileData.updateZip(this.newInfoForm.zip);
-    this.profileData.updateCountry(this.newInfoForm.country);
-    this.profileData.updateDOB(this.newInfoForm.birthDate);
+  
+  goToProfileSettings() {
+    this.navCtrl.push(ProfileSettingsPage);
   }
+
 
 }

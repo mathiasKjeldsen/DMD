@@ -21,12 +21,24 @@ export class ProfileData {
   }
 
 
-  updateName(firstName: string, lastName: string): firebase.Promise<any> {
+  //updateName(firstName: string, lastName: string): firebase.Promise<any> {
+//    return this.userProfile.child(this.currentUser.uid).update({
+ //     firstName: firstName,
+//      lastName: lastName,
+ //   });
+ // }
+
+  updateFirstName(firstName: string): firebase.Promise<any> {
     return this.userProfile.child(this.currentUser.uid).update({
       firstName: firstName,
-      lastName: lastName,
-    });
-  }
+  });
+}
+
+ updateLastName(LastName: string): firebase.Promise<any> {
+    return this.userProfile.child(this.currentUser.uid).update({
+      lastName: LastName,
+  });
+}
 
   
   updateZip(zip: string): firebase.Promise<any> {

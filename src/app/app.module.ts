@@ -11,7 +11,8 @@ import { HandifyPage } from '../pages/handify/handify';
 import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
-import { LogOutPage } from '../pages/log-out/log-out'
+import { LogOutPage } from '../pages/log-out/log-out';
+import { ProfileSettingsPage } from '../pages/profile-settings/profile-settings';
 
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
@@ -27,6 +28,7 @@ import { Facebook } from '@ionic-native/facebook';
     ResetPasswordPage,
     ProfilePage,
     LogOutPage,
+    ProfileSettingsPage,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { Facebook } from '@ionic-native/facebook';
     AdditionalInfoPage,
     ResetPasswordPage,
     ProfilePage,
-    LogOutPage
+    LogOutPage, 
+    ProfileSettingsPage
   ],
   providers: [
     StatusBar,

@@ -9,47 +9,22 @@
 
 <ion-content padding>
 
-  <!-- Kræver man opdaterer alle på en gang før det virker -->
-  <form [formGroup]="newInfoForm" (submit)="updateInfo()">
+  <button ion-button block (click)="goToProfileSettings()">Edit profile</button>
 
-    <ion-list no-lines>
+  <br>First name: {{userProfile?.firstName}}
+  <br>Last name: {{userProfile?.lastName}}
+  <br>Country: {{userProfile?.country}}
+  <br>Address: {{userProfile?.address}}
+  <br>Zip: {{userProfile?.zip}}
+  <br>Birth date: {{userProfile?.birthDate}}
+  <br>City: {{userProfile?.city}}
 
-      <ion-item>
-        <ion-input placeholder="First name" #firstName formControlName="firstName" [(ngModel)]="newInfoForm.firstName">
-        </ion-input>
-      </ion-item>
+  <br>
+  <br>
+  <br><u>Problem: Felter kan lades være tomme.</u> <br>
+  <br>Hvis vi giver den <strong>Validators.minLength(1)</strong>, virker felterne ikke før der er skrevet noget <br>
+  <br>Hvis vi skriver <strong>Validators.required</strong>, er det samme problem <br>
+  <br>Uden de to validators, kan felterne lades være tomme (den virker stadig, fx tal not allowed) <br>
+  <br>Date bliver ikke validated(men det er vel ikke et problem?)<br>
 
-      <ion-item>
-        <ion-input placeholder="Last name" #lastName formControlName="lastName" [(ngModel)]="newInfoForm.lastName">
-        </ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input placeholder="Address" #address formControlName="address" [(ngModel)]="newInfoForm.address">
-        </ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input placeholder="Zip" #zip formControlName="zip" [(ngModel)]="newInfoForm.zip">
-        </ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input placeholder="City" #city formControlName="city" [(ngModel)]="newInfoForm.city">
-        </ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input placeholder="Country" #country formControlName="country" [(ngModel)]="newInfoForm.country">
-        </ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label class="dob-label">Date of Birth</ion-label>
-        <ion-datetime displayFormat="MMM D, YYYY" pickerFormat="D MMM YYYY" [(ngModel)]="newInfoForm.birthDate" formControlName="birthDate"></ion-datetime>
-      </ion-item>
-
-    </ion-list>
-    <button ion-button type="submit">submit new info</button>
-  </form>
 </ion-content>
