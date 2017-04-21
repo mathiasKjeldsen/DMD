@@ -49,13 +49,28 @@ export class AdditionalInfoPage {
   }
 
   updateProfile() {
-    //this.profileData.updateDOB(this.profileInfoForm.data.birthDate);
     console.log(this.profileInfoForm);
-    this.profileData.updateAddress(this.profileInfoForm.data.address);
-    this.profileData.updateZip(this.profileInfoForm.data.zip);
-    this.profileData.updateCity(this.profileInfoForm.data.city);
-    this.profileData.updateCountry(this.profileInfoForm.data.country);
-    //this.navCtrl.setRoot(HandifyPage);
+
+    if (this.profileInfoForm.controls.city.dirty) {
+      this.profileData.updateCity(this.profileInfoForm.city);
+    }
+    if (this.profileInfoForm.controls.address.dirty) {
+      this.profileData.updateAddress(this.profileInfoForm.address);
+    }
+
+    if (this.profileInfoForm.controls.zip.dirty) {
+      this.profileData.updateZip(this.profileInfoForm.zip);
+    }
+
+    if (this.profileInfoForm.controls.country.dirty) {
+      this.profileData.updateCountry(this.profileInfoForm.country);
+    }
+    
+    if (this.profileInfoForm.controls.birthDate.dirty) {
+    this.profileData.updateDOB(this.profileInfoForm.birthDate);
+    }
+
+    this.navCtrl.setRoot(HandifyPage);
   }
 
 }

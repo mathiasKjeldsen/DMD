@@ -41,7 +41,6 @@ export class ProfileSettingsPage {
   }
 
   updateInfo() {
-    console.log(this.newInfoForm);
     if (this.newInfoForm.controls.city.dirty) {
       this.profileData.updateCity(this.newInfoForm.city);
     }
