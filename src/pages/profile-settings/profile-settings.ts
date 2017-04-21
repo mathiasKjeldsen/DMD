@@ -22,12 +22,12 @@ export class ProfileSettingsPage {
 
     this.newInfoForm = this.formBuilder.group({
 
-      'city': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøå ,.'-é]+$/i)])],
-      'address': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøå ,.'-é]+$/i)])],
-      'firstName': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøå ,.'-é]+$/i)])],
-      'lastName': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøå ,.'-é]+$/i)])],
+      'city': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
+      'address': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
+      'firstName': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
+      'lastName': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
       'zip': ['', Validators.compose([Validators.pattern(/^[0-9]*$/)])],
-      'country': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøå ,.'-é]+$/i)])],
+      'country': ['', Validators.compose([Validators.pattern(/^[a-zÆØÅæøåé ,.'-]+$/i)])],
       'birthDate': ['',]
 
     });
