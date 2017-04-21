@@ -35,10 +35,8 @@ export class ProfileSettingsPage {
       'datepicker': ['', Validators.compose([Validators.minLength(1), Validators.required])]
     });
 
-    this.profileData.getUserProfile().on('value', (data) => {
-      this.userProfile = data.val();
-      this.datepicker = this.userProfile.birthDate;
-    });
+    
+    
 
   }
 
