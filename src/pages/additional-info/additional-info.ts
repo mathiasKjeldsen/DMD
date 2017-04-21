@@ -18,12 +18,12 @@ export class AdditionalInfoPage {
 
   loading: any;
 
-//Forstår slet ikke hvad det her bruges til, eller hvor det bruges. Kan slet ikke genkende det o.o
+  //Forstår slet ikke hvad det her bruges til, eller hvor det bruges. Kan slet ikke genkende det o.o
   profileInfoInfo: { address: string, zip: string, city: string, country: string } = { address: '', zip: '', city: '', country: '', };
   dateInfo: { datepicker: string } = { datepicker: '' };
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public profileData: ProfileData, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
-this.profileData = profileData;
+    this.profileData = profileData;
     this.profileInfoForm = this.formBuilder.group({
       'address': ['', Validators.compose([Validators.minLength(2), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[0-9]*$/)])],
@@ -78,12 +78,15 @@ this.profileData = profileData;
     if (this.profileInfoForm.controls.country.dirty) {
       this.profileData.updateCountry(this.profileInfoForm.country);
     }
-    
+
     if (this.dateForm.controls.datepicker.dirty) {
-    this.profileData.updateDOB(this.dateForm.datepicker);
+      this.profileData.updateDOB(this.dateForm.datepicker);
     }
 
     this.navCtrl.setRoot(HandifyPage);
   }
 
+  updatePic() {
+    this.profileData.updatePhoto("https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/10403542_10207811032208273_8884013213151836092_n.jpg?oh=44c4e880cae45d2c864fadfad7432b81&oe=59926D43");
+  }
 }
