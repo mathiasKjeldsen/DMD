@@ -19,7 +19,9 @@ export class HandifyPage {
       this.userProfile = data.val();
       this.birthDate = this.userProfile.birthDate;
     });
-    }
+  }
+  
+  //test
 
   logOut() {
     this.authData.logoutUser().then(() => {
