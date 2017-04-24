@@ -15,13 +15,11 @@ export class HandifyPage {
   constructor(public navCtrl: NavController, public authData: AuthData, public profileDataA: ProfileData) {
 
     this.profileData = profileDataA;
-
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
       this.birthDate = this.userProfile.birthDate;
     });
-
-  }
+    }
 
   logOut() {
     this.authData.logoutUser().then(() => {
