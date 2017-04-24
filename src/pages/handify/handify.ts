@@ -9,12 +9,10 @@ import { ProfileData } from '../../providers/profile-data';
   templateUrl: 'handify.html'
 })
 export class HandifyPage {
-  public profileData: any;
   public userProfile: any;
   public birthDate: string;
-  constructor(public navCtrl: NavController, public authData: AuthData, public profileDataA: ProfileData) {
+  constructor(public navCtrl: NavController, public authData: AuthData, public profileData: ProfileData) {
 
-    this.profileData = profileDataA;
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
       this.birthDate = this.userProfile.birthDate;

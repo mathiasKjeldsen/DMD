@@ -9,12 +9,9 @@ import { ProfileData } from '../../providers/profile-data';
   templateUrl: 'log-out.html'
 })
 export class LogOutPage {
-public profileData: any;
 public userProfile: any;
   public birthDate: string;
-  constructor(public navCtrl: NavController, public authData: AuthData, public profileDataA: ProfileData) {
-
-this.profileData = profileDataA;
+  constructor(public navCtrl: NavController, public authData: AuthData, public profileData: ProfileData) {
 
   this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();

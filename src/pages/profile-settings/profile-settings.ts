@@ -23,7 +23,7 @@ export class ProfileSettingsPage {
   dateInfo: { datepicker: string } = { datepicker: '' };
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public profileData: ProfileData, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
-    this.profileData = profileData;
+
     this.profileInfoForm = this.formBuilder.group({
       'address': ['', Validators.compose([Validators.minLength(2), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[0-9]*$/)])],
@@ -35,9 +35,9 @@ export class ProfileSettingsPage {
       'datepicker': ['', Validators.compose([Validators.minLength(1), Validators.required])]
     });
 
-    
-    
-
+    this.profileData.getUserProfile().on('value', (data) => {
+      this.userProfile = data.val();
+    });
   }
 
   isValid(field: string) {
