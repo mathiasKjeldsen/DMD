@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AuthData } from '../../providers/auth-data';
 import { HomePage } from '../home/home';
 import { ProfileData } from '../../providers/profile-data';
+import { CalendarPage } from '../calendar/calendar';
 
 @Component({
   selector: 'page-handify',
@@ -18,12 +19,14 @@ export class HandifyPage {
       this.birthDate = this.userProfile.birthDate;
     });
   }
-  
-  //test
 
   logOut() {
     this.authData.logoutUser().then(() => {
       this.navCtrl.setRoot(HomePage);
     });
+  }
+
+  goToCalendar() {
+    this.navCtrl.push(CalendarPage);
   }
 }
