@@ -18,7 +18,6 @@ export class ProfileSettingsPage {
 
   loading: any;
 
-  //Forstår slet ikke hvad det her bruges til, eller hvor det bruges. Kan slet ikke genkende det o.o
   profileInfoInfo: { address: string, zip: string, city: string, country: string } = { address: '', zip: '', city: '', country: '', };
   dateInfo: { datepicker: string } = { datepicker: '' };
 
@@ -35,9 +34,9 @@ export class ProfileSettingsPage {
       'datepicker': ['', Validators.compose([Validators.minLength(1), Validators.required])]
     });
 
-    this.profileData.getUserProfile().on('value', (data) => {
-      this.userProfile = data.val();
-    });
+   this.profileData.getUserProfile().on('value', (data) => {
+     this.userProfile = data.val();
+   });
   }
 
   isValid(field: string) {
@@ -56,11 +55,11 @@ export class ProfileSettingsPage {
 
   updateProfile() {
     console.log(this.profileInfoForm);
-    console.log(this.profileInfoForm.city)
-    console.log(this.profileInfoForm.address)
-    console.log(this.profileInfoForm.zip)
-    console.log(this.profileInfoForm.country)
-    console.log(this.dateForm.datepicker)
+    console.log(this.profileInfoForm.city);
+    console.log(this.profileInfoForm.address);
+    console.log(this.profileInfoForm.zip);
+    console.log(this.profileInfoForm.country);
+    console.log(this.dateForm.datepicker);
 
     if (this.profileInfoForm.controls.city.dirty) {
       this.profileData.updateCity(this.profileInfoForm.city);
@@ -83,6 +82,8 @@ export class ProfileSettingsPage {
 
     this.navCtrl.setRoot(HandifyPage);
   }
+
+  
 
   updatePic() {
     this.profileData.updatePhoto("https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/10403542_10207811032208273_8884013213151836092_n.jpg?oh=44c4e880cae45d2c864fadfad7432b81&oe=59926D43");
