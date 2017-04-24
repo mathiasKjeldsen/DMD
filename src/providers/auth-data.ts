@@ -22,7 +22,6 @@ signupUser(email: string, password: string, fullName : string): firebase.Promise
       this.userProfile.child(newUser.uid).set({email: email, fullName: fullName, profilePhoto: "assets/img/placeholder.jpg" });
     });
 }
-//hello
 resetPassword(email: string): firebase.Promise<any> {
   return this.fireAuth.sendPasswordResetEmail(email);
 }
