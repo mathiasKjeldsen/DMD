@@ -16,12 +16,7 @@ export class HandifyPage {
 
     this.profileData = profileDataA;
 
-    this.profileData.getUserProfile().on('value', (data) => {
-      this.userProfile = data.val();
-      this.birthDate = this.userProfile.birthDate;
-    });
-
-  }
+    }
 
   logOut() {
     this.authData.logoutUser().then(() => {
