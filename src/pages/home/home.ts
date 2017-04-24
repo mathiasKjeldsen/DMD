@@ -15,11 +15,12 @@ import firebase from 'firebase';
 export class HomePage {
   public loginForm;
   loading: any;
+  
   loginInfo: { email: string, password: string } = { email: '', password: '' };
 
   testText: string;
 
-  userProfile: any = null;
+  userProfile: any;
 
   constructor(public authData: AuthData, public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController,
     public alertCtrl: AlertController, public loadingCtrl: LoadingController, private facebook: Facebook) {
@@ -108,6 +109,7 @@ export class HomePage {
 
     
   }
+
 
 
 }

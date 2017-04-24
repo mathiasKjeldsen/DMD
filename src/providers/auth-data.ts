@@ -8,27 +8,28 @@ export class AuthData {
   public userProfile: any;
 
   constructor() {
-  this.fireAuth = firebase.auth();
-  this.userProfile = firebase.database().ref('/userProfile');
-}
+    this.fireAuth = firebase.auth();
+    this.userProfile = firebase.database().ref('/userProfile');
+  }
 
-loginUser(email: string, password: string): firebase.Promise<any> {
-  return this.fireAuth.signInWithEmailAndPassword(email, password);
-}
+  loginUser(email: string, password: string): firebase.Promise<any> {
+    return this.fireAuth.signInWithEmailAndPassword(email, password);
+  }
 
-signupUser(email: string, password: string, fullName : string): firebase.Promise<any> {
-  return this.fireAuth.createUserWithEmailAndPassword(email, password)
-    .then((newUser) => {
-      this.userProfile.child(newUser.uid).set({email: email, fullName: fullName, profilePhoto: "assets/img/placeholder.jpg" });
-    });
-}
-resetPassword(email: string): firebase.Promise<any> {
-  return this.fireAuth.sendPasswordResetEmail(email);
-}
+  signupUser(email: string, password: string, fullName: string): firebase.Promise<any> {
+    return this.fireAuth.createUserWithEmailAndPassword(email, password)
+      .then((newUser) => {
+        this.userProfile.child(newUser.uid).set({ email: email, fullName: fullName, profilePhoto: "assets/img/placeholder.jpg" });
+      });
+  }
+  
+  resetPassword(email: string): firebase.Promise<any> {
+    return this.fireAuth.sendPasswordResetEmail(email);
+  }
 
-logoutUser(): firebase.Promise<any> {
-  return this.fireAuth.signOut();
-}
+  logoutUser(): firebase.Promise<any> {
+    return this.fireAuth.signOut();
+  }
 
 
 

@@ -14,10 +14,11 @@ export class ProfileData {
   updatePhoto(photoURL: string): firebase.Promise<any> {
     return this.userProfile.child(this.currentUser.uid).update({
       profilePhoto: photoURL,
-      });
+    });
   }
 
   getUserProfile(): firebase.database.Reference {
+    this.currentUser = firebase.auth().currentUser;
     return this.userProfile.child(this.currentUser.uid);
   }
 
