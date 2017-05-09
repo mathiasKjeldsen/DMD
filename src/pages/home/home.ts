@@ -103,6 +103,7 @@ export class HomePage {
         })
         .catch((error) => {
           console.log("Firebase failure: " + JSON.stringify(error));
+          alert("Firebase failure: " + JSON.stringify(error));
         });
 
     }).catch((error) => { console.log(error) });
