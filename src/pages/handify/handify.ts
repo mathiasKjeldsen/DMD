@@ -40,22 +40,8 @@ export class HandifyPage {
   }
 
   openPage(page) {
-    this.navCtrl.setRoot(page.component);
+    this.navCtrl.push(page.component);
   }
-  goToLogOut() {
-    this.navCtrl.setRoot(LogOutPage);
-  }
-
-  goToCalendar() {
-    this.navCtrl.setRoot(CalendarPage);
-  }
-
-  goToProfile() {
-    this.navCtrl.setRoot(ProfilePage);
-  }
-  goToSettings() {
-    this.navCtrl.push(ProfileSettingsPage);
-  }
-
+ 
 
 }
