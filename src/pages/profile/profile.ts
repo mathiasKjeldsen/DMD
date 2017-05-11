@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { ProfileData } from '../../providers/profile-data';
 import { AuthData } from '../../providers/auth-data';
 import { FormBuilder } from '@angular/forms';
-import { ProfileSettingsPage } from '../profile-settings/profile-settings';
+import { ProfileSettingsTwoPage } from '../profile-settings-two/profile-settings-two';
 
 @Component({
   selector: 'page-profile',
@@ -13,7 +13,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public profileDataA: ProfileData,
     public authData: AuthData, public alertCtrl: AlertController, public formBuilder: FormBuilder) {
   }
-  goToProfileSettings() {
-    this.navCtrl.push(ProfileSettingsPage);
+  goToProfileSettingsTwo() {
+    this.navCtrl.push(ProfileSettingsTwoPage);
   }
 }

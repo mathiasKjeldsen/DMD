@@ -9,22 +9,12 @@
 
 <ion-content padding>
 
-  <button ion-button block (click)="goToProfileSettings()">Edit profile</button>
-
-  <br>First name: {{userProfile?.fullName}}
-  <br>Last name: {{userProfile?.lastName}}
-  <br>Country: {{userProfile?.country}}
-  <br>Address: {{userProfile?.address}}
-  <br>Zip: {{userProfile?.zip}}
-  <br>Birth date: {{userProfile?.birthDate}}
-  <br>City: {{userProfile?.city}}
-
-  <br>
-  <br>
   <br><u>Problem: Felter kan lades være tomme.</u> <br>
   <br>Hvis vi giver den <strong>Validators.minLength(1)</strong>, virker felterne ikke før der er skrevet noget <br>
   <br>Hvis vi skriver <strong>Validators.required</strong>, er det samme problem <br>
   <br>Uden de to validators, kan felterne lades være tomme (den virker stadig, fx tal not allowed) <br>
   <br>Date bliver ikke validated(men det er vel ikke et problem?)<br>
+
+    <button ion-button block (click)="goToProfileSettingsTwo()">Edit profile</button>
 
 </ion-content>

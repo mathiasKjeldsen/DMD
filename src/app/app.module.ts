@@ -12,6 +12,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
 import { LogOutPage } from '../pages/log-out/log-out';
 import { ProfileSettingsPage } from '../pages/profile-settings/profile-settings';
+import { ProfileSettingsTwoPage } from '../pages/profile-settings-two/profile-settings-two';
 import { CalendarPage } from '../pages/calendar/calendar';
 
 import { AuthData } from '../providers/auth-data';
@@ -28,7 +29,9 @@ import { Facebook } from '@ionic-native/facebook';
     ProfilePage,
     LogOutPage,
     ProfileSettingsPage,
-    CalendarPage
+    ProfileSettingsTwoPage,
+    CalendarPage,
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { Facebook } from '@ionic-native/facebook';
     ProfilePage,
     LogOutPage,
     ProfileSettingsPage,
-    CalendarPage
+    ProfileSettingsTwoPage,
+    CalendarPage,
   ],
   providers: [
     StatusBar,
