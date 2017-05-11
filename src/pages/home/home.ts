@@ -81,4 +81,8 @@ export class HomePage {
    alert("Facebook is not implemented yet.");
   }
 
+  lostPasswordNav() {
+    this.navCtrl.push(ResetPasswordPage);
+  }
+
 }
