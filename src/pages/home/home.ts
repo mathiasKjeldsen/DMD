@@ -7,6 +7,7 @@ import { AuthData } from '../../providers/auth-data';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { Facebook } from '@ionic-native/facebook'
 import firebase from 'firebase';
+import { ProfileSettingsPage } from '../profile-settings/profile-settings';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ import firebase from 'firebase';
 export class HomePage {
   public loginForm;
   loading: any;
-  
+
   loginInfo: { email: string, password: string } = { email: '', password: '' };
 
   testText: string;
@@ -79,13 +80,13 @@ export class HomePage {
     }
   }
 
-// Facebook login virker. Den signer en in, og så stopper det der. Vi mangler følgende:
-// Vi skal finde ud af om man signer op eller man logger ind. For at tjekke det burde vi kunne tage "if facebook mail = mail in our system, just sign in"
-// Hvis facebook mail = not mail in our system, skal vi videre til additionalinfopage. Idéen er at den allerede skal være udfyldt for en med ens facebook stuff, men man kan ændre det hvis man vil.
-// Vi skal gemme det hele i firebase manuelt, for det gør den ikke af sig selv. Tjek hvordan min far gør det?  
+  // Facebook login virker. Den signer en in, og så stopper det der. Vi mangler følgende:
+  // Vi skal finde ud af om man signer op eller man logger ind. For at tjekke det burde vi kunne tage "if facebook mail = mail in our system, just sign in"
+  // Hvis facebook mail = not mail in our system, skal vi videre til additionalinfopage. Idéen er at den allerede skal være udfyldt for en med ens facebook stuff, men man kan ændre det hvis man vil.
+  // Vi skal gemme det hele i firebase manuelt, for det gør den ikke af sig selv. Tjek hvordan min far gør det?  
 
-// Jeg tror det er vigtigt at differentiere mellem sign up og sign in. Eventuelt bare tjekke om mailen allerede er i systemet, og hvis den ikke er kører vi sign up koden fra ovenfor med facebook?
-// Så hvis man ikke har en Handify user, får man automatisk en, og bruger facebook til at logge ind på den. Man er ikke bare direkte logget ind på facebook.
+  // Jeg tror det er vigtigt at differentiere mellem sign up og sign in. Eventuelt bare tjekke om mailen allerede er i systemet, og hvis den ikke er kører vi sign up koden fra ovenfor med facebook?
+  // Så hvis man ikke har en Handify user, får man automatisk en, og bruger facebook til at logge ind på den. Man er ikke bare direkte logget ind på facebook.
 
   facebookLogin(): void {
     this.facebook.login(['email', 'public_profile']).then((response) => {
@@ -94,28 +95,37 @@ export class HomePage {
 
       firebase.auth().signInWithCredential(facebookCredential)
         .then((currentUser) => {
-          //alert("Firebase success: " + JSON.stringify(currentUser));
-          this.testText = currentUser.auth.providerData[0].email;
-          alert(this.testText);
-          //alert(currentUser.auth.providerData[0].email);
-          this.userProfile = currentUser;
-//        this.navCtrl.setRoot(HandifyPage);
 
-//if (userProfile.email == currentUser.email) {
-// log into that account?
-//} else {
-// run the whole sign up code from sign-up.ts  
-//}
+          this.userProfile = currentUser;
+          //creates an account with asd@asd.asd as email/username, newpass33 as password and bjorn skalkam as full name
+          //this.authData.signupUser(this.userProfile.email,"newpass33", this.userProfile.displayName)
+          this.authData.signupUser("asd@asd.asd","newpass33","bjorn skalkam")
+        .then((newUser) => {
+          this.loading.dismiss().then(() => {
+            this.navCtrl.push(ProfileSettingsPage); 
+          });
+        }, (error) => {
+          this.loading.dismiss().then(() => {
+            let alert = this.alertCtrl.create({
+              message: error.message,
+              buttons: [
+                {
+                  text: "Ok",
+                  role: 'cancel'
+                }
+              ]
+            });
+            alert.present();
+          });
+        });
+      this.loading = this.loadingCtrl.create();
+      this.loading.present();
+          console.log("Firebase success: " + JSON.stringify(currentUser));
         })
         .catch((error) => {
           console.log("Firebase failure: " + JSON.stringify(error));
-          //alert("Firebase failure: " + JSON.stringify(error));
         });
 
     }).catch((error) => { console.log(error) });
   }
-
-
-
 }
-
