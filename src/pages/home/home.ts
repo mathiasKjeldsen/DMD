@@ -118,4 +118,3 @@ export class HomePage {
 
 
 }
-Chat afsluttet
