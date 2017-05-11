@@ -16,6 +16,7 @@ import { ProfileSettingsTwoPage } from '../pages/profile-settings-two/profile-se
 import { CalendarPage } from '../pages/calendar/calendar';
 import { LinkHelpersPage } from '../pages/link-helpers/link-helpers';
 import { ManageHelpersPage } from '../pages/manage-helpers/manage-helpers';
+import { SettingsPage } from '../pages/settings/settings';
 
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
@@ -34,8 +35,8 @@ import { Facebook } from '@ionic-native/facebook';
     ProfileSettingsTwoPage,
     CalendarPage,
     LinkHelpersPage,
-    ManageHelpersPage
-
+    ManageHelpersPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,8 @@ import { Facebook } from '@ionic-native/facebook';
     ProfileSettingsTwoPage,
     CalendarPage,
     LinkHelpersPage,
-    ManageHelpersPage
+    ManageHelpersPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,
