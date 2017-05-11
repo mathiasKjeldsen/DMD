@@ -1,6 +1,6 @@
-<ion-content padding class="signUpBg">
+<ion-content padding class="handifyBg">
 
-
+<ion-row class="rowSpace10">&nbsp;</ion-row>
   <button mode="ios" ion-button class="backButton" (click)="backToPreviousPage()"><img src="./assets/img/back.png" class="signUpBackButton">
     </button>
 
@@ -14,6 +14,31 @@
     </ion-row>
     <ion-row class="rowSpace10">&nbsp;</ion-row>
 
+    <ion-row *ngIf="!clickedAny">
+      <ion-col col-2></ion-col>
+      <ion-col col-9><button ion-button outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+      <ion-col col-2></ion-col>
+      <ion-col col-9><button ion-button outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="clickedAny && !coordinator">
+      <ion-col col-2></ion-col>
+      <ion-col col-9><button ion-button block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+      <ion-col col-2></ion-col>
+      <ion-col col-9><button ion-button outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="clickedAny && coordinator">
+      <ion-col col-2></ion-col>
+      <ion-col col-9><button ion-button outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+      <ion-col col-2></ion-col>
+      <ion-col col-9><button ion-button block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+
+    <ion-row class="rowSpace10">&nbsp;</ion-row>
 
     <form [formGroup]="signupForm" (submit)="signUpUser()">
       <ion-list no-lines mode="ios">
@@ -98,35 +123,6 @@
           </ion-col>
           <ion-col col-2>
           </ion-col>
-        </ion-row>
-
-        <ion-row class="rowSpace23">&nbsp;</ion-row>
-
-        <ion-row>
-          <ion-col text-center style="color:white">
-            Signing up as helper or coordinator?
-          </ion-col>
-        </ion-row>
-
-        <ion-row *ngIf="!clickedAny">
-          <ion-col col-2></ion-col>
-          <ion-col col-10><button ion-button outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
-          <ion-col col-10><button ion-button outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
-          <ion-col col-2></ion-col>
-        </ion-row>
-
-        <ion-row *ngIf="clickedAny && !coordinator">
-          <ion-col col-2></ion-col>
-          <ion-col col-10><button ion-button block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
-          <ion-col col-10><button ion-button outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
-          <ion-col col-2></ion-col>
-        </ion-row>
-
-        <ion-row *ngIf="clickedAny && coordinator">
-          <ion-col col-2></ion-col>
-          <ion-col col-10><button ion-button outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
-          <ion-col col-10><button ion-button block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
-          <ion-col col-2></ion-col>
         </ion-row>
 
         <ion-row class="rowSpace10">&nbsp;</ion-row>

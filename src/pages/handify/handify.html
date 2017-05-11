@@ -1,25 +1,45 @@
 <ion-content padding class="handifyBg">
 
   <ion-grid text-center>
-      <ion-row>
+    <ion-row>
       <ion-col col-24><img src="{{userProfile?.profilePhoto}}" class="handifyProfilePhoto"></ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-24>
-      <p class="handifyText">{{userProfile?.fullName}}</p>
- 
-     <p class="handifyText3"> HANDIFY™</p>
- 
+        <p class="handifyText">{{userProfile?.fullName}}</p>
+
+        <p class="handifyText3"> HANDIFY™</p>
+
       </ion-col>
     </ion-row>
 
+    <!--
+      <ion-row>
+      <ion-col *ngIf="userProfile?.userIsCoordinator">Hi Coordinator!</ion-col>
+      <ion-col *ngIf="!userProfile?.userIsCoordinator">Hi Helper!</ion-col>
+    </ion-row>
+    -->
 
-    <ion-list mode="ios" no-lines>
-      <ion-row *ngFor="let p of pages">
+    <ion-list mode="ios" no-lines *ngIf="!userProfile?.userIsCoordinator">
+      <ion-row *ngFor="let p of helperPages">
         <ion-col col-2>
         </ion-col>
         <ion-col col-20>
-          <button  [style.background-color]="p.color" detail-none menuClose mode="ios" ion-item (click)="openPage(p)" class="handifyList">
+          <button [style.background-color]="p.color" detail-none menuClose mode="ios" ion-item (click)="openPage(p)" class="handifyList">
+                       <ion-icon name="{{p.icon}}"></ion-icon>  &nbsp;  {{p.title}}
+                  </button>
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+      <ion-list mode="ios" no-lines *ngIf="userProfile?.userIsCoordinator">
+      <ion-row *ngFor="let p of coordinatorPages">
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-20>
+          <button [style.background-color]="p.color" detail-none menuClose mode="ios" ion-item (click)="openPage(p)" class="handifyList">
                        <ion-icon name="{{p.icon}}"></ion-icon>  &nbsp;  {{p.title}}
                   </button>
         </ion-col>
