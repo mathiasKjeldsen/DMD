@@ -18,6 +18,9 @@ export class SignUpPage {
   public signupForm;
   loading: any;
 
+  clickedAny: boolean = false;
+  coordinator: boolean = false;
+
   userInfo: { fullName: string, email: string, password: string, confirm: string } = { fullName: '', email: '', password: '', confirm: '' };
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public authData: AuthData, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public profileData: ProfileData) {
@@ -60,7 +63,7 @@ export class SignUpPage {
       this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.fullName)
         .then((newUser) => {
           this.loading.dismiss().then(() => {
-            this.navCtrl.push(ProfileSettingsPage); 
+            this.navCtrl.push(ProfileSettingsPage);
           });
         }, (error) => {
           this.loading.dismiss().then(() => {
@@ -79,5 +82,15 @@ export class SignUpPage {
       this.loading = this.loadingCtrl.create();
       this.loading.present();
     }
+  }
+
+  chooseHelper() {
+    this.clickedAny = true;
+    this.coordinator = false;
+  }
+
+  chooseCoordinator() {
+    this.clickedAny = true;
+    this.coordinator = true;
   }
 }

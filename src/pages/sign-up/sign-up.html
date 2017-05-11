@@ -8,11 +8,11 @@
     <ion-row>
       <ion-col col-24><img src="assets/img/logo.png" class="HomePageLogo"></ion-col>
     </ion-row>
-    <ion-row class="rowSpace50">&nbsp;</ion-row>
+    <ion-row class="rowSpace33">&nbsp;</ion-row>
     <ion-row>
       <ion-col style="color:white">Sign up to Handify™</ion-col>
     </ion-row>
-    <ion-row class="rowSpace33">&nbsp;</ion-row>
+    <ion-row class="rowSpace10">&nbsp;</ion-row>
 
 
     <form [formGroup]="signupForm" (submit)="signUpUser()">
@@ -98,6 +98,35 @@
           </ion-col>
           <ion-col col-2>
           </ion-col>
+        </ion-row>
+
+        <ion-row class="rowSpace23">&nbsp;</ion-row>
+
+        <ion-row>
+          <ion-col text-center style="color:white">
+            Signing up as helper or coordinator?
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="!clickedAny">
+          <ion-col col-2></ion-col>
+          <ion-col col-10><button ion-button outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+          <ion-col col-10><button ion-button outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="clickedAny && !coordinator">
+          <ion-col col-2></ion-col>
+          <ion-col col-10><button ion-button block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+          <ion-col col-10><button ion-button outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="clickedAny && coordinator">
+          <ion-col col-2></ion-col>
+          <ion-col col-10><button ion-button outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+          <ion-col col-10><button ion-button block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+          <ion-col col-2></ion-col>
         </ion-row>
 
         <ion-row class="rowSpace10">&nbsp;</ion-row>
