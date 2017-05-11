@@ -60,7 +60,7 @@ export class SignUpPage {
     if (!this.signupForm.valid) {
       console.log(this.signupForm.value);
     } else {
-      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.fullName)
+      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.fullName, this.coordinator)
         .then((newUser) => {
           this.loading.dismiss().then(() => {
             this.navCtrl.push(ProfileSettingsPage);

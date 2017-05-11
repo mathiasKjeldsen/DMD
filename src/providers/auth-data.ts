@@ -16,10 +16,10 @@ export class AuthData {
     return this.fireAuth.signInWithEmailAndPassword(email, password);
   }
 
-  signupUser(email: string, password: string, fullName: string): firebase.Promise<any> {
+  signupUser(email: string, password: string, fullName: string, coordinator: boolean): firebase.Promise<any> {
     return this.fireAuth.createUserWithEmailAndPassword(email, password)
       .then((newUser) => {
-        this.userProfile.child(newUser.uid).set({ email: email, fullName: fullName, profilePhoto: "assets/img/placeholder.jpg" });
+        this.userProfile.child(newUser.uid).set({ email: email, fullName: fullName, coordinator: coordinator, profilePhoto: "assets/img/placeholder.jpg" });
       });
   }
   
