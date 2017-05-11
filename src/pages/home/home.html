@@ -83,15 +83,30 @@
     </ion-list>
   </ion-grid>
 
-  <ion-card *ngIf="userProfile">
-  <img [src]="userProfile.photoURL"/>
-  <ion-card-content>
-    <ion-card-title>
-      {{userProfile.displayName}}
-    </ion-card-title>
-    <p>
-      The UID for this new user is {{userProfile.uid}} and the email is {{userProfile.email}}
-    </p>
-  </ion-card-content>
-</ion-card>
+   <ion-card *ngIf="userProfile">
+
+     <!-- facebook ting fra mit billede
+photoURL
+displayName
+uid
+email
+     -->
+
+    <img [src]="userProfile.photoURL"/>
+
+    <ion-card-content>
+
+      <ion-card-title>
+        {{ userProfile.displayName }}
+      </ion-card-title>
+
+
+      <p>
+        The UID for this new user is {{userProfile.uid}} and the email is {{userProfile.email}}
+      </p>
+
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

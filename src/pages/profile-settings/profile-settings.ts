@@ -83,8 +83,6 @@ export class ProfileSettingsPage {
     this.navCtrl.setRoot(HandifyPage);
   }
 
-
-
   updatePic() {
     this.profileData.updatePhoto("https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/10403542_10207811032208273_8884013213151836092_n.jpg?oh=44c4e880cae45d2c864fadfad7432b81&oe=59926D43");
   }

@@ -94,21 +94,25 @@ export class HomePage {
 
       firebase.auth().signInWithCredential(facebookCredential)
         .then((currentUser) => {
-          alert("Firebase success: " + JSON.stringify(currentUser));
+          //alert("Firebase success: " + JSON.stringify(currentUser));
           this.testText = currentUser.auth.providerData[0].email;
           alert(this.testText);
           //alert(currentUser.auth.providerData[0].email);
           this.userProfile = currentUser;
 //        this.navCtrl.setRoot(HandifyPage);
+
+//if (userProfile.email == currentUser.email) {
+// log into that account?
+//} else {
+// run the whole sign up code from sign-up.ts  
+//}
         })
         .catch((error) => {
           console.log("Firebase failure: " + JSON.stringify(error));
-          alert("Firebase failure: " + JSON.stringify(error));
+          //alert("Firebase failure: " + JSON.stringify(error));
         });
 
     }).catch((error) => { console.log(error) });
-
-    
   }
 
 
