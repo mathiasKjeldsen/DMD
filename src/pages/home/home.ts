@@ -5,8 +5,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { NavController, MenuController, LoadingController, AlertController } from 'ionic-angular';
 import { AuthData } from '../../providers/auth-data';
 import { ResetPasswordPage } from '../reset-password/reset-password';
-import { Facebook } from '@ionic-native/facebook'
-import firebase from 'firebase';
 
 @Component({
   selector: 'page-home',
@@ -23,7 +21,7 @@ export class HomePage {
   userProfile: any;
 
   constructor(public authData: AuthData, public navCtrl: NavController, public formBuilder: FormBuilder, public menuCtrl: MenuController,
-    public alertCtrl: AlertController, public loadingCtrl: LoadingController, private facebook: Facebook) {
+    public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
 
     this.loginForm = this.formBuilder.group({
 
@@ -77,6 +75,10 @@ export class HomePage {
       this.loading = this.loadingCtrl.create();
       this.loading.present();
     }
+  }
+
+  facebookLogin() {
+   alert("Facebook is not implemented yet.");
   }
 
 }
