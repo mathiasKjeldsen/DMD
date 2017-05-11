@@ -32,85 +32,88 @@
     <ion-row class="rowSpace25">&nbsp;</ion-row>
 
     <ion-list no-lines mode="ios">
-<form [formGroup]="profileInfoForm" (submit)="updateProfile()">
+      <form [formGroup]="profileInfoForm" (submit)="updateProfile()">
 
 
-      <form [formGroup]="dateForm">
+        <form [formGroup]="dateForm">
+          <ion-row>
+            <ion-col col-2></ion-col>
+            <ion-col col-20>
+              <ion-item mode="ios" class="signUpTransparent">
+                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
+              <h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText">date of birth</h6></button>
+
+                <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="dateForm.datepicker"
+                  formControlName="datepicker"></ion-datetime>
+              </ion-item>
+              <!--
+            <p *ngIf="!isValid('birthDate') && profileInfoForm.controls.birthDate.touched" class="signUpInValid">Invalid date of birth</p>-->
+            </ion-col>
+            <ion-col col-2></ion-col>
+          </ion-row>
+        </form>
+        <ion-row>&nbsp;</ion-row>
+
         <ion-row>
           <ion-col col-2></ion-col>
           <ion-col col-20>
             <ion-item mode="ios" class="signUpTransparent">
-              <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
-              <h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText">date of birth</h6></button>
-              
-              <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="dateForm.datepicker"
-                formControlName="datepicker"></ion-datetime>
+              <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
+              <ion-input mode="ios" placeholder="Address" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.address" formControlName="address"
+                #address></ion-input>
             </ion-item>
-            <!--
-            <p *ngIf="!isValid('birthDate') && profileInfoForm.controls.birthDate.touched" class="signUpInValid">Invalid date of birth</p>-->
+            <p *ngIf="!isValid('address') && profileInfoForm.controls.address.touched" class="signUpInValid">Minimum 2 characters</p>
           </ion-col>
           <ion-col col-2></ion-col>
         </ion-row>
+
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-10>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
+              <ion-input mode="ios" placeholder="Zip" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.zip" formControlName="zip"
+                #zip></ion-input>
+            </ion-item>
+            <p *ngIf="!isValid('zip') && profileInfoForm.controls.zip.touched" class="signUpInValid">Invalid zip</p>
+          </ion-col>
+
+          <ion-col col-10>
+            <ion-item mode="ios" class="signUpTransparent">
+              <ion-input mode="ios" placeholder="City" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.city" formControlName="city"
+                #city></ion-input>
+            </ion-item>
+            <p *ngIf="!isValid('city') && profileInfoForm.controls.city.touched" class="signUpInValid">Invalid city</p>
+          </ion-col>
+
+          <ion-col col-2></ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-20>
+            <ion-item mode="ios" class="signUpTransparent">
+              <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
+              <ion-input mode="ios" placeholder="Country" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.country" formControlName="country"
+                #country></ion-input>
+            </ion-item>
+            <p *ngIf="!isValid('country') && profileInfoForm.controls.country.touched" class="signUpInValid">Invalid country</p>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+
+        <ion-row class="rowSpace10">&nbsp;</ion-row>
+
+        <ion-row>
+          <ion-col col-6>
+          </ion-col>
+          <ion-col col-12>
+            <button ion-button mode="wp" block color="secondary" type="submit">Update profile info</button>
+          </ion-col>
+          <ion-col col-6>
+          </ion-col>
+        </ion-row>
       </form>
-      <ion-row>&nbsp;</ion-row>
-
-      <ion-row>
-        <ion-col col-2></ion-col>
-        <ion-col col-20>
-          <ion-item mode="ios" class="signUpTransparent">
-            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
-            <ion-input mode="ios" placeholder="Address" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.address" formControlName="address" #address></ion-input>
-          </ion-item>
-          <p *ngIf="!isValid('address') && profileInfoForm.controls.address.touched" class="signUpInValid">Minimum 2 characters</p>
-        </ion-col>
-        <ion-col col-2></ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col col-2></ion-col>
-        <ion-col col-10>
-          <ion-item mode="ios" class="signUpTransparent">
-            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
-            <ion-input mode="ios" placeholder="Zip" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.zip" formControlName="zip" #zip></ion-input>
-          </ion-item>
-          <p *ngIf="!isValid('zip') && profileInfoForm.controls.zip.touched" class="signUpInValid">Invalid zip</p>
-        </ion-col>
-
-        <ion-col col-10>
-          <ion-item mode="ios" class="signUpTransparent">
-            <ion-input mode="ios" placeholder="City" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.city" formControlName="city" #city></ion-input>
-          </ion-item>
-          <p *ngIf="!isValid('city') && profileInfoForm.controls.city.touched" class="signUpInValid">Invalid city</p>
-        </ion-col>
-
-        <ion-col col-2></ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col col-2></ion-col>
-        <ion-col col-20>
-          <ion-item mode="ios" class="signUpTransparent">
-            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
-            <ion-input mode="ios" placeholder="Country" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.country" formControlName="country" #country></ion-input>
-          </ion-item>
-          <p *ngIf="!isValid('country') && profileInfoForm.controls.country.touched" class="signUpInValid">Invalid country</p>
-        </ion-col>
-        <ion-col col-2></ion-col>
-      </ion-row>
-
-      <ion-row class="rowSpace10">&nbsp;</ion-row>
-
-      <ion-row>
-        <ion-col col-6>
-        </ion-col>
-        <ion-col col-12>
-          <button ion-button mode="wp" block color="secondary" type="submit">Update profile info</button>
-        </ion-col>
-        <ion-col col-6>
-        </ion-col>
-      </ion-row>
-</form>
     </ion-list>
-
   </ion-grid>
 </ion-content>
