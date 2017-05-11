@@ -1,28 +1,33 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-<img src="assets/img/menu_button.png" class="menuButton">     
-   </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content padding class="handifyBg">
 
-
-<ion-content padding>
   <ion-grid text-center>
+      <ion-row>
+      <ion-col col-24><img src="{{userProfile?.profilePhoto}}" class="handifyProfilePhoto"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-24>
+      <p class="handifyText">{{userProfile?.fullName}}</p>
+ 
+     <p class="handifyText3"> HANDIFY™</p>
+ 
+      </ion-col>
+    </ion-row>
 
-    <button ion-button (click)="logOut()">Log out</button>
-    <button ion-button (click)="goToCalendar()">calendar</button>
 
-    <br>INFO:
+    <ion-list mode="ios" no-lines>
+      <ion-row *ngFor="let p of pages">
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-20>
+          <button  [style.background-color]="p.color" detail-none menuClose mode="ios" ion-item (click)="openPage(p)" class="handifyList">
+                       <ion-icon name="{{p.icon}}"></ion-icon>  &nbsp;  {{p.title}}
+                  </button>
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+      </ion-row>
 
-    <br>Name: {{userProfile?.fullName}}
-    <br>Country: {{userProfile?.country}}
-    <br>Address: {{userProfile?.address}}
-    <br>Zip: {{userProfile?.zip}}
-    <br>Birth date: {{userProfile?.birthDate}}
-    <br>City: {{userProfile?.city}}
-    <img src="{{userProfile?.profilePhoto}}">
-    
+    </ion-list>
+
   </ion-grid>
 </ion-content>
