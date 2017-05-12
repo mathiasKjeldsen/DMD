@@ -9,8 +9,13 @@
       <button ion-button>Add new helper</button>
     </ion-row>
     <ion-row>
-      list of helpers <br>test button:<br>
-      <button ion-button (click)="testButton()">asd</button>
+      <br>test button:<br>
+      <button ion-button (click)="testButton()">test1</button>
+      <button ion-button (click)="testButtonTwo()">test2</button>
+      <button ion-button (click)="testButtonThree()">test3</button>
+    </ion-row>
+    <ion-row>
+      list of helpers that are connected to {{userProfile?.userId}}
     </ion-row>
   </ion-grid>
 

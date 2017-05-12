@@ -71,15 +71,30 @@ export class ProfileData {
     });
   }
 
-//console.logger alle userprofiles som har en city der er equal to asd.
-listProfiles() {
- return firebase.database().ref('/userProfile').orderByChild('city').equalTo("asd").once('value', snapshot => {
-        snapshot.forEach(childSnapshot => {
-          console.log(childSnapshot.val());
-          return false;
-        });
+  //console.logger alle userprofiles som har en city der er equal to asd.
+  listProfiles() {
+    return firebase.database().ref('/userProfile').orderByChild('city').equalTo("asd").once('value', snapshot => {
+      snapshot.forEach(childSnapshot => {
+        console.log(childSnapshot.val());
+        return false;
       });
-}
+    });
+  }
+
+  helperTestConnectedTo(coordinatorUid: string, helperUid: string) {
+    return firebase.database().ref('/userProfile').child(helperUid).update({ 'connectedToUser': coordinatorUid });
+  }
+
+  findUidByEmail(emailInput: string, coordinatorUid) {
+    var self = this;
+    return firebase.database().ref('/userProfile').orderByChild('email').equalTo(emailInput).once('value').then(function (snapshot) {
+      snapshot.forEach(childSnapshot => {
+        var user = childSnapshot.val();
+        console.log(user.userId);
+        return self.helperTestConnectedTo(coordinatorUid, user.userId); 
+      });
+    });
+  }
 
   updateEmail(newEmail: string, password: string): firebase.Promise<any> {
     const credential = firebase.auth.EmailAuthProvider

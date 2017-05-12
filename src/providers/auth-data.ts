@@ -19,7 +19,7 @@ export class AuthData {
   signupUser(email: string, password: string, fullName: string, coordinator: boolean): firebase.Promise<any> {
     return this.fireAuth.createUserWithEmailAndPassword(email, password)
       .then((newUser) => {
-        this.userProfile.child(newUser.uid).set({ email: email, fullName: fullName, userIsCoordinator: coordinator, profilePhoto: "assets/img/placeholder.jpg" });
+        this.userProfile.child(newUser.uid).set({ email: email, fullName: fullName, userIsCoordinator: coordinator, profilePhoto: "assets/img/placeholder.jpg", userId: newUser.uid });
       });
   }
   
