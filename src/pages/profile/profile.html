@@ -3,89 +3,75 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding class="handifyBg">
   <ion-grid text-center>
 
 
 
-
     <ion-row>
-      <ion-col col-12>
-        <p class="profileInfo">{{userProfile?.fullName}}</p>
-        <p class="profileInfo">{{userProfile?.address}}</p>
-        <p class="profileInfo">{{userProfile?.city}}</p>
-        <p class="profileInfo">{{userProfile?.country}}</p>
+      <ion-col col-10>
+        <p style="color: white; text-align: left;line-height: 0.2px;">{{userProfile?.fullName}}</p>
+        <p style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
+
       </ion-col>
-      <ion-col col-12>
-        <p class="profileInfo2">{{userProfile?.fullName}}</p>
-        <p class="profileInfo2">{{userProfile?.address}}</p>
-        <p class="profileInfo2">{{userProfile?.city}}</p>
-        <p class="profileInfo2">{{userProfile?.country}}</p>
+      <ion-col col-14>
       </ion-col>
     </ion-row>
 
+
+
+
     <div class="whiteContainer">
-
       <ion-row>
-        <ion-col col-6>
+        <ion-col col-10>
         </ion-col>
-        <ion-col col-12>
+        <ion-col col-14>
           <img src="{{userProfile?.profilePhoto}}" class="profilePhoto">
-        </ion-col>
-        <ion-col col-6>
+          <button ion-button block class="editButton"(click)="goToProfileSettingsTwo()">Edit picture</button>
         </ion-col>
       </ion-row>
 
-
-      <ion-row class="rowSpace100">&nbsp;</ion-row>
-      test i dont like
-      &nbsp;
-      <ion-row>
-        <ion-col col-2>
+      <ion-row class="profileMargin">
+        <ion-col col-1>
+        </ion-col>
+        <ion-col col-11 class="profileInfo">
+          <p>Birth date: {{userProfile?.birthDate}}</p>
+          <p>Address: {{userProfile?.address}}</p>
+          <p>City: {{userProfile?.city}}</p>
+          <p>Country {{userProfile?.country}}</p>
         </ion-col>
         <ion-col col-10>
-          <button mode="wp" ion-button class="profileButtonMail" block>
-          <ion-icon class="profileIcons" name="ios-mail-outline"></ion-icon>
-              </button>
         </ion-col>
-        <ion-col col-10>
-          <button mode="wp" ion-button class="profileButtonLink" block>
-          <ion-icon class="profileIcons" name="ios-link-outline">
-          </ion-icon>
-              </button>
-        </ion-col>
-        <ion-col col-2>
-        </ion-col>
-
       </ion-row>
-      <ion-row>
-        <ion-col col-2>
-        </ion-col>
-        <ion-col col-10>
-          <button mode="wp" ion-button class="profileButtonMyHelpers" block>
-          <ion-icon class="profileIcons" name="ios-contacts-outline">
-          </ion-icon>
-              </button>
-        </ion-col>
-        <ion-col col-10>
-          <button mode="wp" ion-button class="profileButtonSettings" block>
-          <ion-icon class="profileIcons" name="ios-settings"></ion-icon>
-              </button>
-        </ion-col>
-        <ion-col col-2>
-        </ion-col>
 
-      </ion-row>
+      <ion-row class="rowSpace33">&nbsp;</ion-row>
+      <div class="borderTest">
+        <ion-row>
+          <ion-col col-1>
+          </ion-col>
+          <ion-col col-11 class="profileInfo">
+            <p style="color: grey; text-align: left; line-height: 0.2px; font-size: 13px; font-style: italic;">Summary</p>
+          </ion-col>
+          <ion-col col-10>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-1>
+          </ion-col>
+          <ion-col col-17 class="profileInfo">
+            <p style="color: black; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Short summary about Mathias...</p>
+          </ion-col>
+          <ion-col col-6>
+            <button class="editIcon2"ion-button><ion-icon class="editIcon" name="ios-create-outline"></ion-icon></button>
+          </ion-col>
+        </ion-row>
+      </div>
 
 
       <ion-row class="rowSpace350">&nbsp;</ion-row>
       <ion-row class="rowSpace10">&nbsp;</ion-row>
 
 
-
-
-
-      <button ion-button block (click)="goToProfileSettingsTwo()">Edit profile</button>
     </div>
   </ion-grid>
-</ion-content>
