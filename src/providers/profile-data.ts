@@ -71,6 +71,15 @@ export class ProfileData {
     });
   }
 
+//console.logger alle userprofiles som har en city der er equal to asd.
+listProfiles() {
+ return firebase.database().ref('/userProfile').orderByChild('city').equalTo("asd").once('value', snapshot => {
+        snapshot.forEach(childSnapshot => {
+          console.log(childSnapshot.val());
+          return false;
+        });
+      });
+}
 
   updateEmail(newEmail: string, password: string): firebase.Promise<any> {
     const credential = firebase.auth.EmailAuthProvider

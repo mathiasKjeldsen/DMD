@@ -52,5 +52,10 @@ export class HandifyPage {
     this.navCtrl.push(page.component);
   }
 
+testButton() {
+    this.profileData.listProfiles().then(() => {
+    }
+    );
+  }
 
 }
