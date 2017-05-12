@@ -5,7 +5,7 @@ import {
 } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProfileData } from '../../providers/profile-data';
-import { HandifyPage } from '../handify/handify';
+import { ProfilePage } from '../profile/profile';
 @Component({
   selector: 'page-profile-settings-two',
   templateUrl: 'profile-settings-two.html'
@@ -80,7 +80,7 @@ export class ProfileSettingsTwoPage {
       this.profileData.updateDOB(this.dateForm.datepicker);
     }
 
-    this.navCtrl.setRoot(HandifyPage);
+    this.navCtrl.push(ProfilePage);
   }
 
   updatePic() {

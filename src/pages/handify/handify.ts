@@ -28,20 +28,20 @@ export class HandifyPage {
     });
 
     this.helperPages = [
-      { title: 'Calendar & tasks', component: CalendarPage, icon: "md-person", color: "#5AD864" },
+      { title: 'Calendar & tasks', component: CalendarPage, icon: "md-calendar", color: "#5AD864" },
       { title: 'Connect to coordinator', component: LinkHelpersPage, icon: "md-contacts", color: "#AD5BEA" },
       //{ title: 'Inbox', component: xxxxxPage, icon: "md-mail", color: "#BB8285" },
-      { title: 'Profile', component: ProfilePage, icon: "md-calendar", color: "#E57401" },
+      { title: 'Profile', component: ProfilePage, icon: "md-person", color: "#E57401" },
       { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
       { title: 'Log out', component: LogOutPage, icon: "md-exit", color: " #D96A68" },
     ];
 
     this.coordinatorPages = [
-      { title: 'Profile Calendar & tasks', component: CalendarPage, icon: "md-person", color: "#5AD864" },
+      { title: 'Calendar & tasks', component: CalendarPage, icon: "md-calendar", color: "#5AD864" },
       { title: 'Connect to helper', component: LinkHelpersPage, icon: "md-contacts", color: "#AD5BEA" },
       { title: 'Manage helpers', component: ManageHelpersPage, icon: "md-paper", color: "#3FBECA" },
       //{ title: 'Inbox', component: xxxxxPage, icon: "md-mail", color: "#BB8285" },
-      { title: 'Profile', component: ProfilePage, icon: "md-calendar", color: "#E57401" },
+      { title: 'Profile', component: ProfilePage, icon: "md-person", color: "#E57401" },
       { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
       { title: 'Log out', component: LogOutPage, icon: "md-exit", color: " #D96A68" },
     ];

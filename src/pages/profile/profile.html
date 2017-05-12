@@ -1,4 +1,4 @@
-<ion-header mode="wp">
+<ion-header>
   <ion-navbar mode="wp">
   </ion-navbar>
 </ion-header>
@@ -28,7 +28,7 @@
         </ion-col>
         <ion-col col-14>
           <img src="{{userProfile?.profilePhoto}}" class="profilePhoto">
-          <button ion-button block class="editButton"(click)="goToProfileSettingsTwo()">Edit picture</button>
+          <button mode="wp" ion-button block class="editButton"(click)="goToProfileSettingsTwo()">Edit picture</button>
         </ion-col>
       </ion-row>
 
@@ -63,7 +63,7 @@
             <p style="color: black; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Short summary about Mathias...</p>
           </ion-col>
           <ion-col col-6>
-            <button class="editIcon2"ion-button><ion-icon class="editIcon" name="ios-create-outline"></ion-icon></button>
+            <button mode="wp" class="editIcon2"ion-button><ion-icon class="editIcon" name="ios-create-outline"></ion-icon></button>
           </ion-col>
         </ion-row>
       </div>
