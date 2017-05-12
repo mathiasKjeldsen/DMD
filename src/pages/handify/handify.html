@@ -2,21 +2,9 @@
 
   <ion-grid text-center>
     <ion-row>
-      <ion-col col-8>
-        <br>
-        <br>
-        <p style="color: lightgrey; text-align: right; line-height: 0.2px; font-size: 12px; font-style: italic;"> {{userProfile?.fullName}}</p>
-
-      </ion-col>
-      <ion-col col-8>
+      <ion-col col-24>
         <img src="{{userProfile?.profilePhoto}}" class="handifyProfilePhoto">
-      </ion-col>
-
-      <ion-col col-8>
-        <br>
-        <br>
-        <p *ngIf="userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
-        <p *ngIf="!userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Helper</p>
+        <p class="handifyText"> {{userProfile?.fullName}}</p>
       </ion-col>
     </ion-row>
 
@@ -27,7 +15,7 @@
 
     <ion-row>
       <ion-col col-24>
-        <p class="handifyText3"> Handify™</p>
+        <p class="handifyText3"> HANDIFY™</p>
       </ion-col>
     </ion-row>
 
