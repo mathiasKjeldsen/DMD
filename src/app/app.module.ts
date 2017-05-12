@@ -14,7 +14,6 @@ import { LogOutPage } from '../pages/log-out/log-out';
 import { ProfileSettingsPage } from '../pages/profile-settings/profile-settings';
 import { ProfileSettingsTwoPage } from '../pages/profile-settings-two/profile-settings-two';
 import { CalendarPage } from '../pages/calendar/calendar';
-import { LinkHelpersPage } from '../pages/link-helpers/link-helpers';
 import { ManageHelpersPage } from '../pages/manage-helpers/manage-helpers';
 import { SettingsPage } from '../pages/settings/settings';
 
@@ -34,7 +33,6 @@ import { Facebook } from '@ionic-native/facebook';
     ProfileSettingsPage,
     ProfileSettingsTwoPage,
     CalendarPage,
-    LinkHelpersPage,
     ManageHelpersPage,
     SettingsPage
   ],
@@ -54,7 +52,6 @@ import { Facebook } from '@ionic-native/facebook';
     ProfileSettingsPage,
     ProfileSettingsTwoPage,
     CalendarPage,
-    LinkHelpersPage,
     ManageHelpersPage,
     SettingsPage
   ],
