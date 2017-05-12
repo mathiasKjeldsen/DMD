@@ -75,7 +75,7 @@ export class ProfileData {
 listProfiles() {
  return firebase.database().ref('/userProfile').orderByChild('city').equalTo("asd").once('value', snapshot => {
         snapshot.forEach(childSnapshot => {
-          alert(childSnapshot.val());
+          console.log(childSnapshot.val());
           return false;
         });
       });
