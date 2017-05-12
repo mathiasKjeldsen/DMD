@@ -1,5 +1,6 @@
 import { NavController } from 'ionic-angular';
 import { Component } from '@angular/core';
+import { ProfileData } from '../../providers/profile-data'
 
 @Component({
   selector: 'page-manage-helpers',
@@ -7,7 +8,14 @@ import { Component } from '@angular/core';
 })
 export class ManageHelpersPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public profileData: ProfileData) {
     
   }
+
+  testButton() {
+    this.profileData.listProfiles().then(() => {
+    }
+    );
+  }
+
 }
