@@ -6,11 +6,20 @@
 
 <ion-content padding class="handifyBg">
   <ion-grid text-center>
-
-
+<ion-row>
+  <ion-col col-20>
+  </ion-col>
+  <ion-col col-4>
+          <button ion-button mode="wp"class="settingsButton" (click)="goToProfileSettingsTwo()">
+    <ion-icon class="settingsIcon" name="ios-settings"></ion-icon>
+    </button>
+  </ion-col>
+</ion-row>
 
     <ion-row>
       <ion-col col-10>
+        <br>
+        <br>
         <p style="color: white; text-align: left;line-height: 0.2px;">{{userProfile?.fullName}}</p>
         <p style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
 
@@ -68,7 +77,6 @@
         </ion-row>
       </div>
       <ion-row class="rowSpace100">&nbsp;</ion-row>
-      <button ion-button (click)="goToProfileSettingsTwo()">Edit profile</button>
       <ion-row class="rowSpace350">&nbsp;</ion-row>
       <ion-row class="rowSpace10">&nbsp;</ion-row>
 

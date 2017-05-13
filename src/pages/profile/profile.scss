@@ -30,6 +30,13 @@
     background-color: #D96A68;
 }
 
+.editButtonProfile {
+      width: 150px;
+    height: 25px;
+    margin-left: 29px;
+    background-color: #E57401;
+}
+
 .editIcon {
     color: black;
     font-size: 30px;
@@ -37,5 +44,13 @@
 
 .editIcon2 {
     margin-top: -11px;
+    background-color: transparent !important;
+}
+
+.settingsIcon {
+    color: white;
+    font-size: 30px;
+}
+.settingsButton {
     background-color: transparent !important;
 }
