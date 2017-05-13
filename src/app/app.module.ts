@@ -19,9 +19,13 @@ import { SettingsPage } from '../pages/settings/settings';
 import { MyCoordinatorPage } from '../pages/my-coordinator/my-coordinator';
 import { BlankTemplatePage } from '../pages/blank-template/blank-template';
 import { TutorialPage } from '../pages/tutorial/tutorial';
+import { EventCreatePage } from '../pages/event-create/event-create';
+import { EventListPage } from '../pages/event-list/event-list';
+import { EventDetailPage } from '../pages/event-detail/event-detail';
 
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
+import { EventProvider } from '../providers/events';
 
 import { Facebook } from '@ionic-native/facebook';
 @NgModule({
@@ -40,7 +44,10 @@ import { Facebook } from '@ionic-native/facebook';
     SettingsPage,
     MyCoordinatorPage,
     BlankTemplatePage,
-    TutorialPage
+    TutorialPage,
+    EventCreatePage,
+    EventListPage,
+    EventDetailPage
   ],
   imports: [
     BrowserModule,
@@ -62,13 +69,17 @@ import { Facebook } from '@ionic-native/facebook';
     SettingsPage,
     MyCoordinatorPage,
     BlankTemplatePage,
-    TutorialPage
+    TutorialPage,
+    EventCreatePage,
+    EventListPage,
+    EventDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthData,
     ProfileData,
+    EventProvider,
     Facebook,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

@@ -1,7 +1,7 @@
 import { NavController } from 'ionic-angular';
 import { LoadingController, AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { ProfileData } from '../../providers/profile-data'
+import { ProfileData } from '../../providers/profile-data';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({

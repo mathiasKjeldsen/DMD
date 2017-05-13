@@ -9,6 +9,9 @@ import { ManageHelpersPage } from '../manage-helpers/manage-helpers';
 import { SettingsPage } from '../settings/settings';
 import { MyCoordinatorPage } from '../my-coordinator/my-coordinator';
 
+import { EventCreatePage } from '../event-create/event-create';
+import { EventListPage } from '../event-list/event-list';
+
 @Component({
   selector: 'page-handify',
   templateUrl: 'handify.html'
@@ -52,5 +55,8 @@ testButton() {
     }
     );
   }
+
+goToCreate(){ this.navCtrl.push(EventCreatePage); }
+goToList(){ this.navCtrl.push(EventListPage); }
 
 }
