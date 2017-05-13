@@ -6,23 +6,23 @@
 
 <ion-content padding class="handifyBg">
   <ion-grid text-center>
-<ion-row>
-  <ion-col col-20>
-  </ion-col>
-  <ion-col col-4>
-          <button ion-button mode="wp"class="settingsButton" (click)="goToProfileSettingsTwo()">
+    <ion-row>
+      <ion-col col-20>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button mode="wp" class="settingsButton" (click)="goToProfileSettingsTwo()">
     <ion-icon class="settingsIcon" name="ios-settings"></ion-icon>
     </button>
-  </ion-col>
-</ion-row>
+      </ion-col>
+    </ion-row>
 
     <ion-row>
       <ion-col col-10>
         <br>
         <br>
         <p style="color: white; text-align: left;line-height: 0.2px;">{{userProfile?.fullName}}</p>
-        <p style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
-
+        <p *ngIf="userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
+        <p *ngIf="!userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Helper</p>
       </ion-col>
       <ion-col col-14>
       </ion-col>
@@ -48,7 +48,7 @@
           <p>Birth date: {{userProfile?.birthDate}}</p>
           <p>Address: {{userProfile?.address}}</p>
           <p>City: {{userProfile?.city}}</p>
-          <p>Country {{userProfile?.country}}</p>
+          <p>Country: {{userProfile?.country}}</p>
         </ion-col>
         <ion-col col-10>
         </ion-col>

@@ -19,12 +19,13 @@ export class ProfileSettingsTwoPage {
   loading: any;
 
 
-  profileInfoInfo: { address: string, zip: string, city: string, country: string } = { address: '', zip: '', city: '', country: '', };
+  profileInfoInfo: { fullName: string, address: string, zip: string, city: string, country: string } = { fullName: '', address: '', zip: '', city: '', country: '', };
   dateInfo: { datepicker: string } = { datepicker: '' };
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public profileData: ProfileData, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
 
     this.profileInfoForm = this.formBuilder.group({
+      'fullName': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
       'address': ['', Validators.compose([Validators.minLength(2), Validators.required, Validators.pattern(/^[a-zÆØÅæøå0-9é ,.'-]+$/i)])],
       'zip': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[0-9]*$/)])],
       'city': ['', Validators.compose([Validators.minLength(1), Validators.required, Validators.pattern(/^[a-zÆØÅæøå ,.'-]+$/i)])],
@@ -55,12 +56,16 @@ export class ProfileSettingsTwoPage {
 
   updateProfile() {
     console.log(this.profileInfoForm);
+    console.log(this.profileInfoForm.fullName);
     console.log(this.profileInfoForm.city);
     console.log(this.profileInfoForm.address);
     console.log(this.profileInfoForm.zip);
     console.log(this.profileInfoForm.country);
     console.log(this.dateForm.datepicker);
 
+    if (this.profileInfoForm.controls.fullName.dirty) {
+      this.profileData.updatefullName(this.profileInfoForm.fullName);
+    }
     if (this.profileInfoForm.controls.city.dirty) {
       this.profileData.updateCity(this.profileInfoForm.city);
     }

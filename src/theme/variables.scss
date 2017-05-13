@@ -31,6 +31,7 @@ $colors: (
   $lblue:              #07A0C3;
   $light:              #FFF1D0;
   $darkslategrey:      #2F4F4F;
+  $darkblack:          #000000;
   
 //$lgrey
 //$dblue:              #,
@@ -39,13 +40,13 @@ $colors: (
 // White text in placeholders
 
 *::-webkit-input-placeholder {
-color: $darkslategrey !important;
+color: $darkblack !important;
 }
 *:-moz-placeholder {
-color: $darkslategrey !important;
+color: $darkblack !important;
 }
 *:-ms-input-placeholder { 
-color: $darkslategrey !important;
+color: $darkblack !important;
 }
 
 // Default class for every ion-content
