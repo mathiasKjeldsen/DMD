@@ -5,6 +5,8 @@
       <ion-col col-24>
         <img src="{{userProfile?.profilePhoto}}" class="handifyProfilePhoto">
         <p class="handifyText"> {{userProfile?.fullName}}</p>
+        <p *ngIf="userProfile?.userIsCoordinator" style="color: lightgrey; text-align: center; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
+        <p *ngIf="!userProfile?.userIsCoordinator" style="color: lightgrey; text-align: center; line-height: 0.2px; font-size: 12px; font-style: italic;">Helper</p>
       </ion-col>
     </ion-row>
 
@@ -61,11 +63,11 @@
     </ion-row>
 
 
-  <button ion-button block color="primary" (click)="goToCreate()">
+    <button ion-button block color="primary" (click)="goToCreate()">
     Create a new Event
   </button>
 
-  <button ion-button block color="primary" (click)="goToList()">
+    <button ion-button block color="primary" (click)="goToList()">
     See your events
   </button>
 
