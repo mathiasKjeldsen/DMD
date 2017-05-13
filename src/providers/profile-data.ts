@@ -71,9 +71,9 @@ export class ProfileData {
     });
   }
 
-  //console.logger alle userprofiles som har en city der er equal to asd.
+  //console.logger alle userprofiles som er connected til "1bDUSiktg0aNszibcNf0ZyFfwJK2"
   listProfiles() {
-    return firebase.database().ref('/userProfile').orderByChild('city').equalTo("asd").once('value', snapshot => {
+    return firebase.database().ref('/userProfile').orderByChild('connectedToUser').equalTo("1bDUSiktg0aNszibcNf0ZyFfwJK2").once('value', snapshot => {
       snapshot.forEach(childSnapshot => {
         console.log(childSnapshot.val());
         return false;
@@ -81,18 +81,24 @@ export class ProfileData {
     });
   }
 
-  helperTestConnectedTo(coordinatorUid: string, helperUid: string) {
+  connectHelperToCurrentUser(coordinatorUid: string, helperUid: string) {
     return firebase.database().ref('/userProfile').child(helperUid).update({ 'connectedToUser': coordinatorUid });
   }
 
-  findUidByEmail(emailInput: string, coordinatorUid) {
+  findUidByEmailAndConnectToCurrentUser(emailInput: string, coordinatorUid) {
     var self = this;
+    var foundUser = false;
     return firebase.database().ref('/userProfile').orderByChild('email').equalTo(emailInput).once('value').then(function (snapshot) {
       snapshot.forEach(childSnapshot => {
+        foundUser = true;
         var user = childSnapshot.val();
         console.log(user.userId);
-        return self.helperTestConnectedTo(coordinatorUid, user.userId); 
+        alert("Succesfully added user " + emailInput + " as your helper");
+        return self.connectHelperToCurrentUser(coordinatorUid, user.userId);
       });
+      if (foundUser == false) {
+        alert("We can not find user " + emailInput + " on the database.");
+      }
     });
   }
 

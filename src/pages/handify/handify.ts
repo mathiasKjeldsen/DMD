@@ -5,7 +5,6 @@ import { ProfileData } from '../../providers/profile-data';
 import { CalendarPage } from '../calendar/calendar';
 import { LogOutPage } from '../log-out/log-out';
 import { ProfilePage } from '../profile/profile';
-import { LinkHelpersPage } from '../link-helpers/link-helpers';
 import { ManageHelpersPage } from '../manage-helpers/manage-helpers';
 import { SettingsPage } from '../settings/settings';
 

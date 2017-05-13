@@ -5,17 +5,21 @@
 <ion-content>
 
   <ion-grid text-center>
-    <ion-row>
-      <button ion-button>Add new helper</button>
-    </ion-row>
-    <ion-row>
-      <br>test button:<br>
-      <button ion-button (click)="testButton()">test1</button>
-      <button ion-button (click)="testButtonTwo()">test2</button>
-      <button ion-button (click)="testButtonThree()">test3</button>
-    </ion-row>
+
+    <form [formGroup]="connectHelperForm" (submit)="testButtonTwo()">
+      <h1>Add new helper</h1>
+      <ion-item>
+        <ion-input placeholder="helper email address" [(ngModel)]="connectHelperForm.email" formControlName="email" #address></ion-input>
+      </ion-item>
+      <button ion-button [disabled]="!connectHelperForm.valid" type="submit">testButtonTwo()</button>
+
+      <p *ngIf="!isValid('email') && connectHelperForm.controls.email.touched" >Please enter a valid e-mail</p>
+    </form>
+
+    <ion-row class="rowSpace100">&nbsp;</ion-row>
     <ion-row>
       list of helpers that are connected to {{userProfile?.userId}}
+      <button ion-button (click)="testButton()">listProfiles()</button>
     </ion-row>
   </ion-grid>
 
