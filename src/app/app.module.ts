@@ -16,6 +16,9 @@ import { ProfileSettingsTwoPage } from '../pages/profile-settings-two/profile-se
 import { CalendarPage } from '../pages/calendar/calendar';
 import { ManageHelpersPage } from '../pages/manage-helpers/manage-helpers';
 import { SettingsPage } from '../pages/settings/settings';
+import { MyCoordinatorPage } from '../pages/my-coordinator/my-coordinator';
+import { BlankTemplatePage } from '../pages/blank-template/blank-template';
+import { TutorialPage } from '../pages/tutorial/tutorial';
 
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
@@ -34,7 +37,10 @@ import { Facebook } from '@ionic-native/facebook';
     ProfileSettingsTwoPage,
     CalendarPage,
     ManageHelpersPage,
-    SettingsPage
+    SettingsPage,
+    MyCoordinatorPage,
+    BlankTemplatePage,
+    TutorialPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,10 @@ import { Facebook } from '@ionic-native/facebook';
     ProfileSettingsTwoPage,
     CalendarPage,
     ManageHelpersPage,
-    SettingsPage
+    SettingsPage,
+    MyCoordinatorPage,
+    BlankTemplatePage,
+    TutorialPage
   ],
   providers: [
     StatusBar,

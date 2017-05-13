@@ -9,7 +9,6 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthData } from '../../providers/auth-data';
 import { ProfileData } from '../../providers/profile-data';
 
-
 @Component({
   selector: 'page-sign-up',
   templateUrl: 'sign-up.html'

@@ -7,6 +7,7 @@ import { LogOutPage } from '../log-out/log-out';
 import { ProfilePage } from '../profile/profile';
 import { ManageHelpersPage } from '../manage-helpers/manage-helpers';
 import { SettingsPage } from '../settings/settings';
+import { MyCoordinatorPage } from '../my-coordinator/my-coordinator';
 
 @Component({
   selector: 'page-handify',
@@ -18,7 +19,6 @@ export class HandifyPage {
   helperPages: Array<{ title: string, component: any, icon: string, color: string, }>;
   coordinatorPages: Array<{ title: string, component: any, icon: string, color: string, }>;
 
-
   constructor(public navCtrl: NavController, public authData: AuthData, public profileData: ProfileData) {
 
     this.profileData.getUserProfile().on('value', (data) => {
@@ -28,8 +28,7 @@ export class HandifyPage {
 
     this.helperPages = [
       { title: 'Calendar & tasks', component: CalendarPage, icon: "md-calendar", color: "#5AD864" },
-      //{ title: 'Connect to coordinator', component: LinkHelpersPage, icon: "md-contacts", color: "#AD5BEA" },
-      //{ title: 'Inbox', component: xxxxxPage, icon: "md-mail", color: "#BB8285" },
+      { title: 'My Coordinator', component: MyCoordinatorPage, icon: "md-paper", color: "#3FBECA" },
       { title: 'Profile', component: ProfilePage, icon: "md-person", color: "#E57401" },
       { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
       { title: 'Log out', component: LogOutPage, icon: "md-exit", color: " #D96A68" },
@@ -37,14 +36,11 @@ export class HandifyPage {
 
     this.coordinatorPages = [
       { title: 'Calendar & tasks', component: CalendarPage, icon: "md-calendar", color: "#5AD864" },
-      //{ title: 'Connect to helper', component: LinkHelpersPage, icon: "md-contacts", color: "#AD5BEA" },
       { title: 'Manage helpers', component: ManageHelpersPage, icon: "md-paper", color: "#3FBECA" },
-      //{ title: 'Inbox', component: xxxxxPage, icon: "md-mail", color: "#BB8285" },
       { title: 'Profile', component: ProfilePage, icon: "md-person", color: "#E57401" },
       { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
       { title: 'Log out', component: LogOutPage, icon: "md-exit", color: " #D96A68" },
     ];
-
   }
 
   openPage(page) {
