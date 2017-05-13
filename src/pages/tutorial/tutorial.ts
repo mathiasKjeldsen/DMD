@@ -3,10 +3,10 @@ import { NavController } from 'ionic-angular';
 import { InAppBrowser } from 'ionic-native';
 
 @Component({
-  selector: 'page-tutorial',
-  templateUrl: 'tutorial.html'
+  selector: 'page-blank-template',
+  templateUrl: 'blank-template.html'
 })
-export class TutorialPage {
+export class BlankTemplatePage {
       
   constructor(public navCtrl: NavController) {
   }
