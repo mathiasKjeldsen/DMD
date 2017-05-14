@@ -21,15 +21,21 @@
     <button ion-button (click)="ionViewDidEnter()">refresh</button>
     <ion-list *ngIf="userProfile?.userIsCoordinator">
       <ion-item *ngFor="let event of eventList">
-        <h2>{{event?.fullName}}</h2>
-        <img src="{{event?.profilePhoto}}">
-        <p>Email: <strong>{{event?.email}}</strong></p>
-        <p>ID: <strong>{{event?.userId}}</strong></p>
-        <p>Connected to: <strong>{{event?.connectedToUser}}</strong></p>
-        <p>City: <strong>{{event?.city}}</strong></p>
-        <p>Address: <strong>{{event?.address}}</strong></p>
-        <p>Zip: <strong>{{event?.zip}}</strong></p>
-        <p>Country: <strong>{{event?.country}}</strong></p>
+        <ion-row>
+          <ion-col col-8>
+            <img src="{{event?.profilePhoto}}">
+          </ion-col>
+          <ion-col col-16>
+            <h2><strong>{{event?.fullName}}</strong></h2>
+
+            <p>{{event?.email}}</p>
+            <p>{{event?.address}}</p>
+            <p>{{event?.zip}} {{event?.city}}</p>
+            <!--<p>{{event?.country}}</p>-->
+          </ion-col>
+        </ion-row>
+
+
       </ion-item>
 
     </ion-list>
