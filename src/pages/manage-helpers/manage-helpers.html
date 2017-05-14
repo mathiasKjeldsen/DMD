@@ -16,28 +16,22 @@
       <p *ngIf="!isValid('email') && connectHelperForm.controls.email.touched">Please enter a valid e-mail</p>
     </form>
 
-   <!-- <ion-row class="rowSpace100">&nbsp;</ion-row>
-    <ion-row>
-      list of helpers that are connected to {{userProfile?.userId}}
-      <button ion-button (click)="testButton()">listProfiles()</button>
-    </ion-row> -->
-  </ion-grid>
 
-<h1>list of connected helpers</h1>
-<button ion-button (click)="ionViewDidEnter()">refresh</button>
-  <ion-list *ngIf="userProfile?.userIsCoordinator">
-    <ion-item *ngFor="let event of eventList">
-      <!--<ion-item *ngIf="event?.connectedToUser=userProfile?.userId"> -->
-      <h2>{{event?.fullName}}</h2>
-      <img src="{{event?.profilePhoto}}">
-      <p>Email: <strong>{{event?.email}}</strong></p>
-      <p>ID: <strong>{{event?.userId}}</strong></p>
-      <p>Connected to: <strong>{{event?.connectedToUser}}</strong></p>
-      <p>City: <strong>{{event?.city}}</strong></p>
-      <p>Address: <strong>{{event?.address}}</strong></p>
-      <p>Zip: <strong>{{event?.zip}}</strong></p>
-      <p>Country: <strong>{{event?.country}}</strong></p>
-      <!-- </ion-item> -->
-    </ion-item>
-  </ion-list>
+    <h1>list of connected helpers</h1>
+    <button ion-button (click)="ionViewDidEnter()">refresh</button>
+    <ion-list *ngIf="userProfile?.userIsCoordinator">
+      <ion-item *ngFor="let event of eventList">
+        <h2>{{event?.fullName}}</h2>
+        <img src="{{event?.profilePhoto}}">
+        <p>Email: <strong>{{event?.email}}</strong></p>
+        <p>ID: <strong>{{event?.userId}}</strong></p>
+        <p>Connected to: <strong>{{event?.connectedToUser}}</strong></p>
+        <p>City: <strong>{{event?.city}}</strong></p>
+        <p>Address: <strong>{{event?.address}}</strong></p>
+        <p>Zip: <strong>{{event?.zip}}</strong></p>
+        <p>Country: <strong>{{event?.country}}</strong></p>
+      </ion-item>
+
+    </ion-list>
+  </ion-grid>
 </ion-content>
