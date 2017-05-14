@@ -1,3 +1,26 @@
 <ion-content>
-    profile of my coordinator
+<ion-grid>
+    <h1>My coordinator</h1>
+    <button ion-button (click)="ionViewDidEnter()">refresh</button>
+    <ion-list *ngIf="!userProfile?.userIsCoordinator">
+      <ion-item *ngFor="let event of eventList">
+        <ion-row>
+          <ion-col col-8>
+            <img src="{{event?.profilePhoto}}">
+          </ion-col>
+          <ion-col col-16>
+            <h2><strong>{{event?.fullName}}</strong></h2>
+
+            <p>{{event?.email}}</p>
+            <p>{{event?.address}}</p>
+            <p>{{event?.zip}} {{event?.city}}</p>
+            <!--<p>{{event?.country}}</p>-->
+          </ion-col>
+        </ion-row>
+
+
+      </ion-item>
+
+    </ion-list>
+  </ion-grid>
 </ion-content>
