@@ -1,0 +1,42 @@
+.scroll-content {
+    margin-top: 0.1 !important;
+  }
+ion-header, .toolbar-background {
+    background-color: initial !important;
+    // background-color: rgba(0,0,0,0) !important;
+
+    &:after {
+      height: 0  !important;
+    }
+  } 
+
+  .manageHeader {
+      color: white;
+      font-size: 15px;
+  }
+
+  .manageTransparent {
+      background-color: transparent !important;
+  }
+
+  .manageInput {
+      color:white !important;
+  }
+
+.manageIcon {
+    background-color: transparent !important;
+    color: black;
+}
+
+.manageIcon2 {
+    background-color: transparent !important;
+    color: black;
+    border: 1px solid grey;
+}
+
+.signUpColor2 {
+color: black;
+font-size: 27px;
+margin-left: -5px;
+padding-right: -1em;
+}

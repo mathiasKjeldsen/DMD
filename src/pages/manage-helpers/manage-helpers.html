@@ -2,42 +2,57 @@
   <ion-navbar mode="wp">
   </ion-navbar>
 </ion-header>
-<ion-content>
+
+
+<ion-content padding class="handifyBg">
 
   <ion-grid text-center>
+    <p class="manageHeader">Connect a new helper to <i>your network</i></p>
+
 
     <form [formGroup]="connectHelperForm" (submit)="findUidByEmailAndConnectToCurrentUser()">
-      <h1>Connect a new helper to your helper-network</h1>
-      <ion-item>
-        <ion-input placeholder="helper email address" [(ngModel)]="connectHelperForm.email" formControlName="email" #address></ion-input>
-      </ion-item>
-      <button ion-button [disabled]="!connectHelperForm.valid" type="submit">Connect</button>
+      <ion-list no-lines>
+        <ion-item mode="ios" class="signUpTransparent">
+          <button ion-button item-left class="manageIcon" mode="ios">
+  <ion-icon name="ios-mail" class="signUpColor"></ion-icon>
+    </button>
+          <ion-input class="signUpPlaceholder" placeholder="Helper e-mail address" mode="ios" [(ngModel)]="connectHelperForm.email"
+            formControlName="email" #address></ion-input>
+        </ion-item>
+        <button mode="wp" ion-button [disabled]="!connectHelperForm.valid" type="submit">Connect</button>
 
-      <p *ngIf="!isValid('email') && connectHelperForm.controls.email.touched">Please enter a valid e-mail</p>
+        <p *ngIf="!isValid('email') && connectHelperForm.controls.email.touched">Please enter a valid e-mail</p>
+      </ion-list>
     </form>
+    <div class="whiteContainer">
+      <button ion-button item-left class="manageIcon2" mode="wp" (click)="ionViewDidEnter()">
+  <ion-icon name="ios-sync-outline" class="signUpColor2"></ion-icon> &nbsp; Refresh
+    </button>
+      <p style="color: grey; font-size: 19px;">Connected helper</p>
 
 
-    <h1>list of connected helpers</h1>
-    <button ion-button (click)="ionViewDidEnter()">refresh</button>
-    <ion-list *ngIf="userProfile?.userIsCoordinator">
-      <ion-item *ngFor="let event of eventList">
-        <ion-row>
-          <ion-col col-8>
-            <img src="{{event?.profilePhoto}}">
-          </ion-col>
-          <ion-col col-16>
-            <h2><strong>{{event?.fullName}}</strong></h2>
+      <ion-list no-lines *ngIf="userProfile?.userIsCoordinator">
+        <ion-item mode="ios" *ngFor="let event of eventList">
+          <ion-row>
+            <ion-col col-8>
+              <img src="{{event?.profilePhoto}}">
+            </ion-col>
+            <ion-col col-16>
+              <h2><strong>{{event?.fullName}}</strong></h2>
 
-            <p>{{event?.email}}</p>
-            <p>{{event?.address}}</p>
-            <p>{{event?.zip}} {{event?.city}}</p>
-            <!--<p>{{event?.country}}</p>-->
-          </ion-col>
-        </ion-row>
+              <p>{{event?.email}}</p>
+              <p>{{event?.address}}</p>
+              <p>{{event?.zip}} {{event?.city}}</p>
+              <!--<p>{{event?.country}}</p>-->
+            </ion-col>
+          </ion-row>
 
 
-      </ion-item>
+        </ion-item>
 
-    </ion-list>
+        <ion-row class="rowSpace350">&nbsp;</ion-row>
+
+      </ion-list>
+    </div>
   </ion-grid>
 </ion-content>
