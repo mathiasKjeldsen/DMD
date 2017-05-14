@@ -71,16 +71,6 @@ export class ProfileData {
     });
   }
 
-  //console.logger alle userprofiles som er connected til "1bDUSiktg0aNszibcNf0ZyFfwJK2"
-  listProfiles() {
-    return firebase.database().ref('/userProfile').orderByChild('connectedToUser').equalTo("1bDUSiktg0aNszibcNf0ZyFfwJK2").once('value', snapshot => {
-      snapshot.forEach(childSnapshot => {
-        console.log(childSnapshot.val());
-        return false;
-      });
-    });
-  }
-
   connectHelperToCurrentUser(coordinatorUid: string, helperUid: string) {
     return firebase.database().ref('/userProfile').child(helperUid).update({ 'connectedToUser': coordinatorUid });
   }

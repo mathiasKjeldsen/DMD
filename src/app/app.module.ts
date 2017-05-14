@@ -19,9 +19,6 @@ import { SettingsPage } from '../pages/settings/settings';
 import { MyCoordinatorPage } from '../pages/my-coordinator/my-coordinator';
 import { BlankTemplatePage } from '../pages/blank-template/blank-template';
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import { EventCreatePage } from '../pages/event-create/event-create';
-import { EventListPage } from '../pages/event-list/event-list';
-import { EventDetailPage } from '../pages/event-detail/event-detail';
 
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
@@ -45,9 +42,6 @@ import { Facebook } from '@ionic-native/facebook';
     MyCoordinatorPage,
     BlankTemplatePage,
     TutorialPage,
-    EventCreatePage,
-    EventListPage,
-    EventDetailPage
   ],
   imports: [
     BrowserModule,
@@ -70,9 +64,6 @@ import { Facebook } from '@ionic-native/facebook';
     MyCoordinatorPage,
     BlankTemplatePage,
     TutorialPage,
-    EventCreatePage,
-    EventListPage,
-    EventDetailPage
   ],
   providers: [
     StatusBar,

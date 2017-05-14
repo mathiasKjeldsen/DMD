@@ -9,54 +9,29 @@ export class EventProvider {
 
   }
 
-  createEvent(eventName: string, eventDate: string, eventPrice: number, 
-    eventCost: number): firebase.Promise<any> {
-    return firebase.database()
-    .ref(`userProfile/${firebase.auth().currentUser.uid}/eventList`)
-    .push({
-      name: eventName,
-      date: eventDate,
-      price: eventPrice * 1,
-      cost: eventCost * 1,
-  });
-}
-
-getEventList(): Promise<any> {
-  return new Promise( (resolve, reject) => {
-    firebase.database()
-    .ref(`userProfile/${firebase.auth().currentUser.uid}/eventList`)
-    .on('value', snapshot => {
-      let rawList = [];
-      snapshot.forEach( snap => {
-        rawList.push({
-          id: snap.key,
-          name: snap.val().name,
-          price: snap.val().price,
-          date: snap.val().date,
+  getUserList(userID: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      firebase.database()
+        .ref(`userProfile/`).orderByChild('connectedToUser').equalTo(userID)
+        .on('value', snapshot => {
+          let rawList = [];
+          snapshot.forEach(snap => {
+            rawList.push({
+              id: snap.key,
+              fullName: snap.val().fullName,
+              profilePhoto: snap.val().profilePhoto,
+              email: snap.val().email,
+              connectedToUser: snap.val().connectedToUser,
+              city: snap.val().city,
+              address: snap.val().address,
+              zip: snap.val().zip,
+              country: snap.val().country,
+            });
+            return false
+          });
+          resolve(rawList);
         });
-      return false
-      });
-      resolve(rawList);
     });
-  });
-}
-
-getEventDetail(eventId): Promise<any> {
-  return new Promise( (resolve, reject) => {
-    firebase.database()
-    .ref(`userProfile/${firebase.auth().currentUser.uid}/eventList`)
-    .child(eventId).on('value', snapshot => {
-      resolve({
-        id: snapshot.key,
-        name: snapshot.val().name,
-        date: snapshot.val().date,
-        price: snapshot.val().price,
-        cost: snapshot.val().cost,
-        revenue: snapshot.val().revenue
-      });
-    });
-  });
-}
-
+  }
 
 }
