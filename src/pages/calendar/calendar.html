@@ -1,22 +1,54 @@
-<ion-navbar>
-  <ion-title>Calendar try</ion-title>
-</ion-navbar>
+<ion-content>
 
-<ion-content padding>
+  <div class="month">
+    <ul>
+      <li class="prev">&#10094;</li>
+      <li class="next">&#10095;</li>
+      <li>
+        August<br>
+        <span style="font-size:18px">2016</span>
+      </li>
+    </ul>
+  </div>
 
-  <button ion-button (click)="createEvent()">create event
-  </button>
+  <ul class="weekdays">
+    <li>Mo</li>
+    <li>Tu</li>
+    <li>We</li>
+    <li>Th</li>
+    <li>Fr</li>
+    <li>Sa</li>
+    <li>Su</li>
+  </ul>
 
-  <button ion-button (click)="createEventInteractively()">create event interactively
-  </button>
+  <ul class="days">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li><span class="active">10</span></li>
+    <li>11</li>
+    ...etc
+  </ul>
 
-  <button ion-button (click)="openCalendar()">open calendar
-  </button>
 
-  <button ion-button (click)="deleteEvent()">delete event
-  </button>
-
-<button ion-button (click)="testStuff()">test</button>
-  
-
+  <div class="rowSpace100">&nbsp;</div>
+  <ul>
+    <li>Hvad skal den kunne?</li>
+    <li>1. Man skal kunne skifte mellem måneder (lad os bare lave hele 2017)</li>
+    <li>2. Man skal kunne vælge en dag</li>
+    <li>3. Når man vælger en dag, skal den vise alle events der er på den dag</li>
+    <li>4. Når man er inde på en dag, skal man kunne trykke på en knap til at tilføje et event til den dag, som åbner en ny side</li>
+    <li>5. På den nye side skal man skrive "jeg hjælper fra 18.30-20.00. Datoen er allerede valgt udenfor.</li>
+    <li>6. Der skal også være en note hvor man kan skrive 50 ord om hvad man gør (fx "Jeg følger Troels til fysioterapeut) </li>
+    <li>7. hvis man er coordinator skal man kunne lave et blåstempel på en eller anden måde</li>
+    <li>8. coordinators skal kunne lave et event og assigne det til et user id</li>
+    <li>9. til hvert event skal man kunne tilføje en note om hvad man laver, og en task lisk som man skal huske at udfylde. </li>
+    <li>10. Når man ser på eventet udefra kunne det også være fedt hvis man kunne trykke "udført" el. lign. på hver task. </li>
+  </ul>
 </ion-content>
