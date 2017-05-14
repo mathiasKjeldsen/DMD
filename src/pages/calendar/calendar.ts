@@ -14,41 +14,41 @@ export class CalendarPage {
   public titleUpdated: string;
   public noteUpdated: string;
 
-  private nav: NavController;
-
   constructor(public navCtrl: NavController) {
 
-    this.nav = navCtrl;
-
-    this.title = 'Event 1';
-    this.note = 'Creating an event !';
     this.startDate = new Date();
     this.startDate.setMinutes(this.startDate.getMinutes() + 10);
     this.endDate = new Date();
     this.endDate.setHours(this.startDate.getHours() + 1);
 
-    this.titleUpdated = 'Event updated';
-    this.noteUpdated = 'We update the event !';
+    console.log(this.startDate);
+    console.log(this.endDate);
   }
 
-  public createEvent():void{
-
-    let options:any = {
-      firstReminderMinutes:5
-    };
-
-    Calendar.createEventWithOptions(this.title, null, this.note, this.startDate, this.endDate, options).then(() => {
+  createEvent() {
+    Calendar.createEvent("Event test", null, "Creating an event through Handify", this.startDate, this.endDate).then(() => {
       alert("created");
     });
   }
 
-  public deleteEvent():void{
-    Calendar.deleteEvent(this.title, null, this.note, this.startDate, this.endDate).then(data => {
+  createEventInteractively() {
+    Calendar.createEventInteractively("Event test", null, "Creating an event through Handify", this.startDate, this.endDate).then(() => {
+      alert("created");
+    });
+  }
+
+  deleteEvent() {
+    Calendar.deleteEvent("Event test", null, "Creating an event through Handify", this.startDate, this.endDate).then(data => {
       alert("deleted/notdeleted")
     });
   }
 
-  public openCalendar():void{
+  openCalendar() {
     Calendar.openCalendar(this.startDate);
   }
+
+  testStuff() {
+    Calendar.requestReadWritePermission()
+  }
+
 }
