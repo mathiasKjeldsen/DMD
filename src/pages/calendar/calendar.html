@@ -1,46 +1,136 @@
 <ion-content>
 
-  <div class="month">
-    <ul>
-      <li class="prev">&#10094;</li>
-      <li class="next">&#10095;</li>
-      <li>
-        August<br>
-        <span style="font-size:18px">2016</span>
-      </li>
-    </ul>
-  </div>
+  <ion-grid text-center>
+    <ion-row class="monthSpace">&nbsp;</ion-row>
+    <ion-row class="month">
+      <ion-col col-4 text-center>&#10094;</ion-col>
+      <ion-col col-16 text-center>May 2017</ion-col>
+      <ion-col col-4 text-center>&#10095;</ion-col>
+    </ion-row>
+    <ion-row class="monthSpace">&nbsp;</ion-row>
+    <ion-row class="weekdays">
+      <ion-col col-2></ion-col>
+      <ion-col col-3>Mon</ion-col>
+      <ion-col col-3>Tue</ion-col>
+      <ion-col col-3>Wed</ion-col>
+      <ion-col col-3>Thu</ion-col>
+      <ion-col col-3>Fri</ion-col>
+      <ion-col col-3>Sat</ion-col>
+      <ion-col col-3>Sun</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
 
-  <ul class="weekdays">
-    <li>Mo</li>
-    <li>Tu</li>
-    <li>We</li>
-    <li>Th</li>
-    <li>Fr</li>
-    <li>Sa</li>
-    <li>Su</li>
-  </ul>
+    <ion-row class="days">
+      <ion-col col-2></ion-col>
+      <ion-col col-3>1</ion-col>
+      <ion-col col-3 class="dayHasEvent">2</ion-col>
+      <ion-col col-3>3</ion-col>
+      <ion-col col-3>4</ion-col>
+      <ion-col col-3>5</ion-col>
+      <ion-col col-3>6</ion-col>
+      <ion-col col-3>7</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
 
-  <ul class="days">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-    <li><span class="active">10</span></li>
-    <li>11</li>
-    ...etc
-  </ul>
+    <ion-row class="days">
+      <ion-col col-2></ion-col>
+      <ion-col col-3>8</ion-col>
+      <ion-col col-3>9</ion-col>
+      <ion-col col-3>10</ion-col>
+      <ion-col col-3>11</ion-col>
+      <ion-col col-3 class="dayHasEvent">12</ion-col>
+      <ion-col col-3>13</ion-col>
+      <ion-col col-3>14</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+
+    <ion-row class="days">
+      <ion-col col-2></ion-col>
+      <ion-col col-3 class="dayHasEvent">15</ion-col>
+      <ion-col col-3>16</ion-col>
+      <ion-col col-3>17</ion-col>
+      <ion-col col-3>18</ion-col>
+      <ion-col col-3>19</ion-col>
+      <ion-col col-3>20</ion-col>
+      <ion-col col-3 class="dayHasEvent">21</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+
+    <ion-row class="days">
+      <ion-col col-2></ion-col>
+      <ion-col col-3 class="dayHasEventandDaySelected">22</ion-col>
+      <ion-col col-3>23</ion-col>
+      <ion-col col-3>24</ion-col>
+      <ion-col col-3>25</ion-col>
+      <ion-col col-3 class="dayHasEvent">26</ion-col>
+      <ion-col col-3>27</ion-col>
+      <ion-col col-3>28</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+
+    <ion-row class="days">
+      <ion-col col-2></ion-col>
+      <ion-col col-3>29</ion-col>
+      <ion-col col-3>30</ion-col>
+      <ion-col col-3>31</ion-col>
+      <ion-col col-3 class="notThisMonth">1</ion-col>
+      <ion-col col-3 class="notThisMonth">2</ion-col>
+      <ion-col col-3 class="notThisMonth">3</ion-col>
+      <ion-col col-3 class="notThisMonth">4</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+
+    <ion-row class="days">
+      <ion-col></ion-col>
+      <ion-col col-3 class="notThisMonth">5</ion-col>
+      <ion-col col-3 class="notThisMonth">6</ion-col>
+      <ion-col col-3 class="notThisMonth">7</ion-col>
+      <ion-col col-3 class="notThisMonth">8</ion-col>
+      <ion-col col-3 class="notThisMonth">9</ion-col>
+      <ion-col col-3 class="notThisMonth">10</ion-col>
+      <ion-col col-3 class="notThisMonth">11</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+
+    <ion-row class="rowSpace23">&nbsp;
+    </ion-row>
+
+    <ion-row align-items-baseline> 
+      <ion-col col-1 ></ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;">May 21
+      </ion-col>
+      <ion-col col-8 text-right><button ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-card>
+    <ion-card-header>
+      Josef Jensen - 07:30-08:30 <button ion-button small mode="wp">edit</button>
+    </ion-card-header>
+    <ion-card-content>
+      <i>Følger Bjørn i skole</i>
+    </ion-card-content>
+  </ion-card>
 
 
+  <ion-card>
+    <ion-card-header>
+      Bjørn Skalkam - 18:30-20:00 <button ion-button small mode="wp">edit</button>
+    </ion-card-header>
+    <ion-card-content>
+      <i>Følger Troels til fysioterapeut, og efter det tager vi direkte til svømning.</i>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+  <!--
   <div class="rowSpace100">&nbsp;</div>
   <ul>
     <li>Hvad skal den kunne?</li>
-    <li>1. Man skal kunne skifte mellem måneder (lad os bare lave hele 2017)</li>
+    <li>1. Man skal kunne skifte mellem måneder (lad os bare lave maj, juni og juli)</li>
     <li>2. Man skal kunne vælge en dag</li>
     <li>3. Når man vælger en dag, skal den vise alle events der er på den dag</li>
     <li>4. Når man er inde på en dag, skal man kunne trykke på en knap til at tilføje et event til den dag, som åbner en ny side</li>
@@ -50,5 +140,5 @@
     <li>8. coordinators skal kunne lave et event og assigne det til et user id</li>
     <li>9. til hvert event skal man kunne tilføje en note om hvad man laver, og en task lisk som man skal huske at udfylde. </li>
     <li>10. Når man ser på eventet udefra kunne det også være fedt hvis man kunne trykke "udført" el. lign. på hver task. </li>
-  </ul>
-</ion-content>
+    MAN SKAL OGSÅ KUNNE EDITE EVENTS
+  </ul> -->
