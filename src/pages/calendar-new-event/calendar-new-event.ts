@@ -12,10 +12,14 @@ import { ProfileData } from '../../providers/profile-data';
 export class CalendarNewEventPage {
   public eventForm;
   public userProfile: any;
-  public birthDate: string;
+  birthDate: string;
+
   day: any;
   month: any;
   year = 2017;
+  isUserCoordinator: any;
+    userIsCoordinator: boolean;
+
 
   constructor(public navCtrl: NavController, public calendarData: CalendarData, public formBuilder: FormBuilder,
     public profileData: ProfileData, public navParams: NavParams) {
@@ -28,7 +32,7 @@ export class CalendarNewEventPage {
     });
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
-      this.birthDate = this.userProfile.birthDate;
+      this.userIsCoordinator = this.userProfile.userIsCoordinator;
     });
 
     this.day = navParams.get("day");
@@ -42,8 +46,14 @@ export class CalendarNewEventPage {
   }
 
   updateNote() {
-    this.calendarData.newCalendarEvent(this.day+"-"+this.month+"-"+this.year, this.eventForm.start, this.eventForm.end, this.eventForm.note).then(() => {
+    this.isUserCoordinator = this.userIsCoordinator;
+
+    if (this.eventForm.start < this.eventForm.end) {
+    this.calendarData.newCalendarEvent(this.day+"-"+this.month+"-"+this.year, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator).then(() => {
       alert("added to firebase")
     });
+    } else {
+      alert("Start time must be before end time")
+    }
   }
 }

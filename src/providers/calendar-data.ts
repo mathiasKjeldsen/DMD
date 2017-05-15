@@ -10,13 +10,14 @@ export class CalendarData {
   public dateNumber = 0;
   public randomLetter;
   public randomLetterTwo;
+  public eventApprovedByCoordinater;
 
   constructor() {
     this.currentUser = firebase.auth().currentUser;
     this.CalendarDatabase = firebase.database().ref('/Calendar/'+this.currentUser.uid);
   }
 
-  newCalendarEvent(date: string, startTime: string, endTime: string, note: string): firebase.Promise<any> {
+  newCalendarEvent(date: string, startTime: string, endTime: string, note: string, isUserCoordinator): firebase.Promise<any> {
 
     this.randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     this.randomLetterTwo = String.fromCharCode(65 + Math.floor(Math.random() * 26));
@@ -28,15 +29,8 @@ export class CalendarData {
       StartTime: startTime,
       EndTime: endTime,
       Note: note,
+      blueStampedByCoordinator: isUserCoordinator,
     });
-  }
-
-  //we could use this to generate unique id
-  guidGenerator() {
-    var S4 = function () {
-      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-    };
-    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
   }
 
 }

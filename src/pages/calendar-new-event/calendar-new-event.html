@@ -6,51 +6,55 @@
 
 
 <ion-content padding class="handifyBg">
-    <ion-grid>
-        <form [formGroup]="eventForm" (submit)="updateNote()">
+    <ion-grid text-center>
+        <ion-row style="color: white; font-size: 18px">
+            <span>Creating an event for&nbsp;</span>
+            <span *ngIf="month == 1"><strong>May</strong></span>
+            <span *ngIf="month == 2"><strong>June</strong></span>
+            <span *ngIf="month == 3"><strong>July</strong></span>
+            <span>&nbsp;<strong>{{day}}</strong></span>
+        </ion-row>
+        <ion-row class="rowSpace33">&nbsp;</ion-row>
 
-            <ion-item mode="ios" class="signUpTransparent">
-                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
+        <form [formGroup]="eventForm" (submit)="updateNote()">
+            <ion-list no-lines>
+                <ion-item mode="ios" class="signUpTransparent">
+                    <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
               <h6 *ngIf="!eventForm.controls.start.touched" class="additionalInfoDateText">Start time</h6></button>
 
-                <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.start"
-                    formControlName="start"></ion-datetime>
-            </ion-item>
+                    <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.start"
+                        formControlName="start"></ion-datetime>
+                </ion-item>
 
-            <ion-item mode="ios" class="signUpTransparent">
-                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
+                <ion-item mode="ios" class="signUpTransparent">
+                    <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
               <h6 *ngIf="!eventForm.controls.end.touched" class="additionalInfoDateText">End time</h6></button>
 
-                <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.end"
-                    formControlName="end"></ion-datetime>
-            </ion-item>
+                    <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.end"
+                        formControlName="end"></ion-datetime>
+                </ion-item>
 
-            <ion-item mode="ios" class="signUpTransparent">
-                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="ios-paper-outline" class="signUpColorLock"></ion-icon></button>
-                <ion-input formControlName="note" [(ngModel)]="eventForm.note" placeholder="Note" mode="ios" class="signUpPlaceholder"></ion-input>
-            </ion-item>
-            <ion-row>
-                <ion-col col-7></ion-col>
-                <ion-col col-10>
-                    <button color="secondary" style="text-align: center" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.note.dirty"
-                        ion-button type="submit">Create event</button>
-                </ion-col>
-                <ion-col col-7></ion-col>
-            </ion-row>
+                <ion-item mode="ios" class="signUpTransparent">
+                    <button ion-button item-left class="backButton" mode="ios"><ion-icon name="ios-paper-outline" class="signUpColorLock"></ion-icon></button>
+                    <ion-input formControlName="note" [(ngModel)]="eventForm.note" placeholder="Note" mode="ios" class="signUpPlaceholder"></ion-input>
+                </ion-item>
+                <ion-row class="rowSpace33">&nbsp;</ion-row>
+                <ion-row>
+                    <ion-col col-7></ion-col>
+                    <ion-col col-10>
+                        <button color="secondary" style="text-align: center" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.note.dirty"
+                            ion-button type="submit">Create event</button>
+                    </ion-col>
+                    <ion-col col-7></ion-col>
+                </ion-row>
+            </ion-list>
         </form>
     </ion-grid>
 
-        <ion-row>
-        <ion-row>Creating an event for&nbsp;</ion-row>
-        <ion-row *ngIf="month == 1"><strong>May</strong></ion-row>
-        <ion-row *ngIf="month == 2"><strong>June</strong></ion-row>
-        <ion-row *ngIf="month == 3"><strong>July</strong></ion-row>
-        <ion-row>&nbsp;<strong>{{day}}</strong></ion-row>
-    </ion-row>
-
-    <ion-card>
+<ion-row style="color: white; font-size: 18px" *ngIf="eventForm.start || eventForm.end || eventForm.note">Preview</ion-row>
+    <ion-card *ngIf="eventForm.start || eventForm.end || eventForm.note">
         <ion-card-header>
-            {{userProfile?.fullName}} - {{eventForm.start}} - {{eventForm.end}}
+            {{userProfile?.fullName}} | {{eventForm.start}} <span *ngIf="eventForm.start && eventForm.end">-</span> {{eventForm.end}}
         </ion-card-header>
         <ion-card-content>
             <i>{{eventForm.note}}</i>
