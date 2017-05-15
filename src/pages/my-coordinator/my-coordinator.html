@@ -1,27 +1,86 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar mode="wp">
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-<ion-grid>
-    <h1>My coordinator</h1>
-    <button ion-button (click)="ionViewDidEnter()">refresh</button>
+
+<ion-content padding class="handifyBg">
+  <ion-grid text-center>
+
     <ion-list *ngIf="!userProfile?.userIsCoordinator">
       <ion-item *ngFor="let event of eventList">
         <ion-row>
-          <ion-col col-8>
-            <img src="{{event?.profilePhoto}}">
+          <ion-col col-10>
+            <br>
+            <br>
+            <p style="color: white; text-align: left;line-height: 0.2px;">{{event?.fullName}}</p>
+            <p *ngIf="userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
           </ion-col>
-          <ion-col col-16>
-            <h2><strong>{{event?.fullName}}</strong></h2>
-            <p>{{event?.email}}</p>
-            <p>{{event?.address}}</p>
-            <p>{{event?.zip}} {{event?.city}}</p>
-            <!--<p>{{event?.country}}</p>-->
+          <ion-col col-14>
           </ion-col>
         </ion-row>
+
+        <div class="whiteContainer">
+          <ion-row>
+            <ion-col col-10>
+            </ion-col>
+            <ion-col col-14>
+              <img src="{{event?.profilePhoto}}" class="profilePhoto">
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="profileMargin">
+            <ion-col col-1>
+            </ion-col>
+            <ion-col col-11 class="profileInfo">
+              <p>Birth date: {{event?.birthDate}}</p>
+              <p>Address: {{event?.address}}</p>
+              <p>City: {{event?.city}}</p>
+              <p>Zip: {{event?.zip}}</p>
+              <p>Country: {{event?.country}}</p>
+            </ion-col>
+            <ion-col col-10>
+            </ion-col>
+          </ion-row>
+
+      <ion-row class="rowSpace33">&nbsp;</ion-row>
+<div class="borderTest">
+  <ion-row>
+    <ion-col col-1>
+    </ion-col>
+    <ion-col col-11 class="profileInfo">
+      <p style="color: grey; text-align: left; line-height: 0.2px; font-size: 13px; font-style: italic;">Summary</p>
+    </ion-col>
+    <ion-col col-10>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-1>
+    </ion-col>
+    <ion-col col-17 class="profileInfo">
+      <p style="color: black; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Short summary about Mathias...</p>
+    </ion-col>
+    <ion-col col-6>
+      <button mode="wp" class="editIcon2" ion-button><ion-icon class="editIcon" name="ios-create-outline"></ion-icon></button>
+    </ion-col>
+  </ion-row>
+</div>
+<ion-row class="rowSpace100">&nbsp;</ion-row>
+<ion-row class="rowSpace350">&nbsp;</ion-row>
+<ion-row class="rowSpace10">&nbsp;</ion-row>
+
+
+</div>
       </ion-item>
     </ion-list>
   </ion-grid>
 </ion-content>
+
+
+
+
+
+
+
+
+
