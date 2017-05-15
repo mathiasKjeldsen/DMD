@@ -11,12 +11,19 @@
 
 
 .coordInfo {
- color: red !important;
+ color: black !important;
+ font-size: 12px !important;
 }
 
 .coordMargin {
-    margin-top: -80px;
+    margin-top: -75px;
     text-align: left;
-    line-height: 0.7em;
+    line-height: 0.8em;
 
+}
+
+.coordName {
+    color: white !important;
+    text-align: left;
+    line-height: 1px;
 }

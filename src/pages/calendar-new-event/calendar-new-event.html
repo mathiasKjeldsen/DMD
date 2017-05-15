@@ -9,15 +9,6 @@
     <ion-grid>
         <form [formGroup]="eventForm" (submit)="updateNote()">
 
-
-            <ion-item mode="ios" class="signUpTransparent">
-                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
-              <h6 *ngIf="!eventForm.controls.date.touched" class="additionalInfoDateText">{{day}}-{{month}}-2017</h6></button>
-
-                <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.date"
-                    formControlName="date"></ion-datetime>
-            </ion-item>
-
             <ion-item mode="ios" class="signUpTransparent">
                 <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
               <h6 *ngIf="!eventForm.controls.start.touched" class="additionalInfoDateText">Start time</h6></button>
@@ -41,7 +32,7 @@
             <ion-row>
                 <ion-col col-7></ion-col>
                 <ion-col col-10>
-                    <button color="secondary" style="text-align: center" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.date.dirty || !eventForm.controls.note.dirty"
+                    <button color="secondary" style="text-align: center" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.note.dirty"
                         ion-button type="submit">Create event</button>
                 </ion-col>
                 <ion-col col-7></ion-col>

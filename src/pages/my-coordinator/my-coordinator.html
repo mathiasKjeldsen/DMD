@@ -13,8 +13,9 @@
           <ion-col col-10>
             <br>
             <br>
-            <p style="color: white; text-align: left;line-height: 0.2px;">{{event?.fullName}}</p>
-            <p *ngIf="userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
+            <p class="coordName">{{event?.fullName}}</p>
+            <p *ngIf="!userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.6px; font-size: 12px; font-style: italic;">Coordinator</p>
+            <br>
           </ion-col>
           <ion-col col-14>
           </ion-col>

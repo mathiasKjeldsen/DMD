@@ -22,7 +22,6 @@ export class CalendarNewEventPage {
 
 
     this.eventForm = this.formBuilder.group({
-      'date': ['', Validators.compose([Validators.minLength(1), Validators.required])],
       'start': ['', Validators.compose([Validators.minLength(1), Validators.required])],
       'end': ['', Validators.compose([Validators.minLength(1), Validators.required])],
       'note': ['', Validators.compose([Validators.minLength(1), Validators.required])]
