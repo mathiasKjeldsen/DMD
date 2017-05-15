@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
+import { EventProvider } from '../../providers/events';
+import { ProfileData } from '../../providers/profile-data';
 
 @Component({
   selector: 'page-calendar',
@@ -8,26 +10,38 @@ import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
 })
 export class CalendarPage {
 
+  public eventList: Array<any>;
   day = 17;
   month = 1;
+  public userProfile: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData) {
 
+    this.profileData.getUserProfile().on('value', (data) => {
+      this.userProfile = data.val();
+    });
+
+  }
+
+  ionViewDidEnter() {
+    this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
+      this.eventList = eventListSnap;
+    });
   }
 
   newCalendarEvent() {
-    this.navCtrl.push(CalendarNewEventPage, {day: this.day, month: this.month});
+    this.navCtrl.push(CalendarNewEventPage, { day: this.day, month: this.month });
   }
 
   monthMinus() {
-    if (this.month > 1 ) {
-    this.month -= 1;
+    if (this.month > 1) {
+      this.month -= 1;
     }
   }
 
   monthPlus() {
-    if (this.month < 3 ) {
-    this.month += 1;
+    if (this.month < 3) {
+      this.month += 1;
     }
   }
 

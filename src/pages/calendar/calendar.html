@@ -165,6 +165,25 @@
     </ion-card-content>
   </ion-card>
 
+<ion-item mode="ios" *ngFor="let event of eventList">
+  users name: {{event?.userName}} <br>
+  date: {{event?.date}} <br>
+  start: {{event?.startTime}}<br>
+  end: {{event?.endTime}}<br> 
+  note: {{event?.note}} <br>
+  bluestamp: {{event?.blueStampedByCoordinator}}
+</ion-item>
+
+
+  <ion-card *ngFor="let event of eventList">
+    <ion-card-header>
+      {{event?.userName}} - {{event?.startTime}}-{{event?.endTime}} <button ion-button small mode="wp">edit</button>
+    </ion-card-header>
+    <ion-card-content>
+      <i>{{event?.note}}</i>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
 
 <!--

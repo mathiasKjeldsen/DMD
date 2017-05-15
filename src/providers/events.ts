@@ -58,4 +58,28 @@ export class EventProvider {
     });
   }
 
+  readFromCalendar(userID: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      //firebase.database().ref(`Calendar/`).orderByChild('Note').equalTo("asd").on('value', snapshot => {
+      //firebase.database().ref(`Calendar/`+userID).on('value', snapshot => {
+        firebase.database().ref(`Calendar/`+userID+'/').on('value', snapshot => {
+          let rawList = [];
+          snapshot.forEach(snap => {
+            console.log(snap.val());
+            rawList.push({
+              id: snap.key,
+              date: snap.val().date,
+              startTime: snap.val().startTime,
+              endTime: snap.val().endTime,
+              note: snap.val().note,
+              blueStampedByCoordinator: snap.val().blueStampedByCoordinator,
+              userName: snap.val().userName,
+            });
+            return false
+          });
+          resolve(rawList);
+        });
+    });
+  }
+
 }

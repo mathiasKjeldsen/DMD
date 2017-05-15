@@ -49,7 +49,7 @@ export class CalendarNewEventPage {
     this.isUserCoordinator = this.userIsCoordinator;
 
     if (this.eventForm.start < this.eventForm.end) {
-    this.calendarData.newCalendarEvent(this.day+"-"+this.month+"-"+this.year, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator).then(() => {
+    this.calendarData.newCalendarEvent(this.day+"-"+this.month+"-"+this.year, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, this.userProfile.fullName).then(() => {
       alert("added to firebase")
     });
     } else {

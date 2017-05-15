@@ -15,7 +15,6 @@ export class ManageHelpersPage {
   public eventList: Array<any>;
 
   public userProfile: any;
-  public birthDate: string;
   public connectHelperForm;
 
   constructor(public navCtrl: NavController, public profileData: ProfileData, public formBuilder: FormBuilder, public eventProvider: EventProvider,
@@ -27,7 +26,6 @@ export class ManageHelpersPage {
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
-      this.birthDate = this.userProfile.birthDate;
     });
   }
 

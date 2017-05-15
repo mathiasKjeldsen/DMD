@@ -17,7 +17,7 @@ export class CalendarData {
     this.CalendarDatabase = firebase.database().ref('/Calendar/'+this.currentUser.uid);
   }
 
-  newCalendarEvent(date: string, startTime: string, endTime: string, note: string, isUserCoordinator): firebase.Promise<any> {
+  newCalendarEvent(date: string, startTime: string, endTime: string, note: string, isUserCoordinator, fullName: string): firebase.Promise<any> {
 
     this.randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     this.randomLetterTwo = String.fromCharCode(65 + Math.floor(Math.random() * 26));
@@ -25,11 +25,12 @@ export class CalendarData {
     this.EventNumber = this.dateNumber + this.randomLetter + this.randomLetterTwo;
 
     return this.CalendarDatabase.child("Calendar Event " + this.EventNumber).update({
-      Date: date,
-      StartTime: startTime,
-      EndTime: endTime,
-      Note: note,
+      date: date,
+      startTime: startTime,
+      endTime: endTime,
+      note: note,
       blueStampedByCoordinator: isUserCoordinator,
+      userName: fullName,
     });
   }
 
