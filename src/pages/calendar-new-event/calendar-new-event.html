@@ -48,10 +48,15 @@
             </ion-row>
         </form>
     </ion-grid>
-    <!--vi skal sørge for at datoen allerede er valgt før man klikker ind på create event, for man går direkte fra fx May 21. 
-    Jeg ved ikke om vi synes man skal kunne ændre den her inde, eller kun længere ude. Hælder lidt til kun udenfor, så det er så simpelt som muligt. 
-    Så kan vi også slippe afsted med at lave en kalender for kun 1-3 måneder i stedet for at lave en der varer til forever -->
-    Creating the following event on {{eventForm.date}}:
+
+        <ion-row>
+        <ion-row>Creating an event for</ion-row>
+        <ion-row *ngIf="month == 1">May</ion-row>
+        <ion-row *ngIf="month == 2">June</ion-row>
+        <ion-row *ngIf="month == 3">July</ion-row>
+        <ion-row>&nbsp;{{day}}</ion-row>
+    </ion-row>
+
     <ion-card>
         <ion-card-header>
             {{userProfile?.fullName}} - {{eventForm.start}} - {{eventForm.end}}
@@ -60,16 +65,4 @@
             <i>{{eventForm.note}}</i>
         </ion-card-content>
     </ion-card>
-
-    test what day and month? {{day}} + {{month}}
-    <br>
-    <br>
-
-    <ion-row>
-        <ion-row>What day and month are we creating an event for?</ion-row>
-        <ion-row *ngIf="month == 1">Month: May </ion-row>
-        <ion-row *ngIf="month == 2">Month: June </ion-row>
-        <ion-row *ngIf="month == 3">Month: July </ion-row>
-        <ion-row>&nbsp;{{day}}</ion-row>
-    </ion-row>
 </ion-content>
