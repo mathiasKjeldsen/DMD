@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CalendarData } from '../../providers/calendar-data';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ProfileData } from '../../providers/profile-data';
 
 
 @Component({
@@ -9,21 +10,27 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: 'calendar-new-event.html'
 })
 export class CalendarNewEventPage {
-public eventForm; 
-  constructor(public navCtrl: NavController, public calendarData: CalendarData, public formBuilder: FormBuilder) {
-  
-  
-   this.eventForm = this.formBuilder.group({
+  public eventForm;
+  public userProfile: any;
+  public birthDate: string;
+
+  constructor(public navCtrl: NavController, public calendarData: CalendarData, public formBuilder: FormBuilder, public profileData: ProfileData) {
+
+
+    this.eventForm = this.formBuilder.group({
       'date': ['', Validators.compose([Validators.minLength(1), Validators.required])],
       'start': ['', Validators.compose([Validators.minLength(1), Validators.required])],
       'end': ['', Validators.compose([Validators.minLength(1), Validators.required])],
       'note': ['', Validators.compose([Validators.minLength(1), Validators.required])]
     });
-
+    this.profileData.getUserProfile().on('value', (data) => {
+      this.userProfile = data.val();
+      this.birthDate = this.userProfile.birthDate;
+    });
 
   }
 
-    isValid(field: string) {
+  isValid(field: string) {
     let formField = this.eventForm.get(field);
     return formField.valid || formField.pristine;
   }

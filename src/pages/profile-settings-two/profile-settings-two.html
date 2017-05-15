@@ -40,7 +40,7 @@
             <ion-col col-20>
               <ion-item mode="ios" class="signUpTransparent">
                 <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-person" class="signUpColorLock"></ion-icon></button>
-                <ion-input mode="ios" placeholder="{{userProfile?.fullName}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.fullName"
+                <ion-input mode="ios" value="{{userProfile?.fullName}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.fullName"
                   formControlName="fullName" #name></ion-input>
               </ion-item>
               <p *ngIf="!isValid('fullName') && profileInfoForm.controls.fullName.dirty" class="signUpInValid">Invalid name</p>
@@ -53,7 +53,7 @@
           <ion-col col-20>
             <ion-item mode="ios" class="signUpTransparent">
               <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
-              <ion-input mode="ios" placeholder="{{userProfile?.address}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.address"
+              <ion-input mode="ios" value="{{userProfile?.address}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.address"
                 formControlName="address" #address></ion-input>
             </ion-item>
             <p *ngIf="!isValid('address') && profileInfoForm.controls.address.touched" class="signUpInValid">Minimum 2 characters</p>
@@ -66,7 +66,7 @@
           <ion-col col-10>
             <ion-item mode="ios" class="signUpTransparent">
               <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
-              <ion-input mode="ios" placeholder="{{userProfile?.zip}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.zip" formControlName="zip"
+              <ion-input mode="ios" value="{{userProfile?.zip}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.zip" formControlName="zip"
                 #zip></ion-input>
             </ion-item>
             <p *ngIf="!isValid('zip') && profileInfoForm.controls.zip.touched" class="signUpInValid">Invalid zip</p>
@@ -74,7 +74,7 @@
 
           <ion-col col-10>
             <ion-item mode="ios" class="signUpTransparent">
-              <ion-input mode="ios" placeholder="{{userProfile?.city}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.city" formControlName="city"
+              <ion-input mode="ios" value="{{userProfile?.city}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.city" formControlName="city"
                 #city></ion-input>
             </ion-item>
             <p *ngIf="!isValid('city') && profileInfoForm.controls.city.touched" class="signUpInValid">Invalid city</p>
@@ -88,7 +88,7 @@
           <ion-col col-20>
             <ion-item mode="ios" class="signUpTransparent">
               <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
-              <ion-input mode="ios" placeholder="{{userProfile?.country}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.country"
+              <ion-input mode="ios" value="{{userProfile?.country}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.country"
                 formControlName="country" #country></ion-input>
             </ion-item>
             <p *ngIf="!isValid('country') && profileInfoForm.controls.country.touched" class="signUpInValid">Invalid country</p>
