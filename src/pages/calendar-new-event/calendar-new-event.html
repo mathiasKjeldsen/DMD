@@ -43,7 +43,10 @@
 
         </form>
     </ion-grid>
-Preview:
+    <!--vi skal sørge for at datoen allerede er valgt før man klikker ind på create event, for man går direkte fra fx May 21. 
+    Jeg ved ikke om vi synes man skal kunne ændre den her inde, eller kun længere ude. Hælder lidt til kun udenfor, så det er så simpelt som muligt. 
+    Så kan vi også slippe afsted med at lave en kalender for kun 1-3 måneder i stedet for at lave en der varer til forever -->
+Creating the following event on {{eventForm.date}}:
     <ion-card>
     <ion-card-header>
       {{userProfile?.fullName}} - {{eventForm.start}} - {{eventForm.end}}
