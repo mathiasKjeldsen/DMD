@@ -11,8 +11,8 @@ import { ProfileData } from '../../providers/profile-data';
 export class CalendarPage {
 
   public eventList: Array<any>;
-  day = 17;
-  month = 5;
+  day = 29;
+  month = 6;
   public userProfile: any;
 
   constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData) {
