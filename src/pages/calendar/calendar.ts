@@ -8,11 +8,20 @@ import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
 })
 export class CalendarPage {
 
+  public twenty = false;
   constructor(public navCtrl: NavController) {
 
   }
 
   newCalendarEvent() {
     this.navCtrl.push(CalendarNewEventPage);
+  }
+
+  twentyActive() {
+    this.twenty = true;
+  }
+
+  twentyInactive() {
+    this.twenty = false;
   }
 }

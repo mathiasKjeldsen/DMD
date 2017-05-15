@@ -1,4 +1,3 @@
-
 <ion-header mode="wp">
   <ion-navbar mode="wp">
   </ion-navbar>
@@ -57,8 +56,10 @@
       <ion-col col-3>17</ion-col>
       <ion-col col-3>18</ion-col>
       <ion-col col-3>19</ion-col>
-      <ion-col col-3>20</ion-col>
-      <ion-col col-3 class="dayHasEvent">21</ion-col>
+      <ion-col col-3 *ngIf="!twenty" (click)="twentyActive()">20</ion-col>
+      <ion-col col-3 *ngIf="twenty" (click)="twentyActive()" class="daySelected">20</ion-col>
+      <ion-col col-3 *ngIf="twenty" (click)="twentyInactive()">21</ion-col>
+      <ion-col col-3 *ngIf="!twenty" (click)="twentyInactive()" class="daySelected">21</ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
 
@@ -101,8 +102,8 @@
     <ion-row class="rowSpace23">&nbsp;
     </ion-row>
 
-    <ion-row align-items-baseline> 
-      <ion-col col-1 ></ion-col>
+    <ion-row align-items-baseline>
+      <ion-col col-1></ion-col>
       <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;">May 21
       </ion-col>
       <ion-col col-8 text-right><button ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button>
@@ -132,7 +133,7 @@
 
 </ion-content>
 
-  <!--
+<!--
   <div class="rowSpace100">&nbsp;</div>
   <ul>
     <li>Hvad skal den kunne?</li>
