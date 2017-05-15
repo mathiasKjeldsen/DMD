@@ -15,7 +15,7 @@ export class CalendarNewEventPage {
   public birthDate: string;
   day: any;
   month: any;
-  year: 2017;
+  year = 2017;
 
   constructor(public navCtrl: NavController, public calendarData: CalendarData, public formBuilder: FormBuilder,
     public profileData: ProfileData, public navParams: NavParams) {
@@ -43,7 +43,7 @@ export class CalendarNewEventPage {
   }
 
   updateNote() {
-    this.calendarData.newCalendarEvent(this.month+"-"+this.day+"-"+this.year, this.eventForm.start, this.eventForm.end, this.eventForm.note).then(() => {
+    this.calendarData.newCalendarEvent(this.day+"-"+this.month+"-"+this.year, this.eventForm.start, this.eventForm.end, this.eventForm.note).then(() => {
       alert("added to firebase")
     });
   }

@@ -50,11 +50,11 @@
     </ion-grid>
 
         <ion-row>
-        <ion-row>Creating an event for</ion-row>
-        <ion-row *ngIf="month == 1">May</ion-row>
-        <ion-row *ngIf="month == 2">June</ion-row>
-        <ion-row *ngIf="month == 3">July</ion-row>
-        <ion-row>&nbsp;{{day}}</ion-row>
+        <ion-row>Creating an event for&nbsp;</ion-row>
+        <ion-row *ngIf="month == 1"><strong>May</strong></ion-row>
+        <ion-row *ngIf="month == 2"><strong>June</strong></ion-row>
+        <ion-row *ngIf="month == 3"><strong>July</strong></ion-row>
+        <ion-row>&nbsp;<strong>{{day}}</strong></ion-row>
     </ion-row>
 
     <ion-card>
