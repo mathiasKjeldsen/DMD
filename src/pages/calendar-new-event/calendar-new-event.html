@@ -1,9 +1,10 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar mode="wp">
     </ion-navbar>
-
-
 </ion-header>
+
+
+
 <ion-content padding class="handifyBg">
     <ion-grid>
         <form [formGroup]="eventForm" (submit)="updateNote()">
@@ -35,10 +36,10 @@
 
             <ion-item mode="ios" class="signUpTransparent">
                 <button ion-button item-left class="backButton" mode="ios"><ion-icon name="ios-paper-outline" class="signUpColorLock"></ion-icon></button>
-                <ion-input placeholder="Note"mode="ios" class="signUpPlaceholder"></ion-input>
+                <ion-input formControlName="note" [(ngModel)]="eventForm.note" placeholder="Note"mode="ios" class="signUpPlaceholder"></ion-input>
             </ion-item>
 
-            <button [disabled]="!eventForm.controls.end.dirty" ion-button type="submit">New event</button>
+            <button color="secondary" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.date.dirty || !eventForm.controls.note.dirty" ion-button type="submit">Create event</button>
 
         </form>
     </ion-grid>

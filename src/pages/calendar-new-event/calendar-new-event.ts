@@ -29,7 +29,7 @@ public eventForm;
   }
 
   updateNote() {
-    this.calendarData.newCalendarEvent("test", "test", "test", "test").then(() => {
+    this.calendarData.newCalendarEvent(this.eventForm.date, this.eventForm.start, this.eventForm.end, this.eventForm.note).then(() => {
       alert("added to firebase")
     });
   }
