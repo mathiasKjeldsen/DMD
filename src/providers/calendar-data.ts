@@ -11,7 +11,7 @@ export class CalendarData {
     this.CalendarDatabase = firebase.database().ref('/Calendar');
   }
 
-  newCalendarEvent(note: string, starts: string, ends: string, date: string): firebase.Promise<any> {
+  newCalendarEvent(date: string, starts: string, ends: string, note: string): firebase.Promise<any> {
     return this.CalendarDatabase.child(this.currentUser.uid).update({
       Date: date,
       Starts: starts,
