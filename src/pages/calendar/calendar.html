@@ -56,16 +56,16 @@
       <ion-col col-3>17</ion-col>
       <ion-col col-3>18</ion-col>
       <ion-col col-3>19</ion-col>
-      <ion-col col-3 *ngIf="twenty == 21" (click)="twentyActive()">20</ion-col>
-      <ion-col col-3 *ngIf="twenty == 20" (click)="twentyActive()" class="daySelected">20</ion-col>
-      <ion-col col-3 *ngIf="twenty == 20" (click)="twentyInactive()">21</ion-col>
-      <ion-col col-3 *ngIf="twenty == 21" (click)="twentyInactive()" class="daySelected">21</ion-col>
+      <ion-col col-3 *ngIf="day != 20" (click)="dayTwenty()">20</ion-col>
+      <ion-col col-3 *ngIf="day == 20" (click)="dayTwenty()" class="daySelected">20</ion-col>
+      <ion-col col-3 *ngIf="day != 21" (click)="dayTwentyOne()" class="dayHasEvent">21</ion-col>
+      <ion-col col-3 *ngIf="day == 21" (click)="dayTwentyOne()" class="dayHasEventandDaySelected">21</ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
 
     <ion-row class="days">
       <ion-col col-2></ion-col>
-      <ion-col col-3 class="dayHasEventandDaySelected">22</ion-col>
+      <ion-col col-3>22</ion-col>
       <ion-col col-3>23</ion-col>
       <ion-col col-3>24</ion-col>
       <ion-col col-3>25</ion-col>
@@ -104,7 +104,7 @@
 
     <ion-row align-items-baseline>
       <ion-col col-1></ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;">May 21
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;">May {{day}}
       </ion-col>
       <ion-col col-8 text-right><button ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button>
       </ion-col>
