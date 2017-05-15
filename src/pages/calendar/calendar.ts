@@ -8,7 +8,7 @@ import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
 })
 export class CalendarPage {
 
-  public twenty = false;
+  public twenty = 20;
   constructor(public navCtrl: NavController) {
 
   }
@@ -18,10 +18,10 @@ export class CalendarPage {
   }
 
   twentyActive() {
-    this.twenty = true;
+    this.twenty = 20;
   }
 
   twentyInactive() {
-    this.twenty = false;
+    this.twenty = 21;
   }
 }

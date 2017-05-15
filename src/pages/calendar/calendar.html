@@ -56,10 +56,10 @@
       <ion-col col-3>17</ion-col>
       <ion-col col-3>18</ion-col>
       <ion-col col-3>19</ion-col>
-      <ion-col col-3 *ngIf="!twenty" (click)="twentyActive()">20</ion-col>
-      <ion-col col-3 *ngIf="twenty" (click)="twentyActive()" class="daySelected">20</ion-col>
-      <ion-col col-3 *ngIf="twenty" (click)="twentyInactive()">21</ion-col>
-      <ion-col col-3 *ngIf="!twenty" (click)="twentyInactive()" class="daySelected">21</ion-col>
+      <ion-col col-3 *ngIf="twenty == 21" (click)="twentyActive()">20</ion-col>
+      <ion-col col-3 *ngIf="twenty == 20" (click)="twentyActive()" class="daySelected">20</ion-col>
+      <ion-col col-3 *ngIf="twenty == 20" (click)="twentyInactive()">21</ion-col>
+      <ion-col col-3 *ngIf="twenty == 21" (click)="twentyInactive()" class="daySelected">21</ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
 
