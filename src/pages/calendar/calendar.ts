@@ -12,7 +12,7 @@ export class CalendarPage {
 
   public eventList: Array<any>;
   day = 17;
-  month = 1;
+  month = 5;
   public userProfile: any;
 
   constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData) {
@@ -34,28 +34,27 @@ export class CalendarPage {
   }
 
   monthMinus() {
-    if (this.month > 1) {
+    if (this.month > 5) {
       this.month -= 1;
     }
   }
 
   monthPlus() {
-    if (this.month < 3) {
+    if (this.month < 7) {
       this.month += 1;
     }
   }
 
-
   monthMay() {
-    this.month = 1;
+    this.month = 5;
   }
 
   monthJune() {
-    this.month = 2;
+    this.month = 6;
   }
 
   monthJuly() {
-    this.month = 3;
+    this.month = 7;
   }
 
   dayOne() {

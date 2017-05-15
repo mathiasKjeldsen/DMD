@@ -10,9 +10,9 @@
     <ion-row class="month">
       <ion-col col-4 text-center (click)="monthMinus()">&#10094;</ion-col>
 
-      <ion-col col-16 text-center *ngIf="month == 1">May 2017</ion-col>
-      <ion-col col-16 text-center *ngIf="month == 2">June 2017</ion-col>
-      <ion-col col-16 text-center *ngIf="month == 3">July 2017</ion-col>
+      <ion-col col-16 text-center *ngIf="month == 5">May 2017</ion-col>
+      <ion-col col-16 text-center *ngIf="month == 6">June 2017</ion-col>
+      <ion-col col-16 text-center *ngIf="month == 7">July 2017</ion-col>
 
       <ion-col col-4 text-center (click)="monthPlus()">&#10095;</ion-col>
     </ion-row>
@@ -137,54 +137,25 @@
 
     <ion-row align-items-baseline>
       <ion-col col-1></ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 1">May {{day}}</ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 2">June {{day}}</ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 3">July {{day}}</ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 5">May {{day}}</ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 6">June {{day}}</ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 7">July {{day}}</ion-col>
       <ion-col col-8 text-right><button ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button>
       </ion-col>
     </ion-row>
 
   </ion-grid>
 
-  <ion-card>
+<ion-item mode="wp" *ngFor="let event of eventList">
+  <ion-card *ngIf="day == event?.day && month == event?.month">
     <ion-card-header>
-      Josef Jensen - 07:30-08:30 <button ion-button small mode="wp">edit</button>
-    </ion-card-header>
-    <ion-card-content>
-      <i>Følger Bjørn i skole</i>
-    </ion-card-content>
-  </ion-card>
-
-
-  <ion-card>
-    <ion-card-header>
-      Bjørn Skalkam - 18:30-20:00 <button ion-button small mode="wp">edit</button>
-    </ion-card-header>
-    <ion-card-content>
-      <i>Følger Troels til fysioterapeut, og efter det tager vi direkte til svømning.</i>
-    </ion-card-content>
-  </ion-card>
-
-<ion-item mode="ios" *ngFor="let event of eventList">
-  users name: {{event?.userName}} <br>
-  month: {{event?.month}} <br>
-  day: {{event?.day}} <br>
-  start: {{event?.startTime}}<br>
-  end: {{event?.endTime}}<br> 
-  note: {{event?.note}} <br>
-  bluestamp: {{event?.blueStampedByCoordinator}}
-</ion-item>
-
-
-  <ion-card *ngFor="let event of eventList">
-    <ion-card-header>
-      {{event?.userName}} - {{event?.startTime}}-{{event?.endTime}} <button ion-button small mode="wp">edit</button>
+      {{event?.userName}} - {{event?.startTime}}-{{event?.endTime}} <!--<button ion-button small mode="wp">edit</button>-->
     </ion-card-header>
     <ion-card-content>
       <i>{{event?.note}}</i>
     </ion-card-content>
   </ion-card>
-
+</ion-item>
 </ion-content>
 
 <!--
