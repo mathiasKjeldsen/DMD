@@ -68,7 +68,8 @@ export class EventProvider {
             console.log(snap.val());
             rawList.push({
               id: snap.key,
-              date: snap.val().date,
+              day: snap.val().day,
+              month: snap.val().month,
               startTime: snap.val().startTime,
               endTime: snap.val().endTime,
               note: snap.val().note,
