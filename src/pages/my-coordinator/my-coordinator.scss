@@ -16,7 +16,7 @@
 }
 
 .coordMargin {
-    margin-top: -75px;
+    margin-top: -100px;
     text-align: left;
     line-height: 0.8em;
 
@@ -25,5 +25,59 @@
 .coordName {
     color: white !important;
     text-align: left;
-    line-height: 1px;
+    line-height: 2px !important;
+    margin-left: 15px !important;
+}
+
+.coordName2 {
+    color: white !important;
+    text-align: center !important;
+    margin-left: 15px !important;
+}
+
+.whiteContainer2 {
+    background-color: white !important;
+    
+}
+
+.coordItem {
+    background-color: transparent !important;
+    }
+.coordMargin2 {
+     margin-left: -35px !important;
+    margin-right: -35px !important;
+}
+
+.coordCoord {
+    color: lightgrey !important; 
+    text-align: left; 
+    line-height: 20px !important; 
+    font-size: 12px !important; 
+    font-style: italic;
+    margin-left: 15px !important;
+}
+
+
+.coordPhoto {
+    width:150px;
+    height:150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: -68px;
+    text-align: right !important;
+}
+
+.coordSummary {
+    color: grey; 
+    text-align: left; 
+    line-height: 0.4px; 
+    font-size: 13px; 
+    font-style: italic;
+}
+
+.coordSummary2 {
+    color: black !important; 
+    text-align: left; 
+    line-height: 0.4px; 
+    font-size: 12px; 
+    font-style: italic;
 }

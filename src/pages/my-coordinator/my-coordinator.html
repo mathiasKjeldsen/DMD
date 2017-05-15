@@ -7,26 +7,28 @@
 <ion-content padding class="handifyBg">
   <ion-grid text-center>
 
-    <ion-list mode="wp" *ngIf="!userProfile?.userIsCoordinator">
-      <ion-item class="settingsButton" *ngFor="let event of eventList">
+    <ion-list class="coordMargin2" mode="wp" *ngIf="!userProfile?.userIsCoordinator">
+      <ion-item class="coordItem" *ngFor="let event of eventList">
+
         <ion-row>
           <ion-col col-10>
             <br>
             <br>
             <p class="coordName">{{event?.fullName}}</p>
-            <p *ngIf="!userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.6px; font-size: 12px; font-style: italic;">Coordinator</p>
-            <br>
+            <p *ngIf="!userProfile?.userIsCoordinator" class="coordCoord">Coordinator</p>
+
           </ion-col>
           <ion-col col-14>
           </ion-col>
         </ion-row>
 
-        <div class="whiteContainer">
+        <div class="whiteContainer2">
           <ion-row>
-            <ion-col col-10>
+            <ion-col col-12>
             </ion-col>
-            <ion-col col-14>
-              <img src="{{event?.profilePhoto}}" class="profilePhoto">
+            <ion-col col-12>
+              <p class="coordName2">My coordinator</p>
+              <img src="{{event?.profilePhoto}}" class="coordPhoto">
             </ion-col>
           </ion-row>
 
@@ -44,13 +46,13 @@
             </ion-col>
           </ion-row>
 
-          <ion-row class="rowSpace33">&nbsp;</ion-row>
+          <ion-row class="rowSpace50">&nbsp;</ion-row>
           <div class="borderTest">
             <ion-row>
               <ion-col col-1>
               </ion-col>
               <ion-col col-11 class="profileInfo">
-                <p style="color: grey; text-align: left; line-height: 0.2px; font-size: 13px; font-style: italic;">Summary</p>
+                <p class="coordSummary">Summary</p>
               </ion-col>
               <ion-col col-10>
               </ion-col>
@@ -59,7 +61,7 @@
               <ion-col col-1>
               </ion-col>
               <ion-col col-17 class="profileInfo">
-                <p style="color: black; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Short summary about Mathias...</p>
+                <p class="coordSummary2">Short summary about Mathias...</p>
               </ion-col>
               <ion-col col-6>
                 <button mode="wp" class="editIcon2" ion-button><ion-icon class="editIcon" name="ios-create-outline"></ion-icon></button>
