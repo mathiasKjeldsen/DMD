@@ -12,7 +12,7 @@
 
             <ion-item mode="ios" class="signUpTransparent">
                 <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
-              <h6 *ngIf="!eventForm.controls.date.touched" class="additionalInfoDateText">Date</h6></button>
+              <h6 *ngIf="!eventForm.controls.date.touched" class="additionalInfoDateText">{{day}}-{{month}}-2017</h6></button>
 
                 <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.date"
                     formControlName="date"></ion-datetime>
