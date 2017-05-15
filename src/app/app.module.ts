@@ -26,7 +26,6 @@ import { ProfileData } from '../providers/profile-data';
 import { EventProvider } from '../providers/events';
 import { CalendarData } from '../providers/calendar-data';
 
-import { Facebook } from '@ionic-native/facebook';
 @NgModule({
   declarations: [
     MyApp,

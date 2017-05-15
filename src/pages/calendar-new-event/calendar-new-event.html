@@ -1,7 +1,45 @@
-<ion-content>
-date: <ion-datetime color="primary" displayFormat="DD.MM.YYYY" ></ion-datetime>
-start: <ion-datetime color="primary" displayFormat="HH.MM.ss" ></ion-datetime>
-end: <ion-datetime color="primary" displayFormat="HH.mm" ></ion-datetime>
-note: <ion-input></ion-input>
-    <button ion-button (click)="updateNote()">test</button>
+<ion-header>
+    <ion-navbar>
+    </ion-navbar>
+
+
+</ion-header>
+<ion-content padding class="handifyBg">
+    <ion-grid>
+        <form [formGroup]="eventForm" (submit)="updateNote()">
+
+
+            <ion-item mode="ios" class="signUpTransparent">
+                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
+              <h6 *ngIf="!eventForm.controls.date.touched" class="additionalInfoDateText">Date</h6></button>
+
+                <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.date"
+                    formControlName="date"></ion-datetime>
+            </ion-item>
+
+            <ion-item mode="ios" class="signUpTransparent">
+                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
+              <h6 *ngIf="!eventForm.controls.start.touched" class="additionalInfoDateText">Start time</h6></button>
+
+                <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.start"
+                    formControlName="start"></ion-datetime>
+            </ion-item>
+
+            <ion-item mode="ios" class="signUpTransparent">
+                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
+              <h6 *ngIf="!eventForm.controls.end.touched" class="additionalInfoDateText">End time</h6></button>
+
+                <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.end"
+                    formControlName="end"></ion-datetime>
+            </ion-item>
+
+            <ion-item mode="ios" class="signUpTransparent">
+                <button ion-button item-left class="backButton" mode="ios"><ion-icon name="ios-paper-outline" class="signUpColorLock"></ion-icon></button>
+                <ion-input placeholder="Note"mode="ios" class="signUpPlaceholder"></ion-input>
+            </ion-item>
+
+            <button [disabled]="!eventForm.controls.end.dirty" ion-button type="submit">New event</button>
+
+        </form>
+    </ion-grid>
 </ion-content>
