@@ -51,6 +51,7 @@ export class CalendarNewEventPage {
     if (this.eventForm.start < this.eventForm.end) {
     this.calendarData.newCalendarEvent(this.day, this.month, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, this.userProfile.fullName).then(() => {
       alert("added to firebase")
+      this.navCtrl.pop();
     });
     } else {
       alert("Start time must be before end time")
