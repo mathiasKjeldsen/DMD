@@ -27,59 +27,88 @@
 
     <ion-row class="days">
       <ion-col col-2></ion-col>
-      <ion-col col-3>1</ion-col>
-      <ion-col col-3 class="dayHasEvent">2</ion-col>
-      <ion-col col-3>3</ion-col>
-      <ion-col col-3>4</ion-col>
-      <ion-col col-3>5</ion-col>
-      <ion-col col-3>6</ion-col>
-      <ion-col col-3>7</ion-col>
+      <ion-col col-3 *ngIf="day != 1" (click)="dayOne()">1</ion-col>
+      <ion-col col-3 *ngIf="day == 1" class="daySelected">1</ion-col>
+      <ion-col col-3 *ngIf="day != 2" (click)="dayTwo()">2</ion-col>
+      <ion-col col-3 *ngIf="day == 2" class="daySelected">2</ion-col>
+      <ion-col col-3 *ngIf="day != 3" (click)="dayThree()">3</ion-col>
+      <ion-col col-3 *ngIf="day == 3" class="daySelected">3</ion-col>
+      <ion-col col-3 *ngIf="day != 4" (click)="dayFour()">4</ion-col>
+      <ion-col col-3 *ngIf="day == 4" class="daySelected">4</ion-col>
+      <ion-col col-3 *ngIf="day != 5" (click)="dayFive()">5</ion-col>
+      <ion-col col-3 *ngIf="day == 5" class="daySelected">5</ion-col>
+      <ion-col col-3 *ngIf="day != 6" (click)="daySix()">6</ion-col>
+      <ion-col col-3 *ngIf="day == 6" class="daySelected">6</ion-col>
+      <ion-col col-3 *ngIf="day != 7" (click)="daySeven()">7</ion-col>
+      <ion-col col-3 *ngIf="day == 7" class="daySelected">7</ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
 
     <ion-row class="days">
       <ion-col col-2></ion-col>
-      <ion-col col-3>8</ion-col>
-      <ion-col col-3>9</ion-col>
-      <ion-col col-3>10</ion-col>
-      <ion-col col-3>11</ion-col>
-      <ion-col col-3 class="dayHasEvent">12</ion-col>
-      <ion-col col-3>13</ion-col>
-      <ion-col col-3>14</ion-col>
+      <ion-col col-3 *ngIf="day != 8" (click)="dayEight()">8</ion-col>
+      <ion-col col-3 *ngIf="day == 8" class="daySelected">8</ion-col>
+      <ion-col col-3 *ngIf="day != 9" (click)="dayNine()">9</ion-col>
+      <ion-col col-3 *ngIf="day == 9" class="daySelected">9</ion-col>
+      <ion-col col-3 *ngIf="day != 10" (click)="dayTen()">10</ion-col>
+      <ion-col col-3 *ngIf="day == 10" class="daySelected">10</ion-col>
+      <ion-col col-3 *ngIf="day != 11" (click)="dayEleven()">11</ion-col>
+      <ion-col col-3 *ngIf="day == 11" class="daySelected">11</ion-col>
+      <ion-col col-3 *ngIf="day != 12" (click)="dayTwelve()">12</ion-col>
+      <ion-col col-3 *ngIf="day == 12" class="daySelected">12</ion-col>
+      <ion-col col-3 *ngIf="day != 13" (click)="dayThirteen()">13</ion-col>
+      <ion-col col-3 *ngIf="day == 13" class="daySelected">13</ion-col>
+      <ion-col col-3 *ngIf="day != 14" (click)="dayFourteen()">14</ion-col>
+      <ion-col col-3 *ngIf="day == 14" class="daySelected">14</ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
 
     <ion-row class="days">
       <ion-col col-2></ion-col>
-      <ion-col col-3 class="dayHasEvent">15</ion-col>
-      <ion-col col-3>16</ion-col>
-      <ion-col col-3>17</ion-col>
-      <ion-col col-3>18</ion-col>
-      <ion-col col-3>19</ion-col>
+      <ion-col col-3 *ngIf="day != 15" (click)="dayFifteen()">15</ion-col>
+      <ion-col col-3 *ngIf="day == 15" class="daySelected">15</ion-col>
+      <ion-col col-3 *ngIf="day != 16" (click)="daySixteen()">16</ion-col>
+      <ion-col col-3 *ngIf="day == 16" class="daySelected">16</ion-col>
+      <ion-col col-3 *ngIf="day != 17" (click)="daySeventeen()">17</ion-col>
+      <ion-col col-3 *ngIf="day == 17" class="daySelected">17</ion-col>
+      <ion-col col-3 *ngIf="day != 18" (click)="dayEighteen()">18</ion-col>
+      <ion-col col-3 *ngIf="day == 18" class="daySelected">18</ion-col>
+      <ion-col col-3 *ngIf="day != 19" (click)="dayNineteen()">19</ion-col>
+      <ion-col col-3 *ngIf="day == 19" class="daySelected">19</ion-col>
       <ion-col col-3 *ngIf="day != 20" (click)="dayTwenty()">20</ion-col>
-      <ion-col col-3 *ngIf="day == 20" (click)="dayTwenty()" class="daySelected">20</ion-col>
-      <ion-col col-3 *ngIf="day != 21" (click)="dayTwentyOne()" class="dayHasEvent">21</ion-col>
-      <ion-col col-3 *ngIf="day == 21" (click)="dayTwentyOne()" class="dayHasEventandDaySelected">21</ion-col>
+      <ion-col col-3 *ngIf="day == 20" class="daySelected">20</ion-col>
+      <ion-col col-3 *ngIf="day != 21" (click)="dayTwentyOne()">21</ion-col>
+      <ion-col col-3 *ngIf="day == 21" class="daySelected">21</ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
 
     <ion-row class="days">
       <ion-col col-2></ion-col>
-      <ion-col col-3>22</ion-col>
-      <ion-col col-3>23</ion-col>
-      <ion-col col-3>24</ion-col>
-      <ion-col col-3>25</ion-col>
-      <ion-col col-3 class="dayHasEvent">26</ion-col>
-      <ion-col col-3>27</ion-col>
-      <ion-col col-3>28</ion-col>
+      <ion-col col-3 *ngIf="day != 22" (click)="dayTwentyTwo()">22</ion-col>
+      <ion-col col-3 *ngIf="day == 22" class="daySelected">22</ion-col>
+      <ion-col col-3 *ngIf="day != 23" (click)="dayTwentyThree()">23</ion-col>
+      <ion-col col-3 *ngIf="day == 23" class="daySelected">23</ion-col>
+      <ion-col col-3 *ngIf="day != 24" (click)="dayTwentyFour()">24</ion-col>
+      <ion-col col-3 *ngIf="day == 24" class="daySelected">24</ion-col>
+      <ion-col col-3 *ngIf="day != 25" (click)="dayTwentyFive()">25</ion-col>
+      <ion-col col-3 *ngIf="day == 25" class="daySelected">25</ion-col>
+      <ion-col col-3 *ngIf="day != 26" (click)="dayTwentySix()">26</ion-col>
+      <ion-col col-3 *ngIf="day == 26" class="daySelected">26</ion-col>
+      <ion-col col-3 *ngIf="day != 27" (click)="dayTwentySeven()">27</ion-col>
+      <ion-col col-3 *ngIf="day == 27" class="daySelected">27</ion-col>
+      <ion-col col-3 *ngIf="day != 28" (click)="dayTwentyEight()">28</ion-col>
+      <ion-col col-3 *ngIf="day == 28" class="daySelected">28</ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
 
     <ion-row class="days">
       <ion-col col-2></ion-col>
-      <ion-col col-3>29</ion-col>
-      <ion-col col-3>30</ion-col>
-      <ion-col col-3>31</ion-col>
+      <ion-col col-3 *ngIf="day != 29" (click)="dayTwentyNine()">29</ion-col>
+      <ion-col col-3 *ngIf="day == 29" class="daySelected">29</ion-col>
+      <ion-col col-3 *ngIf="day != 30" (click)="dayThirty()">30</ion-col>
+      <ion-col col-3 *ngIf="day == 30" class="daySelected">30</ion-col>
+      <ion-col col-3 *ngIf="day != 31" (click)="dayThirtyOne()">31</ion-col>
+      <ion-col col-3 *ngIf="day == 31" class="daySelected">31</ion-col>
       <ion-col col-3 class="notThisMonth">1</ion-col>
       <ion-col col-3 class="notThisMonth">2</ion-col>
       <ion-col col-3 class="notThisMonth">3</ion-col>
@@ -148,4 +177,5 @@
     <li>9. til hvert event skal man kunne tilføje en note om hvad man laver, og en task lisk som man skal huske at udfylde. </li>
     <li>10. Når man ser på eventet udefra kunne det også være fedt hvis man kunne trykke "udført" el. lign. på hver task. </li>
     MAN SKAL OGSÅ KUNNE EDITE EVENTS
+    Hver enkelt dag i kalenderen skal vise om der er et event på. Jeg har midlertidigt fjernet class="dayHasEvent" og "daySelectedAndDayHasEvent"
   </ul> -->
