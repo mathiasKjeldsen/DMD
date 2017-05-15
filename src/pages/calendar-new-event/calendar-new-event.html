@@ -60,4 +60,16 @@
             <i>{{eventForm.note}}</i>
         </ion-card-content>
     </ion-card>
+
+    test what day and month? {{day}} + {{month}}
+    <br>
+    <br>
+
+    <ion-row>
+        <ion-row>What day and month are we creating an event for?</ion-row>
+        <ion-row *ngIf="month == 1">Month: May </ion-row>
+        <ion-row *ngIf="month == 2">Month: June </ion-row>
+        <ion-row *ngIf="month == 3">Month: July </ion-row>
+        <ion-row>&nbsp;{{day}}</ion-row>
+    </ion-row>
 </ion-content>

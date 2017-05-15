@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { CalendarData } from '../../providers/calendar-data';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProfileData } from '../../providers/profile-data';
@@ -13,8 +13,11 @@ export class CalendarNewEventPage {
   public eventForm;
   public userProfile: any;
   public birthDate: string;
+  day: any;
+  month: any;
 
-  constructor(public navCtrl: NavController, public calendarData: CalendarData, public formBuilder: FormBuilder, public profileData: ProfileData) {
+  constructor(public navCtrl: NavController, public calendarData: CalendarData, public formBuilder: FormBuilder,
+    public profileData: ProfileData, public navParams: NavParams) {
 
 
     this.eventForm = this.formBuilder.group({
@@ -27,6 +30,9 @@ export class CalendarNewEventPage {
       this.userProfile = data.val();
       this.birthDate = this.userProfile.birthDate;
     });
+
+    this.day = navParams.get("day");
+    this.month = navParams.get("month");
 
   }
 

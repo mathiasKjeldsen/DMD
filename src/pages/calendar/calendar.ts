@@ -8,13 +8,40 @@ import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
 })
 export class CalendarPage {
 
-  public day = 2;
+  day = 17;
+  month = 1;
+
   constructor(public navCtrl: NavController) {
 
   }
 
   newCalendarEvent() {
-    this.navCtrl.push(CalendarNewEventPage);
+    this.navCtrl.push(CalendarNewEventPage, {day: this.day, month: this.month});
+  }
+
+  monthMinus() {
+    if (this.month > 1 ) {
+    this.month -= 1;
+    }
+  }
+
+  monthPlus() {
+    if (this.month < 3 ) {
+    this.month += 1;
+    }
+  }
+
+
+  monthMay() {
+    this.month = 1;
+  }
+
+  monthJune() {
+    this.month = 2;
+  }
+
+  monthJuly() {
+    this.month = 3;
   }
 
   dayOne() {

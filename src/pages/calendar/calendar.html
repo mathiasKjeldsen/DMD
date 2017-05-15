@@ -8,9 +8,13 @@
   <ion-grid text-center>
     <ion-row class="monthSpace">&nbsp;</ion-row>
     <ion-row class="month">
-      <ion-col col-4 text-center>&#10094;</ion-col>
-      <ion-col col-16 text-center>May 2017</ion-col>
-      <ion-col col-4 text-center>&#10095;</ion-col>
+      <ion-col col-4 text-center (click)="monthMinus()">&#10094;</ion-col>
+
+      <ion-col col-16 text-center *ngIf="month == 1">May 2017</ion-col>
+      <ion-col col-16 text-center *ngIf="month == 2">June 2017</ion-col>
+      <ion-col col-16 text-center *ngIf="month == 3">July 2017</ion-col>
+
+      <ion-col col-4 text-center (click)="monthPlus()">&#10095;</ion-col>
     </ion-row>
     <ion-row class="monthSpace">&nbsp;</ion-row>
     <ion-row class="weekdays">
@@ -133,8 +137,9 @@
 
     <ion-row align-items-baseline>
       <ion-col col-1></ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;">May {{day}}
-      </ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 1">May {{day}}</ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 2">June {{day}}</ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 3">July {{day}}</ion-col>
       <ion-col col-8 text-right><button ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button>
       </ion-col>
     </ion-row>
