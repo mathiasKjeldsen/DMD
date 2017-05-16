@@ -1,19 +1,100 @@
 <ion-header mode="wp">
   <ion-navbar mode="wp">
-    <ion-title>
-      Account settings
-    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="handifyBg">
   <ion-grid>
-  
-      Change e-mail <br>
-      Change Password
+    <form [formGroup]="settingsForm" (submit)="updateEmail()">
+
+    <p class="settingsHeader">Account settings</p>
+
+<ion-list no-lines>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-20>
+          <p style="color: white">Update e-mail</p>
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-mail" class="signUpColorLock"></ion-icon></button>
+            <ion-input mode="ios" value="{{userProfile?.email}}" class="signUpPlaceholder" [(ngModel)]="settingsForm.email" formControlName="email"
+              #email></ion-input>
+          </ion-item>
+          <p *ngIf="!isValid('email') && settingsForm.controls.email.dirty" class="signUpInValid">Invalid email</p>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-20>
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-lock" class="signUpColorLock"></ion-icon></button>
+            <ion-input mode="ios" placeholder="Password" type="password" class="signUpPlaceholder" [(ngModel)]="settingsForm.password"
+              formControlName="password" #password></ion-input>
+          </ion-item>
+          <p *ngIf="!isValid('password') && settingsForm.controls.password.dirty" class="signUpInValid">Min 6 characters</p>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
 
 
+      <ion-row>
+        <ion-col col-9>
+        </ion-col>
+        <ion-col col-6>
+          <button color="secondary" mode="wp" [disabled]="!settingsForm.valid" ion-button type="submit">
+            <ion-icon name="ios-sync-outline" class="settingsIcon"></ion-icon> &nbsp; Update
+              </button>
+        </ion-col>
+        <ion-col col-9>
+        </ion-col>
+      </ion-row>
+</ion-list>
+    </form>
+    <br>
+    <br>
+    <br>
+    <form [formGroup]="passwordForm" (submit)="updatePassword()">
+<ion-list no-lines>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-20>
+          <p style="color: white">Update password</p>
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-lock" class="signUpColorLock"></ion-icon></button>
+            <ion-input mode="ios" type="password" placeholder="New password" class="signUpPlaceholder" [(ngModel)]="passwordForm.newPassword"
+              formControlName="newPassword" #password></ion-input>
+          </ion-item>
+          <p *ngIf="!isValidPass('newPassword') && passwordForm.controls.newPassword.dirty" class="signUpInValid">Min 6 characters</p>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
 
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-20>
+          <ion-item mode="ios" class="signUpTransparent">
+            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-lock" class="signUpColorLock"></ion-icon></button>
+            <ion-input mode="ios" type="password" placeholder="Old password" class="signUpPlaceholder" [(ngModel)]="passwordForm.oldPassword"
+              formControlName="oldPassword" #password></ion-input>
+          </ion-item>
+          <p *ngIf="!isValidPass('oldPassword') && passwordForm.controls.oldPassword.dirty" class="signUpInValid">Min 6 characters</p>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
 
+      <ion-row>
+        <ion-col col-9>
+        </ion-col>
+        <ion-col col-6>
+          <button color="primary" mode="wp" [disabled]="!passwordForm.valid" ion-button type="submit">
+            <ion-icon name="ios-sync-outline" class="settingsIcon"></ion-icon> &nbsp; Update
+              </button>
+        </ion-col>
+        <ion-col col-9>
+        </ion-col>
+      </ion-row>
+</ion-list>
+    </form>
   </ion-grid>
 </ion-content>

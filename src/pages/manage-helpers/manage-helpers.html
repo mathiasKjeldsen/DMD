@@ -31,7 +31,7 @@
       <p style="color: grey; font-size: 19px;">Connected helpers</p>
 
 
-      <ion-list no-lines *ngIf="userProfile?.userIsCoordinator">
+      <ion-list mode="ios" *ngIf="userProfile?.userIsCoordinator">
         <ion-item mode="ios" *ngFor="let event of eventList">
           <ion-row>
             <ion-col col-8>
