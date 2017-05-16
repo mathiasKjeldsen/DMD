@@ -7,6 +7,7 @@ import { LogOutPage } from '../log-out/log-out';
 import { ProfilePage } from '../profile/profile';
 import { ManageHelpersPage } from '../manage-helpers/manage-helpers';
 import { MyCoordinatorPage } from '../my-coordinator/my-coordinator';
+import { AboutPage } from '../about/about';
 
 @Component({
   selector: 'page-handify',
@@ -29,7 +30,8 @@ export class HandifyPage {
       { title: 'Calendar & tasks', component: CalendarPage, icon: "md-calendar", color: "#5AD864" },
       { title: 'My Coordinator', component: MyCoordinatorPage, icon: "md-paper", color: "#3FBECA" },
       { title: 'Profile', component: ProfilePage, icon: "md-person", color: "#D96A68" },
-     // { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
+      { title: 'About', component: AboutPage, icon: "ios-book-outline", color: "#8367C7" },
+      // { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
       { title: 'Log out', component: LogOutPage, icon: "md-exit", color: " #E57401" },
     ];
 
@@ -37,7 +39,8 @@ export class HandifyPage {
       { title: 'Calendar & tasks', component: CalendarPage, icon: "md-calendar", color: "#5AD864" },
       { title: 'Manage helpers', component: ManageHelpersPage, icon: "md-paper", color: "#3FBECA" },
       { title: 'Profile', component: ProfilePage, icon: "md-person", color: "#D96A68" },
-    //  { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
+      { title: 'About', component: AboutPage, icon: "ios-book-outline", color: "#8367C7" },
+      //  { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
       { title: 'Log out', component: LogOutPage, icon: "md-exit", color: " #E57401" },
     ];
   }
