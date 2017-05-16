@@ -371,11 +371,12 @@
       <ion-card-content>
         <i>{{event?.note}}</i>
         <br>
-        <button ion-button mode="wp" small *ngIf="!event?.blueStampedByCoordinator && userProfile.UserIsCoordinater" (click)="blueStamp(event?.eventId)">Needs approval</button>
-        <button ion-button mode="wp" small *ngIf="event?.blueStampedByCoordinator && userProfile.UserIsCoordinater" (click)="redStamp(event?.eventId)">Approved</button>
+        <br>
+        <button ion-button mode="wp" class="needsApproval" block small *ngIf="!event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator" (click)="blueStamp(event?.eventId)">Needs approval</button>
+        <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator" (click)="redStamp(event?.eventId)">Approved &nbsp; &#10003;</button>
 
-        <span *ngIf="!event?.blueStampedByCoordinator && !userProfile.UserIsCoordinater">Awaiting approval</span>
-        <span *ngIf="event?.blueStampedByCoordinator && !userProfile.UserIsCoordinater">Approved by coordinator</span>
+        <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Awaiting approval</span>
+        <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
       </ion-card-content>
     </ion-card>
   </ion-item>

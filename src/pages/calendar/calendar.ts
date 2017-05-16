@@ -20,10 +20,22 @@ export class CalendarPage {
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
+      console.log(this.userProfile);
+      console.log(this.userProfile.address);
+      console.log(this.userProfile.birthDate);
+      console.log(this.userProfile.city);
+      console.log(this.userProfile.country);
+      console.log(this.userProfile.email);
+      console.log(this.userProfile.fullName);
+      console.log(this.userProfile.profilePhoto);
+      console.log(this.userProfile.userId);
+      console.log(this.userProfile.userIsCoordinator);
+      console.log(this.userProfile.zip);
     });
   }
 
   blueStamp(id: string) {
+    console.log(this.userProfile.userIsCoordinator);
     this.calendarData.blueStamp(true, id).then(() => {
       this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
         this.eventList = eventListSnap;
@@ -31,6 +43,7 @@ export class CalendarPage {
     });
   }
   redStamp(id: string) {
+    console.log(this.userProfile.userIsCoordinator);
     this.calendarData.blueStamp(false, id).then(() => {
       this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
         this.eventList = eventListSnap;
