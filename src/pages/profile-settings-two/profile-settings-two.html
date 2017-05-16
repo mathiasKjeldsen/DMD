@@ -30,7 +30,7 @@
             <ion-col col-20>
               <ion-item mode="ios" class="signUpTransparent">
                 <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
-              <h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText">{{userProfile?.birthDate}}</h6>
+              <h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText2">{{userProfile?.birthDate}}</h6>
               <h6 *ngIf="!dateForm.controls.datepicker.touched && userProfile?.birthDate == empty" class="additionalInfoDateText">Date of birth</h6>
               </button>
                 <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="dateForm.datepicker"
