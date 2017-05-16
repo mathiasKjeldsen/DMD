@@ -38,10 +38,7 @@ export class CalendarData {
     });
   }
 
-  updateCalendarEvent(day: string, month: string, startTime: string, endTime: string, note: string, isUserCoordinator, fullName: string, assignedTo: string, assignedBy: string, eventId: string): firebase.Promise<any> {
-console.log("test 3:");
-    console.log(eventId);
-    console.log(assignedTo);
+  updateCalendarEvent(day: string, month: string, startTime: string, endTime: string, note: string, isUserCoordinator, assignedTo: string, eventId: string): firebase.Promise<any> {
     return this.CalendarDatabase.child(assignedTo+'/'+eventId).update({
       day: day,
       month: month,
@@ -49,9 +46,7 @@ console.log("test 3:");
       endTime: endTime,
       note: note,
       blueStampedByCoordinator: isUserCoordinator,
-      userName: fullName,
       assignedTo: assignedTo,
-      assignedBy: assignedBy
     });
   }
 

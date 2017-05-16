@@ -15,16 +15,13 @@ export class CalendarEditEventPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public eventProvider: EventProvider, public calendarData: CalendarData) {
     this.eventId = navParams.get("eventId");
     this.assignedTo = navParams.get("assignedTo");
-    console.log("test 1:");
-    console.log(this.eventId);
-    console.log(this.assignedTo);
   }
 
   updateCalendarEvent() {
-    console.log("test 2:");
-    console.log(this.eventId);
-    console.log(this.assignedTo)
-    this.calendarData.updateCalendarEvent("dasup nerd", "monthxx", "sddtartTime", "ddendTime", "note", true, "fullName", this.assignedTo, "assignedBy", this.eventId)
+    this.calendarData.updateCalendarEvent("dasup nerd", "monthxx", "sddtartTime", "ddendTime", "note", true, this.assignedTo, this.eventId)
   }
+
+  // updateCalendarEvent(day: string, month: string, startTime: string, endTime: string, note: string, 
+  // isUserCoordinator, fullName: string, assignedTo: string, assignedBy: string, eventId: string)
 
 }
