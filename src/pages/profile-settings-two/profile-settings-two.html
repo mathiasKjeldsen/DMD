@@ -66,7 +66,7 @@
           <ion-col col-10>
             <ion-item mode="ios" class="signUpTransparent">
               <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-home" class="signUpColorLock"></ion-icon></button>
-              <ion-input mode="ios" value="{{userProfile?.zip}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.zip" formControlName="zip"
+              <ion-input placeholder="zip" mode="ios" value="{{userProfile?.zip}}" class="signUpPlaceholder" [(ngModel)]="profileInfoForm.zip" formControlName="zip"
                 #zip></ion-input>
             </ion-item>
             <p *ngIf="!isValid('zip') && profileInfoForm.controls.zip.touched" class="signUpInValid">Invalid zip</p>
