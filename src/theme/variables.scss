@@ -33,6 +33,7 @@ $colors: (
   $darkslategrey:      #2F4F4F;
   $darkblack:          #000000;
   $white:              #ffffff;
+
   
 //$lgrey
 //$dblue:              #,
@@ -142,3 +143,12 @@ background-color: transparent;
 .back-button {
   color: #D96A68 !important;
 }
+
+ion-header, .toolbar-background {
+    background-color: initial !important;
+    // background-color: rgba(0,0,0,0) !important;
+
+    &:after {
+      height: 0  !important;
+    }
+  }
