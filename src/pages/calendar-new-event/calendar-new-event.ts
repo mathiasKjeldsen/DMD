@@ -52,7 +52,7 @@ export class CalendarNewEventPage {
     return formField.valid || formField.pristine;
   }
 
-  updateNote() {
+  addNewEvent() {
     this.isUserCoordinator = this.userIsCoordinator;
     console.log(this.radioForm.assign);
 

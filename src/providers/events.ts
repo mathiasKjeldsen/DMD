@@ -77,6 +77,8 @@ export class EventProvider {
               blueStampedByCoordinator: snap.val().blueStampedByCoordinator,
               userName: snap.val().userName,
               eventId: snap.val().eventId,
+              assignedTo: snap.val().assignedTo,
+              assignedBy: snap.val().assignedBy,
             });
             return false
           });

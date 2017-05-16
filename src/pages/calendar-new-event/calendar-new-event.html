@@ -16,7 +16,7 @@
         </ion-row>
         <ion-row class="rowSpace33">&nbsp;</ion-row>
 
-        <form [formGroup]="eventForm" (submit)="updateNote()">
+        <form [formGroup]="eventForm" (submit)="addNewEvent()">
             <ion-list no-lines>
 
                 <ion-item mode="ios" class="signUpTransparent">
@@ -42,7 +42,7 @@
                 <ion-row class="rowSpace33">&nbsp;</ion-row>
 
 
-                <form [formGroup]="radioForm" (submit)="updateNote()">
+                <form [formGroup]="radioForm" (submit)="addNewEvent()">
                     <ion-list radio-group formControlName="assign" [(ngModel)]="radioForm.assign">
                         Assign event:
                         <ion-item>
