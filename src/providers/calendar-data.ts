@@ -14,17 +14,17 @@ export class CalendarData {
 
   constructor() {
     this.currentUser = firebase.auth().currentUser;
-    this.CalendarDatabase = firebase.database().ref('/Calendar/'+this.currentUser.uid);
+    this.CalendarDatabase = firebase.database().ref('/Calendar/');
   }
 
-  newCalendarEvent(day: string, month: string, startTime: string, endTime: string, note: string, isUserCoordinator, fullName: string, assignedTo: string): firebase.Promise<any> {
+  newCalendarEvent(day: string, month: string, startTime: string, endTime: string, note: string, isUserCoordinator, fullName: string, assignedTo: string, assignedBy: string): firebase.Promise<any> {
 
     this.randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     this.randomLetterTwo = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     this.dateNumber = Date.now();
     this.eventNumber = this.dateNumber + this.randomLetter + this.randomLetterTwo;
 
-    return this.CalendarDatabase.child(this.eventNumber).update({
+    return this.CalendarDatabase.child(assignedTo+'/'+this.eventNumber).update({
       day: day,
       month: month,
       startTime: startTime,
@@ -34,6 +34,7 @@ export class CalendarData {
       userName: fullName,
       eventId: this.eventNumber,
       assignedTo: assignedTo,
+      assignedBy: assignedBy
     });
   }
 

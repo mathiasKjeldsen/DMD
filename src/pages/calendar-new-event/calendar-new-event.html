@@ -47,7 +47,7 @@
                         Assign event:
                         <ion-item>
                             <ion-label>Myself</ion-label>
-                            <ion-radio value="me"></ion-radio>
+                            <ion-radio value="{{this.userProfile.userId}}"></ion-radio>
                         </ion-item>
 
                         <ion-item *ngFor="let helper of helperList">
