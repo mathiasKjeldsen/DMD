@@ -366,7 +366,7 @@
     <ion-card *ngIf="day == event?.day && month == event?.month">
       <ion-card-header>
         {{event?.userName}} - {{event?.startTime}}-{{event?.endTime}}
-        <!--<button ion-button small mode="wp">edit</button>-->
+        <button ion-button small mode="wp" (click)="editCalendarEvent(event?.eventId)">edit</button>
       </ion-card-header>
       <ion-card-content>
         <i>{{event?.note}}</i>

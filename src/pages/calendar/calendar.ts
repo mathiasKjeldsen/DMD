@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
+import { CalendarEditEventPage } from '../calendar-edit-event/calendar-edit-event';
 import { EventProvider } from '../../providers/events';
 import { ProfileData } from '../../providers/profile-data';
 import { CalendarData } from '../../providers/calendar-data';
@@ -59,6 +60,10 @@ export class CalendarPage {
 
   newCalendarEvent() {
     this.navCtrl.push(CalendarNewEventPage, { day: this.day, month: this.month });
+  }
+
+  editCalendarEvent(eventId: string) {
+    this.navCtrl.push(CalendarEditEventPage, {eventId: eventId} );
   }
 
   monthMinus() {

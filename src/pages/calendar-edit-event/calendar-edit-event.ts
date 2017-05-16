@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-calendar-edit-event',
@@ -8,7 +8,11 @@ import { NavController} from 'ionic-angular';
 
 export class CalendarEditEventPage {
 
-  constructor(public navCtrl: NavController) {
+  eventId: any;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.eventId = navParams.get("eventId");
+    console.log(this.eventId);
   }
+
 }
