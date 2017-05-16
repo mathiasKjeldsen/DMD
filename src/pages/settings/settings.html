@@ -15,7 +15,7 @@
         <ion-col col-20>
           <p style="color: white">Update e-mail</p>
           <ion-item mode="ios" class="signUpTransparent">
-            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-mail" class="signUpColorLock"></ion-icon></button>
+            <button ion-button item-left class="backButton" mode="ios"><ion-icon name="ios-mail" class="signUpColorLock"></ion-icon></button>
             <ion-input mode="ios" value="{{userProfile?.email}}" class="signUpPlaceholder" [(ngModel)]="settingsForm.email" formControlName="email"
               #email></ion-input>
           </ion-item>
@@ -38,12 +38,12 @@
       </ion-row>
 
 
-      <ion-row>
-        <ion-col col-9>
+       <ion-row>
+        <ion-col col-8>
         </ion-col>
-        <ion-col col-6>
-          <button color="secondary" mode="wp" [disabled]="!settingsForm.valid" ion-button type="submit">
-            <ion-icon name="ios-sync-outline" class="settingsIcon"></ion-icon> &nbsp; Update
+        <ion-col col-7>
+          <button color="primary" class="settingsUpdateButton" mode="wp" [disabled]="!settingsForm.valid" ion-button type="submit">
+            Update
               </button>
         </ion-col>
         <ion-col col-9>
@@ -51,9 +51,8 @@
       </ion-row>
 </ion-list>
     </form>
-    <br>
-    <br>
-    <br>
+
+  
     <form [formGroup]="passwordForm" (submit)="updatePassword()">
 <ion-list no-lines>
       <ion-row>
@@ -84,11 +83,11 @@
       </ion-row>
 
       <ion-row>
-        <ion-col col-9>
+        <ion-col col-8>
         </ion-col>
-        <ion-col col-6>
-          <button color="primary" mode="wp" [disabled]="!passwordForm.valid" ion-button type="submit">
-            <ion-icon name="ios-sync-outline" class="settingsIcon"></ion-icon> &nbsp; Update
+        <ion-col col-7>
+          <button color="primary" class="settingsUpdateButton" mode="wp" [disabled]="!passwordForm.valid" ion-button type="submit">
+            Update
               </button>
         </ion-col>
         <ion-col col-9>

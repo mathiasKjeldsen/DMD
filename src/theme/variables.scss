@@ -43,13 +43,18 @@ $colors: (
 
 *::-webkit-input-placeholder {
 color: $white !important;
+font-size: 15px !important;
 }
 *:-moz-placeholder {
 color: $white !important;
+font-size: 15px !important;
 }
 *:-ms-input-placeholder { 
 color: $white !important;
+font-size: 15px !important;
 }
+
+
 
 // Default class for every ion-content
 .blueBg {
@@ -126,6 +131,7 @@ text-align: left;
 
   .signUpPlaceholder {
 color: white !important;
+font-size: 15px;
 }
 
 button:disabled,

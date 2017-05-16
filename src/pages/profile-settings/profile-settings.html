@@ -10,20 +10,20 @@
     </ion-row>
     <ion-row class="rowSpace10">&nbsp;</ion-row>
     <ion-row>
-      <ion-col col-4>
+      <ion-col col-6>
       </ion-col>
       <!--
       <ion-col col-16><img src="assets/img/placeholder.jpg"></ion-col>
       -->
-      <ion-col col-16><img src="{{userProfile?.profilePhoto}}"></ion-col>
-      <ion-col col-4>
+      <ion-col col-12><img class="profileSettingsPhoto" src="{{userProfile?.profilePhoto}}"></ion-col>
+      <ion-col col-6>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col col-6>
       </ion-col>
-      <ion-col col-12><button mode="wp" ion-button color="secondary" block (click)="updatePic()">Change profile picture</button></ion-col>
+      <ion-col col-12><button mode="wp" ion-button color="primary" class="profileSettingsChange" outline block (click)="updatePic()">Change profile picture</button></ion-col>
       <ion-col col-6>
       </ion-col>
     </ion-row>
@@ -107,7 +107,7 @@
           <ion-col col-6>
           </ion-col>
           <ion-col col-12>
-            <button ion-button mode="wp" block color="secondary" type="submit">Update profile info</button>
+            <button ion-button mode="wp" block color="secondary" type="submit">Finish sign up</button>
           </ion-col>
           <ion-col col-6>
           </ion-col>

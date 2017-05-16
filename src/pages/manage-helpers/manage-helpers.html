@@ -19,35 +19,41 @@
           <ion-input class="signUpPlaceholder" placeholder="Helper e-mail address" mode="ios" [(ngModel)]="connectHelperForm.email"
             formControlName="email" #address></ion-input>
         </ion-item>
+        <br>
         <button mode="wp" ion-button [disabled]="!connectHelperForm.valid" type="submit">Connect</button>
 
         <p *ngIf="!isValid('email') && connectHelperForm.controls.email.touched">Please enter a valid e-mail</p>
       </ion-list>
     </form>
-    <div class="whiteContainer">
-      <button ion-button item-left class="manageIcon2" mode="wp" (click)="ionViewDidEnter()">
-  <ion-icon name="ios-sync-outline" class="signUpColor2"></ion-icon> &nbsp; Refresh
+
+    <ion-row>
+      <ion-col col-16>
+        <p style="color: white; font-size: 19px;">Connected helpers</p>
+      </ion-col>
+      <ion-col col-8>
+        <button ion-button item-left class="manageIcon2" mode="wp" (click)="ionViewDidEnter()">
+  <ion-icon name="md-sync" class="signUpColor2"></ion-icon>
     </button>
-      <p style="color: grey; font-size: 19px;">Connected helpers</p>
+      </ion-col>
+    </ion-row>
 
 
-      <ion-list mode="ios" *ngIf="userProfile?.userIsCoordinator">
-        <ion-item mode="ios" *ngFor="let helper of helperList">
-          <ion-row>
-            <ion-col col-8>
-              <img src="{{helper?.profilePhoto}}">
-            </ion-col>
-            <ion-col col-16>
-              <h2><strong>{{helper?.fullName}}</strong></h2>
+        <ion-list mode="ios" *ngIf="userProfile?.userIsCoordinator">
+          <ion-item class="manageTransparentWhite" mode="ios" *ngFor="let helper of helperList">
+            <ion-row>
+              <ion-col col-8>
+                <img src="{{helper?.profilePhoto}}" class="managePhoto">
+              </ion-col>
+              <ion-col col-16>
+                <h2 ><strong>{{helper?.fullName}}</strong></h2>
 
-              <p>{{helper?.email}}</p>
-              <p>{{helper?.address}}</p>
-              <p>{{helper?.zip}} {{helper?.city}}</p>
-              <!--<p>{{helper?.country}}</p>-->
-            </ion-col>
-          </ion-row>
-        </ion-item>
-      </ion-list>
-    </div>
+                <p style="color: white;">{{helper?.email}}</p>
+                <p style="color: white;">{{helper?.address}}</p>
+                <p style="color: white;">{{helper?.zip}} {{helper?.city}}</p>
+                <!--<p>{{helper?.country}}</p>-->
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
   </ion-grid>
 </ion-content>
