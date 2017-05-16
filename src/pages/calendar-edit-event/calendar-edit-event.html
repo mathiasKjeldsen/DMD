@@ -63,14 +63,11 @@
 
                 <br>
                 <ion-row>
-                    <ion-col col-4>
-                    </ion-col>
-                    <ion-col col-15>
-
-                        <button color="secondary" [disabled]="!editEventForm.controls.end.dirty || !editEventForm.controls.start.dirty || !editEventForm.controls.note.dirty"
+                    <ion-col col-24>
+                        <div class="calendarEditUpdate">
+                        <button color="secondary" class="calendarEditUpdate" [disabled]="!editEventForm.controls.end.dirty || !editEventForm.controls.start.dirty || !editEventForm.controls.note.dirty"
                             ion-button type="submit">Update calendar event</button>
-                    </ion-col>
-                    <ion-col col-5>
+                        </div>
                     </ion-col>
                 </ion-row>
 

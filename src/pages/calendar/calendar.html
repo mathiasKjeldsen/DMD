@@ -6,7 +6,6 @@
 <ion-content padding class="handifyBg">
 
   <ion-grid text-center>
-    <ion-row class="monthSpace">&nbsp;</ion-row>
     <ion-row class="month">
       <ion-col col-4 text-center (click)="monthMinus()">&#10094;</ion-col>
 
@@ -16,7 +15,6 @@
 
       <ion-col col-4 text-center (click)="monthPlus()">&#10095;</ion-col>
     </ion-row>
-    <ion-row class="monthSpace">&nbsp;</ion-row>
     <ion-row class="weekdays">
       <ion-col col-2></ion-col>
       <ion-col col-3>Mon</ion-col>
@@ -353,9 +351,9 @@
 
     <ion-row align-items-baseline>
       <ion-col col-1></ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 5">May {{day}}</ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 6">June {{day}}</ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 7">July {{day}}</ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 5">May {{day}}</ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 6">June {{day}}</ion-col>
+      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 7">July {{day}}</ion-col>
       <ion-col col-8 text-right><button color="secondary" ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button></ion-col>
     </ion-row>
 
@@ -378,7 +376,16 @@
 
               <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Awaiting approval</span>
               <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
-              <button ion-button small mode="wp" (click)="editCalendarEvent(event?.eventId, event?.assignedTo, event?.startTime, event?.endTime, event?.note)">Edit</button>
+              <ion-row>
+                <ion-col col-11>
+                  <button ion-button block outline mode="wp" class="calendarEdit" (click)="editCalendarEvent(event?.eventId, event?.assignedTo, event?.startTime, event?.endTime, event?.note)">Edit</button>
+                </ion-col>
+                <ion-col col-2>
+                </ion-col>
+                <ion-col col-11>
+                  <button ion-button block outline mode="wp" class="calendarEdit" (click)="editCalendarEvent(event?.eventId, event?.assignedTo, event?.startTime, event?.endTime, event?.note)">Delete</button>
+                </ion-col>
+              </ion-row>
         </ion-card-content>
       </ion-card>
     </div>
