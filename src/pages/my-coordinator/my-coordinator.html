@@ -8,13 +8,13 @@
   <ion-grid text-center>
 
     <ion-list class="coordMargin2" mode="wp" *ngIf="!userProfile?.userIsCoordinator">
-      <ion-item class="coordItem" *ngFor="let event of eventList">
+      <ion-item class="coordItem" *ngFor="let coordinator of coordinatorList">
 
         <ion-row>
           <ion-col col-10>
             <br>
             <br>
-            <p class="coordName">{{event?.fullName}}</p>
+            <p class="coordName">{{coordinator?.fullName}}</p>
             <p *ngIf="!userProfile?.userIsCoordinator" class="coordCoord">Coordinator</p>
 
           </ion-col>
@@ -28,7 +28,7 @@
             </ion-col>
             <ion-col col-12>
               <p class="coordName2">My coordinator</p>
-              <img src="{{event?.profilePhoto}}" class="coordPhoto">
+              <img src="{{coordinator?.profilePhoto}}" class="coordPhoto">
             </ion-col>
           </ion-row>
 
@@ -36,11 +36,11 @@
             <ion-col col-1>
             </ion-col>
             <ion-col col-11>
-              <p class="coordInfo">Birth date: {{event?.birthDate}}</p>
-              <p class="coordInfo">Address: {{event?.address}}</p>
-              <p class="coordInfo">City: {{event?.city}}</p>
-              <p class="coordInfo">Zip: {{event?.zip}}</p>
-              <p class="coordInfo">Country: {{event?.country}}</p>
+              <p class="coordInfo">Birth date: {{coordinator?.birthDate}}</p>
+              <p class="coordInfo">Address: {{coordinator?.address}}</p>
+              <p class="coordInfo">City: {{coordinator?.city}}</p>
+              <p class="coordInfo">Zip: {{coordinator?.zip}}</p>
+              <p class="coordInfo">Country: {{coordinator?.country}}</p>
             </ion-col>
             <ion-col col-10>
             </ion-col>

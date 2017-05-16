@@ -32,18 +32,18 @@
 
 
       <ion-list mode="ios" *ngIf="userProfile?.userIsCoordinator">
-        <ion-item mode="ios" *ngFor="let event of eventList">
+        <ion-item mode="ios" *ngFor="let helper of helperList">
           <ion-row>
             <ion-col col-8>
-              <img src="{{event?.profilePhoto}}">
+              <img src="{{helper?.profilePhoto}}">
             </ion-col>
             <ion-col col-16>
-              <h2><strong>{{event?.fullName}}</strong></h2>
+              <h2><strong>{{helper?.fullName}}</strong></h2>
 
-              <p>{{event?.email}}</p>
-              <p>{{event?.address}}</p>
-              <p>{{event?.zip}} {{event?.city}}</p>
-              <!--<p>{{event?.country}}</p>-->
+              <p>{{helper?.email}}</p>
+              <p>{{helper?.address}}</p>
+              <p>{{helper?.zip}} {{helper?.city}}</p>
+              <!--<p>{{helper?.country}}</p>-->
             </ion-col>
           </ion-row>
 

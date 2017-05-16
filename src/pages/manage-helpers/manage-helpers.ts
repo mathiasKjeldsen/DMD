@@ -12,7 +12,7 @@ import { EventProvider } from '../../providers/events';
 
 export class ManageHelpersPage {
 
-  public eventList: Array<any>;
+  public helperList: Array<any>;
 
   public userProfile: any;
   public connectHelperForm;
@@ -40,7 +40,7 @@ export class ManageHelpersPage {
 
 ionViewDidEnter() {
     this.eventProvider.getUserList(this.userProfile.userId).then(eventListSnap => {
-      this.eventList = eventListSnap;
+      this.helperList = eventListSnap;
     });
   }
 

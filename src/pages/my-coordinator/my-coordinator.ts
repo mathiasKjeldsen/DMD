@@ -10,7 +10,7 @@ import { ProfileData } from '../../providers/profile-data';
 
 export class MyCoordinatorPage {
 
-  public eventList: Array<any>;
+  public coordinatorList: Array<any>;
   public userProfile: any;
   public birthDate: string;
 
@@ -24,7 +24,7 @@ export class MyCoordinatorPage {
 
   ionViewDidEnter() {
     this.eventProvider.findMyCoordinator(this.userProfile.connectedToUser).then(eventListSnap => {
-      this.eventList = eventListSnap;
+      this.coordinatorList = eventListSnap;
     });
   }
 }
