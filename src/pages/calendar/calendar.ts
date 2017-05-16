@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
 import { EventProvider } from '../../providers/events';
 import { ProfileData } from '../../providers/profile-data';
+import { CalendarData } from '../../providers/calendar-data';
 
 @Component({
   selector: 'page-calendar',
@@ -15,12 +16,26 @@ export class CalendarPage {
   month = 6;
   public userProfile: any;
 
-  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData) {
+  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData, public calendarData: CalendarData) {
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
     });
+  }
 
+  blueStamp(id: string) {
+    this.calendarData.blueStamp(true, id).then(() => {
+      this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
+        this.eventList = eventListSnap;
+      });
+    });
+  }
+  redStamp(id: string) {
+    this.calendarData.blueStamp(false, id).then(() => {
+      this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
+        this.eventList = eventListSnap;
+      });
+    });
   }
 
   ionViewDidEnter() {

@@ -10,15 +10,15 @@ import { ProfileSettingsTwoPage } from '../profile-settings-two/profile-settings
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-    public userProfile: any;
+  public userProfile: any;
   public birthDate: string;
   constructor(public navCtrl: NavController, public profileData: ProfileData,
     public authData: AuthData, public alertCtrl: AlertController, public formBuilder: FormBuilder) {
 
-        this.profileData.getUserProfile().on('value', (data) => {
+    this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
       this.birthDate = this.userProfile.birthDate;
-      
+
     });
   }
   goToProfileSettingsTwo() {

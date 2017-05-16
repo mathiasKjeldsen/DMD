@@ -6,7 +6,7 @@ export class CalendarData {
   public CalendarDatabase: firebase.database.Reference;
   public currentUser: firebase.User;
 
-  public EventNumber = 0;
+  public eventNumber: any;
   public dateNumber = 0;
   public randomLetter;
   public randomLetterTwo;
@@ -22,9 +22,9 @@ export class CalendarData {
     this.randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     this.randomLetterTwo = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     this.dateNumber = Date.now();
-    this.EventNumber = this.dateNumber + this.randomLetter + this.randomLetterTwo;
+    this.eventNumber = this.dateNumber + this.randomLetter + this.randomLetterTwo;
 
-    return this.CalendarDatabase.child("Calendar Event " + this.EventNumber).update({
+    return this.CalendarDatabase.child(this.eventNumber).update({
       day: day,
       month: month,
       startTime: startTime,
@@ -32,6 +32,13 @@ export class CalendarData {
       note: note,
       blueStampedByCoordinator: isUserCoordinator,
       userName: fullName,
+      eventId: this.eventNumber,
+    });
+  }
+
+  blueStamp(blueStampedByCoordinator: boolean, id: string): firebase.Promise<any> {
+    return this.CalendarDatabase.child(id).update({
+      blueStampedByCoordinator: blueStampedByCoordinator,
     });
   }
 

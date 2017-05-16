@@ -26,6 +26,7 @@ export class EventProvider {
               address: snap.val().address,
               zip: snap.val().zip,
               country: snap.val().country,
+              eventId: snap.val().eventId,
             });
             return false
           });
@@ -75,6 +76,7 @@ export class EventProvider {
               note: snap.val().note,
               blueStampedByCoordinator: snap.val().blueStampedByCoordinator,
               userName: snap.val().userName,
+              eventId: snap.val().eventId,
             });
             return false
           });
