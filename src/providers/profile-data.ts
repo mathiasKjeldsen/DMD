@@ -103,4 +103,18 @@ export class ProfileData {
       });
     });
   }
+
+  updatePassword(newPass: string, oldPassword: string): firebase.Promise<any> {
+    const credential = firebase.auth.EmailAuthProvider
+      .credential(firebase.auth().currentUser.email, oldPassword);
+
+    return firebase.auth().currentUser.reauthenticate(credential)
+      .then(user => {
+        firebase.auth().currentUser.updatePassword(newPass).then(user => {
+          console.log("Password Changed");
+        }, error => {
+          console.log(error);
+        });
+      });
+  }
 }
