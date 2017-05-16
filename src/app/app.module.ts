@@ -18,6 +18,7 @@ import { ManageHelpersPage } from '../pages/manage-helpers/manage-helpers';
 import { SettingsPage } from '../pages/settings/settings';
 import { MyCoordinatorPage } from '../pages/my-coordinator/my-coordinator';
 import { CalendarNewEventPage } from '../pages/calendar-new-event/calendar-new-event';
+import { CalendarEditEventPage } from '../pages/calendar-edit-event/calendar-edit-event';
 
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
@@ -39,7 +40,8 @@ import { CalendarData } from '../providers/calendar-data';
     ManageHelpersPage,
     SettingsPage,
     MyCoordinatorPage,
-    CalendarNewEventPage
+    CalendarNewEventPage,
+    CalendarEditEventPage
       ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { CalendarData } from '../providers/calendar-data';
     ManageHelpersPage,
     SettingsPage,
     MyCoordinatorPage,
-    CalendarNewEventPage
+    CalendarNewEventPage,
+    CalendarEditEventPage
   ],
   providers: [
     StatusBar,
