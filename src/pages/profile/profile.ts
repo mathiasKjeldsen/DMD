@@ -4,7 +4,7 @@ import { ProfileData } from '../../providers/profile-data';
 import { AuthData } from '../../providers/auth-data';
 import { FormBuilder } from '@angular/forms';
 import { ProfileSettingsTwoPage } from '../profile-settings-two/profile-settings-two';
-
+import { SettingsPage} from '../settings/settings';
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
@@ -23,5 +23,9 @@ export class ProfilePage {
   }
   goToProfileSettingsTwo() {
     this.navCtrl.push(ProfileSettingsTwoPage);
+  }
+
+  goToSettings() {
+this.navCtrl.push(SettingsPage);
   }
 }

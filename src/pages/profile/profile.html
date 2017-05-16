@@ -1,10 +1,9 @@
 <ion-header>
   <ion-navbar mode="wp">
-    <button ion-button mode="wp" class="settingsButton" (click)="goToProfileSettingsTwo()">
+      <button ion-button mode="wp" class="settingsButton" (click)="goToSettings()">
           <ion-icon class="settingsIcon" name="ios-settings"></ion-icon>
     </button>
-
-  </ion-navbar>
+    </ion-navbar>
 </ion-header>
 
 
@@ -39,7 +38,7 @@
       <ion-row class="profileMargin">
         <ion-col col-1>
         </ion-col>
-        <ion-col col-11 class="profileInfo">
+        <ion-col col-18 class="profileInfo">
           <p style="color: grey; text-align: left; line-height: 0.2px; font-size: 13px; font-style: italic;">Information</p>
           <p>Birth date: {{userProfile?.birthDate}}</p>
           <p>Address: {{userProfile?.address}}</p>
@@ -47,7 +46,9 @@
           <p>Zip: {{userProfile?.zip}}</p>
           <p>Country: {{userProfile?.country}}</p>
         </ion-col>
-        <ion-col col-10>
+        <ion-col col-5>
+          <br><br><br>
+          <button mode="wp" class="editIcon2" ion-button><ion-icon class="editIcon" name="ios-create-outline" (click)="goToProfileSettingsTwo()"></ion-icon></button>
         </ion-col>
       </ion-row>
 
