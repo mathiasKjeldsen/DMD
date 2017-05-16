@@ -15,8 +15,6 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public profileData: ProfileData,
     public authData: AuthData, public alertCtrl: AlertController, public formBuilder: FormBuilder) {
 
-
-
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
       this.birthDate = this.userProfile.birthDate;
@@ -26,8 +24,6 @@ export class ProfilePage {
 
 
   }
-
-
 
   goToProfileSettingsTwo() {
     this.navCtrl.push(ProfileSettingsTwoPage);
