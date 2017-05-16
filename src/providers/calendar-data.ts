@@ -24,7 +24,7 @@ export class CalendarData {
     this.dateNumber = Date.now();
     this.eventNumber = this.dateNumber + this.randomLetter + this.randomLetterTwo;
 
-    return this.CalendarDatabase.child(assignedTo+'/'+this.eventNumber).update({
+    return this.CalendarDatabase.child(assignedTo + '/' + this.eventNumber).update({
       day: day,
       month: month,
       startTime: startTime,
@@ -38,14 +38,11 @@ export class CalendarData {
     });
   }
 
-  updateCalendarEvent(day: string, month: string, startTime: string, endTime: string, note: string, isUserCoordinator, assignedTo: string, eventId: string): firebase.Promise<any> {
-    return this.CalendarDatabase.child(assignedTo+'/'+eventId).update({
-      day: day,
-      month: month,
+  updateCalendarEvent(startTime: string, endTime: string, note: string, assignedTo: string, eventId: string): firebase.Promise<any> {
+    return this.CalendarDatabase.child(assignedTo + '/' + eventId).update({
       startTime: startTime,
       endTime: endTime,
       note: note,
-      blueStampedByCoordinator: isUserCoordinator,
       assignedTo: assignedTo,
     });
   }
