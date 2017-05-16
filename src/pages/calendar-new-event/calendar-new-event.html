@@ -61,7 +61,7 @@
                 <ion-row>
                     <ion-col col-7></ion-col>
                     <ion-col col-10>
-                        <button color="secondary" style="text-align: center" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.note.dirty"
+                        <button color="secondary" style="text-align: center" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.note.dirty || !radioForm.controls.assign.dirty"
                             ion-button type="submit">Create event</button>
                     </ion-col>
                     <ion-col col-7></ion-col>
