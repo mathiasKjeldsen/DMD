@@ -17,8 +17,6 @@ import { CalendarPage } from '../pages/calendar/calendar';
 import { ManageHelpersPage } from '../pages/manage-helpers/manage-helpers';
 import { SettingsPage } from '../pages/settings/settings';
 import { MyCoordinatorPage } from '../pages/my-coordinator/my-coordinator';
-import { BlankTemplatePage } from '../pages/blank-template/blank-template';
-import { TutorialPage } from '../pages/tutorial/tutorial';
 import { CalendarNewEventPage } from '../pages/calendar-new-event/calendar-new-event';
 
 import { AuthData } from '../providers/auth-data';
@@ -41,8 +39,6 @@ import { CalendarData } from '../providers/calendar-data';
     ManageHelpersPage,
     SettingsPage,
     MyCoordinatorPage,
-    BlankTemplatePage,
-    TutorialPage,
     CalendarNewEventPage
       ],
   imports: [
@@ -64,8 +60,6 @@ import { CalendarData } from '../providers/calendar-data';
     ManageHelpersPage,
     SettingsPage,
     MyCoordinatorPage,
-    BlankTemplatePage,
-    TutorialPage,
     CalendarNewEventPage
   ],
   providers: [
