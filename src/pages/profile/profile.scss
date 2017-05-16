@@ -5,14 +5,14 @@
 }
 
 .profilePhoto {
-    width:150px;
-    height:150px;
+    width:140px;
+    height:140px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-top: -68px;
+    margin-top: -50px;
 }
 
 .profileMargin {
-    margin-top: -110px;
+
     text-align: left;
     line-height: 0.7em;
 
@@ -23,11 +23,12 @@
 }
 
 .editButton {
-    width: 150px;
-    height: 25px;
-    margin-top: -4px;
-    margin-left: 29px;
+    width: 140px;
+    height: 24px;
+    margin-left: 109px;
+    margin-top: -5px;
     background-color: #D96A68;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .editButtonProfile {
@@ -38,7 +39,7 @@
 }
 
 .editIcon {
-    color: black;
+    color: #D96A68;
     font-size: 30px;
 }
 
@@ -53,4 +54,6 @@
 }
 .settingsButton {
     background-color: transparent !important;
+    text-align: right;
+    margin-left: 235px;
 }

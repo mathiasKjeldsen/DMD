@@ -1,50 +1,46 @@
 <ion-header>
   <ion-navbar mode="wp">
+    <button ion-button mode="wp" class="settingsButton" (click)="goToProfileSettingsTwo()">
+          <ion-icon class="settingsIcon" name="ios-settings"></ion-icon>
+    </button>
+
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding class="handifyBg">
   <ion-grid text-center>
+
     <ion-row>
-      <ion-col col-20>
-      </ion-col>
-      <ion-col col-4>
-        <button ion-button mode="wp" class="settingsButton" (click)="goToProfileSettingsTwo()">
-    <ion-icon class="settingsIcon" name="ios-settings"></ion-icon>
-    </button>
+      <ion-col col-24>
+
+        <p style="color: white; text-align: center;line-height: 0.2px;">{{userProfile?.fullName}}</p>
+        <p *ngIf="userProfile?.userIsCoordinator" style="color: lightgrey; text-align: center; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
+        <p *ngIf="!userProfile?.userIsCoordinator" style="color: lightgrey; text-align: center; line-height: 0.2px; font-size: 12px; font-style: italic;">Helper</p>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col col-10>
-        <br>
-        <br>
-        <p style="color: white; text-align: left;line-height: 0.2px;">{{userProfile?.fullName}}</p>
-        <p *ngIf="userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Coordinator</p>
-        <p *ngIf="!userProfile?.userIsCoordinator" style="color: lightgrey; text-align: left; line-height: 0.2px; font-size: 12px; font-style: italic;">Helper</p>
-      </ion-col>
-      <ion-col col-14>
-      </ion-col>
-    </ion-row>
-
-
-
+    <ion-row class="rowSpace50">&nbsp;</ion-row>
 
     <div class="whiteContainer">
       <ion-row>
-        <ion-col col-10>
-        </ion-col>
-        <ion-col col-14>
+        <ion-col col-24>
           <img src="{{userProfile?.profilePhoto}}" class="profilePhoto">
-            <button mode="wp" ion-button block class="editButton" (click)="goToProfileSettingsTwo()">Edit picture</button>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+        <ion-col col-24>
+          <button mode="wp" ion-button block class="editButton" (click)="goToProfileSettingsTwo()">Edit picture</button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="rowSpace23">&nbsp;</ion-row>
 
       <ion-row class="profileMargin">
         <ion-col col-1>
         </ion-col>
         <ion-col col-11 class="profileInfo">
+          <p style="color: grey; text-align: left; line-height: 0.2px; font-size: 13px; font-style: italic;">Information</p>
           <p>Birth date: {{userProfile?.birthDate}}</p>
           <p>Address: {{userProfile?.address}}</p>
           <p>City: {{userProfile?.city}}</p>
@@ -76,10 +72,13 @@
             <button mode="wp" class="editIcon2" ion-button><ion-icon class="editIcon" name="ios-create-outline"></ion-icon></button>
           </ion-col>
         </ion-row>
+
+        <ion-row class="rowSpace100">&nbsp;</ion-row>
+        <ion-row class="rowSpace50">&nbsp;</ion-row>
+
+
       </div>
-      <ion-row class="rowSpace100">&nbsp;</ion-row>
-      <ion-row class="rowSpace350">&nbsp;</ion-row>
-      <ion-row class="rowSpace10">&nbsp;</ion-row>
+
 
 
     </div>
