@@ -17,7 +17,7 @@ export class CalendarData {
     this.CalendarDatabase = firebase.database().ref('/Calendar/'+this.currentUser.uid);
   }
 
-  newCalendarEvent(day: string, month: string, startTime: string, endTime: string, note: string, isUserCoordinator, fullName: string): firebase.Promise<any> {
+  newCalendarEvent(day: string, month: string, startTime: string, endTime: string, note: string, isUserCoordinator, fullName: string, assignedTo: string): firebase.Promise<any> {
 
     this.randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     this.randomLetterTwo = String.fromCharCode(65 + Math.floor(Math.random() * 26));
@@ -33,6 +33,7 @@ export class CalendarData {
       blueStampedByCoordinator: isUserCoordinator,
       userName: fullName,
       eventId: this.eventNumber,
+      assignedTo: assignedTo,
     });
   }
 

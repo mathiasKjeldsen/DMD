@@ -18,6 +18,7 @@
 
         <form [formGroup]="eventForm" (submit)="updateNote()">
             <ion-list no-lines>
+
                 <ion-item mode="ios" class="signUpTransparent">
                     <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
               <h6 *ngIf="!eventForm.controls.start.touched" class="additionalInfoDateText">Start time</h6></button>
@@ -39,6 +40,24 @@
                     <ion-input formControlName="note" [(ngModel)]="eventForm.note" placeholder="Note" mode="ios" class="signUpPlaceholder"></ion-input>
                 </ion-item>
                 <ion-row class="rowSpace33">&nbsp;</ion-row>
+
+
+                <form [formGroup]="radioForm" (submit)="updateNote()">
+                    <ion-list radio-group formControlName="assign" [(ngModel)]="radioForm.assign">
+                        Assign event:
+                        <ion-item>
+                            <ion-label>Myself</ion-label>
+                            <ion-radio value="me"></ion-radio>
+                        </ion-item>
+
+                        <ion-item *ngFor="let helper of helperList">
+                            <ion-label>{{helper?.fullName}}</ion-label>
+                            <ion-radio value="{{helper?.userId}}"></ion-radio>
+                        </ion-item>
+
+                    </ion-list>
+                </form>
+
                 <ion-row>
                     <ion-col col-7></ion-col>
                     <ion-col col-10>
@@ -50,14 +69,15 @@
             </ion-list>
         </form>
     </ion-grid>
-
-<ion-row style="color: white; font-size: 18px" *ngIf="eventForm.start || eventForm.end || eventForm.note">Preview</ion-row>
+<!--
+    <ion-row style="color: white; font-size: 18px" *ngIf="eventForm.start || eventForm.end || eventForm.note">Preview</ion-row>
     <ion-card *ngIf="eventForm.start || eventForm.end || eventForm.note">
         <ion-card-header>
-            {{userProfile?.fullName}} | {{eventForm.start}} <span *ngIf="eventForm.start && eventForm.end">-</span> {{eventForm.end}}
+            <span *ngIf="radioForm.assign">{{userProfile?.fullName}}</span> | {{eventForm.start}} <span *ngIf="eventForm.start && eventForm.end">-</span> {{eventForm.end}}
         </ion-card-header>
         <ion-card-content>
             <i>{{eventForm.note}}</i>
         </ion-card-content>
     </ion-card>
+    -->
 </ion-content>
