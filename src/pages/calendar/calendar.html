@@ -373,6 +373,9 @@
         <br>
         <button ion-button mode="wp" small *ngIf="!event?.blueStampedByCoordinator && userProfile.UserIsCoordinater" (click)="blueStamp(event?.eventId)">Needs approval</button>
         <button ion-button mode="wp" small *ngIf="event?.blueStampedByCoordinator && userProfile.UserIsCoordinater" (click)="redStamp(event?.eventId)">Approved</button>
+
+        <span *ngIf="!event?.blueStampedByCoordinator && !userProfile.UserIsCoordinater">Awaiting approval</button>
+        <span *ngIf="event?.blueStampedByCoordinator && !userProfile.UserIsCoordinater">Approved by coordinator</button>
       </ion-card-content>
     </ion-card>
   </ion-item>
