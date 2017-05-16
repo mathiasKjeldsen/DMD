@@ -57,3 +57,17 @@
 .needsApproval {
     background-color: red;
 }
+
+ion-header, .toolbar-background {
+    background-color: initial !important;
+    // background-color: rgba(0,0,0,0) !important;
+
+    &:after {
+      height: 0  !important;
+    }
+  }
+
+  .calendarTransparent {
+      background-color: transparent !important;
+  }
+  

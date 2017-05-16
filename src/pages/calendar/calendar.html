@@ -3,7 +3,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="handifyBg">
 
   <ion-grid text-center>
     <ion-row class="monthSpace">&nbsp;</ion-row>
@@ -356,28 +356,32 @@
       <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 5">May {{day}}</ion-col>
       <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 6">June {{day}}</ion-col>
       <ion-col col-13 text-left style="font-weight: bold; font-size: 19px;" *ngIf="month == 7">July {{day}}</ion-col>
-      <ion-col col-8 text-right><button ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button>
-      </ion-col>
+      <ion-col col-8 text-right><button color="secondary" ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button></ion-col>
     </ion-row>
 
+
+
+
+    <div class="calendarTransparent" mode="wp" *ngFor="let event of eventList">
+      <ion-card *ngIf="day == event?.day && month == event?.month">
+        <ion-card-header style="white-space: normal">
+          {{event?.userName}} - {{event?.startTime}}-{{event?.endTime}}
+        </ion-card-header>
+        <ion-card-content style="white-space: normal">
+          <i>{{event?.note}}</i>
+          <br>
+          <br>
+          <button ion-button mode="wp" class="needsApproval" block small *ngIf="!event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
+            (click)="blueStamp(event?.eventId)">Needs approval</button>
+            <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
+              (click)="redStamp(event?.eventId)">Approved &nbsp; &#10003;</button>
+
+              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Awaiting approval</span>
+              <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
+              <button ion-button small mode="wp" (click)="editCalendarEvent(event?.eventId, event?.assignedTo, event?.startTime, event?.endTime, event?.note)">Edit</button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
   </ion-grid>
-
-  <ion-item mode="wp" *ngFor="let event of eventList">
-    <ion-card *ngIf="day == event?.day && month == event?.month">
-      <ion-card-header>
-        {{event?.userName}} - {{event?.startTime}}-{{event?.endTime}}
-        <button ion-button small mode="wp" (click)="editCalendarEvent(event?.eventId, event?.assignedTo)">edit</button>
-      </ion-card-header>
-      <ion-card-content>
-        <i>{{event?.note}}</i>
-        <br>
-        <br>
-        <button ion-button mode="wp" class="needsApproval" block small *ngIf="!event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator" (click)="blueStamp(event?.eventId)">Needs approval</button>
-        <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator" (click)="redStamp(event?.eventId)">Approved &nbsp; &#10003;</button>
-
-        <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Awaiting approval</span>
-        <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
-      </ion-card-content>
-    </ion-card>
-  </ion-item>
 </ion-content>
