@@ -1,4 +1,4 @@
-import { ProfileSettingsPage } from '../profile-settings/profile-settings';
+import { SignUpInfoPage } from '../sign-up-info/sign-up-info';
 import {
   NavController,
   LoadingController,
@@ -62,7 +62,7 @@ export class SignUpPage {
       this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.fullName, this.coordinator)
         .then((newUser) => {
           this.loading.dismiss().then(() => {
-            this.navCtrl.push(ProfileSettingsPage);
+            this.navCtrl.push(SignUpInfoPage);
           });
         }, (error) => {
           this.loading.dismiss().then(() => {

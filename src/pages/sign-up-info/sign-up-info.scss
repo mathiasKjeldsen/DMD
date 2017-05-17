@@ -11,17 +11,10 @@
 
 
 .additionalInfoDateText {
-color: white !important;
-padding-left: 10px;
-padding-top: -4px;
-font-size: 15px !important;
-}
-
-.additionalInfoDateText2 {
-color: white !important;
+color: darkslategrey !important;
 padding-left: 22px;
 padding-top: -4px;
-font-size: 15px !important;
+font-size: 17px !important;
 }
 
 .additionalInfoDateTime {
@@ -59,10 +52,13 @@ font-size: 15px !important;
   }
 }
 
+.profileSettingsPhoto {
+  width: 150px;
+  height: 150px;
+  text-align:center;
+}
 
-.profileSummary {
-  background: rgba(0,0,0,0.06);
-  color: white;
-  margin-left: 11px;
-  width: 275px;
+.profileSettingsChange {
+  width: 150px;
+  margin-left: 6px;
 }

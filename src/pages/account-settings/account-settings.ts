@@ -5,10 +5,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
-  selector: 'page-settings',
-  templateUrl: 'settings.html'
+  selector: 'page-account-settings',
+  templateUrl: 'account-settings.html'
 })
-export class SettingsPage {
+export class AccountSettingsPage {
   public birthDate: any;
   public userProfile: any;
   public settingsForm;

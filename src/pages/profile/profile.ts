@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { ProfileData } from '../../providers/profile-data';
 import { AuthData } from '../../providers/auth-data';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ProfileSettingsTwoPage } from '../profile-settings-two/profile-settings-two';
-import { SettingsPage } from '../settings/settings';
+import { ProfileSettingsPage } from '../profile-settings/profile-settings';
+import { AccountSettingsPage } from '../account-settings/account-settings';
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
@@ -31,11 +31,11 @@ export class ProfilePage {
   }
 
   goToProfileSettingsTwo() {
-    this.navCtrl.push(ProfileSettingsTwoPage);
+    this.navCtrl.push(ProfileSettingsPage);
   }
 
   goToSettings() {
-    this.navCtrl.push(SettingsPage);
+    this.navCtrl.push(AccountSettingsPage);
   }
 
   updateSummary(summary: string) {

@@ -11,11 +11,11 @@ import { HandifyPage } from '../pages/handify/handify';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
 import { LogOutPage } from '../pages/log-out/log-out';
-import { ProfileSettingsPage } from '../pages/profile-settings/profile-settings';
-import { ProfileSettingsTwoPage } from '../pages/profile-settings-two/profile-settings-two';
+import { SignUpInfoPage } from '../pages/sign-up-info/sign-up-info';
+import { ProfileSettingsPage } from '../pages/profile-settings-two/profile-settings-two';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { ManageHelpersPage } from '../pages/manage-helpers/manage-helpers';
-import { SettingsPage } from '../pages/settings/settings';
+import { AccountSettingsPage } from '../pages/account-settings/account-settings';
 import { MyCoordinatorPage } from '../pages/my-coordinator/my-coordinator';
 import { CalendarNewEventPage } from '../pages/calendar-new-event/calendar-new-event';
 import { CalendarEditEventPage } from '../pages/calendar-edit-event/calendar-edit-event';
@@ -36,10 +36,10 @@ import { CalendarData } from '../providers/calendar-data';
     ProfilePage,
     LogOutPage,
     ProfileSettingsPage,
-    ProfileSettingsTwoPage,
+    SignUpInfoPage,
     CalendarPage,
     ManageHelpersPage,
-    SettingsPage,
+    AccountSettingsPage,
     MyCoordinatorPage,
     CalendarNewEventPage,
     CalendarEditEventPage, 
@@ -59,10 +59,10 @@ import { CalendarData } from '../providers/calendar-data';
     ProfilePage,
     LogOutPage,
     ProfileSettingsPage,
-    ProfileSettingsTwoPage,
+    SignUpInfoPage,
     CalendarPage,
     ManageHelpersPage,
-    SettingsPage,
+    AccountSettingsPage,
     MyCoordinatorPage,
     CalendarNewEventPage,
     CalendarEditEventPage, 
