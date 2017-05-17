@@ -84,20 +84,24 @@ export class ProfileData {
   findUidByEmailAndConnectToCurrentUser(emailInput: string, coordinatorUid) {
     var self = this;
     var foundUser = false;
-    var hello = true;
     return firebase.database().ref('/userProfile').orderByChild('email').equalTo(emailInput).once('value').then(function (snapshot) {
       snapshot.forEach(childSnapshot => {
         foundUser = true;
         var user = childSnapshot.val();
         console.log(user.userId);
         console.log(user.userIsCoordinator);
-        hello = user.userIsCoordinator;
-        console.log(hello);
-        if (hello = false) {
+
+        if (user.userIsCoordinator == false) {
+          console.log(user.userIsCoordinator);
           alert("Succesfully added user " + emailInput + " as your helper");
           return self.connectHelperToCurrentUser(coordinatorUid, user.userId);
-        } else {
+
+        } else if (user.userIsCoordinator == true) {
+          console.log(user.userIsCoordinator);
           alert("Can't add user as your helper. Is the user registered as a helper?")
+
+        } else {
+          alert("whats going on here?")
         }
       });
       if (foundUser == false) {
