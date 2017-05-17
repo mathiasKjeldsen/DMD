@@ -52,9 +52,9 @@ export class CalendarPage {
     this.navCtrl.push(CalendarNewEventPage, { day: this.day, month: this.month });
   }
 
-  editCalendarEvent(eventId: string, assignedTo: string) {
+  editCalendarEvent(eventId: string, assignedTo: string, startTime: string, endTime: string, note: string) {
     console.log(assignedTo)
-    this.navCtrl.push(CalendarEditEventPage, {eventId: eventId, assignedTo: assignedTo} );
+    this.navCtrl.push(CalendarEditEventPage, {eventId: eventId, assignedTo: assignedTo, startTime: startTime, endTime: endTime, note: note} );
   }
 
   monthMinus() {

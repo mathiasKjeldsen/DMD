@@ -11,13 +11,15 @@
 
 .month {
     padding: 10px 0;
-    background: #1abc9c;
+    background-color: transparent !important;
     margin: 0;
+    color: white;
+    font-size: 18px;
 }
 
 .monthSpace {
     padding: 10px 0;
-    background: #1abc9c;
+    background-color: transparent !important;
     margin: 0;
     line-height: 32px;
 }
@@ -34,7 +36,7 @@
 }
 
 .daySelected {
-    background-color: #1abc9c;
+    background-color: #759bac;
 }
 
 .dayHasEvent {
@@ -57,3 +59,20 @@
 .needsApproval {
     background-color: red;
 }
+
+ion-header, .toolbar-background {
+    background-color: initial !important;
+    // background-color: rgba(0,0,0,0) !important;
+
+    &:after {
+      height: 0  !important;
+    }
+  }
+
+  .calendarTransparent {
+      background-color: transparent !important;
+  }
+  
+  .calendarEdit {
+      height: 28px;
+  }
