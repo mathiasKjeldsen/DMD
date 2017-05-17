@@ -58,8 +58,8 @@ export class CalendarNewEventPage {
     console.log(this.radioForm.assign);
     var splitString = this.radioForm.assign.split(/_/);
     console.log(splitString);
-    console.log(splitString[0]);
-    console.log(splitString[1]);
+    console.log("user Id: " + splitString[0]);
+    console.log("full Name: " + splitString[1]);
 
     if (this.eventForm.start < this.eventForm.end) {
     this.calendarData.newCalendarEvent(this.day, this.month, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, splitString[1], splitString[0], this.userProfile.userId).then(() => {
