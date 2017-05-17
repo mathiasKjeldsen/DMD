@@ -13,6 +13,7 @@ import { CalendarData } from '../../providers/calendar-data';
 export class CalendarPage {
 
   public eventList: Array<any>;
+  public eventListTwo: Array<any>;
   day = 29;
   month = 6;
   public userProfile: any;
@@ -54,7 +55,9 @@ export class CalendarPage {
     this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
       this.eventList = eventListSnap;
     });
-    this.eventProvider.checkIfCalendarIsDirty()
+    this.eventProvider.readHelpersFromCalendar(this.userProfile.userId).then(eventListSnap => {
+      this.eventListTwo = eventListSnap;
+    });
   }
 
   newCalendarEvent() {
