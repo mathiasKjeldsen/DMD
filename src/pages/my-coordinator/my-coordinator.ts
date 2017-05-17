@@ -23,8 +23,12 @@ export class MyCoordinatorPage {
   }
 
   ionViewDidEnter() {
-    this.eventProvider.findMyCoordinator(this.userProfile.connectedToUser).then(eventListSnap => {
-      this.coordinatorList = eventListSnap;
-    });
+    if (this.userProfile.connectedToUser) {
+      this.eventProvider.findMyCoordinator(this.userProfile.connectedToUser).then(eventListSnap => {
+        this.coordinatorList = eventListSnap;
+      });
+    } else {
+      console.log("user is not connected to a coordinator")
+    }
   }
 }

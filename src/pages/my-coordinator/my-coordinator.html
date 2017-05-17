@@ -5,6 +5,7 @@
 
 
 <ion-content padding class="handifyBg">
+  <p *ngIf="!userProfile.connectedToUser" style="color:white; font-weight: bold; font-size: 15px; text-align: center">You are not connected to a coordinator</p>
   <ion-grid text-center>
 
     <ion-list class="coordMargin2" mode="wp" *ngIf="!userProfile?.userIsCoordinator">
