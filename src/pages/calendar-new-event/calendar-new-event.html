@@ -72,13 +72,13 @@
                             <p style="text-align: center; color: white; font-size: 17px;">Assign event</p>
                             <ion-item no-lines mode="md" class="calendarTransparentTwo">
                                 <ion-label mode="md">Myself</ion-label>
-                                <ion-radio color="lwhite" mode="md" value="{{this.userProfile.userId}}"></ion-radio>
+                                <ion-radio color="lwhite" mode="md" value="{{this.userProfile.userId}}_{{this.userProfile.fullName}}"></ion-radio>
                                 <!-- <ion-radio color="lwhite" value="{{this.userProfile.fullName}}"></ion-radio> -->
                             </ion-item>
 
                             <ion-item no-lines mode="md" class="calendarTransparentTwo" *ngFor="let helper of helperList">
                                 <ion-label mode="md">{{helper?.fullName}}</ion-label>
-                                <ion-radio mode="md" color="lwhite" value="{{helper?.userId}}"></ion-radio>
+                                <ion-radio mode="md" color="lwhite" value="{{helper?.userId}}_{{helper?.fullName}}"></ion-radio>
                                 <!--<ion-radio color="lwhite" value="{{helper?.fullName}}"></ion-radio> -->
                             </ion-item>
                         </ion-col>

@@ -56,11 +56,13 @@ export class CalendarNewEventPage {
     this.isUserCoordinator = this.userIsCoordinator;
     console.log(this.radioForm);
     console.log(this.radioForm.assign);
-    console.log(this.radioForm.assign[0]);
-    console.log(this.radioForm.assign[1]);
+    var splitString = this.radioForm.assign.split(/_/);
+    console.log(splitString);
+    console.log(splitString[0]);
+    console.log(splitString[1]);
 
     if (this.eventForm.start < this.eventForm.end) {
-    this.calendarData.newCalendarEvent(this.day, this.month, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, this.radioForm.assign, this.radioForm.assign, this.userProfile.userId).then(() => {
+    this.calendarData.newCalendarEvent(this.day, this.month, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, splitString[1], splitString[0], this.userProfile.userId).then(() => {
       alert("Event created!")
       this.navCtrl.pop();
     });

@@ -46,6 +46,10 @@ export class CalendarData {
       assignedTo: assignedTo,
     });
   }
+  
+  deleteCalendarEvent(userId: string, eventId: string) {
+
+  }
 
   blueStamp(blueStampedByCoordinator: boolean, id: string, assignedTo: string): firebase.Promise<any> {
     return this.CalendarDatabase.child(assignedTo+'/'+id).update({

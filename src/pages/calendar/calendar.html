@@ -363,7 +363,7 @@
     <div class="calendarTransparent" mode="wp" *ngFor="let event of eventList">
       <ion-card *ngIf="day == event?.day && month == event?.month">
         <ion-card-header style="white-space: normal">
-          {{event?.userName}} - {{event?.startTime}}-{{event?.endTime}}
+          {{event?.userName}} {{event?.startTime}}-{{event?.endTime}}
         </ion-card-header>
         <ion-card-content style="white-space: normal">
           <i>{{event?.note}}</i>
