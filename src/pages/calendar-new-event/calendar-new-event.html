@@ -73,11 +73,13 @@
                             <ion-item mode="md" class="calendarTransparentTwo">
                                 <ion-label mode="md">Myself</ion-label>
                                 <ion-radio color="lwhite" mode="md" value="{{this.userProfile.userId}}"></ion-radio>
+                                <!-- <ion-radio color="lwhite" value="{{this.userProfile.fullName}}"></ion-radio> -->
                             </ion-item>
 
                             <ion-item mode="md" class="calendarTransparentTwo" *ngFor="let helper of helperList">
                                 <ion-label mode="md">{{helper?.fullName}}</ion-label>
                                 <ion-radio color="lwhite" value="{{helper?.userId}}"></ion-radio>
+                                <!--<ion-radio color="lwhite" value="{{helper?.fullName}}"></ion-radio> -->
                             </ion-item>
                         </ion-col>
                         <ion-col col-2>

@@ -34,7 +34,7 @@ export class CalendarNewEventPage {
     });
 
     this.radioForm = this.formBuilder.group({
-      'assign': ['', Validators.compose([Validators.minLength(1), Validators.required])]
+      'assign': ['', Validators.compose([Validators.minLength(1), Validators.required], )]
     });
 
     this.profileData.getUserProfile().on('value', (data) => {
@@ -54,7 +54,10 @@ export class CalendarNewEventPage {
 
   addNewEvent() {
     this.isUserCoordinator = this.userIsCoordinator;
+    console.log(this.radioForm);
     console.log(this.radioForm.assign);
+    console.log(this.radioForm.assign[0]);
+    console.log(this.radioForm.assign[1]);
 
     if (this.eventForm.start < this.eventForm.end) {
     this.calendarData.newCalendarEvent(this.day, this.month, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, this.radioForm.assign, this.radioForm.assign, this.userProfile.userId).then(() => {
