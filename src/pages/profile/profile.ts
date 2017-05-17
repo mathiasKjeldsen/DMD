@@ -33,5 +33,9 @@ export class ProfilePage {
     this.navCtrl.push(SettingsPage);
   }
 
+  updateSummary(summary: string) {
+     this.profileData.updateSummary(summary);
+  }
+
 
 }

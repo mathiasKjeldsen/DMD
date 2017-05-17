@@ -63,22 +63,48 @@ export class EventProvider {
     return new Promise((resolve, reject) => {
       //firebase.database().ref(`Calendar/`).orderByChild('Note').equalTo("asd").on('value', snapshot => {
       //firebase.database().ref(`Calendar/`+userID).on('value', snapshot => {
-        firebase.database().ref(`Calendar/`+userID+'/').on('value', snapshot => {
+      firebase.database().ref(`Calendar/` + userID + '/').on('value', snapshot => {
+        let rawList = [];
+        snapshot.forEach(snap => {
+          //console.log(snap.val());
+          rawList.push({
+            id: snap.key,
+            day: snap.val().day,
+            month: snap.val().month,
+            startTime: snap.val().startTime,
+            endTime: snap.val().endTime,
+            note: snap.val().note,
+            blueStampedByCoordinator: snap.val().blueStampedByCoordinator,
+            userName: snap.val().userName,
+            eventId: snap.val().eventId,
+            assignedTo: snap.val().assignedTo,
+            assignedBy: snap.val().assignedBy,
+          });
+          return false
+        });
+        resolve(rawList);
+      });
+    });
+  }
+
+  y(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      firebase.database().ref(`Calendar/`).on('value', snapshot => {
+        console.log(snapshot.val());
+      });
+      return false
+    });
+  }
+
+  checkIfCalendarIsDirty(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      firebase.database().ref(`Calendar/`).orderByChild('day').equalTo("29").on('value', snapshot => {
           let rawList = [];
+          console.log(snapshot.val());
           snapshot.forEach(snap => {
             console.log(snap.val());
-            rawList.push({
+            rawList.push({              
               id: snap.key,
-              day: snap.val().day,
-              month: snap.val().month,
-              startTime: snap.val().startTime,
-              endTime: snap.val().endTime,
-              note: snap.val().note,
-              blueStampedByCoordinator: snap.val().blueStampedByCoordinator,
-              userName: snap.val().userName,
-              eventId: snap.val().eventId,
-              assignedTo: snap.val().assignedTo,
-              assignedBy: snap.val().assignedBy,
             });
             return false
           });

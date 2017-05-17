@@ -45,6 +45,7 @@ export class CalendarPage {
     this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
       this.eventList = eventListSnap;
     });
+    this.eventProvider.checkIfCalendarIsDirty()
   }
 
   newCalendarEvent() {
