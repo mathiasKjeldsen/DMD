@@ -87,15 +87,6 @@ export class EventProvider {
     });
   }
 
-  y(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      firebase.database().ref(`Calendar/`).on('value', snapshot => {
-        console.log(snapshot.val());
-      });
-      return false
-    });
-  }
-
   checkIfCalendarIsDirty(): Promise<any> {
     return new Promise((resolve, reject) => {
       firebase.database().ref(`Calendar/`).orderByChild('day').equalTo("29").on('value', snapshot => {
