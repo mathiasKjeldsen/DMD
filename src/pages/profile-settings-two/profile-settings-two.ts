@@ -14,7 +14,7 @@ export class ProfileSettingsTwoPage {
   public dateForm;
   public datepicker: string;
   public userProfile: any;
-
+  public profilePageForm;
   loading: any;
 
 
@@ -34,6 +34,12 @@ export class ProfileSettingsTwoPage {
     this.dateForm = this.formBuilder.group({
       'datepicker': ['', Validators.compose([Validators.minLength(1), Validators.required])]
     });
+
+      this.profilePageForm = this.formBuilder.group({
+      'summary': ['', Validators.compose([Validators.minLength(1), Validators.required])],
+    });
+
+
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
     });
@@ -90,4 +96,12 @@ export class ProfileSettingsTwoPage {
   updatePic() {
     this.profileData.updatePhoto("https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/10403542_10207811032208273_8884013213151836092_n.jpg?oh=44c4e880cae45d2c864fadfad7432b81&oe=59926D43");
   }
+
+  
+  updateSummary(summary: string) {
+    this.profileData.updateSummary(this.profilePageForm.summary).then(() => {
+      alert("success!")
+    });
+  }
+  
 }
