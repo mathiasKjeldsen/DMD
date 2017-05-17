@@ -60,12 +60,13 @@
 
     <ion-row class="rowSpace50">&nbsp;</ion-row>
 
-
+    <!--
     <ion-row>
       <ion-col col-24>
         <p class="handifyText3"> HANDIFY</p>
       </ion-col>
     </ion-row>
+-->
 
     <ion-list mode="ios" no-lines *ngIf="!userProfile?.userIsCoordinator">
       <ion-row *ngFor="let p of helperPages">
@@ -93,12 +94,14 @@
         <ion-col col-2>
         </ion-col>
       </ion-row>
-
+      <ion-row class="rowSpace33">&nbsp;</ion-row>
+      <ion-row>
+        <ion-col col-24><img src="assets/img/logo.png" class="HomePageLogo" alt="Handify logo"></ion-col>
+        <ion-col col-24 style="color: white" text-center>Handify - v0.0.1 </ion-col>
+      </ion-row>
     </ion-list>
-
     <ion-row>
-      <ion-col style="color: white" text-center>Handify - v0.0.1
-      </ion-col>
+      
     </ion-row>
 
   </ion-grid>
