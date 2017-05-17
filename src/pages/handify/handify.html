@@ -1,21 +1,22 @@
 <!--
   
   To do:
-  0. Test alt igennem nogle gange. Se om vi kan finde fejl, og vigtigere endnu om vi kan genskabe dem eller finde ud af hvad der forårsager dem. 
-  Så kan vi enten skrive dem i rapporten eller forsøge at fikse dem.
 
-  1. Tjek alle sider igennem og sørg for at "overskrifterne" på hver side er samme størrelse, tekst, osv - generelt at alle siderne liner hinanden.
-  2. Delete event knap
-  3. Hjælperen skal kunne unassigne sig selv fra en koordinater
-  4. Når man editer et event skal man vælge tidspunkt forfra. Måske kan vi sende den med som navParam?
+  BJØRN:
+    Delete event knap
+    Hjælperen skal kunne unassigne sig selv fra en koordinater
 
-  To do list med far:
+  MATHIAS:
+    Når man editer et event skal man vælge tidspunkt forfra. Måske kan vi sende den med som navParam?
+    Bare kig lidt mere på designet og sørg for at alt ser godt ud. Regner med at vi bliver færdige i aften
+
+  I AFTEN:
   1. Vi mangler at kunne læse andre personers events, men kun de events som har samme userId som et userId der er assignedTo en selv.. how the fuck?
   2. Hvis der er et event på dagen skal dagen være med <strong> skrift. tror man skal læse fra hele databasen og finde alt i kalenderen 
     (jeg kan nok godt lave det alene hvis vi kan få etteren til at virke)
   3. Profilbillede
 
-  extras: 
+  EKSTRA: 
   1. Man kan kun være assigned til en coordinator ad gangen. kan man evt. lave string array i stedet for bare en string?
   2. export firebase/kalender til excel eller email??
   3. evt facebook?
@@ -34,17 +35,7 @@
       </ion-col>
     </ion-row>
 
-
-
     <ion-row class="rowSpace40">&nbsp;</ion-row>
-
-    <!--
-    <ion-row>
-      <ion-col col-24>
-        <p class="handifyText3"> HANDIFY</p>
-      </ion-col>
-    </ion-row>
--->
 
     <ion-list mode="ios" no-lines *ngIf="!userProfile?.userIsCoordinator">
       <ion-row *ngFor="let p of helperPages">
