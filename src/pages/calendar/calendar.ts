@@ -24,6 +24,15 @@ export class CalendarPage {
     });
   }
 
+  deleteCalendarEvent(eventId: string, assignedTo: string) {
+    this.calendarData.deleteCalendarEvent(eventId, assignedTo).then(() => {
+      this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
+        this.eventList = eventListSnap;
+      });
+      this.eventProvider.checkIfCalendarIsDirty()
+    });
+  }
+
   blueStamp(id: string, assignedTo: string) {
     console.log(this.userProfile.userIsCoordinator);
     this.calendarData.blueStamp(true, id, assignedTo).then(() => {
@@ -54,7 +63,7 @@ export class CalendarPage {
 
   editCalendarEvent(eventId: string, assignedTo: string, startTime: string, endTime: string, note: string) {
     console.log(assignedTo)
-    this.navCtrl.push(CalendarEditEventPage, {eventId: eventId, assignedTo: assignedTo, startTime: startTime, endTime: endTime, note: note} );
+    this.navCtrl.push(CalendarEditEventPage, { eventId: eventId, assignedTo: assignedTo, startTime: startTime, endTime: endTime, note: note });
   }
 
   monthMinus() {

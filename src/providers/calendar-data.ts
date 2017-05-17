@@ -47,9 +47,11 @@ export class CalendarData {
     });
   }
   
-  deleteCalendarEvent(userId: string, eventId: string) {
-
-  }
+  deleteCalendarEvent(eventId: string, assignedTo: string) {
+        return this.CalendarDatabase.child(assignedTo+'/'+eventId).remove().then(() => {
+            alert("Event succesfully removed")
+        });
+    }
 
   blueStamp(blueStampedByCoordinator: boolean, id: string, assignedTo: string): firebase.Promise<any> {
     return this.CalendarDatabase.child(assignedTo+'/'+id).update({
