@@ -98,10 +98,10 @@ export class ProfileData {
 
         } else if (user.userIsCoordinator == true) {
           console.log(user.userIsCoordinator);
-          alert("Can't add user as your helper. Is the user registered as a helper?")
+          alert("We can not add " + emailInput + " as your helper. Is the user registered as a helper?")
 
         } else {
-          alert("whats going on here?")
+          alert("Something went wrong. Try restarting the application or contacting an administrator")
         }
       });
       if (foundUser == false) {
