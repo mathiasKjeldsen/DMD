@@ -19,7 +19,8 @@
 }
 
 .profileInfo {
- font-size: 12px;   
+ font-size: 12px;  
+  
 }
 
 .editButton {
@@ -40,12 +41,11 @@
 
 .editIcon {
     color: #D96A68;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .editIcon2 {
-    margin-top: -11px;
-    background-color: transparent !important;
+     background-color: transparent !important;
 }
 
 .settingsIcon {
@@ -56,4 +56,21 @@
     background-color: transparent !important;
     text-align: right;
     margin-left: 235px;
+}
+
+.calendarItem {
+
+color: black !important;
+font-size: 13px;
+white-space: normal;
+overflow: inherit; 
+text-overflow: inherit;
+
+
+}
+.profileThing {
+     border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+
 }
