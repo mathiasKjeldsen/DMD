@@ -24,17 +24,17 @@ export class CalendarPage {
     });
   }
 
-  blueStamp(id: string) {
+  blueStamp(id: string, assignedTo: string) {
     console.log(this.userProfile.userIsCoordinator);
-    this.calendarData.blueStamp(true, id).then(() => {
+    this.calendarData.blueStamp(true, id, assignedTo).then(() => {
       this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
         this.eventList = eventListSnap;
       });
     });
   }
-  redStamp(id: string) {
+  redStamp(id: string, assignedTo: string) {
     console.log(this.userProfile.userIsCoordinator);
-    this.calendarData.blueStamp(false, id).then(() => {
+    this.calendarData.blueStamp(false, id, assignedTo).then(() => {
       this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
         this.eventList = eventListSnap;
       });

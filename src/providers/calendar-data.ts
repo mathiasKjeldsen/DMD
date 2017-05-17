@@ -47,8 +47,8 @@ export class CalendarData {
     });
   }
 
-  blueStamp(blueStampedByCoordinator: boolean, id: string): firebase.Promise<any> {
-    return this.CalendarDatabase.child(id).update({
+  blueStamp(blueStampedByCoordinator: boolean, id: string, assignedTo: string): firebase.Promise<any> {
+    return this.CalendarDatabase.child(assignedTo+'/'+id).update({
       blueStampedByCoordinator: blueStampedByCoordinator,
     });
   }
