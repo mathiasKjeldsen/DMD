@@ -100,8 +100,8 @@ export class ProfileSettingsTwoPage {
   
   updateSummary(summary: string) {
     this.profileData.updateSummary(this.profilePageForm.summary).then(() => {
-      alert("success!")
+      this.navCtrl.pop();
     });
   }
-  
+
 }

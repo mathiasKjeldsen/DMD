@@ -48,27 +48,24 @@
         </ion-col>
         <ion-col col-5>
           <br><br><br>
-          <button mode="wp" class="editIcon2" ion-button><ion-icon class="editIcon" name="ios-create-outline" (click)="goToProfileSettingsTwo()"></ion-icon></button>
+          <button (click)="goToProfileSettingsTwo()" mode="wp" class="editIcon2" ion-button><ion-icon class="editIcon" name="ios-create-outline" ></ion-icon></button>
         </ion-col>
       </ion-row>
-      <form [formGroup]="profilePageForm" (submit)="updateSummary()">
-        <ion-row class="rowSpace33">&nbsp;</ion-row>
-        <ion-row>
-          <ion-col col-1>
-          </ion-col>
-          <ion-col col-18 >
-            <p style="color: grey; text-align: left; line-height: 0.2px; font-size: 13px; font-style: italic;">Summary</p>
-            <ion-item class="profileThing" mode="ios">
-              <ion-textarea rows="5" mode="ios" type="text" placeholder="Short summary about {{userProfile?.fullName}}..." value="{{userProfile?.summary}}" class="calendarItem" [(ngModel)]="profilePageForm.summary"
-                formControlName="summary" #text></ion-textarea>
-            </ion-item>
-          </ion-col>
-          <ion-col col-5>
-            <br>
-            <button [disabled]="!profilePageForm.valid" type="submit" mode="wp" class="editIcon2" ion-button><ion-icon class="editIcon" name="ios-create-outline" ></ion-icon></button>
-          </ion-col>
-        </ion-row>
-      </form>
+      <br>
+      <ion-row class="profileMargin">
+        <ion-col col-1>
+        </ion-col>
+        <ion-col col-18 class="profileInfo">
+          <p style="color: grey; text-align: left; line-height: 0.2px; font-size: 13px; font-style: italic;">Summary</p>
+          <p ng-disabled style="white-space: normal; line-height: 14px;">{{userProfile?.summary}}</p>
+          <p *ngIf="userProfile?.summary == empty">Short summary about {{userProfile?.fullName}}...</p>
+        </ion-col>
+        <ion-col col-5>
+          <br>
+          <button (click)="goToProfileSettingsTwo()" mode="wp" class="editIcon2" ion-button><ion-icon class="editIcon" name="ios-create-outline" ></ion-icon></button>
+        </ion-col>
+      </ion-row>
+
       <ion-row class="rowSpace33">&nbsp;</ion-row>
 
 
