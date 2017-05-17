@@ -101,7 +101,7 @@ export class ProfileData {
           alert("We can not add " + emailInput + " as your helper. Is the user registered as a helper?")
 
         } else {
-          alert("Something went wrong. Try restarting the application or contacting an administrator")
+          alert("Something went wrong. Please try restarting the application or contacting an administrator")
         }
       });
       if (foundUser == false) {
