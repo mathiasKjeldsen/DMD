@@ -57,8 +57,8 @@ export class CalendarNewEventPage {
     console.log(this.radioForm.assign);
 
     if (this.eventForm.start < this.eventForm.end) {
-    this.calendarData.newCalendarEvent(this.day, this.month, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, this.userProfile.fullName, this.radioForm.assign, this.userProfile.userId).then(() => {
-      alert("added to firebase")
+    this.calendarData.newCalendarEvent(this.day, this.month, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, this.radioForm.assign, this.radioForm.assign, this.userProfile.userId).then(() => {
+      alert("Event created!")
       this.navCtrl.pop();
     });
     } else {
