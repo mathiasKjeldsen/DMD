@@ -51,6 +51,8 @@ export class EventProvider {
               address: snap.val().address,
               zip: snap.val().zip,
               country: snap.val().country,
+              birthDate: snap.val().birthDate,
+              summary: snap.val().summary,
             });
             return false
           });

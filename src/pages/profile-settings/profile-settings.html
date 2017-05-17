@@ -23,7 +23,7 @@
     <ion-row>
       <ion-col col-6>
       </ion-col>
-      <ion-col col-12><button mode="wp" ion-button color="primary" class="profileSettingsChange" outline block (click)="updatePic()">Change profile picture</button></ion-col>
+      <ion-col col-12><button mode="wp" ion-button color="lwhite" class="profileSettingsChange" outline block (click)="updatePic()">Change profile picture</button></ion-col>
       <ion-col col-6>
       </ion-col>
     </ion-row>
@@ -40,7 +40,7 @@
             <ion-col col-20>
               <ion-item mode="ios" class="signUpTransparent">
                 <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-calendar" class="signUpColorLock"></ion-icon>
-              <h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText">Date of birth</h6></button>
+              <h6 *ngIf="!dateForm.controls.datepicker.touched" class="additionalInfoDateText">&nbsp; &nbsp; Date of birth</h6></button>
 
                 <ion-datetime color="primary" displayFormat="DD.MM.YYYY" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="dateForm.datepicker"
                   formControlName="datepicker"></ion-datetime>

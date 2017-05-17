@@ -64,18 +64,25 @@
 
             </ion-list>
             <form [formGroup]="radioForm" (submit)="addNewEvent()">
-                <ion-list radio-group formControlName="assign" [(ngModel)]="radioForm.assign">
-                    <p style="text-align: center; color: white; font-size: 17px;">Assign event</p>
-                    <ion-item>
-                        <ion-label>Myself</ion-label>
-                        <ion-radio value="{{this.userProfile.userId}}"></ion-radio>
-                    </ion-item>
+                <ion-list mode="md" radio-group formControlName="assign" [(ngModel)]="radioForm.assign">
+                    <ion-row>
+                        <ion-col col-2>
+                        </ion-col>
+                        <ion-col col-20>
+                            <p style="text-align: center; color: white; font-size: 17px;">Assign event</p>
+                            <ion-item mode="md" class="calendarTransparentTwo">
+                                <ion-label mode="md">Myself</ion-label>
+                                <ion-radio color="lwhite" mode="md" value="{{this.userProfile.userId}}"></ion-radio>
+                            </ion-item>
 
-                    <ion-item *ngFor="let helper of helperList">
-                        <ion-label>{{helper?.fullName}}</ion-label>
-                        <ion-radio value="{{helper?.userId}}"></ion-radio>
-                    </ion-item>
-
+                            <ion-item mode="md" class="calendarTransparentTwo" *ngFor="let helper of helperList">
+                                <ion-label mode="md">{{helper?.fullName}}</ion-label>
+                                <ion-radio color="lwhite" value="{{helper?.userId}}"></ion-radio>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-2>
+                        </ion-col>
+                    </ion-row>
                 </ion-list>
             </form>
 

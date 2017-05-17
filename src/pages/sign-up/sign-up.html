@@ -18,25 +18,25 @@
 
     <ion-row *ngIf="!clickedAny">
       <ion-col col-2></ion-col>
-      <ion-col col-9><button ion-button outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+      <ion-col col-9><button ion-button color="lwhite" outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
       <ion-col col-2></ion-col>
-      <ion-col col-9><button ion-button outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+      <ion-col col-9><button ion-button color="lwhite" outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
       <ion-col col-2></ion-col>
     </ion-row>
 
     <ion-row *ngIf="clickedAny && !coordinator">
       <ion-col col-2></ion-col>
-      <ion-col col-9><button ion-button block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+      <ion-col col-9><button ion-button color="secondary" block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
       <ion-col col-2></ion-col>
-      <ion-col col-9><button ion-button outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+      <ion-col col-9><button ion-button color="lwhite" outline block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
       <ion-col col-2></ion-col>
     </ion-row>
 
     <ion-row *ngIf="clickedAny && coordinator">
       <ion-col col-2></ion-col>
-      <ion-col col-9><button ion-button outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
+      <ion-col col-9><button ion-button color="lwhite" outline block mode="wp" (click)="chooseHelper()">Helper</button></ion-col>
       <ion-col col-2></ion-col>
-      <ion-col col-9><button ion-button block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
+      <ion-col col-9><button ion-button color="secondary" block mode="wp" (click)="chooseCoordinator()">Coordinator</button></ion-col>
       <ion-col col-2></ion-col>
     </ion-row>
 
