@@ -12,7 +12,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
 import { LogOutPage } from '../pages/log-out/log-out';
 import { SignUpInfoPage } from '../pages/sign-up-info/sign-up-info';
-import { ProfileSettingsPage } from '../pages/profile-settings-two/profile-settings-two';
+import { ProfileSettingsPage } from '../pages/profile-settings/profile-settings';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { ManageHelpersPage } from '../pages/manage-helpers/manage-helpers';
 import { AccountSettingsPage } from '../pages/account-settings/account-settings';
