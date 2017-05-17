@@ -7,12 +7,14 @@
 
 <ion-content padding class="handifyBg">
     <ion-grid text-center>
-        <ion-row style="color: white; font-size: 18px">
-            <span>Creating an event for&nbsp;</span>
+        <ion-row>
+            <p style="text-align: center; color: white; font-size: 16px">
+            Creating an event for&nbsp;
             <span *ngIf="month == 5"><strong>May</strong></span>
             <span *ngIf="month == 6"><strong>June</strong></span>
             <span *ngIf="month == 7"><strong>July</strong></span>
-            <span>&nbsp;<strong>{{day}}</strong></span>
+            &nbsp;<strong>{{day}}</strong>
+            </p>
         </ion-row>
         <ion-row class="rowSpace33">&nbsp;</ion-row>
 
@@ -60,25 +62,23 @@
                     <ion-col col-2>
                     </ion-col>
                 </ion-row>
-                <ion-row class="rowSpace33">&nbsp;</ion-row>
-
             </ion-list>
             <form [formGroup]="radioForm" (submit)="addNewEvent()">
-                <ion-list mode="md" radio-group formControlName="assign" [(ngModel)]="radioForm.assign">
+                <ion-list no-lines mode="md" radio-group formControlName="assign" [(ngModel)]="radioForm.assign">
                     <ion-row>
                         <ion-col col-2>
                         </ion-col>
                         <ion-col col-20>
                             <p style="text-align: center; color: white; font-size: 17px;">Assign event</p>
-                            <ion-item mode="md" class="calendarTransparentTwo">
+                            <ion-item no-lines mode="md" class="calendarTransparentTwo">
                                 <ion-label mode="md">Myself</ion-label>
                                 <ion-radio color="lwhite" mode="md" value="{{this.userProfile.userId}}"></ion-radio>
                                 <!-- <ion-radio color="lwhite" value="{{this.userProfile.fullName}}"></ion-radio> -->
                             </ion-item>
 
-                            <ion-item mode="md" class="calendarTransparentTwo" *ngFor="let helper of helperList">
+                            <ion-item no-lines mode="md" class="calendarTransparentTwo" *ngFor="let helper of helperList">
                                 <ion-label mode="md">{{helper?.fullName}}</ion-label>
-                                <ion-radio color="lwhite" value="{{helper?.userId}}"></ion-radio>
+                                <ion-radio mode="md" color="lwhite" value="{{helper?.userId}}"></ion-radio>
                                 <!--<ion-radio color="lwhite" value="{{helper?.fullName}}"></ion-radio> -->
                             </ion-item>
                         </ion-col>

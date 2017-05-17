@@ -65,12 +65,6 @@ export class ProfileData {
     });
   }
 
-  updateCountry(country: string): firebase.Promise<any> {
-    return this.userProfile.child(this.currentUser.uid).update({
-      country: country,
-    });
-  }
-
   updateDOB(birthDate: string): firebase.Promise<any> {
     return this.userProfile.child(this.currentUser.uid).update({
       birthDate: birthDate,

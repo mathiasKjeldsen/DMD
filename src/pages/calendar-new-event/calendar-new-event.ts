@@ -72,6 +72,7 @@ export class CalendarNewEventPage {
   ionViewDidEnter() {
     this.eventProvider.getUserList(this.userProfile.userId).then(eventListSnap => {
       this.helperList = eventListSnap;
+      console.log(eventListSnap);
     });
   }
   

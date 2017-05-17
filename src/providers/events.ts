@@ -25,7 +25,6 @@ export class EventProvider {
               city: snap.val().city,
               address: snap.val().address,
               zip: snap.val().zip,
-              country: snap.val().country,
               userId: snap.val().userId,
             });
             return false
@@ -50,7 +49,6 @@ export class EventProvider {
               city: snap.val().city,
               address: snap.val().address,
               zip: snap.val().zip,
-              country: snap.val().country,
               birthDate: snap.val().birthDate,
               summary: snap.val().summary,
             });
