@@ -1,4 +1,21 @@
 <!--
+
+  To do:
+  1. Icon skal have mindre luft
+  2. Kirsten blev forvirret af summary placeholder. Der er i forvejen en label som siger summary, så der burde kun stå noget i boksen hvis man rent faktisk kan slette det
+  VIGTIG 3. Add helper er case sensitive på email (Ulf@skalkam.dk er ikke det samme som ulf@skalkam.dk)
+  4. My coordinator summary går ud af skærmen
+  VIGTIG 5. Man overser <strong> i kalenderen. Ville være super smart med grøn hvis alt er fiksed og rød hvis man skal tage stilling til det
+  6. add picture virker ikke altid. Tror slet ikke det virker for sign up
+  7. Man overser "edit profile info" den lille firkant der. Alle 5 overså den
+  8. Vi skal måske genoverveje farven på back knappen. Den passer ikke helt ind
+  9. Lige nu går profile i stykker hvis man vender sin mobil på siden. Næsten alt andet virker though.
+  VIGTIG  10. Edit event er helt fucked. Når man trykker edit opretter man et nyt event / en kopi uden at slette det gamle event.
+  VIGTIG 11. Vi har brug for en overskuelig liste over alle events for indeværende måned. Uden den er det ikke lettere end google calendar el. lign. og det tager stadig lang tid at indrapportere til kommunen. Med den har vi løst en stor del af deres problem. Den må også meget gerne kunne emailes.
+  12. Helpers burde ikke kunen assigne, for man kan alligevel kun vælge sig selv.
+  13. Hvorfor kan coordinators assigne sig selv til et event? Det giver ingen mening, da de alligevel ikke får udbetalt løn.
+  14. Vi burde virkelig style vores alerts. Det er ikke særlig svært (tjek GEME eller google)
+  15. ingen forstår hvorfor placeholderen til calendar-new-event er 12 og 14, og hvorfor de ikke bare kan trykke opret og bruge de to som values.
   
   EKSTRA 2do: 
   1. Man kan kun være assigned til en coordinator ad gangen. kan man evt. lave string array i stedet for bare en string?
@@ -8,7 +25,11 @@
   5. Lige nu er my coordinator og Manage helpers to forskellige sider. Man kunne godt lave hele for-loopet med sider på handify om,
   og i stedet skifte hvad der står på knappen, afhængig af om man er logget ind eller ej. Det kunne nok godt skrives klogere i hvert fald.
   Vi burde samle my coordinator og manage helpers i en i stedet for to, så der ikke er problemet med at siden loader før man er ordentlig logget ind
-  
+
+  info: 
+  Målet med vores app er, at efter man har været ude og hjælpe Troels eller en anden kan man logge det i kalenderen, og coordinators kan så sige ja/nej og få et overskueligt overblik.
+  Målet med vores app er IKKE en planlægningskalender, hvor man kan uddele vagter. I fremtiden kunne det også være relevant at kunne planlægge fremadrettet, men vi tror på at det er vigtigt at man rent faktisk snakker med hinanden og ikke bare får en notifikation på en app om "nogen vil tage denne her vagt"
+    
 -->
 
 <ion-content padding class="handifyBg">
