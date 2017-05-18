@@ -26,6 +26,9 @@ import { ProfileData } from '../providers/profile-data';
 import { EventProvider } from '../providers/events';
 import { CalendarData } from '../providers/calendar-data';
 
+import { Camera } from '@ionic-native/camera';
+import { Crop } from '@ionic-native/crop';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -75,6 +78,8 @@ import { CalendarData } from '../providers/calendar-data';
     ProfileData,
     EventProvider,
     CalendarData,
+    Camera,
+    Crop,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
