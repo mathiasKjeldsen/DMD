@@ -56,6 +56,7 @@ export class CalendarPage {
   }
 
   ionViewDidEnter() {
+    this.eventListTwo = [];
     var self = this;
     this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
       this.eventList = eventListSnap;
