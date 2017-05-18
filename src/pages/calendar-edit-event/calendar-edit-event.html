@@ -21,10 +21,10 @@
                     <ion-col col-20>
                         <ion-item mode="ios" class="signUpTransparent">
                             <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
-              <h6 *ngIf="!editEventForm.controls.start.touched" class="additionalInfoDateText">{{startTime}}</h6></button>
+              </button>
 
-                            <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="editEventForm.start"
-                                formControlName="start"></ion-datetime>
+                            <ion-datetime color="primary" displayFormat="HH.mm" minuteValues="0,10,20,30,40,50" #datepicker mode="ios" class="additionalInfoDateTime"
+                                [(ngModel)]="startTime" formControlName="start"></ion-datetime>
                         </ion-item>
                     </ion-col>
                     <ion-col col-2>
@@ -37,10 +37,10 @@
                     <ion-col col-20>
                         <ion-item mode="ios" class="signUpTransparent">
                             <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
-              <h6 *ngIf="!editEventForm.controls.end.touched" class="additionalInfoDateText">{{endTime}}</h6></button>
+             </button>
 
-                            <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="editEventForm.end"
-                                formControlName="end"></ion-datetime>
+                            <ion-datetime color="primary" displayFormat="HH.mm" minuteValues="0,10,20,30,40,50" #datepicker mode="ios" class="additionalInfoDateTime"
+                                [(ngModel)]="endTime" formControlName="end"></ion-datetime>
                         </ion-item>
                     </ion-col>
                     <ion-col col-2>
@@ -54,7 +54,7 @@
                         <ion-item mode="ios" class="signUpTransparent">
                             <button ion-button item-left class="backButton" mode="ios"><ion-icon name="ios-paper-outline" class="signUpColorLock"></ion-icon>
                     </button>
-                            <ion-input formControlName="note" [(ngModel)]="editEventForm.note" value="{{note}}" mode="ios" class="signUpPlaceholder"></ion-input>
+                            <ion-input formControlName="note" [(ngModel)]="note" value="{{note}}" mode="ios" class="signUpPlaceholder"></ion-input>
                         </ion-item>
                     </ion-col>
                     <ion-col col-2>
@@ -65,8 +65,7 @@
                 <ion-row>
                     <ion-col col-24>
                         <div class="calendarEditUpdate">
-                        <button color="secondary" class="calendarEditUpdate" [disabled]="!editEventForm.controls.end.dirty || !editEventForm.controls.start.dirty || !editEventForm.controls.note.dirty"
-                            ion-button type="submit">Update calendar event</button>
+                            <button color="secondary" class="calendarEditUpdate" ion-button type="submit" mode="wp">Update calendar event</button>
                         </div>
                     </ion-col>
                 </ion-row>

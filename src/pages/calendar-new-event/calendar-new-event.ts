@@ -20,7 +20,9 @@ export class CalendarNewEventPage {
   month: any;
   year = 2017;
   isUserCoordinator: any;
-    userIsCoordinator: boolean;
+  userIsCoordinator: boolean;
+  startTime: any;
+  endTime: any;
 
 
   constructor(public navCtrl: NavController, public calendarData: CalendarData, public formBuilder: FormBuilder,
@@ -45,6 +47,14 @@ export class CalendarNewEventPage {
     this.day = navParams.get("day");
     this.month = navParams.get("month");
 
+    this.startTime = new Date();
+    this.startTime.setHours(14);
+    this.startTime.setMinutes(0);
+    this.endTime = new Date();
+    this.endTime.setHours(16);
+    this.endTime.setMinutes(0);
+    this.startTime = this.startTime.toISOString();
+    this.endTime = this.endTime.toISOString();
   }
 
   isValid(field: string) {
@@ -61,11 +71,11 @@ export class CalendarNewEventPage {
     console.log("user Id: " + splitString[0]);
     console.log("full Name: " + splitString[1]);
 
-    if (this.eventForm.start < this.eventForm.end) {
-    this.calendarData.newCalendarEvent(this.day, this.month, this.eventForm.start, this.eventForm.end, this.eventForm.note, this.isUserCoordinator, splitString[1], splitString[0], this.userProfile.userId).then(() => {
-      alert("Event created!")
-      this.navCtrl.pop();
-    });
+    if (this.startTime < this.endTime) {
+      this.calendarData.newCalendarEvent(this.day, this.month, this.startTime[11] + this.startTime[12] + this.startTime[13] + this.startTime[14] + this.startTime[15], this.endTime[11] + this.endTime[12] + this.endTime[13] + this.endTime[14] + this.endTime[15], this.eventForm.note, this.isUserCoordinator, splitString[1], splitString[0], this.userProfile.userId).then(() => {
+        alert("Event created!")
+        this.navCtrl.pop();
+      });
     } else {
       alert("Start time must be before end time")
     }
@@ -77,5 +87,5 @@ export class CalendarNewEventPage {
       console.log(eventListSnap);
     });
   }
-  
+
 }

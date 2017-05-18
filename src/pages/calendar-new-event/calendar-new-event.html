@@ -8,13 +8,15 @@
 <ion-content padding class="handifyBg">
     <ion-grid text-center>
         <ion-row>
-            <p style="text-align: center; color: white; font-size: 16px">
-            Creating an event for&nbsp;
-            <span *ngIf="month == 5"><strong>May</strong></span>
-            <span *ngIf="month == 6"><strong>June</strong></span>
-            <span *ngIf="month == 7"><strong>July</strong></span>
-            &nbsp;<strong>{{day}}</strong>
-            </p>
+            <ion-col col-24>
+                <p style="text-align: center; color: white; font-size: 16px">
+                    Creating an event for&nbsp;
+                    <span *ngIf="month == 5"><strong>May</strong></span>
+                    <span *ngIf="month == 6"><strong>June</strong></span>
+                    <span *ngIf="month == 7"><strong>July</strong></span> &nbsp;
+                    <strong>{{day}}</strong>
+                </p>
+            </ion-col>
         </ion-row>
         <ion-row class="rowSpace33">&nbsp;</ion-row>
 
@@ -27,8 +29,7 @@
                         <ion-item mode="ios" class="signUpTransparent">
                             <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
               <h6 *ngIf="!eventForm.controls.start.touched" class="additionalInfoDateText">Start time</h6></button>
-
-                            <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.start"
+                            <ion-datetime color="primary" displayFormat="HH.mm" minuteValues="0,10,20,30,40,50" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="startTime"
                                 formControlName="start"></ion-datetime>
                         </ion-item>
                     </ion-col>
@@ -41,10 +42,10 @@
                     <ion-col col-20>
                         <ion-item mode="ios" class="signUpTransparent">
                             <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
-              <h6 *ngIf="!eventForm.controls.end.touched" class="additionalInfoDateText">End time</h6></button>
+          <h6 *ngIf="!eventForm.controls.end.touched" class="additionalInfoDateText">End time</h6></button>
 
-                            <ion-datetime color="primary" displayFormat="HH.mm" #datepicker mode="ios" class="additionalInfoDateTime" [(ngModel)]="eventForm.end"
-                                formControlName="end"></ion-datetime>
+                            <ion-datetime color="primary" displayFormat="HH.mm" minuteValues="0,10,20,30,40,50" #datepicker mode="ios" class="additionalInfoDateTime"
+                                [(ngModel)]="endTime" formControlName="end"></ion-datetime>
                         </ion-item>
                     </ion-col>
                     <ion-col col-2>

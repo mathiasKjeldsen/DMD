@@ -38,23 +38,48 @@ export class CalendarData {
     });
   }
 
-  updateCalendarEvent(startTime: string, endTime: string, note: string, assignedTo: string, eventId: string): firebase.Promise<any> {
+
+  updateCalendarEventStart(startTime: string, assignedTo: string, eventId: string): firebase.Promise<any> {
     return this.CalendarDatabase.child(assignedTo + '/' + eventId).update({
       startTime: startTime,
+      assignedTo: assignedTo,
+    });
+  }
+
+   updateCalendarEventEnd(endTime: string, assignedTo: string, eventId: string): firebase.Promise<any> {
+    return this.CalendarDatabase.child(assignedTo + '/' + eventId).update({
       endTime: endTime,
+      assignedTo: assignedTo,
+    });
+  }
+
+   updateCalendarEventNote(note: string, assignedTo: string, eventId: string): firebase.Promise<any> {
+    return this.CalendarDatabase.child(assignedTo + '/' + eventId).update({
       note: note,
       assignedTo: assignedTo,
     });
   }
-  
+
+
+
+
+  //updateCalendarEvent(startTime: string, endTime: string, note: string, assignedTo: string, eventId: string): firebase.Promise<any> {
+  //  return this.CalendarDatabase.child(assignedTo + '/' + eventId).update({
+   //   startTime: startTime,
+   //   endTime: endTime,
+  //    note: note,
+   //   assignedTo: assignedTo,
+   // });
+ // }
+
   deleteCalendarEvent(eventId: string, assignedTo: string) {
-        return this.CalendarDatabase.child(assignedTo+'/'+eventId).remove().then(() => {
-            alert("Event succesfully removed")
-        });
-    }
+    return this.CalendarDatabase.child(assignedTo + '/' + eventId).remove().then(() => {
+      alert("Event succesfully removed")
+    });
+  }
 
   blueStamp(blueStampedByCoordinator: boolean, id: string, assignedTo: string): firebase.Promise<any> {
-    return this.CalendarDatabase.child(assignedTo+'/'+id).update({
+    return this.CalendarDatabase.child(assignedTo + '/' + id).update({
       blueStampedByCoordinator: blueStampedByCoordinator,
     });
   }
