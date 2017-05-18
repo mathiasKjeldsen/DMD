@@ -51,7 +51,7 @@ export class CalendarNewEventPage {
     this.startTime.setHours(14);
     this.startTime.setMinutes(0);
     this.endTime = new Date();
-    this.endTime.setHours(16);
+    this.endTime.setHours(14);
     this.endTime.setMinutes(0);
     this.startTime = this.startTime.toISOString();
     this.endTime = this.endTime.toISOString();
