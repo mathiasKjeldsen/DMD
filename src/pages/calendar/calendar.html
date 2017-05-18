@@ -30,88 +30,56 @@
     <div *ngIf="month == 5">
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 1" (click)="dayOne()">1</ion-col>
-        <ion-col col-3 *ngIf="day == 1" class="daySelected">1</ion-col>
-        <ion-col col-3 *ngIf="day != 2" (click)="dayTwo()">2</ion-col>
-        <ion-col col-3 *ngIf="day == 2" class="daySelected">2</ion-col>
-        <ion-col col-3 *ngIf="day != 3" (click)="dayThree()">3</ion-col>
-        <ion-col col-3 *ngIf="day == 3" class="daySelected">3</ion-col>
-        <ion-col col-3 *ngIf="day != 4" (click)="dayFour()">4</ion-col>
-        <ion-col col-3 *ngIf="day == 4" class="daySelected">4</ion-col>
-        <ion-col col-3 *ngIf="day != 5" (click)="dayFive()">5</ion-col>
-        <ion-col col-3 *ngIf="day == 5" class="daySelected">5</ion-col>
-        <ion-col col-3 *ngIf="day != 6" (click)="daySix()">6</ion-col>
-        <ion-col col-3 *ngIf="day == 6" class="daySelected">6</ion-col>
-        <ion-col col-3 *ngIf="day != 7" (click)="daySeven()">7</ion-col>
-        <ion-col col-3 *ngIf="day == 7" class="daySelected">7</ion-col>
+        <ion-col col-3 *ngFor="let i of [1,2,3,4,5,6,7]">
+        <div *ngIf="!strong[5*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[5*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[5*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[5*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 8" (click)="dayEight()">8</ion-col>
-        <ion-col col-3 *ngIf="day == 8" class="daySelected">8</ion-col>
-        <ion-col col-3 *ngIf="day != 9" (click)="dayNine()">9</ion-col>
-        <ion-col col-3 *ngIf="day == 9" class="daySelected">9</ion-col>
-        <ion-col col-3 *ngIf="day != 10" (click)="dayTen()">10</ion-col>
-        <ion-col col-3 *ngIf="day == 10" class="daySelected">10</ion-col>
-        <ion-col col-3 *ngIf="day != 11" (click)="dayEleven()">11</ion-col>
-        <ion-col col-3 *ngIf="day == 11" class="daySelected">11</ion-col>
-        <ion-col col-3 *ngIf="day != 12" (click)="dayTwelve()">12</ion-col>
-        <ion-col col-3 *ngIf="day == 12" class="daySelected">12</ion-col>
-        <ion-col col-3 *ngIf="day != 13" (click)="dayThirteen()">13</ion-col>
-        <ion-col col-3 *ngIf="day == 13" class="daySelected">13</ion-col>
-        <ion-col col-3 *ngIf="day != 14" (click)="dayFourteen()">14</ion-col>
-        <ion-col col-3 *ngIf="day == 14" class="daySelected">14</ion-col>
+        <ion-col col-3 *ngFor="let i of [8,9,10,11,12,13,14]">
+        <div *ngIf="!strong[5*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[5*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[5*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[5*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 15" (click)="dayFifteen()">15</ion-col>
-        <ion-col col-3 *ngIf="day == 15" class="daySelected">15</ion-col>
-        <ion-col col-3 *ngIf="day != 16" (click)="daySixteen()">16</ion-col>
-        <ion-col col-3 *ngIf="day == 16" class="daySelected">16</ion-col>
-        <ion-col col-3 *ngIf="day != 17" (click)="daySeventeen()">17</ion-col>
-        <ion-col col-3 *ngIf="day == 17" class="daySelected">17</ion-col>
-        <ion-col col-3 *ngIf="day != 18" (click)="dayEighteen()">18</ion-col>
-        <ion-col col-3 *ngIf="day == 18" class="daySelected">18</ion-col>
-        <ion-col col-3 *ngIf="day != 19" (click)="dayNineteen()">19</ion-col>
-        <ion-col col-3 *ngIf="day == 19" class="daySelected">19</ion-col>
-        <ion-col col-3 *ngIf="day != 20" (click)="dayTwenty()">20</ion-col>
-        <ion-col col-3 *ngIf="day == 20" class="daySelected">20</ion-col>
-        <ion-col col-3 *ngIf="day != 21" (click)="dayTwentyOne()">21</ion-col>
-        <ion-col col-3 *ngIf="day == 21" class="daySelected">21</ion-col>
+        <ion-col col-3 *ngFor="let i of [15,16,17,18,19,20,21]">
+        <div *ngIf="!strong[5*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[5*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[5*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[5*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 22" (click)="dayTwentyTwo()">22</ion-col>
-        <ion-col col-3 *ngIf="day == 22" class="daySelected">22</ion-col>
-        <ion-col col-3 *ngIf="day != 23" (click)="dayTwentyThree()">23</ion-col>
-        <ion-col col-3 *ngIf="day == 23" class="daySelected">23</ion-col>
-        <ion-col col-3 *ngIf="day != 24" (click)="dayTwentyFour()">24</ion-col>
-        <ion-col col-3 *ngIf="day == 24" class="daySelected">24</ion-col>
-        <ion-col col-3 *ngIf="day != 25" (click)="dayTwentyFive()">25</ion-col>
-        <ion-col col-3 *ngIf="day == 25" class="daySelected">25</ion-col>
-        <ion-col col-3 *ngIf="day != 26" (click)="dayTwentySix()">26</ion-col>
-        <ion-col col-3 *ngIf="day == 26" class="daySelected">26</ion-col>
-        <ion-col col-3 *ngIf="day != 27" (click)="dayTwentySeven()">27</ion-col>
-        <ion-col col-3 *ngIf="day == 27" class="daySelected">27</ion-col>
-        <ion-col col-3 *ngIf="day != 28" (click)="dayTwentyEight()">28</ion-col>
-        <ion-col col-3 *ngIf="day == 28" class="daySelected">28</ion-col>
+        <ion-col col-3 *ngFor="let i of [22,23,24,25,26,27,28]">
+        <div *ngIf="!strong[5*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[5*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[5*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[5*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 29" (click)="dayTwentyNine()">29</ion-col>
-        <ion-col col-3 *ngIf="day == 29" class="daySelected">29</ion-col>
-        <ion-col col-3 *ngIf="day != 30" (click)="dayThirty()">30</ion-col>
-        <ion-col col-3 *ngIf="day == 30" class="daySelected">30</ion-col>
-        <ion-col col-3 *ngIf="day != 31" (click)="dayThirtyOne()">31</ion-col>
-        <ion-col col-3 *ngIf="day == 31" class="daySelected">31</ion-col>
+        <ion-col col-3 *ngFor="let i of [29,30,31]">
+        <div *ngIf="!strong[5*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[5*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[5*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[5*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-3 class="notThisMonth">1</ion-col>
         <ion-col col-3 class="notThisMonth">2</ion-col>
         <ion-col col-3 class="notThisMonth">3</ion-col>
@@ -138,101 +106,56 @@
         <ion-col col-3 class="notThisMonth">29</ion-col>
         <ion-col col-3 class="notThisMonth">30</ion-col>
         <ion-col col-3 class="notThisMonth">31</ion-col>
-        <ion-col col-3 *ngIf="day != 1" (click)="dayOne()">1</ion-col>
-        <ion-col col-3 *ngIf="day == 1" class="daySelected">1</ion-col>
-        <ion-col col-3 *ngIf="day != 2" (click)="dayTwo()">2</ion-col>
-        <ion-col col-3 *ngIf="day == 2" class="daySelected">2</ion-col>
-        <ion-col col-3 *ngIf="day != 3" (click)="dayThree()">3</ion-col>
-        <ion-col col-3 *ngIf="day == 3" class="daySelected">3</ion-col>
-        <ion-col col-3 *ngIf="day != 4" (click)="dayFour()">4</ion-col>
-        <ion-col col-3 *ngIf="day == 4" class="daySelected">4</ion-col>
-        <ion-col col-1></ion-col>
-      </ion-row>
-
-      <ion-row class="days">
-        <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 5" (click)="dayFive()">5</ion-col>
-        <ion-col col-3 *ngIf="day == 5" class="daySelected">5</ion-col>
-        <ion-col col-3 *ngIf="day != 6" (click)="daySix()">6</ion-col>
-        <ion-col col-3 *ngIf="day == 6" class="daySelected">6</ion-col>
-        <ion-col col-3 *ngIf="day != 7" (click)="daySeven()">7</ion-col>
-        <ion-col col-3 *ngIf="day == 7" class="daySelected">7</ion-col>
-        <ion-col col-3 *ngIf="day != 8" (click)="dayEight()">8</ion-col>
-        <ion-col col-3 *ngIf="day == 8" class="daySelected">8</ion-col>
-        <ion-col col-3 *ngIf="day != 9" (click)="dayNine()">9</ion-col>
-        <ion-col col-3 *ngIf="day == 9" class="daySelected">9</ion-col>
-        <ion-col col-3 *ngIf="day != 10" (click)="dayTen()">10</ion-col>
-        <ion-col col-3 *ngIf="day == 10" class="daySelected">10</ion-col>
-        <ion-col col-3 *ngIf="day != 11" (click)="dayEleven()">11</ion-col>
-        <ion-col col-3 *ngIf="day == 11" class="daySelected">11</ion-col>
-        <ion-col col-1></ion-col>
-      </ion-row>
-
-      <ion-row class="days">
-        <ion-col col-2></ion-col>
-
-        <ion-col col-3 *ngFor="let i of [12,13,14,15,16,17,18]">
-
+        <ion-col col-3 *ngFor="let i of [1,2,3,4]">
         <div *ngIf="!strong[6*31+i] && day != i" (click)="days(i)">{{i}}</div>
         <div *ngIf="!strong[6*31+i] && day == i" class="daySelected">{{i}}</div>
         <div *ngIf="strong[6*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
         <div *ngIf="strong[6*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
-
         </ion-col>
-        <!--
-        <ion-col col-3 *ngIf="day != 12" (click)="dayTwelve()">12</ion-col>
-        <ion-col col-3 *ngIf="day == 12" class="daySelected">12</ion-col>
-        <ion-col col-3 *ngIf="day != 13" (click)="dayThirteen()">13</ion-col>
-        <ion-col col-3 *ngIf="day == 13" class="daySelected">13</ion-col>
-        <ion-col col-3 *ngIf="day != 14" (click)="dayFourteen()">14</ion-col>
-        <ion-col col-3 *ngIf="day == 14" class="daySelected">14</ion-col>
-        <ion-col col-3 *ngIf="day != 15" (click)="dayFifteen()">15</ion-col>
-        <ion-col col-3 *ngIf="day == 15" class="daySelected">15</ion-col>
-        <ion-col col-3 *ngIf="!strong[6*31+16] && day != 16" (click)="days(16)">16</ion-col>
-        <ion-col col-3 *ngIf="!strong[6*31+16] && day == 16" class="daySelected">16</ion-col>
-        <ion-col col-3 *ngIf="strong[6*31+16] && day != 16" (click)="days(16)"><strong>16</strong></ion-col>
-        <ion-col col-3 *ngIf="strong[6*31+16] && day == 16" class="daySelected"><strong>16</strong></ion-col>
-        <ion-col col-3 *ngIf="day != 17" (click)="daySeventeen()">17</ion-col>
-        <ion-col col-3 *ngIf="day == 17" class="daySelected">17</ion-col>
-        <ion-col col-3 *ngIf="day != 18" (click)="dayEighteen()">18</ion-col>
-        <ion-col col-3 *ngIf="day == 18" class="daySelected">18</ion-col>
-        -->
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 19" (click)="dayNineteen()">19</ion-col>
-        <ion-col col-3 *ngIf="day == 19" class="daySelected">19</ion-col>
-        <ion-col col-3 *ngIf="day != 20" (click)="dayTwenty()">20</ion-col>
-        <ion-col col-3 *ngIf="day == 20" class="daySelected">20</ion-col>
-        <ion-col col-3 *ngIf="day != 21" (click)="dayTwentyOne()">21</ion-col>
-        <ion-col col-3 *ngIf="day == 21" class="daySelected">21</ion-col>
-        <ion-col col-3 *ngIf="day != 22" (click)="dayTwentyTwo()">22</ion-col>
-        <ion-col col-3 *ngIf="day == 22" class="daySelected">22</ion-col>
-        <ion-col col-3 *ngIf="day != 23" (click)="dayTwentyThree()">23</ion-col>
-        <ion-col col-3 *ngIf="day == 23" class="daySelected">23</ion-col>
-        <ion-col col-3 *ngIf="day != 24" (click)="dayTwentyFour()">24</ion-col>
-        <ion-col col-3 *ngIf="day == 24" class="daySelected">24</ion-col>
-        <ion-col col-3 *ngIf="day != 25" (click)="dayTwentyFive()">25</ion-col>
-        <ion-col col-3 *ngIf="day == 25" class="daySelected">25</ion-col>
+        <ion-col col-3 *ngFor="let i of [5,6,7,8,9,10,11]">
+        <div *ngIf="!strong[6*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[6*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[6*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[6*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 26" (click)="dayTwentySix()">26</ion-col>
-        <ion-col col-3 *ngIf="day == 26" class="daySelected">26</ion-col>
-        <ion-col col-3 *ngIf="day != 27" (click)="dayTwentySeven()">27</ion-col>
-        <ion-col col-3 *ngIf="day == 27" class="daySelected">27</ion-col>
-        <ion-col col-3 *ngIf="day != 28" (click)="dayTwentyEight()">28</ion-col>
-        <ion-col col-3 *ngIf="day == 28" class="daySelected">28</ion-col>
-        <ion-col col-3 *ngIf="day != 29 && !strong[215]" (click)="dayTwentyNine()">29</ion-col>
-        <ion-col col-3 *ngIf="day == 29 && !strong[215]" class="daySelected">29</ion-col>
-        <ion-col col-3 *ngIf="strong[215] && day != 29" (click)="dayTwentyNine()"><strong>29</strong></ion-col>
-        <ion-col col-3 *ngIf="strong[215] && day == 29" class="daySelected"><strong>29</strong></ion-col>
-        <ion-col col-3 *ngIf="day != 30" (click)="dayThirty()">30</ion-col>
-        <ion-col col-3 *ngIf="day == 30" class="daySelected">30</ion-col>
+        <ion-col col-3 *ngFor="let i of [12,13,14,15,16,17,18]">
+        <div *ngIf="!strong[6*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[6*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[6*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[6*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row class="days">
+        <ion-col col-2></ion-col>
+        <ion-col col-3 *ngFor="let i of [19,20,21,22,23,24,25]">
+        <div *ngIf="!strong[6*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[6*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[6*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[6*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row class="days">
+        <ion-col col-2></ion-col>
+        <ion-col col-3 *ngFor="let i of [26,27,28,29,30]">
+        <div *ngIf="!strong[6*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[6*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[6*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[6*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-3 class="notThisMonth">1</ion-col>
         <ion-col col-3 class="notThisMonth">2</ion-col>
         <ion-col col-1></ion-col>
@@ -259,96 +182,70 @@
         <ion-col col-3 class="notThisMonth">28</ion-col>
         <ion-col col-3 class="notThisMonth">29</ion-col>
         <ion-col col-3 class="notThisMonth">30</ion-col>
-        <ion-col col-3 *ngIf="day != 1" (click)="dayOne()">1</ion-col>
-        <ion-col col-3 *ngIf="day == 1" class="daySelected">1</ion-col>
-        <ion-col col-3 *ngIf="day != 2" (click)="dayTwo()">2</ion-col>
-        <ion-col col-3 *ngIf="day == 2" class="daySelected">2</ion-col>
+        <ion-col col-3 *ngFor="let i of [1,2]">
+        <div *ngIf="!strong[7*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[7*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[7*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[7*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 3" (click)="dayThree()">3</ion-col>
-        <ion-col col-3 *ngIf="day == 3" class="daySelected">3</ion-col>
-        <ion-col col-3 *ngIf="day != 4" (click)="dayFour()">4</ion-col>
-        <ion-col col-3 *ngIf="day == 4" class="daySelected">4</ion-col>
-        <ion-col col-3 *ngIf="day != 5" (click)="dayFive()">5</ion-col>
-        <ion-col col-3 *ngIf="day == 5" class="daySelected">5</ion-col>
-        <ion-col col-3 *ngIf="day != 6" (click)="daySix()">6</ion-col>
-        <ion-col col-3 *ngIf="day == 6" class="daySelected">6</ion-col>
-        <ion-col col-3 *ngIf="day != 7" (click)="daySeven()">7</ion-col>
-        <ion-col col-3 *ngIf="day == 7" class="daySelected">7</ion-col>
-        <ion-col col-3 *ngIf="day != 8" (click)="dayEight()">8</ion-col>
-        <ion-col col-3 *ngIf="day == 8" class="daySelected">8</ion-col>
-        <ion-col col-3 *ngIf="day != 9" (click)="dayNine()">9</ion-col>
-        <ion-col col-3 *ngIf="day == 9" class="daySelected">9</ion-col>
+        <ion-col col-3 *ngFor="let i of [3,4,5,6,7,8,9]">
+        <div *ngIf="!strong[7*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[7*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[7*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[7*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
 
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 10" (click)="dayTen()">10</ion-col>
-        <ion-col col-3 *ngIf="day == 10" class="daySelected">10</ion-col>
-        <ion-col col-3 *ngIf="day != 11" (click)="dayEleven()">11</ion-col>
-        <ion-col col-3 *ngIf="day == 11" class="daySelected">11</ion-col>
-        <ion-col col-3 *ngIf="day != 12" (click)="dayTwelve()">12</ion-col>
-        <ion-col col-3 *ngIf="day == 12" class="daySelected">12</ion-col>
-        <ion-col col-3 *ngIf="day != 13" (click)="dayThirteen()">13</ion-col>
-        <ion-col col-3 *ngIf="day == 13" class="daySelected">13</ion-col>
-        <ion-col col-3 *ngIf="day != 14" (click)="dayFourteen()">14</ion-col>
-        <ion-col col-3 *ngIf="day == 14" class="daySelected">14</ion-col>
-        <ion-col col-3 *ngIf="day != 15" (click)="dayFifteen()">15</ion-col>
-        <ion-col col-3 *ngIf="day == 15" class="daySelected">15</ion-col>
-        <ion-col col-3 *ngIf="day != 16" (click)="daySixteen()">16</ion-col>
-        <ion-col col-3 *ngIf="day == 16" class="daySelected">16</ion-col>
+        <ion-col col-3 *ngFor="let i of [10,11,12,13,14,15,16]">
+        <div *ngIf="!strong[7*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[7*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[7*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[7*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
 
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 17" (click)="daySeventeen()">17</ion-col>
-        <ion-col col-3 *ngIf="day == 17" class="daySelected">17</ion-col>
-        <ion-col col-3 *ngIf="day != 18" (click)="dayEighteen()">18</ion-col>
-        <ion-col col-3 *ngIf="day == 18" class="daySelected">18</ion-col>
-        <ion-col col-3 *ngIf="day != 19" (click)="dayNineteen()">19</ion-col>
-        <ion-col col-3 *ngIf="day == 19" class="daySelected">19</ion-col>
-        <ion-col col-3 *ngIf="day != 20" (click)="dayTwenty()">20</ion-col>
-        <ion-col col-3 *ngIf="day == 20" class="daySelected">20</ion-col>
-        <ion-col col-3 *ngIf="day != 21" (click)="dayTwentyOne()">21</ion-col>
-        <ion-col col-3 *ngIf="day == 21" class="daySelected">21</ion-col>
-        <ion-col col-3 *ngIf="day != 22" (click)="dayTwentyTwo()">22</ion-col>
-        <ion-col col-3 *ngIf="day == 22" class="daySelected">22</ion-col>
-        <ion-col col-3 *ngIf="day != 23" (click)="dayTwentyThree()">23</ion-col>
-        <ion-col col-3 *ngIf="day == 23" class="daySelected">23</ion-col>
+        <ion-col col-3 *ngFor="let i of [17,18,19,20,21,22,23]">
+        <div *ngIf="!strong[7*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[7*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[7*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[7*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
 
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col col-2></ion-col>
-        <ion-col col-3 *ngIf="day != 24" (click)="dayTwentyFour()">24</ion-col>
-        <ion-col col-3 *ngIf="day == 24" class="daySelected">24</ion-col>
-        <ion-col col-3 *ngIf="day != 25" (click)="dayTwentyFive()">25</ion-col>
-        <ion-col col-3 *ngIf="day == 25" class="daySelected">25</ion-col>
-        <ion-col col-3 *ngIf="day != 26" (click)="dayTwentySix()">26</ion-col>
-        <ion-col col-3 *ngIf="day == 26" class="daySelected">26</ion-col>
-        <ion-col col-3 *ngIf="day != 27" (click)="dayTwentySeven()">27</ion-col>
-        <ion-col col-3 *ngIf="day == 27" class="daySelected">27</ion-col>
-        <ion-col col-3 *ngIf="day != 28" (click)="dayTwentyEight()">28</ion-col>
-        <ion-col col-3 *ngIf="day == 28" class="daySelected">28</ion-col>
-        <ion-col col-3 *ngIf="day != 29" (click)="dayTwentyNine()">29</ion-col>
-        <ion-col col-3 *ngIf="day == 29" class="daySelected">29</ion-col>
-        <ion-col col-3 *ngIf="day != 30" (click)="dayThirty()">30</ion-col>
-        <ion-col col-3 *ngIf="day == 30" class="daySelected">30</ion-col>
+        <ion-col col-3 *ngFor="let i of [24,25,26,27,28,29,30]">
+        <div *ngIf="!strong[7*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[7*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[7*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[7*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-1></ion-col>
       </ion-row>
 
       <ion-row class="days">
         <ion-col></ion-col>
-        <ion-col col-3 *ngIf="day != 31" (click)="dayThirtyOne()">31</ion-col>
-        <ion-col col-3 *ngIf="day == 31" class="daySelected">31</ion-col>
+        <ion-col col-3 *ngFor="let i of [31]">
+        <div *ngIf="!strong[7*31+i] && day != i" (click)="days(i)">{{i}}</div>
+        <div *ngIf="!strong[7*31+i] && day == i" class="daySelected">{{i}}</div>
+        <div *ngIf="strong[7*31+i] && day != i" (click)="days(i)"><strong>{{i}}</strong></div>
+        <div *ngIf="strong[7*31+i] && day == i" class="daySelected"><strong>{{i}}</strong></div>
+        </ion-col>
         <ion-col col-3 class="notThisMonth">1</ion-col>
         <ion-col col-3 class="notThisMonth">2</ion-col>
         <ion-col col-3 class="notThisMonth">3</ion-col>
@@ -358,8 +255,6 @@
         <ion-col col-1></ion-col>
       </ion-row>
     </div>
-
-
 
     <ion-row class="rowSpace23">&nbsp;
     </ion-row>
@@ -371,9 +266,6 @@
       <ion-col col-13 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 7">July {{day}}</ion-col>
       <ion-col col-8 text-right><button color="secondary" ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button></ion-col>
     </ion-row>
-
-
-
 
     <div class="calendarTransparent" mode="wp" *ngFor="let event of eventList">
       <ion-card *ngIf="day == event?.day && month == event?.month">
