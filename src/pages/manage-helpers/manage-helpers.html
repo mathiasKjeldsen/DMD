@@ -20,7 +20,7 @@
             formControlName="email" #address></ion-input>
         </ion-item>
         <br>
-        <button mode="wp" ion-button [disabled]="!connectHelperForm.valid" type="submit">Connect</button>
+        <button mode="wp" ion-button color="secondary" [disabled]="!connectHelperForm.valid" type="submit">Connect</button>
 
         <p *ngIf="!isValid('email') && connectHelperForm.controls.email.touched">Please enter a valid e-mail</p>
       </ion-list>
