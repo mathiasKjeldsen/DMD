@@ -31,4 +31,10 @@ export class MyCoordinatorPage {
       console.log("user is not connected to a coordinator")
     }
   }
+
+  unlink() {
+    this.profileData.unlinkFromCoordinator().then(() => {
+      this.navCtrl.pop();
+    });
+  }
 }

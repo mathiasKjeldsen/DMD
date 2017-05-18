@@ -75,6 +75,13 @@ export class ProfileData {
     return firebase.database().ref('/userProfile').child(helperUid).update({ 'connectedToUser': coordinatorUid });
   }
 
+
+unlinkFromCoordinator() {
+    return firebase.database().ref('/userProfile/'+this.currentUser.uid).child('connectedToUser').remove();
+  }
+
+
+
   findUidByEmailAndConnectToCurrentUser(emailInput: string, coordinatorUid) {
     var self = this;
     var foundUser = false;
