@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
 import { CalendarEditEventPage } from '../calendar-edit-event/calendar-edit-event';
@@ -13,25 +13,29 @@ import { CalendarData } from '../../providers/calendar-data';
 export class CalendarPage {
 
   public eventList: Array<any>;
-  public eventListTwo: Array<any>;
+  public eventListTwo: Array<any> = [];
+  public strong: Array<boolean> = [];
   day = 29;
   month = 6;
   public userProfile: any;
 
-  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData, public calendarData: CalendarData) {
+  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData, public calendarData: CalendarData, public zone: NgZone) {
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
     });
   }
 
-  deleteCalendarEvent(eventId: string, assignedTo: string) {
-    this.calendarData.deleteCalendarEvent(eventId, assignedTo).then(() => {
-      this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
-        this.eventList = eventListSnap;
-      });
-      this.eventProvider.checkIfCalendarIsDirty()
-    });
+  deleteCalendarEvent(event, helperEvent) {
+    this.calendarData.deleteCalendarEvent(helperEvent.eventId, helperEvent.assignedTo);
+
+    var index = this.eventList.indexOf(helperEvent, 0);
+    if (index > -1) {
+      this.eventList.splice(index, 1)
+    } else {
+      var index = this.eventListTwo.indexOf(helperEvent, 0);
+      this.eventListTwo.splice(index, 1)
+    }
   }
 
   blueStamp(id: string, assignedTo: string) {
@@ -52,12 +56,31 @@ export class CalendarPage {
   }
 
   ionViewDidEnter() {
+    var self = this;
     this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
       this.eventList = eventListSnap;
     });
-    this.eventProvider.readHelpersFromCalendar(this.userProfile.userId).then(eventListSnap => {
-      this.eventListTwo = eventListSnap;
+
+    this.zone.run(() => {
+      this.eventProvider.readHelpersFromCalendar(this.userProfile.userId).then(helpers => {
+        helpers.forEach(helper => {
+          //console.log(helper.fullName);
+          self.eventProvider.readCalendarForHelper(helper.userId).then(eventListSnap => {
+            //console.log(eventListSnap);
+            self.eventListTwo = self.eventListTwo.concat(
+              eventListSnap
+            )
+          }).then(() => {
+            self.eventListTwo.forEach(element => {
+              self.strong[element.month * 31 + element.day] = true;
+              console.log(element.month * 31 + element.day);
+            });
+          });
+        });
+
+      });
     });
+
   }
 
   newCalendarEvent() {
@@ -185,5 +208,9 @@ export class CalendarPage {
   }
   dayThirtyOne() {
     this.day = 31;
+  }
+
+  days(d: number) {
+    this.day = d;
   }
 }
