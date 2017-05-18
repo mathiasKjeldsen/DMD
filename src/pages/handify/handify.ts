@@ -36,12 +36,13 @@ export class HandifyPage {
     ];
 
     this.coordinatorPages = [
-      { title: 'Calendar & tasks', component: CalendarPage, icon: "md-calendar", color: "#3a515b" },
-      { title: 'Manage helpers', component: ManageHelpersPage, icon: "md-paper", color: "#3a515b" },
-      { title: 'Profile', component: ProfilePage, icon: "md-person", color: "#3a515b" },
-      { title: 'About', component: AboutPage, icon: "ios-book-outline", color: "#3a515b" },
+      { title: 'Calendar & tasks', component: CalendarPage, icon: "md-calendar", color: "#5AD864" },
+      { title: 'Manage helpers', component: ManageHelpersPage, icon: "md-paper", color: "#3FBECA" },
+      { title: 'Profile', component: ProfilePage, icon: "md-person", color: "#D96A68" },
+      { title: 'About', component: AboutPage, icon: "ios-book-outline", color: "#8367C7" },
       //  { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "#FCCE00" },
-      { title: 'Log out', component: LogOutPage, icon: "md-exit", color: " #3a515b" },
+      { title: 'Log out', component: LogOutPage, icon: "md-exit", color: "#E57401"},
+      //Den helt blå farve til knapperne hedder #3a515b
     ];
   }
 

@@ -80,6 +80,10 @@ unlinkFromCoordinator() {
     return firebase.database().ref('/userProfile/'+this.currentUser.uid).child('connectedToUser').remove();
   }
 
+  unlinkHelper(helperID: string) {
+    return firebase.database().ref('/userProfile/'+helperID).child('connectedToUser').remove();
+  }
+
 
 
   findUidByEmailAndConnectToCurrentUser(emailInput: string, coordinatorUid) {

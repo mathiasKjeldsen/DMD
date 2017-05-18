@@ -44,4 +44,10 @@ ionViewDidEnter() {
     });
   }
 
+  unlink(helperId: string, helperName: string) {
+    this.profileData.unlinkHelper(helperId).then(() => {
+      alert(helperName+" succesfully removed from your list of helpers.")
+    });
+  }
+
 }

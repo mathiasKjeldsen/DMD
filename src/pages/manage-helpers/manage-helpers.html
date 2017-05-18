@@ -50,8 +50,10 @@
                 <p style="color: white;">{{helper?.email}}</p>
                 <p style="color: white;">{{helper?.address}}</p>
                 <p style="color: white;">{{helper?.zip}} {{helper?.city}}</p>
+                
               </ion-col>
             </ion-row>
+            <button ion-button mode="wp" style="background-color: darkred" small block (click)="unlink(helper?.userId, helper?.fullName)">Unlink helper</button>
           </ion-item>
         </ion-list>
   </ion-grid>
