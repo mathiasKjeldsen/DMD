@@ -59,21 +59,20 @@ export class CalendarPage {
     var self = this;
     this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
       this.eventList = eventListSnap;
+
+      self.eventList.forEach(element => {
+              self.strong[element.month * 31 + element.day] = true;
+      });
     });
 
     this.zone.run(() => {
       this.eventProvider.readHelpersFromCalendar(this.userProfile.userId).then(helpers => {
         helpers.forEach(helper => {
-          //console.log(helper.fullName);
           self.eventProvider.readCalendarForHelper(helper.userId).then(eventListSnap => {
-            //console.log(eventListSnap);
-            self.eventListTwo = self.eventListTwo.concat(
-              eventListSnap
-            )
+            self.eventListTwo = self.eventListTwo.concat(eventListSnap)
           }).then(() => {
             self.eventListTwo.forEach(element => {
               self.strong[element.month * 31 + element.day] = true;
-              console.log(element.month * 31 + element.day);
             });
           });
         });
