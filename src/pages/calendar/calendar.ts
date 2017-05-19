@@ -1,4 +1,4 @@
-import { Component, NgZone } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
 import { CalendarEditEventPage } from '../calendar-edit-event/calendar-edit-event';
@@ -20,7 +20,7 @@ export class CalendarPage {
   month = 6;
   public userProfile: any;
 
-  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData, public calendarData: CalendarData, public zone: NgZone, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData, public calendarData: CalendarData, public alertCtrl: AlertController) {
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();

@@ -9,4 +9,65 @@
     <span *ngIf="month == 5">May</span>
     <span *ngIf="month == 6">June</span>
     <span *ngIf="month == 7">July</span>
+
+    <div class="calendarTransparent" mode="wp" *ngFor="let event of eventList">
+      <ion-card *ngIf="month == event?.month">
+        <ion-card-header style="white-space: normal">
+          {{event?.userName}} {{event?.startTime}}-{{event?.endTime}}
+        </ion-card-header>
+        <ion-card-content style="white-space: normal">
+          <i>{{event?.note}}</i>
+          <br>
+          <br>
+          <button ion-button mode="wp" class="needsApproval" block small *ngIf="!event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
+            (click)="blueStamp(event?.eventId, event?.assignedTo)">Needs approval</button>
+            <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
+              (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &nbsp; &#10003;</button>
+
+              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approve</span>
+              <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
+              <ion-row>
+                <ion-col col-11>
+                  <button ion-button block outline mode="wp" class="calendarEdit" (click)="editCalendarEvent(event?.eventId, event?.assignedTo, event?.startTime, event?.endTime, event?.note)">Edit</button>
+                </ion-col>
+                <ion-col col-2>
+                </ion-col>
+                <ion-col col-11>
+                  <button ion-button block outline mode="wp" class="calendarEdit" (click)="deleteCalendarEvent($event,event)">Delete</button>
+                </ion-col>
+              </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="calendarTransparent" mode="wp" *ngFor="let event of eventListTwo">
+      <ion-card *ngIf="month == event?.month">
+        <ion-card-header style="white-space: normal">
+          {{event?.userName}} {{event?.startTime}}-{{event?.endTime}}
+        </ion-card-header>
+        <ion-card-content style="white-space: normal">
+          <i>{{event?.note}}</i>
+          <br>
+          <br>
+          <button ion-button mode="wp" class="needsApproval" block small *ngIf="!event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
+            (click)="blueStamp(event?.eventId, event?.assignedTo)">Needs approval</button>
+            <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
+              (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &nbsp; &#10003;</button>
+
+              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approve</span>
+              <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
+              <ion-row>
+                <ion-col col-11>
+                  <button ion-button block outline mode="wp" class="calendarEdit" (click)="editCalendarEvent(event?.eventId, event?.assignedTo, event?.startTime, event?.endTime, event?.note)">Edit</button>
+                </ion-col>
+                <ion-col col-2>
+                </ion-col>
+                <ion-col col-11>
+                  <button ion-button block outline mode="wp" class="calendarEdit" (click)="deleteCalendarEvent($event,event)">Delete</button>
+                </ion-col>
+              </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
 </ion-content>
