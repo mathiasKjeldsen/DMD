@@ -15,6 +15,7 @@ export class CalendarPage {
   public eventList: Array<any>;
   public eventListTwo: Array<any> = [];
   public strong: Array<boolean> = [];
+  //day 29 month 6 is exam date
   day = 29;
   month = 6;
   public userProfile: any;
@@ -32,12 +33,12 @@ export class CalendarPage {
 
   deleteCalendarEvent(event, helperEvent) {
     //en til alert: "are u sure u want to delete? if yes - do everything in here. if no, just cancel"
-        this.calendarData.deleteCalendarEvent(helperEvent.eventId, helperEvent.assignedTo);
+    this.calendarData.deleteCalendarEvent(helperEvent.eventId, helperEvent.assignedTo);
 
     var index = this.eventList.indexOf(helperEvent, 0);
     if (index > -1) {
       this.eventList.splice(index, 1)
-            let alert = this.alertCtrl.create({
+      let alert = this.alertCtrl.create({
         message: "Event deleted!",
         cssClass: 'alertcss',
         buttons: [
@@ -55,7 +56,7 @@ export class CalendarPage {
     } else {
       var index = this.eventListTwo.indexOf(helperEvent, 0);
       this.eventListTwo.splice(index, 1)
-            let alert = this.alertCtrl.create({
+      let alert = this.alertCtrl.create({
         message: "Event deleted!",
         cssClass: 'alertcss',
         buttons: [
@@ -93,15 +94,16 @@ export class CalendarPage {
   ionViewDidEnter() {
     this.eventListTwo = [];
     var self = this;
-    this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
-      this.eventList = eventListSnap;
 
-      self.eventList.forEach(element => {
-              self.strong[element.month * 31 + element.day] = true;
+    if (!this.userProfile.userIsCoordinator) {
+      this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
+        this.eventList = eventListSnap;
+
+        self.eventList.forEach(element => {
+          self.strong[element.month * 31 + element.day] = true;
+        });
       });
-    });
-
-    this.zone.run(() => {
+    } else {
       this.eventProvider.readHelpersFromCalendar(this.userProfile.userId).then(helpers => {
         helpers.forEach(helper => {
           self.eventProvider.readCalendarForHelper(helper.userId).then(eventListSnap => {
@@ -114,8 +116,7 @@ export class CalendarPage {
         });
 
       });
-    });
-
+    }
   }
 
   newCalendarEvent() {
