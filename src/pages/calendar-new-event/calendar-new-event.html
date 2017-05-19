@@ -29,7 +29,7 @@
                         <ion-item mode="ios" class="signUpTransparent">
                             <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
               <h6 *ngIf="!eventForm.controls.start.touched" class="additionalInfoDateText">Start time &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</h6></button>
-                            <ion-datetime color="primary" displayFormat="HH.mm" minuteValues="0,10,20,30,40,50" #datepicker mode="ios" class="additionalInfoDateTime"
+                            <ion-datetime color="primary" displayFormat="HH.mm" minuteValues="0,15,30,45" #datepicker mode="ios" class="additionalInfoDateTime"
                                 [(ngModel)]="startTime" formControlName="start"></ion-datetime>
                         </ion-item>
                     </ion-col>
@@ -44,7 +44,7 @@
                             <button ion-button item-left class="backButton" mode="ios"><ion-icon name="md-clock" class="signUpColorLock"></ion-icon>
           <h6 *ngIf="!eventForm.controls.end.touched" class="additionalInfoDateText">End  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</h6></button>
 
-                            <ion-datetime color="primary" displayFormat="HH.mm" minuteValues="0,10,20,30,40,50" #datepicker mode="ios" class="additionalInfoDateTime"
+                            <ion-datetime color="primary" displayFormat="HH.mm" minuteValues="0,15,30,45" #datepicker mode="ios" class="additionalInfoDateTime"
                                 [(ngModel)]="endTime" formControlName="end"></ion-datetime>
                         </ion-item>
                     </ion-col>
