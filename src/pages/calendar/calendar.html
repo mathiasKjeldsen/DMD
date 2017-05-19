@@ -279,11 +279,11 @@
           <br>
           <br>
           <button ion-button mode="wp" class="needsApproval" block small *ngIf="!event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
-            (click)="blueStamp(event?.eventId, event?.assignedTo)">Needs approval</button>
+            (click)="blueStamp(event?.eventId, event?.assignedTo)">Approve</button>
             <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
               (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &nbsp; &#10003;</button>
 
-              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approve</span>
+              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Needs approval</span>
               <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
               <ion-row>
                 <ion-col col-11>

@@ -77,18 +77,14 @@ export class CalendarPage {
   blueStamp(id: string, assignedTo: string) {
     console.log(this.userProfile.userIsCoordinator);
     this.calendarData.blueStamp(true, id, assignedTo).then(() => {
-      this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
-        this.eventList = eventListSnap;
+      this.ionViewDidEnter()
       });
-    });
   }
   redStamp(id: string, assignedTo: string) {
     console.log(this.userProfile.userIsCoordinator);
     this.calendarData.blueStamp(false, id, assignedTo).then(() => {
-      this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
-        this.eventList = eventListSnap;
+        this.ionViewDidEnter()
       });
-    });
   }
 
   ionViewDidEnter() {
