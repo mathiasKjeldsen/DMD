@@ -87,9 +87,10 @@ export class ProfileData {
 
 
   findUidByEmailAndConnectToCurrentUser(emailInput: string, coordinatorUid) {
+    var lowCaseEmail = emailInput.toLowerCase();
     var self = this;
     var foundUser = false;
-    return firebase.database().ref('/userProfile').orderByChild('email').equalTo(emailInput).once('value').then(function (snapshot) {
+    return firebase.database().ref('/userProfile').orderByChild('email').equalTo(lowCaseEmail).once('value').then(function (snapshot) {
       snapshot.forEach(childSnapshot => {
         foundUser = true;
         var user = childSnapshot.val();
@@ -98,18 +99,18 @@ export class ProfileData {
 
         if (user.userIsCoordinator == false) {
           console.log(user.userIsCoordinator);
-          alert("Succesfully added user " + emailInput + " as your helper");
+          alert("Succesfully added user " + lowCaseEmail + " as your helper");
           return self.connectHelperToCurrentUser(coordinatorUid, user.userId);
 
         } else if (user.userIsCoordinator == true) {
           console.log(user.userIsCoordinator);
-          alert("We can not add " + emailInput + " as your helper. Is the user registered as a helper?");
+          alert("We can not add " + lowCaseEmail + " as your helper. Is the user registered as a helper?");
         } else {
           alert("Something went wrong. Please try restarting the application or contacting an administrator");
         }
       });
       if (foundUser == false) {
-        alert("We can not find user " + emailInput + " on the database.");
+        alert("We can not find user " + lowCaseEmail + " on the database.");
       }
     });
   }

@@ -17,9 +17,10 @@ export class AuthData {
   }
 
   signupUser(email: string, password: string, fullName: string, coordinator: boolean): firebase.Promise<any> {
-    return this.fireAuth.createUserWithEmailAndPassword(email, password)
+    var lowCaseEmail = email.toLowerCase();
+    return this.fireAuth.createUserWithEmailAndPassword(lowCaseEmail, password)
       .then((newUser) => {
-        this.userProfile.child(newUser.uid).set({ email: email, fullName: fullName, userIsCoordinator: coordinator, profilePhoto: "assets/img/placeholder.jpg", userId: newUser.uid });
+        this.userProfile.child(newUser.uid).set({ email: lowCaseEmail, fullName: fullName, userIsCoordinator: coordinator, profilePhoto: "assets/img/placeholder.jpg", userId: newUser.uid });
       });
   }
   
