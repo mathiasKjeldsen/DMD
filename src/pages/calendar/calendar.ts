@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { CalendarNewEventPage } from '../calendar-new-event/calendar-new-event';
 import { CalendarEditEventPage } from '../calendar-edit-event/calendar-edit-event';
 import { EventProvider } from '../../providers/events';
@@ -19,7 +19,7 @@ export class CalendarPage {
   month = 6;
   public userProfile: any;
 
-  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData, public calendarData: CalendarData, public zone: NgZone) {
+  constructor(public navCtrl: NavController, public eventProvider: EventProvider, public profileData: ProfileData, public calendarData: CalendarData, public zone: NgZone, public alertCtrl: AlertController) {
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
@@ -33,11 +33,39 @@ export class CalendarPage {
     var index = this.eventList.indexOf(helperEvent, 0);
     if (index > -1) {
       this.eventList.splice(index, 1)
-      alert("event deleted")
+            let alert = this.alertCtrl.create({
+        message: "Event deleted!",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     } else {
       var index = this.eventListTwo.indexOf(helperEvent, 0);
       this.eventListTwo.splice(index, 1)
-      alert("event deleted")
+            let alert = this.alertCtrl.create({
+        message: "Event deleted!",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
   }
 
