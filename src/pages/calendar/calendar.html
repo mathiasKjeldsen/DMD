@@ -261,10 +261,12 @@
 
     <ion-row align-items-baseline>
       <ion-col col-1></ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 5">May {{day}}</ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 6">June {{day}}</ion-col>
-      <ion-col col-13 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 7">July {{day}}</ion-col>
-      <ion-col col-8 text-right><button color="secondary" ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button></ion-col>
+      <ion-col col-10 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 5">May {{day}}</ion-col>
+      <ion-col col-10 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 6">June {{day}}</ion-col>
+      <ion-col col-10 text-left style="font-weight: bold; font-size: 19px; color: white;" *ngIf="month == 7">July {{day}}</ion-col>
+      <ion-col col-6 text-right><button color="secondary" ion-button small block mode="wp" (click)="newCalendarEvent()">New event</button></ion-col>
+       <ion-col col-6 text-right><button color="secondary" ion-button small block mode="wp" (click)="calendarList()">Event list</button></ion-col>
+      <ion-col col-1></ion-col>
     </ion-row>
 
     <div class="calendarTransparent" mode="wp" *ngFor="let event of eventList">

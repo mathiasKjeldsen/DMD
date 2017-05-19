@@ -20,6 +20,7 @@ import { MyCoordinatorPage } from '../pages/my-coordinator/my-coordinator';
 import { CalendarNewEventPage } from '../pages/calendar-new-event/calendar-new-event';
 import { CalendarEditEventPage } from '../pages/calendar-edit-event/calendar-edit-event';
 import { AboutPage } from '../pages/about/about';
+import { CalendarListPage } from '../pages/calendar-list/calendar-list';
 
 import { AuthData } from '../providers/auth-data';
 import { ProfileData } from '../providers/profile-data';
@@ -46,7 +47,8 @@ import { Crop } from '@ionic-native/crop';
     MyCoordinatorPage,
     CalendarNewEventPage,
     CalendarEditEventPage, 
-    AboutPage
+    AboutPage,
+    CalendarListPage
       ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { Crop } from '@ionic-native/crop';
     MyCoordinatorPage,
     CalendarNewEventPage,
     CalendarEditEventPage, 
-    AboutPage
+    AboutPage,
+    CalendarListPage
   ],
   providers: [
     StatusBar,
