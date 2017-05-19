@@ -106,7 +106,6 @@ export class CalendarNewEventPage {
             text: "Ok",
             role: 'cancel',
             handler: () => {
-              this.navCtrl.pop();
             }
           }
         ]
