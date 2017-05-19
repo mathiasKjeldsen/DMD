@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { CalendarData } from '../../providers/calendar-data';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProfileData } from '../../providers/profile-data';
@@ -26,7 +26,7 @@ export class CalendarNewEventPage {
 
 
   constructor(public navCtrl: NavController, public calendarData: CalendarData, public formBuilder: FormBuilder,
-    public profileData: ProfileData, public navParams: NavParams, public eventProvider: EventProvider) {
+    public profileData: ProfileData, public navParams: NavParams, public eventProvider: EventProvider, public alertCtrl: AlertController) {
 
 
     this.eventForm = this.formBuilder.group({
@@ -73,19 +73,46 @@ export class CalendarNewEventPage {
 
     if (this.startTime < this.endTime) {
       this.calendarData.newCalendarEvent(this.day, this.month, this.startTime[11] + this.startTime[12] + this.startTime[13] + this.startTime[14] + this.startTime[15], this.endTime[11] + this.endTime[12] + this.endTime[13] + this.endTime[14] + this.endTime[15], this.eventForm.note, this.isUserCoordinator, splitString[1], splitString[0], this.userProfile.userId).then(() => {
-        alert("Event created!")
-        this.navCtrl.pop();
+        let alert = this.alertCtrl.create({
+          message: "Event created!",
+          cssClass: 'alertcss',
+          buttons: [
+            {
+              cssClass: "alertButtonNormal",
+              text: "Ok",
+              role: 'cancel',
+              handler: () => {
+                this.navCtrl.pop();
+              }
+            }
+          ]
+        });
+        alert.present();
       });
-    } else {
-      alert("Start time must be before end time")
+  } else {
+  let alert = this.alertCtrl.create({
+        message: "Start time must be before end time",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
   }
 
-  ionViewDidEnter() {
-    this.eventProvider.getUserList(this.userProfile.userId).then(eventListSnap => {
-      this.helperList = eventListSnap;
-      console.log(eventListSnap);
-    });
-  }
+ionViewDidEnter() {
+  this.eventProvider.getUserList(this.userProfile.userId).then(eventListSnap => {
+    this.helperList = eventListSnap;
+    console.log(eventListSnap);
+  });
+}
 
 }

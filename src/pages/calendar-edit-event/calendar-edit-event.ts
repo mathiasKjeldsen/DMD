@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { EventProvider } from '../../providers/events';
 import { CalendarData } from '../../providers/calendar-data';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -19,7 +19,7 @@ export class CalendarEditEventPage {
 
   public editEventForm;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public eventProvider: EventProvider, public calendarData: CalendarData, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public eventProvider: EventProvider, public calendarData: CalendarData, public formBuilder: FormBuilder, public alertCtrl: AlertController) {
     this.eventId = navParams.get("eventId");
     this.assignedTo = navParams.get("assignedTo");
     this.startTime = navParams.get("startTime");
@@ -40,24 +40,28 @@ export class CalendarEditEventPage {
     return formField.valid || formField.pristine;
   }
 
-  //updateCalendarEvent() {
-  //   if (this.startTime < this.endTime) {
-  //    this.calendarData.updateCalendarEvent(this.startTime, this.endTime, this.editEventForm.note, this.assignedTo, this.eventId).then(() => {
-  //     alert("Event updated!")
-  //     this.navCtrl.pop();
-  //    });
-  //   } else {
-  //    alert("Start time must be before end time")
-  // }
-  // }
-
   updateCalendarEvent() {
     if (this.editEventForm.controls.start.dirty && this.startTime < this.endTime) {
       this.calendarData.updateCalendarEventStart(this.startTime, this.assignedTo, this.eventId).then(() => {
       });
     } else if (this.editEventForm.controls.start.dirty && this.startTime > this.endTime) {
-      alert("Start time must be before end time")
+      let alert = this.alertCtrl.create({
+        message: "Start time must be before end time",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
+    
     console.log(this.startTime);
 
     if (this.editEventForm.controls.end.dirty && this.startTime < this.endTime) {
@@ -65,51 +69,189 @@ export class CalendarEditEventPage {
 
       });
     } else if (this.editEventForm.controls.end.dirty && this.startTime > this.endTime) {
-      alert("Start time must be before end time")
+      let alert = this.alertCtrl.create({
+        message: "Start time must be before end time",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
     console.log(this.endTime);
     if (this.editEventForm.controls.note.dirty && this.startTime < this.endTime) {
       this.calendarData.updateCalendarEventNote(this.note, this.assignedTo, this.eventId).then(() => {
       });
     } else if (this.editEventForm.controls.note.dirty && this.startTime > this.endTime) {
-      alert("Start time must be before end time")
+      let alert = this.alertCtrl.create({
+        message: "Start time must be before end time",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
     console.log(this.note);
+
     if (this.editEventForm.controls.start.dirty && this.editEventForm.controls.end.dirty && this.editEventForm.controls.note.dirty && this.startTime < this.endTime) {
-      alert("Updated event");
-      this.navCtrl.pop();
+      let alert = this.alertCtrl.create({
+        message: "Updated event",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
+
     if (!this.editEventForm.controls.start.dirty && !this.editEventForm.controls.end.dirty && this.editEventForm.controls.note.dirty && this.startTime < this.endTime) {
-      alert("Updated note");
-      this.navCtrl.pop();
+      let alert = this.alertCtrl.create({
+        message: "Updated note",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
+
     if (this.editEventForm.controls.start.dirty && !this.editEventForm.controls.end.dirty && !this.editEventForm.controls.note.dirty && this.startTime < this.endTime) {
-      alert("Updated start time");
-      this.navCtrl.pop();
+      let alert = this.alertCtrl.create({
+        message: "Updated start time",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
+
 
     if (!this.editEventForm.controls.start.dirty && this.editEventForm.controls.end.dirty && !this.editEventForm.controls.note.dirty && this.startTime < this.endTime) {
-      alert("Updated end time");
-      this.navCtrl.pop();
+      let alert = this.alertCtrl.create({
+        message: "Updated end time",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
 
+
     if (!this.editEventForm.controls.start.dirty && this.editEventForm.controls.end.dirty && this.editEventForm.controls.note.dirty && this.startTime < this.endTime) {
-      alert("Updated end time and note");
-      this.navCtrl.pop();
+      let alert = this.alertCtrl.create({
+        message: "Updated end time and note",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
 
     if (this.editEventForm.controls.start.dirty && !this.editEventForm.controls.end.dirty && this.editEventForm.controls.note.dirty && this.startTime < this.endTime) {
-      alert("Updated start time and note");
-      this.navCtrl.pop();
+      let alert = this.alertCtrl.create({
+        message: "Updated start time and note",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
 
     if (this.editEventForm.controls.start.dirty && this.editEventForm.controls.end.dirty && !this.editEventForm.controls.note.dirty && this.startTime < this.endTime) {
-      alert("Updated start and end time");
-      this.navCtrl.pop();
+      let alert = this.alertCtrl.create({
+        message: "Updated start and end time",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
 
     if (this.startTime == this.endTime) {
-      alert("Start time must be before end time")
+      let alert = this.alertCtrl.create({
+        message: "Start time must be before end time",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
 
   }

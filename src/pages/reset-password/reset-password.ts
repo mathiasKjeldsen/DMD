@@ -37,6 +37,7 @@ export class ResetPasswordPage {
       this.authData.resetPassword(this.resetPasswordForm.value.email).then((user) => {
         let alert = this.alertCtrl.create({
           message: "We just sent you a reset link to your email",
+          cssClass: 'alertcss',
           buttons: [
             {
               text: "Ok",

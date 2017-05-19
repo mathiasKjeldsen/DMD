@@ -13,7 +13,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 export class HomePage {
   public loginForm;
   loading: any;
-  
+
   loginInfo: { email: string, password: string } = { email: '', password: '' };
 
   testText: string;
@@ -78,7 +78,21 @@ export class HomePage {
   }
 
   facebookLogin() {
-   alert("Facebook is not implemented yet.");
+    let alert = this.alertCtrl.create({
+      message: "Facebook is not implemented yet!",
+      cssClass: 'alertcss',
+      buttons: [
+        {
+          cssClass: "alertButtonNormal",
+          text: "Ok",
+          role: 'cancel',
+          handler: () => {
+            this.navCtrl.pop();
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   lostPasswordNav() {

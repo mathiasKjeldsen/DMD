@@ -53,7 +53,21 @@ export class ProfilePage {
 
   updateSummary(summary: string) {
     this.profileData.updateSummary(this.profilePageForm.summary).then(() => {
-      alert("success!")
+      let alert = this.alertCtrl.create({
+        message: "Updated summary!",
+        cssClass: 'alertcss',
+        buttons: [
+          {
+            cssClass: "alertButtonNormal",
+            text: "Ok",
+            role: 'cancel',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
     });
   }
 

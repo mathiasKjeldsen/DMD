@@ -68,6 +68,7 @@ export class SignUpPage {
           this.loading.dismiss().then(() => {
             let alert = this.alertCtrl.create({
               message: error.message,
+              cssClass: 'alertcss',
               buttons: [
                 {
                   text: "Ok",

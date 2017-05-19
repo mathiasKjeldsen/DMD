@@ -165,3 +165,14 @@ ion-header, .toolbar-background {
       height: 0  !important;
     }
   }
+  
+  .alertcss {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black !important;
+}
+
+.alertButtonNormal {
+ font-family: OpenSansRegular;
+    background-color: $secondary !important;
+    color: white !important;
+}

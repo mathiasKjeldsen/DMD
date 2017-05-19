@@ -76,12 +76,12 @@ export class ProfileData {
   }
 
 
-unlinkFromCoordinator() {
-    return firebase.database().ref('/userProfile/'+this.currentUser.uid).child('connectedToUser').remove();
+  unlinkFromCoordinator() {
+    return firebase.database().ref('/userProfile/' + this.currentUser.uid).child('connectedToUser').remove();
   }
 
   unlinkHelper(helperID: string) {
-    return firebase.database().ref('/userProfile/'+helperID).child('connectedToUser').remove();
+    return firebase.database().ref('/userProfile/' + helperID).child('connectedToUser').remove();
   }
 
 
@@ -98,19 +98,74 @@ unlinkFromCoordinator() {
 
         if (user.userIsCoordinator == false) {
           console.log(user.userIsCoordinator);
-          alert("Succesfully added user " + emailInput + " as your helper");
+          let alert = this.alertCtrl.create({
+            message: "Succesfully added user " + emailInput + " as your helper",
+            cssClass: 'alertcss',
+            buttons: [
+              {
+                cssClass: "alertButtonNormal",
+                text: "Ok",
+                role: 'cancel',
+                handler: () => {
+                  this.navCtrl.pop();
+                }
+              }
+            ]
+          });
+          alert.present();
           return self.connectHelperToCurrentUser(coordinatorUid, user.userId);
 
         } else if (user.userIsCoordinator == true) {
           console.log(user.userIsCoordinator);
-          alert("We can not add " + emailInput + " as your helper. Is the user registered as a helper?")
-
+          let alert = this.alertCtrl.create({
+            message: "We can not add " + emailInput + " as your helper. Is the user registered as a helper?",
+            cssClass: 'alertcss',
+            buttons: [
+              {
+                cssClass: "alertButtonNormal",
+                text: "Ok",
+                role: 'cancel',
+                handler: () => {
+                  this.navCtrl.pop();
+                }
+              }
+            ]
+          });
+          alert.present();
         } else {
-          alert("Something went wrong. Please try restarting the application or contacting an administrator")
+          let alert = this.alertCtrl.create({
+            message: "Something went wrong. Please try restarting the application or contacting an administrator",
+            cssClass: 'alertcss',
+            buttons: [
+              {
+                cssClass: "alertButtonNormal",
+                text: "Ok",
+                role: 'cancel',
+                handler: () => {
+                  this.navCtrl.pop();
+                }
+              }
+            ]
+          });
+          alert.present();
         }
       });
       if (foundUser == false) {
-        alert("We can not find user " + emailInput + " on the database.");
+        let alert = this.alertCtrl.create({
+          message: "We can not find user " + emailInput + " on the database.",
+          cssClass: 'alertcss',
+          buttons: [
+            {
+              cssClass: "alertButtonNormal",
+              text: "Ok",
+              role: 'cancel',
+              handler: () => {
+                this.navCtrl.pop();
+              }
+            }
+          ]
+        });
+        alert.present();
       }
     });
   }
