@@ -281,7 +281,7 @@
             <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
               (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &nbsp; &#10003;</button>
 
-              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Awaiting approval</span>
+              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approve</span>
               <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
               <ion-row>
                 <ion-col col-11>
@@ -311,7 +311,7 @@
             <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
               (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &nbsp; &#10003;</button>
 
-              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Awaiting approval</span>
+              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approve</span>
               <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator">Approved by coordinator</span>
               <ion-row>
                 <ion-col col-11>
