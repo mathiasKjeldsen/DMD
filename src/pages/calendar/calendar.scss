@@ -67,3 +67,11 @@ ion-header, .toolbar-background {
   .calendarEdit {
       height: 28px;
   }
+
+  .dayHasEvent {
+color: red;
+  }
+  .daySelectedAndHasEvent {
+color: red;
+background-color:#759bac
+  }
