@@ -255,7 +255,7 @@
         <ion-col col-1></ion-col>
       </ion-row>
     </div>
-
+  </ion-grid>
     <ion-row class="rowSpace23">&nbsp;
     </ion-row>
 
@@ -283,8 +283,8 @@
             <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
               (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &#10003;</button>
 
-              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Needs approval</strong></span>
-              <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong> by coordinator</strong></span>
+              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Not approved by coordinator</strong></span>
+              <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Approved by coordinator</strong></span>
               <ion-row>
                 <ion-col col-11>
                   <button ion-button block outline mode="wp" class="calendarEdit" (click)="editCalendarEvent(event?.eventId, event?.assignedTo, event?.startTime, event?.endTime, event?.note)">Edit</button>
@@ -313,7 +313,7 @@
             <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
               (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &#10003;</button>
 
-              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Needs approval</strong></span>
+              <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Not approved by coordinator</strong></span>
               <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Approved by coordinator</strong></span>
               <ion-row>
                 <ion-col col-11>
@@ -329,5 +329,5 @@
       </ion-card>
     </div>
 
-  </ion-grid>
+
 </ion-content>
