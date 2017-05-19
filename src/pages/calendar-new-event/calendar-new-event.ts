@@ -64,12 +64,19 @@ export class CalendarNewEventPage {
 
   addNewEvent() {
     this.isUserCoordinator = this.userIsCoordinator;
-    console.log(this.radioForm);
-    console.log(this.radioForm.assign);
-    var splitString = this.radioForm.assign.split(/_/);
-    console.log(splitString);
-    console.log("user Id: " + splitString[0]);
-    console.log("full Name: " + splitString[1]);
+    var splitString: Array<any> = [];
+
+    if (this.userProfile.userIsCoordinator) {
+      console.log(this.radioForm);
+      console.log(this.radioForm.assign);
+      splitString = this.radioForm.assign.split(/_/);
+      console.log(splitString);
+      console.log("user Id: " + splitString[0]);
+      console.log("full Name: " + splitString[1]);
+    } else {
+      splitString[0] = this.userProfile.userId;
+      splitString[1] = this.userProfile.fullName;
+    }
 
     if (this.startTime < this.endTime) {
       this.calendarData.newCalendarEvent(this.day, this.month, this.startTime[11] + this.startTime[12] + this.startTime[13] + this.startTime[14] + this.startTime[15], this.endTime[11] + this.endTime[12] + this.endTime[13] + this.endTime[14] + this.endTime[15], this.eventForm.note, this.isUserCoordinator, splitString[1], splitString[0], this.userProfile.userId).then(() => {
@@ -89,8 +96,8 @@ export class CalendarNewEventPage {
         });
         alert.present();
       });
-  } else {
-  let alert = this.alertCtrl.create({
+    } else {
+      let alert = this.alertCtrl.create({
         message: "Start time must be before end time",
         cssClass: 'alertcss',
         buttons: [
@@ -108,11 +115,11 @@ export class CalendarNewEventPage {
     }
   }
 
-ionViewDidEnter() {
-  this.eventProvider.getUserList(this.userProfile.userId).then(eventListSnap => {
-    this.helperList = eventListSnap;
-    console.log(eventListSnap);
-  });
-}
+  ionViewDidEnter() {
+    this.eventProvider.getUserList(this.userProfile.userId).then(eventListSnap => {
+      this.helperList = eventListSnap;
+      console.log(eventListSnap);
+    });
+  }
 
 }

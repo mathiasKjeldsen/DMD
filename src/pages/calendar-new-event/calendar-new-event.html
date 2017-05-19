@@ -65,34 +65,41 @@
                 </ion-row>
             </ion-list>
             <form [formGroup]="radioForm" (submit)="addNewEvent()">
-                <ion-list no-lines mode="md" radio-group formControlName="assign" [(ngModel)]="radioForm.assign">
+
+                <ion-list no-lines mode="md" radio-group formControlName="assign" [(ngModel)]="radioForm.assign" *ngIf="this.userProfile.userIsCoordinator">
                     <ion-row>
                         <ion-col col-2>
                         </ion-col>
                         <ion-col col-20>
-                            <p style="text-align: center; color: white; font-size: 17px;">Assign event</p>
-                            <ion-item no-lines mode="md" class="calendarTransparentTwo">
+                            <p style="text-align: center; color: white; font-size: 17px;">Assign event to a helper</p>
+                          <!--  <ion-item no-lines mode="md" class="calendarTransparentTwo">
                                 <ion-label mode="md">Myself</ion-label>
                                 <ion-radio color="lwhite" mode="md" value="{{this.userProfile.userId}}_{{this.userProfile.fullName}}"></ion-radio>
-                                <!-- <ion-radio color="lwhite" value="{{this.userProfile.fullName}}"></ion-radio> -->
-                            </ion-item>
-
+                            </ion-item> -->
                             <ion-item no-lines mode="md" class="calendarTransparentTwo" *ngFor="let helper of helperList">
                                 <ion-label mode="md">{{helper?.fullName}}</ion-label>
                                 <ion-radio mode="md" color="lwhite" value="{{helper?.userId}}_{{helper?.fullName}}"></ion-radio>
-                                <!--<ion-radio color="lwhite" value="{{helper?.fullName}}"></ion-radio> -->
                             </ion-item>
                         </ion-col>
                         <ion-col col-2>
                         </ion-col>
                     </ion-row>
                 </ion-list>
+
             </form>
 
-            <ion-row>
+            <ion-row *ngIf="this.userProfile.userIsCoordinator">
                 <ion-col col-7></ion-col>
                 <ion-col col-10>
                     <button color="secondary" style="text-align: center" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.note.dirty || !radioForm.controls.assign.dirty"
+                        ion-button type="submit">Create event</button></ion-col>
+                <ion-col col-7></ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="!this.userProfile.userIsCoordinator">
+                <ion-col col-7></ion-col>
+                <ion-col col-10>
+                    <button color="secondary" style="text-align: center" mode="wp" [disabled]="!eventForm.controls.end.dirty || !eventForm.controls.start.dirty || !eventForm.controls.note.dirty"
                         ion-button type="submit">Create event</button>
                 </ion-col>
                 <ion-col col-7></ion-col>
