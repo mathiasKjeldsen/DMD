@@ -27,14 +27,17 @@ export class CalendarPage {
   }
 
   deleteCalendarEvent(event, helperEvent) {
-    this.calendarData.deleteCalendarEvent(helperEvent.eventId, helperEvent.assignedTo);
+    //en til alert: "are u sure u want to delete? if yes - do everything in here. if no, just cancel"
+        this.calendarData.deleteCalendarEvent(helperEvent.eventId, helperEvent.assignedTo);
 
     var index = this.eventList.indexOf(helperEvent, 0);
     if (index > -1) {
       this.eventList.splice(index, 1)
+      alert("event deleted")
     } else {
       var index = this.eventListTwo.indexOf(helperEvent, 0);
       this.eventListTwo.splice(index, 1)
+      alert("event deleted")
     }
   }
 
