@@ -32,46 +32,28 @@ export class CalendarPage {
   }
 
   deleteCalendarEvent(event, helperEvent) {
-    //en til alert: "are u sure u want to delete? if yes - do everything in here. if no, just cancel"
-    this.calendarData.deleteCalendarEvent(helperEvent.eventId, helperEvent.assignedTo);
-
-    var index = this.eventList.indexOf(helperEvent, 0);
-    if (index > -1) {
-      this.eventList.splice(index, 1)
-      let alert = this.alertCtrl.create({
-        message: "Event deleted!",
-        cssClass: 'alertcss',
-        buttons: [
-          {
-            cssClass: "alertButtonNormal",
-            text: "Ok",
-            role: 'cancel',
-            handler: () => {
-              this.navCtrl.pop();
-            }
-          }
-        ]
-      });
-      alert.present();
-    } else {
-      var index = this.eventListTwo.indexOf(helperEvent, 0);
-      this.eventListTwo.splice(index, 1)
-      let alert = this.alertCtrl.create({
-        message: "Event deleted!",
-        cssClass: 'alertcss',
-        buttons: [
-          {
-            cssClass: "alertButtonNormal",
-            text: "Ok",
-            role: 'cancel',
-            handler: () => {
-              this.navCtrl.pop();
-            }
-          }
-        ]
-      });
-      alert.present();
-    }
+    let alert = this.alertCtrl.create({
+    title: 'Confirm delete',
+    message: 'Do you want to delete this event?',
+    cssClass: "alertcss",
+    buttons: [
+      {
+        cssClass: "alertButtonNormal",
+        text: 'Cancel',
+        role: 'cancel',
+      },
+      {
+        cssClass: "alertButtonNormal",
+        text: 'Delete',
+        handler: () => {
+          this.calendarData.deleteCalendarEvent(helperEvent.eventId, helperEvent.assignedTo).then(() => {
+      this.ionViewDidEnter();
+    });
+        }
+      }
+    ]
+  });
+  alert.present();
   }
 
   blueStamp(id: string, assignedTo: string) {
@@ -82,7 +64,7 @@ export class CalendarPage {
   }
   redStamp(id: string, assignedTo: string) {
     console.log(this.userProfile.userIsCoordinator);
-    this.calendarData.blueStamp(false, id, assignedTo).then(() => {
+    this.calendarData.blueStamp(false, id, assignedTo).then((wait) => {
         this.ionViewDidEnter()
       });
   }
@@ -90,6 +72,7 @@ export class CalendarPage {
   ionViewDidEnter() {
     this.eventListTwo = [];
     var self = this;
+    this.strong = [];
 
     if (!this.userProfile.userIsCoordinator) {
       this.eventProvider.readFromCalendar(this.userProfile.userId).then(eventListSnap => {
