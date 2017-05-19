@@ -277,10 +277,11 @@
         <ion-card-content style="white-space: normal">
           Note: <i>"{{event?.note}}"</i>
           <br>
+          <br>
           <button ion-button mode="wp" class="needsApproval" block small *ngIf="!event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
             (click)="blueStamp(event?.eventId, event?.assignedTo)">Approve</button>
             <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
-              (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &nbsp; &#10003;</button>
+              (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &#10003;</button>
 
               <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Needs approval</strong></span>
               <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong> by coordinator</strong></span>
@@ -306,10 +307,11 @@
         <ion-card-content style="white-space: normal">
           Note: <i>"{{event?.note}}"</i>
           <br>
+          <br>
           <button ion-button mode="wp" class="needsApproval" block small *ngIf="!event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
             (click)="blueStamp(event?.eventId, event?.assignedTo)">Approve</button>
             <button ion-button mode="wp" class="approved" block small *ngIf="event?.blueStampedByCoordinator && this.userProfile.userIsCoordinator"
-              (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &nbsp; &#10003;</button>
+              (click)="redStamp(event?.eventId, event?.assignedTo)">Approved &#10003;</button>
 
               <span *ngIf="!event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Needs approval</strong></span>
               <span *ngIf="event?.blueStampedByCoordinator && !this.userProfile.userIsCoordinator"><strong>Approved by coordinator</strong></span>
