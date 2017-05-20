@@ -49,7 +49,7 @@ export class HomePage {
     this.menuCtrl.swipeEnable(false, 'mainMenu');
   }
 
-  loginUser(): void {
+  loginUser() {
     if (!this.loginForm.valid) {
       console.log(this.loginForm.value);
     } else {

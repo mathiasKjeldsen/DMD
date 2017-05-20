@@ -18,7 +18,6 @@ declare var window: any;
 export class ProfilePage {
   public userProfile: any;
   public birthDate: string;
-  public profilePageForm;
   public profilePic: any;
   public blob: any;
   public photoURL: any;
@@ -35,12 +34,6 @@ export class ProfilePage {
 
     });
 
-    this.profilePageForm = this.formBuilder.group({
-      'summary': ['', Validators.compose([Validators.minLength(1), Validators.required])],
-    });
-
-
-
   }
 
   goToProfileSettingsTwo() {
@@ -49,26 +42,6 @@ export class ProfilePage {
 
   goToSettings() {
     this.navCtrl.push(AccountSettingsPage);
-  }
-
-  updateSummary(summary: string) {
-    this.profileData.updateSummary(this.profilePageForm.summary).then(() => {
-      let alert = this.alertCtrl.create({
-        message: "Updated summary!",
-        cssClass: 'alertcss',
-        buttons: [
-          {
-            cssClass: "alertButtonNormal",
-            text: "Ok",
-            role: 'cancel',
-            handler: () => {
-              this.navCtrl.pop();
-            }
-          }
-        ]
-      });
-      alert.present();
-    });
   }
 
   getPicture(fromCamera: boolean) {
