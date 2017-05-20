@@ -15,7 +15,6 @@ import { AboutPage } from '../about/about';
 })
 export class HandifyPage {
   public userProfile: any;
-  public birthDate: string;
   helperPages: Array<{ title: string, component: any, icon: string, color: string, }>;
   coordinatorPages: Array<{ title: string, component: any, icon: string, color: string, }>;
 
@@ -23,7 +22,6 @@ export class HandifyPage {
 
     this.profileData.getUserProfile().on('value', (data) => {
       this.userProfile = data.val();
-      this.birthDate = this.userProfile.birthDate;
     });
 
     this.helperPages = [
