@@ -119,18 +119,6 @@ export class CalendarPage {
     }
   }
 
-  monthMay() {
-    this.month = 5;
-  }
-
-  monthJune() {
-    this.month = 6;
-  }
-
-  monthJuly() {
-    this.month = 7;
-  }
-
   days(d: number) {
     this.day = d;
   }

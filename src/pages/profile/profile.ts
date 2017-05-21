@@ -2,7 +2,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { ProfileData } from '../../providers/profile-data';
 import { AuthData } from '../../providers/auth-data';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ProfileSettingsPage } from '../profile-settings/profile-settings';
 import { AccountSettingsPage } from '../account-settings/account-settings';
 import { Camera } from '@ionic-native/camera';
