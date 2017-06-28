@@ -86,9 +86,7 @@ export class HomePage {
           cssClass: "alertButtonNormal",
           text: "Ok",
           role: 'cancel',
-          handler: () => {
-            this.navCtrl.pop();
-          }
+        
         }
       ]
     });
