@@ -40,6 +40,7 @@ export class HomePage {
   goToSignUp() {
     this.navCtrl.push(SignUpPage);
   }
+  
   goToResetPassword() {
     this.navCtrl.push(ResetPasswordPage);
   }
